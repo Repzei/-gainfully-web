@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gainfully — AI Personal Trainer & Workout Tracker</title>
+  <meta name="description" content="Track your workouts, get AI-powered coaching, and hit new personal records. Gainfully is the smart fitness app that learns from your training." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0b1120;
+      --bg2: #111c30;
+      --border: #1d2f4a;
+      --volt: #c4ff00;
+      --volt-dark: #0d1700;
+      --text: #eef2ff;
+      --muted: #7b91b5;
+      --dim: #3d5070;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(11, 17, 32, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--volt);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      color: #080e1a;
+    }
+
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--muted); font-size: 15px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--volt);
+      color: #080e1a;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--volt-dark);
+      border: 1px solid var(--volt);
+      color: var(--volt);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--volt); }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--volt);
+      color: #080e1a;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-secondary {
+      background: var(--bg2);
+      color: var(--text);
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 16px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--dim); }
+
+    .hero-note { margin-top: 16px; color: var(--dim); font-size: 13px; }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 900; color: var(--volt); }
+    .stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* FEATURES */
+    .features {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 96px 24px;
+    }
+
+    .section-label {
+      text-align: center;
+      color: var(--volt);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 64px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: var(--dim); }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--volt-dark);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* AI SECTION */
+    .ai-section {
+      background: var(--volt-dark);
+      border-top: 1px solid var(--volt);
+      border-bottom: 1px solid var(--volt);
+      padding: 96px 24px;
+      text-align: center;
+    }
+
+    .ai-section h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .ai-section h2 span { color: var(--volt); }
+
+    .ai-section p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 540px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .ai-chips {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .ai-chip {
+      background: rgba(196, 255, 0, 0.1);
+      border: 1px solid rgba(196, 255, 0, 0.3);
+      color: var(--volt);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 96px 24px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .cta p { color: var(--muted); font-size: 17px; margin-bottom: 40px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: gap;
+      gap: 20px;
+    }
+
+    .footer-left { color: var(--dim); font-size: 14px; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--dim); font-size: 14px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+      .stats { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <div class="logo-mark">G</div>
+      Gainfully
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#ai">AI Trainer</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+    <a href="#download" class="nav-cta">Download</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">
+      ✦ AI Personal Trainer & Workout Tracker
+    </div>
+    <h1>Train smarter.<br /><span>Hit new PRs.</span></h1>
+    <p>
+      Gainfully tracks every set, suggests progressive overload, and gives you
+      AI coaching based on your actual training history — not generic advice.
+    </p>
+    <div class="hero-buttons">
+      <a href="#download" class="btn-primary">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="#download" class="btn-secondary">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.28.15.61.19.96.08l13.2-7.59-2.88-2.88-11.28 10.39zm-1.1-20.1c-.06.2-.08.42-.08.67v19.34c0 .25.03.48.1.68l.06.06 10.83-10.83v-.26L2.14 3.6l-.06.06zm18.49 8.83l-2.81-1.62-3.16 3.16 3.16 3.16 2.84-1.63c.81-.47.81-1.23-.03-1.7v.03zM4.14.26L17.34 7.85l-2.88 2.88L3.18.34C3.53.23 3.86.27 4.14.26z"/></svg>
+        Google Play
+      </a>
+    </div>
+    <p class="hero-note">Coming soon to iOS & Android</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-num">1,400+</div>
+      <div class="stat-label">Exercises with GIFs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">AI</div>
+      <div class="stat-label">Powered by Claude</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Custom programs</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">GDPR</div>
+      <div class="stat-label">Your data, your rules</div>
+    </div>
+  </div>
+
+  <section class="features" id="features">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need to progress</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">🏋️</div>
+        <h3>Smart Workout Tracking</h3>
+        <p>Log sets, reps, and weight with one tap. See your previous session inline so you always know what to beat.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Progressive Overload</h3>
+        <p>Gainfully suggests the next weight based on your last session. Small, consistent increases add up to massive gains.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Live PR Notifications</h3>
+        <p>Get an instant celebration when you hit a new personal record mid-workout. Every PR is tracked per exercise.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Progress Charts</h3>
+        <p>Visualize your strength over time. Track max weight, total volume, or estimated 1RM for any exercise.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Exercise Library</h3>
+        <p>Over 1,400 exercises with animated GIFs. Filter by muscle group or difficulty. Find the right movement instantly.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🗂️</div>
+        <h3>Custom Programs</h3>
+        <p>Build your own training programs with multiple days and exercises. Repeat workouts to track progress over time.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="ai-section" id="ai">
+    <div class="section-label">AI Trainer</div>
+    <h2>Your coach that <span>knows your history</span></h2>
+    <p>
+      Ask anything. Get answers based on your actual training data — not generic fitness advice.
+      Gainfully's AI trainer is powered by Claude and understands your goals, level, and progress.
+    </p>
+    <div class="ai-chips">
+      <span class="ai-chip">Why am I plateauing on bench?</span>
+      <span class="ai-chip">Optimize my push/pull split</span>
+      <span class="ai-chip">How to improve my squat?</span>
+      <span class="ai-chip">Plan my next deload week</span>
+      <span class="ai-chip">Am I training too much?</span>
+    </div>
+  </section>
+
+  <section class="cta" id="download">
+    <h2>Ready to train smarter?</h2>
+    <p>Gainfully is coming soon to the App Store and Google Play. Free to start.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">Notify me at launch</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">© 2026 Gainfully. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:support@gainfully.app">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
