@@ -7,6 +7,8 @@
   <meta name="description" content="Track your workouts, get AI-powered coaching, and hit new personal records. Gainfully is the smart fitness app that learns from your training." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -215,8 +217,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
       margin-bottom: 18px;
+      color: var(--volt);
+    }
+
+    .feature-icon ion-icon {
+      font-size: 24px;
+      color: var(--volt);
     }
 
     .feature-card h3 {
@@ -377,37 +384,37 @@
     <div class="features-grid">
 
       <div class="feature-card">
-        <div class="feature-icon">🏋️</div>
+        <div class="feature-icon"><ion-icon name="barbell-outline"></ion-icon></div>
         <h3>Smart Workout Tracking</h3>
         <p>Log sets, reps, and weight with one tap. See your previous session inline so you always know what to beat.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">📈</div>
+        <div class="feature-icon"><ion-icon name="trending-up-outline"></ion-icon></div>
         <h3>Progressive Overload</h3>
         <p>Gainfully suggests the next weight based on your last session. Small, consistent increases add up to massive gains.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">🏆</div>
+        <div class="feature-icon"><ion-icon name="trophy-outline"></ion-icon></div>
         <h3>Live PR Notifications</h3>
         <p>Get an instant celebration when you hit a new personal record mid-workout. Every PR is tracked per exercise.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">📊</div>
+        <div class="feature-icon"><ion-icon name="stats-chart-outline"></ion-icon></div>
         <h3>Progress Charts</h3>
         <p>Visualize your strength over time. Track max weight, total volume, or estimated 1RM for any exercise.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">📚</div>
+        <div class="feature-icon"><ion-icon name="body-outline"></ion-icon></div>
         <h3>Exercise Library</h3>
         <p>Over 1,400 exercises with animated GIFs. Filter by muscle group or difficulty. Find the right movement instantly.</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">🗂️</div>
+        <div class="feature-icon"><ion-icon name="list-outline"></ion-icon></div>
         <h3>Custom Programs</h3>
         <p>Build your own training programs with multiple days and exercises. Repeat workouts to track progress over time.</p>
       </div>
