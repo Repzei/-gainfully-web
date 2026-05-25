@@ -7,6 +7,12 @@
   <meta name="description" content="Track your workouts, get AI-powered coaching, and hit new personal records. Gainfully is the smart fitness app that learns from your training." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+  <script>
+    // Redirect password reset links til reset-password.html
+    if (window.location.hash.includes('type=recovery')) {
+      window.location.replace('/reset-password.html' + window.location.hash)
+    }
+  </script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <style>
