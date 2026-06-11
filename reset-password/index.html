@@ -11,52 +11,105 @@ body { background: #0b1120; color: #eef2ff; font-family: -apple-system, Arial, s
 h1 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
 .sub { color: #7b91b5; font-size: 14px; margin-bottom: 32px; }
 h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
-.btn { display: block; background: #c4ff00; color: #080e1a; font-size: 16px; font-weight: 700; text-decoration: none; padding: 16px 32px; border-radius: 12px; margin-bottom: 12px; }
-#fallback { color: #7b91b5; font-size: 13px; margin-top: 16px; display: none; }
-#fallback a { color: #c4ff00; }
-.copyright { color: #3d5070; font-size: 12px; margin-top: 24px; }
+p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+label { display: block; color: #eef2ff; font-size: 14px; font-weight: 600; margin-bottom: 6px; margin-top: 16px; text-align: left; }
+input { width: 100%; background: #0b1120; border: 1px solid #1d2f4a; border-radius: 12px; padding: 14px 16px; color: #eef2ff; font-size: 16px; outline: none; }
+input:focus { border-color: #c4ff00; }
+.btn { display: block; width: 100%; background: #c4ff00; color: #080e1a; font-size: 16px; font-weight: 700; padding: 16px; border-radius: 12px; border: none; cursor: pointer; margin-top: 24px; text-decoration: none; text-align: center; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn-ghost { background: #1d2f4a; color: #eef2ff; margin-top: 12px; }
+.error { color: #ff4757; font-size: 14px; margin-top: 12px; text-align: left; }
+.success-text { color: #4ade80; font-size: 16px; margin-bottom: 24px; }
+.copyright { color: #3d5070; font-size: 12px; margin-top: 28px; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img src="/logo.png" alt="Gainfully" style="width:80px;height:80px;object-fit:contain;margin-bottom:16px;">
+  <img src="/logo.png" alt="Gainfully" style="width:72px;height:72px;object-fit:contain;margin-bottom:16px;">
   <h1>Gainfully</h1>
   <div class="sub">Din personlige AI træner</div>
 
-  <div id="mobile-view" style="display:none;">
-    <h2>Nulstil adgangskode</h2>
-    <p>Tryk på knappen nedenfor for at nulstille din adgangskode i Gainfully appen.</p>
-    <a id="open-btn" href="#" class="btn">Åbn i Gainfully</a>
-    <div id="fallback">
-      Har du ikke appen? <a href="https://apps.apple.com/app/id6745814340">Download i App Store</a>
-    </div>
+  <div id="loading"><p>Indlæser...</p></div>
+
+  <div id="form" style="display:none;">
+    <h2>Vælg ny adgangskode</h2>
+    <label for="pw">Ny adgangskode</label>
+    <input type="password" id="pw" placeholder="Mindst 8 tegn og et tal" autocomplete="new-password">
+    <label for="pw2">Bekræft adgangskode</label>
+    <input type="password" id="pw2" placeholder="Gentag adgangskode" autocomplete="new-password">
+    <div class="error" id="error"></div>
+    <button class="btn" id="submit-btn" onclick="handleSubmit()">Gem adgangskode</button>
   </div>
 
-  <div id="desktop-view" style="display:none;">
-    <h2>Åbn på din iPhone</h2>
-    <p>Dette link virker kun i Gainfully appen.<br>Åbn emailen på din iPhone og tryk på linket der.</p>
-    <a href="https://apps.apple.com/app/id6745814340" class="btn">Download Gainfully</a>
+  <div id="success" style="display:none;">
+    <div class="success-text">✓ Adgangskode opdateret!</div>
+    <p>Du kan nu logge ind i Gainfully med din nye adgangskode.</p>
+    <a href="gainfully://" class="btn">Åbn Gainfully</a>
+  </div>
+
+  <div id="invalid" style="display:none;">
+    <h2>Linket er udløbet</h2>
+    <p>Reset-links er gyldige i 24 timer. Åbn Gainfully og bed om et nyt link under "Glemt adgangskode".</p>
   </div>
 
   <p class="copyright">© 2026 Gainfully</p>
 </div>
-<script>
-const code = new URLSearchParams(window.location.search).get('code')
-const hashParams = new URLSearchParams(window.location.hash.substring(1))
-const accessToken = hashParams.get('access_token')
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 
-if (isMobile && (code || accessToken)) {
-  document.getElementById('mobile-view').style.display = 'block'
-  const appUrl = code
-    ? 'gainfully://reset-password?code=' + encodeURIComponent(code)
-    : 'gainfully://reset-password' + window.location.hash
-  document.getElementById('open-btn').href = appUrl
-  setTimeout(() => { window.location.href = appUrl }, 400)
-  setTimeout(() => { document.getElementById('fallback').style.display = 'block' }, 2500)
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const { createClient } = window.supabase
+const client = createClient(
+  'https://qhqppvfyksfmcurpoyqf.supabase.co',
+  'sb_publishable_msBu3acUCYQ1h6U2Um2brQ_7idvwo2e'
+)
+
+const loadingEl = document.getElementById('loading')
+const formEl = document.getElementById('form')
+const successEl = document.getElementById('success')
+const invalidEl = document.getElementById('invalid')
+
+const hash = new URLSearchParams(window.location.hash.substring(1))
+const accessToken = hash.get('access_token')
+const refreshToken = hash.get('refresh_token')
+const type = hash.get('type')
+
+if (accessToken && type === 'recovery') {
+  client.auth.setSession({ access_token: accessToken, refresh_token: refreshToken })
+    .then(({ error }) => {
+      loadingEl.style.display = 'none'
+      if (error) { invalidEl.style.display = 'block' }
+      else { formEl.style.display = 'block' }
+    })
 } else {
-  document.getElementById('desktop-view').style.display = 'block'
+  loadingEl.style.display = 'none'
+  invalidEl.style.display = 'block'
+}
+
+async function handleSubmit() {
+  const pw = document.getElementById('pw').value
+  const pw2 = document.getElementById('pw2').value
+  const errorEl = document.getElementById('error')
+  const btn = document.getElementById('submit-btn')
+  errorEl.textContent = ''
+  if (pw.length < 8 || !/\d/.test(pw)) {
+    errorEl.textContent = 'Adgangskoden skal være mindst 8 tegn og indeholde et tal'
+    return
+  }
+  if (pw !== pw2) {
+    errorEl.textContent = 'Adgangskoderne matcher ikke'
+    return
+  }
+  btn.disabled = true
+  btn.textContent = 'Gemmer...'
+  const { error } = await client.auth.updateUser({ password: pw })
+  if (error) {
+    errorEl.textContent = 'Kunne ikke opdatere. Prøv igen.'
+    btn.disabled = false
+    btn.textContent = 'Gem adgangskode'
+  } else {
+    formEl.style.display = 'none'
+    successEl.style.display = 'block'
+  }
 }
 </script>
 </body>
