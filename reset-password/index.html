@@ -15,6 +15,7 @@ p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
 label { display: block; color: #eef2ff; font-size: 14px; font-weight: 600; margin-bottom: 6px; margin-top: 16px; text-align: left; }
 input { width: 100%; background: #0b1120; border: 1px solid #1d2f4a; border-radius: 12px; padding: 14px 16px; color: #eef2ff; font-size: 16px; outline: none; }
 input:focus { border-color: #c4ff00; }
+.hint { color: #3d5070; font-size: 12px; text-align: left; margin-top: 6px; }
 .btn { display: block; width: 100%; background: #c4ff00; color: #080e1a; font-size: 16px; font-weight: 700; padding: 16px; border-radius: 12px; border: none; cursor: pointer; margin-top: 24px; text-decoration: none; text-align: center; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn-ghost { background: #1d2f4a; color: #eef2ff; margin-top: 12px; }
@@ -34,7 +35,8 @@ input:focus { border-color: #c4ff00; }
   <div id="form" style="display:none;">
     <h2>Vælg ny adgangskode</h2>
     <label for="pw">Ny adgangskode</label>
-    <input type="password" id="pw" placeholder="Mindst 8 tegn og et tal" autocomplete="new-password">
+    <input type="password" id="pw" placeholder="Mindst 8 tegn" autocomplete="new-password">
+    <p class="hint">Mindst 8 tegn. Brug tal og specialtegn (fx ! @ #) for en stærkere kode.</p>
     <label for="pw2">Bekræft adgangskode</label>
     <input type="password" id="pw2" placeholder="Gentag adgangskode" autocomplete="new-password">
     <div class="error" id="error"></div>
@@ -91,8 +93,8 @@ async function handleSubmit() {
   const errorEl = document.getElementById('error')
   const btn = document.getElementById('submit-btn')
   errorEl.textContent = ''
-  if (pw.length < 8 || !/\d/.test(pw)) {
-    errorEl.textContent = 'Adgangskoden skal være mindst 8 tegn og indeholde et tal'
+  if (pw.length < 8) {
+    errorEl.textContent = 'Adgangskoden skal være mindst 8 tegn'
     return
   }
   if (pw !== pw2) {
@@ -103,7 +105,7 @@ async function handleSubmit() {
   btn.textContent = 'Gemmer...'
   const { error } = await client.auth.updateUser({ password: pw })
   if (error) {
-    errorEl.textContent = 'Kunne ikke opdatere. Prøv igen.'
+    errorEl.textContent = error.message || 'Kunne ikke opdatere. Prøv igen.'
     btn.disabled = false
     btn.textContent = 'Gem adgangskode'
   } else {
