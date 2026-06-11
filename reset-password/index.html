@@ -8,48 +8,47 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #0b1120; color: #eef2ff; font-family: -apple-system, Arial, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
 .card { background: #111c30; border: 1px solid #1d2f4a; border-radius: 16px; padding: 40px; max-width: 420px; width: 100%; text-align: center; }
-.logo { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 16px; display: block; }
+img.logo { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 16px; }
 h1 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
 .sub { color: #7b91b5; font-size: 14px; margin-bottom: 32px; }
 h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
-.btn { display: block; background: #c4ff00; color: #080e1a; font-size: 16px; font-weight: 700; text-decoration: none; padding: 16px 32px; border-radius: 12px; margin-bottom: 12px; }
+.btn { display: block; background: #c4ff00; color: #080e1a; font-size: 16px; font-weight: 700; text-decoration: none; padding: 16px 32px; border-radius: 12px; margin-bottom: 12px; cursor: pointer; border: none; width: 100%; }
 .btn-ghost { background: #1d2f4a; color: #eef2ff; }
-.error { color: #ff4757; font-size: 14px; margin-top: 12px; }
+#fallback { color: #7b91b5; font-size: 13px; margin-top: 16px; display: none; }
+#fallback a { color: #c4ff00; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img class="logo" src="/icon.png" alt="Gainfully">
+  <img class="logo" src="/icon.png" alt="Gainfully" onerror="this.style.display='none'">
   <h1>Gainfully</h1>
   <div class="sub">Din personlige AI træner</div>
 
   <div id="mobile-view" style="display:none;">
-    <h2>Åbn i Gainfully</h2>
-    <p>Tryk på knappen nedenfor for at nulstille din adgangskode i appen.</p>
-    <a id="open-btn" href="#" class="btn">Åbn Gainfully</a>
-    <p id="fallback" style="display:none;font-size:13px;">Har du ikke appen? <a href="https://apps.apple.com/app/id6745814340" style="color:#c4ff00;">Download i App Store</a></p>
+    <h2>Nulstil adgangskode</h2>
+    <p>Tryk på knappen nedenfor for at nulstille din adgangskode i Gainfully appen.</p>
+    <a id="open-btn" href="#" class="btn">Åbn i Gainfully</a>
+    <div id="fallback">
+      Har du ikke appen? <a href="https://apps.apple.com/app/id6745814340">Download i App Store</a>
+    </div>
   </div>
 
   <div id="desktop-view" style="display:none;">
-    <h2>Nulstil adgangskode</h2>
-    <p>Dette link er til Gainfully appen på din iPhone.<br>Åbn linket fra emailen på din telefon.</p>
+    <h2>Åbn på din iPhone</h2>
+    <p>Dette link virker kun i Gainfully appen.<br>Åbn emailen på din iPhone og tryk på linket der.</p>
     <a href="https://apps.apple.com/app/id6745814340" class="btn">Download Gainfully</a>
   </div>
 </div>
-
 <script>
-const params = new URLSearchParams(window.location.search)
-const code = params.get('code')
+const code = new URLSearchParams(window.location.search).get('code')
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-
 if (isMobile && code) {
   document.getElementById('mobile-view').style.display = 'block'
-  const link = 'gainfully://reset-password?code=' + encodeURIComponent(code)
-  document.getElementById('open-btn').href = link
-  // Auto-attempt open
-  setTimeout(() => { window.location.href = link }, 300)
-  setTimeout(() => { document.getElementById('fallback').style.display = 'block' }, 2000)
+  const appUrl = 'gainfully://reset-password?code=' + encodeURIComponent(code)
+  document.getElementById('open-btn').href = appUrl
+  setTimeout(() => { window.location.href = appUrl }, 400)
+  setTimeout(() => { document.getElementById('fallback').style.display = 'block' }, 2500)
 } else {
   document.getElementById('desktop-view').style.display = 'block'
 }
