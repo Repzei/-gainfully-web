@@ -43,10 +43,15 @@ p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
 </div>
 <script>
 const code = new URLSearchParams(window.location.search).get('code')
+const hashParams = new URLSearchParams(window.location.hash.substring(1))
+const accessToken = hashParams.get('access_token')
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-if (isMobile && code) {
+
+if (isMobile && (code || accessToken)) {
   document.getElementById('mobile-view').style.display = 'block'
-  const appUrl = 'gainfully://reset-password?code=' + encodeURIComponent(code)
+  const appUrl = code
+    ? 'gainfully://reset-password?code=' + encodeURIComponent(code)
+    : 'gainfully://reset-password' + window.location.hash
   document.getElementById('open-btn').href = appUrl
   setTimeout(() => { window.location.href = appUrl }, 400)
   setTimeout(() => { document.getElementById('fallback').style.display = 'block' }, 2500)
