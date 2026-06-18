@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gainfully — AI Personal Trainer & Workout Tracker</title>
-  <meta name="description" content="Track your workouts, get AI-powered coaching, and hit new personal records. Gainfully is the smart fitness app that learns from your training." />
+  <title>Gainfully — AI Personlig Træner & Træningsapp</title>
+  <meta name="description" content="Gainfully er den smarte træningsapp med AI-coaching. Log dine træninger, få personlige råd og slå dine personlige rekorder. Gratis at starte — til iOS og Android." />
+  <meta name="keywords" content="træningsapp, fitness app, AI personlig træner, styrketræning app, vægttræning app, træningsprogram, workout tracker, fitness tracker dansk, træningslog app" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gainfully.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gainfully.app/" />
+  <meta property="og:title" content="Gainfully — AI Personlig Træner & Træningsapp" />
+  <meta property="og:description" content="Den smarte træningsapp med AI-coaching der lærer af din træning. Log træninger, få personlige råd og se din fremgang." />
+  <meta property="og:image" content="https://gainfully.app/icon.png" />
+  <meta property="og:locale" content="da_DK" />
+  <meta property="og:site_name" content="Gainfully" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gainfully — AI Personlig Træner & Træningsapp" />
+  <meta name="twitter:description" content="Den smarte træningsapp med AI-coaching. Log træninger, få personlige råd og se din fremgang." />
+  <meta name="twitter:image" content="https://gainfully.app/icon.png" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Gainfully",
+    "description": "AI-drevet træningsapp med personlig coaching, træningsprogram-builder og fremgangsanalyse.",
+    "url": "https://gainfully.app",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "DKK", "name": "Gratis" },
+      { "@type": "Offer", "price": "99", "priceCurrency": "DKK", "name": "Pro månedlig" },
+      { "@type": "Offer", "price": "799", "priceCurrency": "DKK", "name": "Pro årlig" }
+    ],
+    "installUrl": "https://apps.apple.com/dk/app/gainfully/id6775987256",
+    "screenshot": "https://gainfully.app/icon.png",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1" }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
   <script>
@@ -453,16 +492,16 @@
       AI-coaching baseret på din faktiske træningshistorik — ikke generiske råd.
     </p>
     <div class="hero-buttons">
-      <a href="https://apps.apple.com/app/id6775987256" class="btn-primary">
+      <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        App Store
+        Download til iPhone
       </a>
-      <a href="#download" class="btn-secondary">
+      <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-secondary">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.28.15.61.19.96.08l13.2-7.59-2.88-2.88-11.28 10.39zm-1.1-20.1c-.06.2-.08.42-.08.67v19.34c0 .25.03.48.1.68l.06.06 10.83-10.83v-.26L2.14 3.6l-.06.06zm18.49 8.83l-2.81-1.62-3.16 3.16 3.16 3.16 2.84-1.63c.81-.47.81-1.23-.03-1.7v.03zM4.14.26L17.34 7.85l-2.88 2.88L3.18.34C3.53.23 3.86.27 4.14.26z"/></svg>
-        Google Play
+        Download til Android
       </a>
     </div>
-    <p class="hero-note">Coming soon to iOS & Android</p>
+    <p class="hero-note">Gratis at starte — over 1.400 øvelser inkluderet</p>
   </section>
 
   <div class="stats">
@@ -536,11 +575,11 @@
       Din træner kender din historik, dine mål og din fremgang.
     </p>
     <div class="ai-chips">
-      <span class="ai-chip">Why am I plateauing on bench?</span>
-      <span class="ai-chip">Optimize my push/pull split</span>
-      <span class="ai-chip">How to improve my squat?</span>
-      <span class="ai-chip">Plan my next deload week</span>
-      <span class="ai-chip">Am I training too much?</span>
+      <span class="ai-chip">Hvorfor stagnerer jeg i bænkpres?</span>
+      <span class="ai-chip">Lav mig et 4-dages program</span>
+      <span class="ai-chip">Hvad skal jeg spise for at bygge muskler?</span>
+      <span class="ai-chip">Hvordan forbedrer jeg min squat?</span>
+      <span class="ai-chip">Træner jeg for meget?</span>
     </div>
   </section>
 
@@ -561,16 +600,16 @@
       </div>
     </div>
     <div class="hero-buttons">
-      <a href="#" class="btn-primary">
+      <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        App Store
+        Download til iPhone
       </a>
-      <a href="#" class="btn-secondary">
+      <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-secondary">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M3.18 23.76c.28.15.61.19.96.08l13.2-7.59-2.88-2.88-11.28 10.39zm-1.1-20.1c-.06.2-.08.42-.08.67v19.34c0 .25.03.48.1.68l.06.06 10.83-10.83v-.26L2.14 3.6l-.06.06zm18.49 8.83l-2.81-1.62-3.16 3.16 3.16 3.16 2.84-1.63c.81-.47.81-1.23-.03-1.7v.03zM4.14.26L17.34 7.85l-2.88 2.88L3.18.34C3.53.23 3.86.27 4.14.26z"/></svg>
-        Google Play
+        Download til Android
       </a>
     </div>
-    <p class="hero-note">Coming soon to iOS & Android</p>
+    <p class="hero-note">Gratis at starte — ingen binding</p>
   </section>
 
   <footer>
