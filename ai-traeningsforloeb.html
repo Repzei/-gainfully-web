@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Træningsforløb — Skræddersyet til dig | Gainfully</title>
+  <meta name="description" content="Få et gratis AI træningsforløb tilpasset præcis dit niveau og dine mål — 1, 2, 3, 4 eller 5 dage om ugen. Gainfully's AI-personlige træner laver dit program på sekunder og husker din historik." />
+  <meta name="keywords" content="ai træningsforløb, ai træningsforløb 1 dag, ai træningsforløb 2 dage, ai træningsforløb for begyndere, avanceret ai træningsforløb, ai træning, dansk træningsapp" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gainfully.app/ai-traeningsforloeb.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gainfully.app/ai-traeningsforloeb.html" />
+  <meta property="og:title" content="AI Træningsforløb tilpasset dig | Gainfully" />
+  <meta property="og:description" content="Gratis AI træningsforløb til 1–5 dage om ugen. For begyndere og øvede. Din personlige AI-træner husker din historik og justerer programmet undervejs." />
+  <meta property="og:image" content="https://gainfully.app/icon.png" />
+  <meta property="og:locale" content="da_DK" />
+  <meta property="og:site_name" content="Gainfully" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er et AI træningsforløb?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Et AI træningsforløb er et komplet træningsprogram lavet af kunstig intelligens baseret på dine mål, dit niveau og din tilgængelige tid. I Gainfully analyserer AI'en din historik og laver et skræddersyet program — du behøver ikke vide noget om programlægning på forhånd."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kan jeg få et AI træningsforløb til kun 1 dag om ugen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Gainfully's AI laver et effektivt fuld-krops-program til 1 dag om ugen med de øvelser der giver mest fremgang på den tid du har. Selv med 1 dag kan du opnå mærkbar fremgang i styrke og muskelmasse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er det bedste AI træningsforløb til 2 dage om ugen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Med 2 dage om ugen anbefaler AI'en typisk enten et upper/lower split (overkrop dag 1, underkrop dag 2) eller to fuld-krop-sessioner. Begge giver god frekvens og fremgang selv med en travl hverdag."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kan AI'en lave et træningsforløb for begyndere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Gainfully's AI tilpasser sproget og programmet fuldstændigt til dit niveau. For begyndere fokuserer AI'en på de grundlæggende basisøvelser med progression, korrekt form og realistiske mål — ingen fagtermer eller forvirrende jargon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er AI træningsforløbet gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Du kan downloade Gainfully og starte gratis. Gratis-versionen inkluderer over 1.400 øvelser, ubegrænset træningslogning og op til 3 programmer. AI-coaching med ubegrænsede samtaler kræver Pro-abonnement (99 kr/md eller 799 kr/år)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --bg2: #242426;
+      --border: rgba(255,255,255,0.16);
+      --volt: #c4ff00;
+      --volt-dark: #0d1700;
+      --text: #ffffff;
+      --muted: #98989f;
+      --dim: #636366;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav, section, div, footer, main, header, article { position: relative; z-index: 1; }
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; }
+    .logo-mark { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+    .nav-cta {
+      background: var(--volt); color: #080e1a; font-weight: 700;
+      padding: 10px 22px; border-radius: 10px; font-size: 15px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 96px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--volt); }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    h1 span { color: var(--volt); }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--volt); color: #080e1a; font-weight: 700;
+      padding: 16px 32px; border-radius: 14px; font-size: 16px;
+      text-decoration: none;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--volt);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      max-width: 640px;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .program-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .program-card:hover { border-color: rgba(196,255,0,0.3); }
+
+    .program-days {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--volt);
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .program-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .program-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .level-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+    }
+
+    .level-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .level-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list { max-width: 720px; }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      padding: 22px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: inherit;
+    }
+
+    .faq-icon { font-size: 22px; color: var(--volt); flex-shrink: 0; transition: transform 0.2s; }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+
+    .faq-a {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      padding-bottom: 22px;
+      display: none;
+    }
+    .faq-a.open { display: block; }
+
+    .cta-section {
+      text-align: center;
+      padding: 80px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .cta-section h2 { margin-bottom: 12px; }
+    .cta-section p { color: var(--muted); margin-bottom: 32px; font-size: 17px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .step { text-align: center; }
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--volt); color: #080e1a;
+      border-radius: 50%;
+      font-weight: 900; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--dim);
+      font-size: 14px;
+    }
+    footer a { color: var(--dim); }
+    footer a:hover { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="logo.png" class="logo-mark" alt="Gainfully logo" width="36" height="36" />
+      Gainfully
+    </a>
+    <a href="/#download" class="nav-cta">Download gratis</a>
+  </nav>
+
+  <main>
+
+    <div class="hero">
+      <p class="breadcrumb"><a href="/">Gainfully</a> &rsaquo; AI Træningsforløb</p>
+      <h1>AI Træningsforløb<br />tilpasset <span>dig</span></h1>
+      <p>
+        Fortæl din AI-træner dit mål, dit niveau og antallet af dage — og få et komplet,
+        skræddersyet træningsforløb på sekunder. Din træner husker din historik og justerer programmet undervejs.
+      </p>
+      <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
+        Start gratis i dag
+      </a>
+    </div>
+
+    <!-- HVAD ER ET AI TRÆNINGSFORLØB -->
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-label">Hvad er det?</div>
+      <h2>Hvad er et AI træningsforløb?</h2>
+      <p class="lead">
+        Et AI træningsforløb er et komplet træningsprogram lavet af kunstig intelligens — ikke en coach,
+        ikke et standardprogram fra internettet, men et program der er bygget præcis til dig.
+        I Gainfully analyserer AI'en din faktiske træningshistorik, dine mål og dit niveau
+        og laver et program der passer til din hverdag.
+      </p>
+      <p class="lead" style="margin-bottom: 0;">
+        Resultatet er et struktureret forløb med øvelser, sæt, reps og progression —
+        og en AI-personlig træner der kan svare på alle dine spørgsmål undervejs.
+      </p>
+    </section>
+
+    <!-- FORLØB EFTER ANTAL DAGE -->
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-label">Vælg dit tempo</div>
+      <h2>AI træningsforløb til 1–5 dage om ugen</h2>
+      <p class="lead">
+        Uanset om du har én eller fem dage om ugen — din AI-træner laver et program der virker
+        inden for dine rammer og giver maksimal fremgang på den tid du har.
+      </p>
+
+      <div class="program-grid">
+        <div class="program-card">
+          <div class="program-days">1</div>
+          <h3>AI træningsforløb til 1 dag om ugen</h3>
+          <p>Fuld-krops-program med de vigtigste basisøvelser. AI'en prioriterer øvelser der giver mest fremgang på ét ugentligt besøg i centeret.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-days">2</div>
+          <h3>AI træningsforløb til 2 dage om ugen</h3>
+          <p>Upper/lower split eller to fuld-krops-sessioner. Nok frekvens til mærkbar muskelvækst og styrkeøgning selv med en travl hverdag.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-days">3</div>
+          <h3>AI træningsforløb til 3 dage om ugen</h3>
+          <p>Den klassiske fullbody 3x/uge eller PPL-split. Optimal balance for de fleste — god frekvens, god restitution.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-days">4</div>
+          <h3>AI træningsforløb til 4 dage om ugen</h3>
+          <p>Upper/lower to gange eller PPL+ hviledag. Mere volumen per muskelgruppe og hurtigere fremgang.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-days">5</div>
+          <h3>AI træningsforløb til 5 dage om ugen</h3>
+          <p>Body part split eller avanceret PPL. AI'en fordeler volumen, intensitet og deload optimalt over ugen.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NIVEAU -->
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-label">Dit niveau</div>
+      <h2>AI træningsforløb for alle niveauer</h2>
+      <p class="lead">
+        Din AI-træner tilpasser sig fuldstændigt til dit niveau — fra første gang i centeret til erfarne løftere
+        der vil optimere volumen og periodisering.
+      </p>
+
+      <div class="level-grid">
+        <div class="level-card">
+          <h3>AI træningsforløb for begyndere</h3>
+          <p>
+            Ny til styrketræning? AI-træneren starter enkelt: grundlæggende basisøvelser, progression uge for uge
+            og forklaringer der giver mening. Ingen forvirrende fagtermer — bare et program der virker.
+            Du lærer at træne rigtigt fra dag ét.
+          </p>
+        </div>
+        <div class="level-card">
+          <h3>AI træningsforløb for øvede</h3>
+          <p>
+            Har du trænet i 1–3 år? AI'en kender din historik og laver et program med double progression,
+            periodisering og volumenmanipulation — de metoder der virker når nybegyndergevinster er ovre.
+          </p>
+        </div>
+        <div class="level-card">
+          <h3>Avanceret AI træningsforløb</h3>
+          <p>
+            Erfarne løftere der vil optimere. AI'en diskuterer RPE, mesocyklusser, deload-strategi og
+            volume landmarks — som en peer du kan sparke ideer med. Ikke en træner der forklarer det basale.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÅDAN FUNGERER DET -->
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-label">Kom i gang</div>
+      <h2>Sådan får du dit AI træningsforløb</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Download Gainfully</h3>
+          <p>Gratis fra App Store eller Google Play. Opret konto på under et minut.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Fortæl om dig selv</h3>
+          <p>Angiv dit mål, niveau og antal dage om ugen. AI'en bruger det fra dag ét.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Spørg din AI-træner</h3>
+          <p>"Lav mig et AI træningsforløb til 2 dage om ugen" — og du har dit program på sekunder.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Log og se fremgang</h3>
+          <p>AI'en husker alt og justerer programmet baseret på din faktiske historik.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-label">Spørgsmål & svar</div>
+      <h2>Ofte stillede spørgsmål</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Hvad er et AI træningsforløb?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Et AI træningsforløb er et komplet træningsprogram lavet af kunstig intelligens baseret på dine mål,
+            dit niveau og din tilgængelige tid. I Gainfully fortæller du AI-træneren hvad du vil opnå og hvor mange
+            dage du kan træne — og du får et skræddersyet program på sekunder.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Kan jeg få et AI træningsforløb til 1 dag om ugen?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Ja. Med 1 dag om ugen laver AI'en et fuld-krops-program der prioriterer de øvelser
+            med størst effekt. Du kan stadig opnå mærkbar fremgang i styrke og muskelmasse med
+            ét ugentligt træningspas — hvis det udføres konsistent og med progressiv overload.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Hvad er det bedste AI træningsforløb til 2 dage om ugen?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Med 2 dage anbefaler AI'en typisk et upper/lower split (overkrop dag 1, underkrop dag 2)
+            eller to fuld-krops-sessioner. Begge fungerer godt — AI'en vælger ud fra dit mål og niveau.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Kan AI'en lave et AI træningsforløb for begyndere?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Ja. Gainfully's AI tilpasser sig dit niveau. For begyndere fokuserer programmet på
+            de grundlæggende basisøvelser med enkle progressionsmodeller og forklaringer der giver
+            mening — ingen fagtermer eller forvirrende jargon.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Er AI træningsforløbet gratis?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Du kan downloade Gainfully og starte gratis. Gratis-versionen inkluderer over 1.400 øvelser
+            og op til 3 programmer. Ubegrænsede AI-samtaler og AI-coaching kræver Pro (99 kr/md eller 799 kr/år).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Hvad er et avanceret AI træningsforløb?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a">
+            Et avanceret AI træningsforløb er et program med periodisering, volumemanipulation og
+            individuelle progression-strategier — designet til erfarne løftere der allerede kender
+            det basale og vil optimere. AI'en diskuterer RPE, mesocyklusser og deload på dit niveau.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Start dit AI træningsforløb i dag</h2>
+      <p>Gratis at downloade — over 1.400 øvelser inkluderet fra dag ét.</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
+          Download til iPhone
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.gainfully.app"
+           style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.08); border:1px solid var(--border); color:var(--text); font-weight:700; padding:16px 32px; border-radius:14px; font-size:16px;">
+          Download til Android
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>&copy; 2025 Gainfully &middot; <a href="/">Forside</a> &middot; <a href="/privacy.html">Privatliv</a></span>
+    <span><a href="mailto:support@gainfully.app">support@gainfully.app</a></span>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true'
+        btn.setAttribute('aria-expanded', String(!expanded))
+        btn.nextElementSibling.classList.toggle('open', !expanded)
+      })
+    })
+  </script>
+
+</body>
+</html>
