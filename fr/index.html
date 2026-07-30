@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gainfully: Application Fitness IA & Coach Personnel</title>
+  <meta name="description" content="Application de suivi fitness avec IA qui suggere ton prochain poids et te coache selon ton historique reel. 1 400+ exercices avec GIFs. Gratuit pour commencer." />
+  <meta name="keywords" content="application fitness ia, coach personnel ia, suivi entrainement, app musculation, surcharge progressive, tracker fitness, coach sportif ia" />
+  <link rel="canonical" href="https://gainfully.app/fr/" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="alternate" hreflang="da" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="en" href="https://gainfully.app/en/" />
+  <link rel="alternate" hreflang="de" href="https://gainfully.app/de/" />
+  <link rel="alternate" hreflang="fr" href="https://gainfully.app/fr/" />
+  <link rel="alternate" hreflang="es" href="https://gainfully.app/es/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
+  <link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gainfully.app/fr/" />
+  <meta property="og:title" content="Gainfully: Application Fitness IA & Coach Personnel" />
+  <meta property="og:description" content="Application de suivi fitness avec IA. Suggere ton prochain poids, te coache selon ton historique." />
+  <meta property="og:image" content="https://gainfully.app/icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Gainfully",
+    "description": "Application de suivi fitness avec coach IA. Logge tes seances, recois du coaching base sur ton historique.",
+    "url": "https://gainfully.app",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS, Android",
+    "inLanguage": "fr",
+    "offers": [
+      { "@type": "Offer", "price": "0", "priceCurrency": "DKK", "name": "Gratuit" },
+      { "@type": "Offer", "price": "99", "priceCurrency": "DKK", "name": "Pro Mensuel" }
+    ]
+  }
+  </script>
+  <script>localStorage.setItem('gainfully_lang', 'fr');</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #111113; --bg2: #1c1c1f; --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400; --text: #ffffff; --muted: #98989f; --dim: #636366; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: rgba(17,17,19,0.95); position: sticky; top: 0; z-index: 100; gap: 16px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; }
+    .logo-mark { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 15px; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { background: var(--volt); color: #080e1a; font-weight: 700; padding: 10px 22px; border-radius: 10px; font-size: 14px; }
+    .lang-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .lang-pill { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 13px; color: var(--muted); }
+    .lang-pill.active { border-color: var(--volt); color: var(--volt); }
+    main { max-width: 900px; margin: 0 auto; padding: 60px 24px 96px; }
+    h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+    h1 span { color: var(--volt); }
+    .sub { font-size: 18px; color: var(--muted); margin-bottom: 36px; max-width: 600px; line-height: 1.7; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn-p { background: var(--volt); color: #080e1a; font-weight: 700; padding: 15px 30px; border-radius: 14px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+    .btn-s { background: var(--bg2); color: var(--text); font-weight: 600; padding: 15px 30px; border-radius: 14px; font-size: 16px; border: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+    .note { color: var(--dim); font-size: 13px; margin-bottom: 60px; }
+    h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; margin-bottom: 24px; letter-spacing: -0.3px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 60px; }
+    .feat { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+    .feat h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feat p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .faq { margin-bottom: 60px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; background: var(--bg2); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--text); font-size: 16px; font-weight: 600; text-align: left; padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; font-family: inherit; }
+    .faq-a { display: none; padding: 0 22px 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .pricing { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 36px; margin-bottom: 60px; text-align: center; }
+    .pricing h2 { margin-bottom: 12px; }
+    .pricing p { color: var(--muted); margin-bottom: 24px; }
+    .plans { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .plan { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; min-width: 150px; text-align: center; }
+    .plan.best { border-color: var(--volt); background: #0d1400; }
+    .plan-name { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .plan-price { font-size: 26px; font-weight: 900; }
+    .plan-price span { font-size: 13px; font-weight: 400; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--dim); font-size: 14px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--dim); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .nav-links { display: none; } footer { flex-direction: column; padding: 24px 20px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <img src="/logo.png" class="logo-mark" alt="Gainfully logo" width="34" height="34" />
+      Gainfully
+    </div>
+    <div class="nav-links">
+      <a href="/fr/#features">Fonctionnalites</a>
+      <a href="/fr/#faq">FAQ</a>
+      <a href="/privacy.html">Confidentialite</a>
+    </div>
+    <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="nav-cta">Telecharger gratuit</a>
+  </nav>
+
+  <main>
+
+    <div class="lang-row" style="margin-bottom:32px;">
+      <a href="/" class="lang-pill">🇩🇰 Dansk</a>
+      <a href="/en/" class="lang-pill">🇬🇧 English</a>
+      <a href="/de/" class="lang-pill">🇩🇪 Deutsch</a>
+      <span class="lang-pill active">🇫🇷 Francais</span>
+      <a href="/es/" class="lang-pill">🇪🇸 Espanol</a>
+      <a href="/pt-br/" class="lang-pill">🇧🇷 Portugues</a>
+    </div>
+
+    <h1>Ton coach IA qui t'aide a <span>atteindre tes objectifs.</span></h1>
+    <p class="sub">Une application de suivi fitness qui suggere ton prochain poids et te coache selon ton historique d'entrainement reel. Logue chaque seance, bats tes records personnels et progresse plus intelligemment.</p>
+    <div class="btns">
+      <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-p">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Telecharger pour iPhone
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-s">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.28.15.61.19.96.08l13.2-7.59-2.88-2.88-11.28 10.39zm-1.1-20.1c-.06.2-.08.42-.08.67v19.34c0 .25.03.48.1.68l.06.06 10.83-10.83v-.26L2.14 3.6l-.06.06zm18.49 8.83l-2.81-1.62-3.16 3.16 3.16 3.16 2.84-1.63c.81-.47.81-1.23-.03-1.7v.03zM4.14.26L17.34 7.85l-2.88 2.88L3.18.34C3.53.23 3.86.27 4.14.26z"/></svg>
+        Telecharger pour Android
+      </a>
+    </div>
+    <p class="note">Gratuit pour commencer. Plus de 1 400 exercices inclus. Aucune carte bancaire requise.</p>
+
+    <h2 id="features">Tout ce dont tu as besoin pour devenir plus fort</h2>
+    <div class="features">
+      <div class="feat">
+        <h3>Journal d'entrainement intelligent</h3>
+        <p>Enregistre series, repetitions et poids en quelques secondes. Ta derniere seance est affichee directement pour que tu saches toujours quoi battre.</p>
+      </div>
+      <div class="feat">
+        <h3>Surcharge progressive: automatique</h3>
+        <p>Gainfully suggere ton prochain poids selon ton historique. Tu te concentres sur la levee. Nous gerons la progression.</p>
+      </div>
+      <div class="feat">
+        <h3>Notifications PR en direct</h3>
+        <p>Tu bats un record personnel? L'app le fete immediatement. Vois tous tes meilleurs lifts et ton evolution dans le temps.</p>
+      </div>
+      <div class="feat">
+        <h3>Analyse des progres et statistiques</h3>
+        <p>Graphiques pour le poids max, le volume et le 1RM estime. Vois l'equilibre musculaire et quels groupes tu entraines le plus.</p>
+      </div>
+      <div class="feat">
+        <h3>Bibliotheque d'exercices avec GIFs</h3>
+        <p>Plus de 1 400 exercices avec GIFs animes montrant la bonne technique. Filtre par groupe musculaire ou equipement.</p>
+      </div>
+      <div class="feat">
+        <h3>Coach personnel IA</h3>
+        <p>Demande a ton coach pourquoi tu stagnes, obtiens un programme hebdomadaire ou des conseils nutritionnels. Toujours base sur ton vrai historique.</p>
+      </div>
+      <div class="feat">
+        <h3>Programmes d'entrainement</h3>
+        <p>Cree ton propre programme PPL, Haut/Bas ou Corps entier. Repete les seances et suis ta progression semaine apres semaine.</p>
+      </div>
+      <div class="feat">
+        <h3>6 langues</h3>
+        <p>Disponible en danois, anglais, allemand, francais, espagnol et portugais. La langue est regle automatiquement depuis ton appareil.</p>
+      </div>
+    </div>
+
+    <h2 id="faq">Questions frequentes</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Qu'est-ce que Gainfully? <span>+</span></button>
+        <div class="faq-a">Gainfully est une application de suivi fitness pour iPhone et Android avec un coach IA integre. Tu enregistres tes seances de musculation et l'app retient tout: poids, repetitions, series et progres. Le coach IA analyse ton historique et te donne des conseils personnels et des suggestions de programmes.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Gainfully est-il gratuit? <span>+</span></button>
+        <div class="faq-a">Oui, Gainfully est gratuit. L'offre gratuite inclut 1 400+ exercices avec GIFs, journal illimite, jusqu'a 3 programmes et 90 jours de statistiques. Pro (99 DKK/mois ou 799 DKK/an) ajoute le coaching IA complet, les programmes illimites et l'historique complet.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Ca marche sur iPhone et Android? <span>+</span></button>
+        <div class="faq-a">Oui. Gainfully est disponible pour iPhone (iOS) et Android. Telecharge-le gratuitement sur l'App Store ou Google Play. Toutes tes donnees se synchronisent automatiquement.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Avec quoi le coach IA peut m'aider? <span>+</span></button>
+        <div class="faq-a">Le coach IA connait ton historique complet et repond sur cette base. Demande pourquoi tu stagnes au developpe couche, obtiens un programme hebdomadaire, des conseils en nutrition ou recuperation. Toujours personnalise, jamais generique.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Quelles langues l'app supporte-t-elle? <span>+</span></button>
+        <div class="faq-a">Gainfully est disponible en danois, anglais, allemand, francais, espagnol et portugais (BR). La langue est definie automatiquement depuis ton appareil, mais tu peux toujours la changer manuellement dans les parametres du profil.</div>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <h2>Un coach personnel coute 80 euros/heure.<br />Gainfully coute 99 DKK/mois.</h2>
+      <p>Gratuit pour commencer. Passe a Pro quand tu es pret. Sans engagement. Annule a tout moment.</p>
+      <div class="plans">
+        <div class="plan">
+          <div class="plan-name">Gratuit</div>
+          <div class="plan-price">0 DKK<span>/toujours</span></div>
+        </div>
+        <div class="plan">
+          <div class="plan-name">Pro Mensuel</div>
+          <div class="plan-price">99 DKK<span>/mois</span></div>
+        </div>
+        <div class="plan best">
+          <div class="plan-name">Pro Annuel (meilleure offre)</div>
+          <div class="plan-price">799 DKK<span>/an</span></div>
+        </div>
+      </div>
+      <div class="btns" style="justify-content:center;">
+        <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-p">Telecharger pour iPhone</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-s">Telecharger pour Android</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Gainfully. Tous droits reserves.</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Confidentialite</a>
+      <a href="/terms.html">CGU</a>
+      <a href="mailto:support@gainfully.app">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
