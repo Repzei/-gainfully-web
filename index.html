@@ -157,6 +157,9 @@
   }
   </script>
 
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
   <script>
     if (window.location.hash.includes('type=recovery')) {
       window.location.replace('/reset-password.html' + window.location.hash)
@@ -421,6 +424,7 @@
     }
 
     .feature-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--volt); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .feature-icon ion-icon { width: 24px; height: 24px; color: var(--volt); }
 
     .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
     .feature-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
@@ -913,7 +917,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M6 4v16M18 4v16M4 8h2M18 8h2M4 16h2M18 16h2M8 12h8"/></svg>
+            <ion-icon name="barbell-outline"></ion-icon>
           </div>
           <h3>Smart træningslogning</h3>
           <p>Log sæt, reps og vægt med få tryk. Din forrige session vises direkte, så du altid ved hvad du skal slå. Hurtigt i gang, også midt i en træning.</p>
@@ -921,7 +925,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <ion-icon name="trending-up-outline"></ion-icon>
           </div>
           <h3>Progressiv overload: automatisk</h3>
           <p>Gainfully foreslår næste vægt baseret på din historik. Du fokuserer på løftningen. Vi holder styr på progressionen.</p>
@@ -929,7 +933,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 15l-2-5L8 14H4l3.5 2.5-1.5 4.5 4-2.5 4 2.5-1.5-4.5L16 14h-4zm0-13a7 7 0 1 1 0 14A7 7 0 0 1 12 2z"/></svg>
+            <ion-icon name="trophy-outline"></ion-icon>
           </div>
           <h3>Live PR-notifikationer</h3>
           <p>Slår du en personlig rekord? Appen fejrer det med det samme. Gainfully tracker din PR for hver øvelse og viser din udvikling over tid.</p>
@@ -937,7 +941,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <ion-icon name="stats-chart-outline"></ion-icon>
           </div>
           <h3>Fremgangsanalyse og statistik</h3>
           <p>Grafer for maksimumvægt, volumen og estimeret 1RM for alle øvelser. Se præcis hvilke muskelgrupper du har trænet og hvornår.</p>
@@ -945,7 +949,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M3 21v-1a9 9 0 0 1 18 0v1"/></svg>
+            <ion-icon name="library-outline"></ion-icon>
           </div>
           <h3>Øvelsesbibliotek med GIFs</h3>
           <p>Over 1.400 øvelser med animerede GIFs der viser korrekt udførelse. Find den rigtige øvelse på sekunder, eller opret dine egne.</p>
@@ -953,7 +957,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <ion-icon name="list-outline"></ion-icon>
           </div>
           <h3>Træningsprogrammer</h3>
           <p>Byg præcis det program du vil have. PPL, Upper/Lower, Full Body eller helt fra bunden. Gentag workouts og spor din fremgang over tid.</p>
@@ -961,7 +965,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <ion-icon name="timer-outline"></ion-icon>
           </div>
           <h3>Indbygget pausetimer</h3>
           <p>Sæt pausetid per øvelse og få besked når du er klar til næste sæt. En undervurderet del af god styrketræning, automatisk håndteret.</p>
@@ -969,7 +973,7 @@
 
         <article class="feature-card">
           <div class="feature-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <ion-icon name="walk-outline"></ion-icon>
           </div>
           <h3>Cardio-logning</h3>
           <p>Log løb, cykling, roning og andet cardio med tid og distance. Appen beregner pace og fart automatisk.</p>
