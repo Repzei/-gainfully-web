@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Workout Plan: Your Personal Trainer That Knows You | Gainfully</title>
+  <meta name="description" content="Get an AI workout plan that adapts to your actual training history. Gainfully suggests your next weight, tracks your PRs and coaches you like a real personal trainer. Free to start." />
+  <meta name="keywords" content="ai workout plan, ai personal trainer app, ai fitness app, best ai workout app, ai strength training, workout plan app, progressive overload app" />
+  <link rel="canonical" href="https://gainfully.app/ai-workout-plan.html" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="alternate" hreflang="da" href="https://gainfully.app/ai-traeningsforloeb.html" />
+  <link rel="alternate" hreflang="en" href="https://gainfully.app/ai-workout-plan.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://gainfully.app/ai-workout-plan.html" />
+  <meta property="og:title" content="AI Workout Plan: Your Personal Trainer That Knows You" />
+  <meta property="og:description" content="Get an AI workout plan that adapts to your actual training history. Free to start." />
+  <meta property="og:image" content="https://gainfully.app/icon.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is an AI workout plan?", "acceptedAnswer": { "@type": "Answer", "text": "An AI workout plan is a training program generated and adjusted by artificial intelligence based on your fitness goals, experience level and actual workout history. Unlike a generic program, an AI plan adapts to your progress, suggests specific weights for each session and adjusts when you plateau or miss training days." } },
+      { "@type": "Question", "name": "How does Gainfully create an AI workout plan?", "acceptedAnswer": { "@type": "Answer", "text": "Gainfully's AI coach analyses your complete workout history, your current personal records and your progression rate. Based on your goal (strength, muscle growth or general fitness) it suggests exactly which weight to use for each exercise in your next session, so you always train at the right intensity without guessing." } },
+      { "@type": "Question", "name": "Can the AI build me a full training program?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Ask the Gainfully AI coach to build a program for your schedule and goals. It creates a full weekly program including exercise selection, sets, reps and rest times. You can also ask it to adjust any existing program based on what is or is not working." } },
+      { "@type": "Question", "name": "Is an AI workout app better than a human personal trainer?", "acceptedAnswer": { "@type": "Answer", "text": "An AI fitness app like Gainfully can track every session, remember every weight you have ever lifted and be available 24/7. A human trainer costs 50-80 euros per session and cannot be in the gym with you every day. Gainfully is not a replacement for a personal trainer but it gives you data-driven coaching at a fraction of the cost." } },
+      { "@type": "Question", "name": "What is progressive overload and how does Gainfully handle it?", "acceptedAnswer": { "@type": "Answer", "text": "Progressive overload means gradually increasing the stress placed on your muscles over time, typically by adding weight, reps or sets. Gainfully tracks this automatically: after each session it knows how you performed and suggests the right progression for your next workout. You never have to guess whether to add weight or maintain." } },
+      { "@type": "Question", "name": "Is Gainfully free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gainfully is free to download. The free plan includes 1,400+ exercises with animated GIFs, unlimited workout logging and up to 3 training programs. Pro (99 DKK/month) unlocks the full AI personal trainer, unlimited programs and complete training history." } }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #111113; --bg2: #1c1c1f; --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400; --text: #ffffff; --muted: #98989f; --dim: #636366; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: rgba(17,17,19,0.95); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; }
+    .logo-mark { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-cta { background: var(--volt); color: #080e1a; font-weight: 700; padding: 10px 22px; border-radius: 10px; font-size: 14px; }
+    main { max-width: 780px; margin: 0 auto; padding: 64px 24px 96px; }
+    .tag { display: inline-block; background: var(--volt-dark); border: 1px solid rgba(196,255,0,0.4); color: var(--volt); padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
+    h1 em { color: var(--volt); font-style: normal; }
+    .intro { font-size: 18px; color: var(--muted); margin-bottom: 40px; max-width: 640px; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn-p { background: var(--volt); color: #080e1a; font-weight: 700; padding: 15px 30px; border-radius: 14px; font-size: 16px; display: flex; align-items: center; gap: 8px; }
+    .btn-s { background: var(--bg2); color: var(--text); font-weight: 600; padding: 15px 30px; border-radius: 14px; font-size: 16px; border: 1px solid var(--border); }
+    h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; margin: 56px 0 16px; letter-spacing: -0.3px; }
+    h3 { font-size: 18px; font-weight: 700; margin: 32px 0 10px; color: var(--text); }
+    p { color: var(--muted); margin-bottom: 18px; font-size: 16px; }
+    strong { color: var(--text); }
+    ul { color: var(--muted); padding-left: 20px; margin-bottom: 18px; }
+    ul li { margin-bottom: 8px; font-size: 16px; }
+    .callout { background: var(--volt-dark); border: 1px solid rgba(196,255,0,0.25); border-radius: 16px; padding: 24px 28px; margin: 32px 0; }
+    .callout p { color: rgba(196,255,0,0.85); margin: 0; font-size: 16px; }
+    .callout strong { color: var(--volt); }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0 40px; }
+    .feat { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .feat h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .feat p { font-size: 14px; margin: 0; }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; background: var(--bg2); }
+    .faq-q { width: 100%; background: none; border: none; color: var(--text); font-size: 16px; font-weight: 600; text-align: left; padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; font-family: inherit; gap: 16px; }
+    .faq-icon { flex-shrink: 0; color: var(--volt); }
+    .faq-a { display: none; padding: 0 22px 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .cta-box { background: var(--bg2); border: 1px solid rgba(196,255,0,0.25); border-radius: 20px; padding: 40px; text-align: center; margin-top: 64px; }
+    .cta-box h2 { margin: 0 0 12px; font-size: 28px; }
+    .cta-box p { margin-bottom: 28px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--dim); font-size: 14px; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--dim); }
+    @media (max-width: 600px) { nav { padding: 16px 20px; } .feature-grid { grid-template-columns: 1fr; } footer { flex-direction: column; padding: 24px 20px; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <img src="/logo.png" class="logo-mark" alt="Gainfully" width="34" height="34" />
+      Gainfully
+    </div>
+    <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="nav-cta">Download free</a>
+  </nav>
+
+  <main>
+    <span class="tag">AI Personal Trainer</span>
+    <h1>The AI workout plan that <em>actually knows you.</em></h1>
+    <p class="intro">Most workout apps give you a generic program and leave you to figure out the weights yourself. Gainfully's AI coach reads your training history and tells you exactly what to lift next session — every time.</p>
+    <div class="btns">
+      <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-p">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download for iPhone
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-s">Download for Android</a>
+    </div>
+
+    <h2>Why generic workout plans fail</h2>
+    <p>You have probably tried a workout program from the internet. Week 1 goes well. Week 3 you plateau. Week 6 you quit — not because you lacked motivation, but because the program had no idea what was happening with your body.</p>
+    <p>Generic plans treat everyone the same. They do not know that you bench pressed 80 kg last Tuesday, that you missed two weeks due to illness, or that your squat progresses twice as fast as your overhead press. <strong>A truly good workout plan adapts to you — not the other way around.</strong></p>
+
+    <div class="callout">
+      <p><strong>The Gainfully difference:</strong> Before each workout, the app shows what you lifted last time and exactly what to aim for next. Your AI coach has read every session you have ever logged.</p>
+    </div>
+
+    <h2>What an AI workout plan looks like in practice</h2>
+    <p>When you open Gainfully before a training session, you see your program for the day. Each exercise shows your previous sets and weights inline — and a suggestion for what to target today based on your recent progression.</p>
+    <p>You do not need to remember what you lifted last time. You do not need to write anything down. The app tracks it all and surfaces exactly the information you need at exactly the right moment.</p>
+
+    <h3>During the workout</h3>
+    <p>Log your sets as you go. The built-in rest timer counts down between sets. If you beat a personal record, the app notifies you immediately. After your session, your history is updated automatically — ready to inform your next workout.</p>
+
+    <h3>Between sessions</h3>
+    <p>Ask your AI coach anything. Why am I not progressing on bench press? How should I structure my training for the next 8 weeks? What should I eat to support muscle growth? The coach answers based on your real data — not generic internet advice.</p>
+
+    <h2>Key features of the Gainfully AI workout plan</h2>
+    <div class="feature-grid">
+      <div class="feat">
+        <h4>Automatic progressive overload</h4>
+        <p>Weight suggestions based on your actual history, goal and recovery rate.</p>
+      </div>
+      <div class="feat">
+        <h4>Live PR notifications</h4>
+        <p>Instant celebration when you beat a personal record on any exercise.</p>
+      </div>
+      <div class="feat">
+        <h4>AI program builder</h4>
+        <p>Ask the coach to build a full weekly program for your schedule and goals.</p>
+      </div>
+      <div class="feat">
+        <h4>1,400+ exercises with GIFs</h4>
+        <p>Animated demonstrations of correct form for every exercise in the library.</p>
+      </div>
+      <div class="feat">
+        <h4>Volume and strength analytics</h4>
+        <p>Graphs for max weight, estimated 1RM and total weekly volume per muscle group.</p>
+      </div>
+      <div class="feat">
+        <h4>Muscle balance overview</h4>
+        <p>See which muscle groups you train most and which are being neglected.</p>
+      </div>
+    </div>
+
+    <h2>Who is a Gainfully AI workout plan for?</h2>
+    <h3>Beginners</h3>
+    <p>If you are new to strength training, Gainfully tells you exactly what to do and how heavy to go. The 1,400+ exercise library with animated GIFs ensures you learn correct form from day one. The AI coach answers beginner questions without judgement.</p>
+
+    <h3>Intermediate lifters who have plateaued</h3>
+    <p>Plateaus happen when your training is not specific enough to your current level. Gainfully's coach can identify exactly where your progression has stalled and suggest targeted changes — whether that is more volume, less frequency or a deload week.</p>
+
+    <h3>Experienced lifters who want data</h3>
+    <p>If you already know what you are doing, Gainfully gives you the data to make better decisions. Estimated 1RM trends, volume analysis per muscle group, and a complete searchable history of every workout you have ever done.</p>
+
+    <h2>Frequently asked questions about AI workout plans</h2>
+    <div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is an AI workout plan? <span class="faq-icon">+</span></button>
+        <div class="faq-a">An AI workout plan is a training program generated and continuously adjusted by artificial intelligence based on your fitness goals, experience level and actual workout history. Unlike a generic program, an AI plan adapts to your progress, suggests specific weights for each session and adjusts when you plateau or miss training days.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does Gainfully create an AI workout plan? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Gainfully's AI coach analyses your complete workout history, your current personal records and your progression rate. Based on your goal (strength, muscle growth or general fitness) it suggests exactly which weight to use for each exercise in your next session, so you always train at the right intensity without guessing.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can the AI build me a full training program? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. Ask the Gainfully AI coach to build a program for your schedule and goals. It creates a full weekly program including exercise selection, sets, reps and rest times. You can ask for PPL, Upper/Lower, Full Body, or any other split. You can also ask it to adjust any existing program based on what is or is not working.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is an AI workout app better than a human personal trainer? <span class="faq-icon">+</span></button>
+        <div class="faq-a">An AI fitness app like Gainfully tracks every session, remembers every weight you have ever lifted and is available 24/7. A human trainer costs 50-80 euros per session and is not with you every day. Gainfully does not replace a personal trainer but gives you data-driven coaching at a fraction of the cost — and it never forgets what you lifted last Tuesday.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is progressive overload and how does the app handle it? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Progressive overload means gradually increasing the stress placed on your muscles over time, typically by adding weight, reps or sets. Gainfully tracks this automatically: after each session it knows how you performed and suggests the right progression for your next workout. You never have to guess whether to add weight or maintain.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How many exercises does Gainfully include? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Gainfully includes 1,400+ exercises covering all muscle groups and equipment types. Every exercise has an animated GIF demonstrating correct form. You can filter by muscle group, equipment or body part to find the right exercise for your situation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is Gainfully free to use? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. Gainfully is free to download and use. The free plan includes 1,400+ exercises with animated GIFs, unlimited workout logging and up to 3 training programs with 90 days of statistics. Pro (99 DKK/month or 799 DKK/year) unlocks the full AI personal trainer, unlimited programs and complete training history with no time limit.</div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Start your AI workout plan today</h2>
+      <p>Free to download. No credit card required. Your first session takes 3 minutes to set up.</p>
+      <div class="btns" style="justify-content:center;">
+        <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-p">Download for iPhone</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="btn-s">Download for Android</a>
+      </div>
+    </div>
+
+    <p style="margin-top:40px; font-size:14px;">
+      <a href="/en/" style="color:var(--volt)">Back to Gainfully English</a> &nbsp;|&nbsp;
+      <a href="/" style="color:var(--muted)">Dansk version</a>
+    </p>
+  </main>
+
+  <footer>
+    <span>© 2026 Gainfully. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:support@gainfully.app">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

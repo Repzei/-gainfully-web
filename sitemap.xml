@@ -95,9 +95,91 @@
   <!-- Danish SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-traeningsforloeb.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- English SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/ai-workout-plan.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- Deutsch SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/ki-trainingsplan.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- Francais SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/programme-musculation-ia.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- Espanol SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/plan-entrenamiento-ia.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- Portugues BR SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/plano-treino-ia.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/ai-workout-plan.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/ki-trainingsplan.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/programme-musculation-ia.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
   </url>
 
   <!-- Legal -->
