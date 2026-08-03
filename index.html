@@ -428,6 +428,40 @@
       font-weight: 600;
       color: var(--muted);
     }
+    .screenshots-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 24px 0;
+    }
+    .screenshots-arrow {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .screenshots-arrow:hover { border-color: var(--volt); color: var(--volt); }
+    .screenshots-arrow:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+    .screenshots-dots { display: flex; gap: 8px; align-items: center; }
+    .screenshots-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--border);
+      transition: background 0.25s, width 0.25s;
+      cursor: pointer;
+    }
+    .screenshots-dot.active { background: var(--volt); width: 20px; }
     @media (max-width: 600px) { .screenshots-scroll { padding-left: 20px; padding-right: 20px; } }
 
     /* PHOTO MODAL */
@@ -789,6 +823,18 @@
           <img src="screenshots/slide-6.png" alt="Gainfully øvelsesbibliotek" loading="lazy" />
           <span class="screenshot-label" data-i18n="screens.s6">Øvelser</span>
         </div>
+      </div>
+      <div class="screenshots-nav">
+        <button class="screenshots-arrow screen-prev" aria-label="Forrige">&#8592;</button>
+        <div class="screenshots-dots" id="screenDots">
+          <div class="screenshots-dot active"></div>
+          <div class="screenshots-dot"></div>
+          <div class="screenshots-dot"></div>
+          <div class="screenshots-dot"></div>
+          <div class="screenshots-dot"></div>
+          <div class="screenshots-dot"></div>
+        </div>
+        <button class="screenshots-arrow screen-next" aria-label="Næste">&#8594;</button>
       </div>
     </section>
 
@@ -1154,6 +1200,28 @@
       switcher.classList.remove('open')
     })
   })
+
+  // Screenshot scroll controls
+  const screenScroll = document.querySelector('.screenshots-scroll')
+  const screenDots = document.querySelectorAll('.screenshots-dot')
+  const prevBtn = document.querySelector('.screen-prev')
+  const nextBtn = document.querySelector('.screen-next')
+  const ITEM_WIDTH = 234 + 16
+
+  function updateScreenNav() {
+    const i = Math.round(screenScroll.scrollLeft / ITEM_WIDTH)
+    screenDots.forEach((d, idx) => d.classList.toggle('active', idx === i))
+    prevBtn.disabled = i === 0
+    nextBtn.disabled = i >= screenDots.length - 1
+  }
+
+  prevBtn.addEventListener('click', () => screenScroll.scrollBy({ left: -ITEM_WIDTH, behavior: 'smooth' }))
+  nextBtn.addEventListener('click', () => screenScroll.scrollBy({ left: ITEM_WIDTH, behavior: 'smooth' }))
+  screenDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => screenScroll.scrollTo({ left: i * ITEM_WIDTH, behavior: 'smooth' }))
+  })
+  screenScroll.addEventListener('scroll', updateScreenNav, { passive: true })
+  updateScreenNav()
 
   // Init
   applyLang(detectLang())
