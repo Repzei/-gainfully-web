@@ -5,7 +5,7 @@
   <!-- Danish (default) -->
   <url>
     <loc>https://gainfully.app/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -20,7 +20,7 @@
   <!-- English -->
   <url>
     <loc>https://gainfully.app/en/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -35,7 +35,7 @@
   <!-- Deutsch -->
   <url>
     <loc>https://gainfully.app/de/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -50,7 +50,7 @@
   <!-- Francais -->
   <url>
     <loc>https://gainfully.app/fr/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -65,7 +65,7 @@
   <!-- Espanol -->
   <url>
     <loc>https://gainfully.app/es/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -80,7 +80,7 @@
   <!-- Portugues BR -->
   <url>
     <loc>https://gainfully.app/pt-br/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -95,7 +95,7 @@
   <!-- Danish SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-traeningsforloeb.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -110,7 +110,7 @@
   <!-- English SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-workout-plan.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -125,7 +125,7 @@
   <!-- Deutsch SEO landing page -->
   <url>
     <loc>https://gainfully.app/ki-trainingsplan.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -140,7 +140,7 @@
   <!-- Francais SEO landing page -->
   <url>
     <loc>https://gainfully.app/programme-musculation-ia.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -155,7 +155,7 @@
   <!-- Espanol SEO landing page -->
   <url>
     <loc>https://gainfully.app/plan-entrenamiento-ia.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -170,7 +170,7 @@
   <!-- Portugues BR SEO landing page -->
   <url>
     <loc>https://gainfully.app/plano-treino-ia.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -185,13 +185,13 @@
   <!-- Legal -->
   <url>
     <loc>https://gainfully.app/privacy.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://gainfully.app/terms.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
