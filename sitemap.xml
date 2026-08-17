@@ -5,7 +5,7 @@
   <!-- Danish (default) -->
   <url>
     <loc>https://gainfully.app/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
@@ -180,6 +180,16 @@
     <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/plan-entrenamiento-ia.html" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plano-treino-ia.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-workout-plan.html" />
+  </url>
+
+  <!-- AI personlig traener - dansk SEO landing page -->
+  <url>
+    <loc>https://gainfully.app/ai-personlig-traener.html</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/ai-personlig-traener.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-personlig-traener.html" />
   </url>
 
   <!-- Legal -->
