@@ -462,71 +462,64 @@
     .stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
 
     /* PHOTO STRIP */
-    /* SCREENSHOTS */
-    .screenshots-section { padding: 80px 0; overflow: hidden; }
+    /* SCREENSHOTS CAROUSEL */
+    .screenshots-section { padding: 80px 0; }
     .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
-    /* Fade-kanter signalerer at der er mere at scrulle */
-    .screenshots-viewport {
-      -webkit-mask-image: linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%);
-    }
-    .screenshots-scroll {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      padding: 12px 56px 36px;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .screenshots-scroll::-webkit-scrollbar { display: none; }
-    .screenshot-item {
-      flex-shrink: 0;
-      width: 280px;
-      scroll-snap-align: start;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .screenshot-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 64px rgba(0,0,0,0.65);
-      display: block;
-    }
-    .screenshot-label {
-      text-align: center;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.2px;
-    }
-    .screenshots-nav {
+    .scr-stage {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 24px 24px 0;
+      gap: 28px;
+      padding: 0 24px;
     }
-    .screenshots-arrow {
-      background: var(--bg2);
+    .scr-frame {
+      /* Bredde: 300px pa desktop, tilpasser pa smaae skaerme */
+      width: min(300px, calc(100vw - 136px));
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 32px 96px rgba(0,0,0,0.75);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .scr-track {
+      display: flex;
+      transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .scr-slide { flex-shrink: 0; }
+    .scr-slide img { width: 100%; height: auto; display: block; }
+    .scr-arrow {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card);
       border: 1px solid var(--border);
       color: var(--text);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+      font-size: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      font-size: 18px;
-      flex-shrink: 0;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      user-select: none;
     }
-    .screenshots-arrow:hover { border-color: var(--volt); color: var(--volt); }
-    .screenshots-arrow:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+    .scr-arrow:hover { border-color: var(--volt); color: var(--volt); background: rgba(196,255,0,0.06); }
+    .scr-arrow:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+    .scr-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 24px 0;
+    }
+    .scr-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.2px;
+      transition: opacity 0.2s;
+    }
     .screenshots-dots { display: flex; gap: 8px; align-items: center; }
     .screenshots-dot {
       width: 6px;
@@ -537,13 +530,9 @@
       cursor: pointer;
     }
     .screenshots-dot.active { background: var(--volt); width: 20px; }
-    @media (max-width: 600px) {
-      .screenshot-item { width: 240px; }
-      .screenshots-scroll { padding: 12px 28px 32px; }
-      .screenshots-viewport {
-        -webkit-mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
-      }
+    @media (max-width: 500px) {
+      .scr-arrow { width: 38px; height: 38px; font-size: 17px; }
+      .scr-stage { gap: 14px; }
     }
 
     /* SECTIONS */
@@ -932,36 +921,22 @@
         <div class="section-label" data-i18n="screens.label">Se appen</div>
         <h2 class="section-title" style="margin-bottom:0" data-i18n="screens.title">Hvad du får</h2>
       </div>
-      <div class="screenshots-viewport">
-        <div class="screenshots-scroll">
-          <div class="screenshot-item">
-            <img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s1">Hjemskærm</span>
-          </div>
-          <div class="screenshot-item">
-            <img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s2">AI-træner</span>
-          </div>
-          <div class="screenshot-item">
-            <img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s3">Fremgang</span>
-          </div>
-          <div class="screenshot-item">
-            <img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s4">Træning</span>
-          </div>
-          <div class="screenshot-item">
-            <img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s5">Programmer</span>
-          </div>
-          <div class="screenshot-item">
-            <img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" />
-            <span class="screenshot-label" data-i18n="screens.s6">Øvelser</span>
+      <div class="scr-stage">
+        <button class="scr-arrow scr-prev" aria-label="Forrige" disabled>&#8592;</button>
+        <div class="scr-frame" id="scrFrame">
+          <div class="scr-track" id="scrTrack">
+            <div class="scr-slide"><img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" /></div>
           </div>
         </div>
+        <button class="scr-arrow scr-next" aria-label="Næste">&#8594;</button>
       </div>
-      <div class="screenshots-nav">
-        <button class="screenshots-arrow screen-prev" aria-label="Forrige">&#8592;</button>
+      <div class="scr-meta">
+        <span class="scr-label" id="scrLabel" data-i18n="screens.s1">Hjemskærm</span>
         <div class="screenshots-dots" id="screenDots">
           <div class="screenshots-dot active"></div>
           <div class="screenshots-dot"></div>
@@ -970,7 +945,6 @@
           <div class="screenshots-dot"></div>
           <div class="screenshots-dot"></div>
         </div>
-        <button class="screenshots-arrow screen-next" aria-label="Næste">&#8594;</button>
       </div>
     </section>
 
@@ -1454,26 +1428,55 @@
   })
 
   // Screenshot scroll controls
-  const screenScroll = document.querySelector('.screenshots-scroll')
-  const screenDots = document.querySelectorAll('.screenshots-dot')
-  const prevBtn = document.querySelector('.screen-prev')
-  const nextBtn = document.querySelector('.screen-next')
-  const ITEM_WIDTH = 280 + 20
+  // Screenshot carousel
+  const scrFrame = document.getElementById('scrFrame')
+  const scrTrack = document.getElementById('scrTrack')
+  const scrSlides = scrTrack.querySelectorAll('.scr-slide')
+  const scrDots = document.querySelectorAll('.screenshots-dot')
+  const scrPrev = document.querySelector('.scr-prev')
+  const scrNext = document.querySelector('.scr-next')
+  const scrLabelEl = document.getElementById('scrLabel')
+  const SCR_LABELS = ['s1','s2','s3','s4','s5','s6']
+  let scrIdx = 0
 
-  function updateScreenNav() {
-    const i = Math.round(screenScroll.scrollLeft / ITEM_WIDTH)
-    screenDots.forEach((d, idx) => d.classList.toggle('active', idx === i))
-    prevBtn.disabled = i === 0
-    nextBtn.disabled = i >= screenDots.length - 1
+  function scrInit() {
+    const w = scrFrame.offsetWidth
+    scrSlides.forEach(s => s.style.width = w + 'px')
+    scrTrack.style.transform = `translateX(${-scrIdx * w}px)`
   }
 
-  prevBtn.addEventListener('click', () => screenScroll.scrollBy({ left: -ITEM_WIDTH, behavior: 'smooth' }))
-  nextBtn.addEventListener('click', () => screenScroll.scrollBy({ left: ITEM_WIDTH, behavior: 'smooth' }))
-  screenDots.forEach((dot, i) => {
-    dot.addEventListener('click', () => screenScroll.scrollTo({ left: i * ITEM_WIDTH, behavior: 'smooth' }))
+  function scrGo(i) {
+    scrIdx = Math.max(0, Math.min(i, scrSlides.length - 1))
+    const w = scrFrame.offsetWidth
+    scrSlides.forEach(s => s.style.width = w + 'px')
+    scrTrack.style.transform = `translateX(${-scrIdx * w}px)`
+    scrDots.forEach((d, idx) => d.classList.toggle('active', idx === scrIdx))
+    scrPrev.disabled = scrIdx === 0
+    scrNext.disabled = scrIdx >= scrSlides.length - 1
+    // Update label fra aktuelle oversaettelse
+    const lang = detectLang()
+    const t = TRANSLATIONS[lang]
+    const label = t?.screens?.[SCR_LABELS[scrIdx]]
+    if (label && scrLabelEl) {
+      scrLabelEl.setAttribute('data-i18n', `screens.${SCR_LABELS[scrIdx]}`)
+      scrLabelEl.textContent = label
+    }
+  }
+
+  scrPrev.addEventListener('click', () => scrGo(scrIdx - 1))
+  scrNext.addEventListener('click', () => scrGo(scrIdx + 1))
+  scrDots.forEach((dot, i) => dot.addEventListener('click', () => scrGo(i)))
+
+  // Touch/swipe support
+  let scrTouchX = 0
+  scrFrame.addEventListener('touchstart', e => { scrTouchX = e.touches[0].clientX }, { passive: true })
+  scrFrame.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - scrTouchX
+    if (Math.abs(dx) > 40) scrGo(scrIdx + (dx < 0 ? 1 : -1))
   })
-  screenScroll.addEventListener('scroll', updateScreenNav, { passive: true })
-  updateScreenNav()
+
+  window.addEventListener('resize', scrInit)
+  scrGo(0)
 
   // Init
   applyLang(detectLang())
