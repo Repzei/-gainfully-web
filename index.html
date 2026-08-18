@@ -466,21 +466,37 @@
     .screenshots-section { padding: 80px 0; }
     .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
     .scr-stage-wrap {
-      max-width: 520px;
+      max-width: 620px;
       margin: 0 auto;
       padding: 0 16px;
+      position: relative;
+    }
+    /* Volt glow bag telefonen */
+    .scr-stage-wrap::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 60%;
+      background: radial-gradient(ellipse, rgba(196,255,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
     .scr-stage {
       display: flex;
       align-items: center;
       gap: 20px;
+      position: relative;
+      z-index: 1;
     }
     .scr-frame {
-      /* 340px pa desktop, responsiv pa smaae skaerme */
-      width: min(340px, calc(100vw - 120px));
+      /* 420px pa desktop, responsiv pa smaae skaerme */
+      width: min(420px, calc(100vw - 120px));
       overflow: hidden;
       border-radius: 24px;
-      box-shadow: 0 32px 96px rgba(0,0,0,0.75);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
       border: 1px solid var(--border);
       flex-shrink: 0;
       flex: 1;
