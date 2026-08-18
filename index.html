@@ -465,21 +465,25 @@
     /* SCREENSHOTS CAROUSEL */
     .screenshots-section { padding: 80px 0; }
     .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
+    .scr-stage-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
     .scr-stage {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 28px;
-      padding: 0 24px;
+      gap: 20px;
     }
     .scr-frame {
-      /* Bredde: 300px pa desktop, tilpasser pa smaae skaerme */
-      width: min(300px, calc(100vw - 136px));
+      /* 340px pa desktop, responsiv pa smaae skaerme */
+      width: min(340px, calc(100vw - 120px));
       overflow: hidden;
       border-radius: 24px;
       box-shadow: 0 32px 96px rgba(0,0,0,0.75);
       border: 1px solid var(--border);
       flex-shrink: 0;
+      flex: 1;
     }
     .scr-track {
       display: flex;
@@ -921,6 +925,7 @@
         <div class="section-label" data-i18n="screens.label">Se appen</div>
         <h2 class="section-title" style="margin-bottom:0" data-i18n="screens.title">Hvad du får</h2>
       </div>
+      <div class="scr-stage-wrap">
       <div class="scr-stage">
         <button class="scr-arrow scr-prev" aria-label="Forrige" disabled>&#8592;</button>
         <div class="scr-frame" id="scrFrame">
@@ -934,6 +939,7 @@
           </div>
         </div>
         <button class="scr-arrow scr-next" aria-label="Næste">&#8594;</button>
+      </div>
       </div>
       <div class="scr-meta">
         <span class="scr-label" id="scrLabel" data-i18n="screens.s1">Hjemskærm</span>
