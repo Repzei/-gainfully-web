@@ -462,51 +462,19 @@
     .stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
 
     /* PHOTO STRIP */
-    .photo-strip { padding: 0 24px 80px; }
-    .photo-strip-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .photo-card {
-      cursor: pointer;
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      background: #1a1a1d;
-    }
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.62) saturate(0.72);
-      display: block;
-      transition: filter 0.4s ease, transform 0.5s ease;
-    }
-    .photo-card:hover img { filter: brightness(0.82) saturate(0.9); transform: scale(1.04); }
-    .photo-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 65%);
-      display: flex;
-      align-items: flex-end;
-      padding: 18px;
-    }
-    .photo-card-label { font-size: 14px; font-weight: 700; color: #ffffff; transition: color 0.2s; }
-    .photo-card:hover .photo-card-label { color: var(--jade); }
-    .photo-card-hint { margin-left: 6px; color: var(--jade); font-size: 13px; opacity: 0; transition: opacity 0.2s; vertical-align: middle; }
-    .photo-card:hover .photo-card-hint { opacity: 1; }
     /* SCREENSHOTS */
-    .screenshots-section { padding: 80px 0; }
-    .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; }
+    .screenshots-section { padding: 80px 0; overflow: hidden; }
+    .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
+    /* Fade-kanter signalerer at der er mere at scrulle */
+    .screenshots-viewport {
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, black 56px, black calc(100% - 56px), transparent 100%);
+    }
     .screenshots-scroll {
       display: flex;
-      gap: 16px;
+      gap: 20px;
       overflow-x: auto;
-      padding: 8px 40px 32px;
+      padding: 12px 56px 36px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -514,18 +482,18 @@
     .screenshots-scroll::-webkit-scrollbar { display: none; }
     .screenshot-item {
       flex-shrink: 0;
-      width: 234px;
+      width: 280px;
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
     .screenshot-item img {
       width: 100%;
       height: auto;
-      border-radius: 20px;
+      border-radius: 22px;
       border: 1px solid var(--border);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.55);
+      box-shadow: 0 20px 64px rgba(0,0,0,0.65);
       display: block;
     }
     .screenshot-label {
@@ -533,13 +501,14 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
+      letter-spacing: 0.2px;
     }
     .screenshots-nav {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 20px;
-      padding: 20px 24px 0;
+      padding: 24px 24px 0;
     }
     .screenshots-arrow {
       background: var(--bg2);
@@ -568,58 +537,13 @@
       cursor: pointer;
     }
     .screenshots-dot.active { background: var(--volt); width: 20px; }
-    @media (max-width: 600px) { .screenshots-scroll { padding-left: 20px; padding-right: 20px; } }
-
-    /* PHOTO MODAL */
-    .photo-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      z-index: 500;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .photo-modal.open { display: flex; }
-    .photo-modal-inner {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px 32px 28px;
-      max-width: 420px;
-      width: 100%;
-      position: relative;
-      animation: fadeUp 0.25s ease both;
-    }
-    .photo-modal-close {
-      position: absolute;
-      top: 14px;
-      right: 16px;
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 26px;
-      line-height: 1;
-      display: flex;
-      align-items: center;
-      padding: 4px;
-    }
-    .photo-modal-close:hover { color: var(--text); }
-    .photo-modal-label {
-      color: var(--jade);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 14px;
-      padding-right: 28px;
-    }
-    .photo-modal-desc {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
+    @media (max-width: 600px) {
+      .screenshot-item { width: 240px; }
+      .screenshots-scroll { padding: 12px 28px 32px; }
+      .screenshots-viewport {
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, black 28px, black calc(100% - 28px), transparent 100%);
+      }
     }
 
     /* SECTIONS */
@@ -799,7 +723,6 @@
       .hero-content h1 { font-size: clamp(32px, 8vw, 52px); }
       .hero-content .hero-buttons { justify-content: flex-start; flex-wrap: wrap; }
       .hero-photo { max-width: 260px; aspect-ratio: 9/16; }
-      .photo-strip-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
@@ -808,7 +731,6 @@
       .stats { gap: 32px; }
     }
     @media (max-width: 480px) {
-      .photo-strip-inner { grid-template-columns: 1fr; }
       .hero-photo { max-height: 260px; }
     }
     /* AI SHOWCASE */
@@ -1010,30 +932,32 @@
         <div class="section-label" data-i18n="screens.label">Se appen</div>
         <h2 class="section-title" style="margin-bottom:0" data-i18n="screens.title">Hvad du får</h2>
       </div>
-      <div class="screenshots-scroll">
-        <div class="screenshot-item">
-          <img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s1">Hjemskærm</span>
-        </div>
-        <div class="screenshot-item">
-          <img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s2">AI-træner</span>
-        </div>
-        <div class="screenshot-item">
-          <img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s3">Fremgang</span>
-        </div>
-        <div class="screenshot-item">
-          <img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s4">Træning</span>
-        </div>
-        <div class="screenshot-item">
-          <img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s5">Programmer</span>
-        </div>
-        <div class="screenshot-item">
-          <img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" />
-          <span class="screenshot-label" data-i18n="screens.s6">Øvelser</span>
+      <div class="screenshots-viewport">
+        <div class="screenshots-scroll">
+          <div class="screenshot-item">
+            <img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s1">Hjemskærm</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s2">AI-træner</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s3">Fremgang</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s4">Træning</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s5">Programmer</span>
+          </div>
+          <div class="screenshot-item">
+            <img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" />
+            <span class="screenshot-label" data-i18n="screens.s6">Øvelser</span>
+          </div>
         </div>
       </div>
       <div class="screenshots-nav">
@@ -1534,7 +1458,7 @@
   const screenDots = document.querySelectorAll('.screenshots-dot')
   const prevBtn = document.querySelector('.screen-prev')
   const nextBtn = document.querySelector('.screen-next')
-  const ITEM_WIDTH = 234 + 16
+  const ITEM_WIDTH = 280 + 20
 
   function updateScreenNav() {
     const i = Math.round(screenScroll.scrollLeft / ITEM_WIDTH)
