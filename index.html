@@ -335,49 +335,90 @@
       position: relative;
       border-radius: 24px;
       overflow: hidden;
-      aspect-ratio: 3/4;
-      background: #0d1200;
+      aspect-ratio: 9/16;
+      background: #111113;
+      box-shadow: 0 0 0 1px rgba(196,255,0,0.12), 0 24px 64px rgba(0,0,0,0.6);
+      max-width: 340px;
+      justify-self: center;
     }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.70) saturate(0.78);
-      display: block;
+
+    /* Phone screen content */
+    .ph-screen {
+      width: 100%; height: 100%;
+      background: #111113;
+      display: flex;
+      flex-direction: column;
+      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .hero-photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    .ph-scroll {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 8% 6% 4%;
+      overflow: hidden;
     }
-    .hero-photo-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(52,211,153,0.4);
-      border-radius: 12px;
-      padding: 9px 14px;
+    .ph-check {
+      width: 15%;
+      aspect-ratio: 1;
+      min-width: 40px;
+      background: #c4ff00;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4%;
+      box-shadow: 0 4px 20px rgba(196,255,0,0.4);
+      flex-shrink: 0;
     }
-    .hero-photo-badge-icon { color: var(--jade); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; }
-    .hero-photo-stat { position: absolute; bottom: 24px; left: 24px; }
-    .hero-photo-num {
-      display: block;
-      font-size: 42px;
-      font-weight: 900;
-      color: var(--volt);
-      line-height: 1;
-      text-shadow: 0 0 28px rgba(196,255,0,0.55);
+    .ph-check svg { width: 55%; height: 55%; }
+    .ph-title { font-size: clamp(11px, 3.6cqi, 18px); font-weight: 800; color: #fff; margin-bottom: 1%; letter-spacing: -0.3px; }
+    .ph-name { font-size: clamp(9px, 2.6cqi, 13px); color: #98989f; margin-bottom: 4%; }
+    .ph-dur-val { font-size: clamp(18px, 5.5cqi, 28px); font-weight: 800; color: #c4ff00; line-height: 1; letter-spacing: -0.5px; }
+    .ph-dur-label { font-size: clamp(7px, 1.8cqi, 9px); font-weight: 600; color: #98989f; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; margin-bottom: 4%; }
+    .ph-stats { display: flex; gap: 3%; width: 100%; margin-bottom: 3%; }
+    .ph-stat {
+      flex: 1; background: #1c1c1f; border-radius: 8px;
+      padding: 3% 4%; display: flex; flex-direction: column; align-items: center;
+      border: 1px solid rgba(255,255,255,0.08);
     }
-    .hero-photo-label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      margin-top: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
+    .ph-stat-val { font-size: clamp(10px, 3cqi, 15px); font-weight: 800; color: #fff; margin-bottom: 1px; }
+    .ph-stat-label { font-size: clamp(6px, 1.5cqi, 8px); font-weight: 600; color: #98989f; text-transform: uppercase; letter-spacing: 0.8px; }
+    .ph-xp {
+      width: 100%; background: #1c1c1f; border-radius: 8px;
+      padding: 3% 4%; margin-bottom: 3%;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .ph-xp-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .ph-xp-chip {
+      display: flex; align-items: center; gap: 3px;
+      background: #c4ff00; border-radius: 5px; padding: 3px 7px;
+    }
+    .ph-xp-chip-text { color: #0d1400; font-size: clamp(6px, 1.8cqi, 9px); font-weight: 800; }
+    .ph-xp-chip svg { width: clamp(7px,1.8cqi,9px); height: clamp(7px,1.8cqi,9px); }
+    .ph-xp-tier { font-size: clamp(7px, 2cqi, 10px); font-weight: 800; color: #a78bfa; }
+    .ph-xp-track { height: 3px; background: #2c2c2e; border-radius: 2px; overflow: hidden; margin-bottom: 4px; }
+    .ph-xp-fill { height: 100%; width: 62%; background: #a78bfa; border-radius: 2px; }
+    .ph-xp-sub { font-size: clamp(6px, 1.5cqi, 8px); color: #98989f; }
+    .ph-pr {
+      width: 100%; background: #1c1c1f; border-radius: 8px;
+      padding: 4%; border: 1px solid #c4ff00; margin-bottom: 3%;
+    }
+    .ph-pr-hdr { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
+    .ph-pr-hdr svg { width: clamp(9px,2.5cqi,13px); height: clamp(9px,2.5cqi,13px); flex-shrink:0; }
+    .ph-pr-hdr-text { font-size: clamp(9px, 2.6cqi, 13px); font-weight: 800; color: #fff; }
+    .ph-pr-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #2c2c2e; }
+    .ph-pr-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .ph-pr-row:first-of-type { padding-top: 0; }
+    .ph-pr-name { font-size: clamp(8px, 2.3cqi, 11px); font-weight: 600; color: #fff; }
+    .ph-pr-weight { font-size: clamp(9px, 2.5cqi, 12px); font-weight: 800; color: #c4ff00; }
+    .ph-footer { padding: 3% 5% 6%; flex-shrink: 0; }
+    .ph-btn {
+      width: 100%; background: #c4ff00; color: #0d1400;
+      border: none; border-radius: 10px; padding: 4%;
+      font-size: clamp(9px, 2.6cqi, 13px); font-weight: 700;
+      font-family: inherit; cursor: default; letter-spacing: -0.1px;
     }
 
     /* STATS */
@@ -732,7 +773,7 @@
       .hero-wrap { grid-template-columns: 1fr; padding: 60px 24px 48px; gap: 40px; }
       .hero-content h1 { font-size: clamp(32px, 8vw, 52px); }
       .hero-content .hero-buttons { justify-content: flex-start; flex-wrap: wrap; }
-      .hero-photo { max-height: 340px; aspect-ratio: 16/9; }
+      .hero-photo { max-width: 260px; aspect-ratio: 9/16; }
       .photo-strip-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 600px) {
@@ -879,15 +920,43 @@
         </div>
         <p class="hero-note" data-i18n="hero.note">Gratis at starte. Over 1.400 øvelser inkluderet.</p>
       </div>
-      <div class="hero-photo">
-        <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&h=1067&fit=crop" alt="Strength training" loading="eager" width="800" height="1067" />
-        <div class="hero-photo-overlay"></div>
-        <div class="hero-photo-badge">
-          <span class="hero-photo-badge-icon" data-i18n="hero.pr">PR slået</span>
-        </div>
-        <div class="hero-photo-stat">
-          <span class="hero-photo-num">+12 kg</span>
-          <span class="hero-photo-label" data-i18n="hero.prSub">siden forrige session</span>
+      <div class="hero-photo" aria-hidden="true">
+        <div class="ph-screen">
+          <div class="ph-scroll">
+            <div class="ph-check">
+              <svg viewBox="0 0 44 44" fill="none"><path d="M9 22L18 31L35 13" stroke="#0d1400" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="ph-title">Workout complete!</div>
+            <div class="ph-name">Push A</div>
+            <div class="ph-dur-val">47m 23s</div>
+            <div class="ph-dur-label">Duration</div>
+            <div class="ph-stats">
+              <div class="ph-stat"><div class="ph-stat-val">22</div><div class="ph-stat-label">Sets</div></div>
+              <div class="ph-stat"><div class="ph-stat-val">5.240</div><div class="ph-stat-label">KG Lifted</div></div>
+            </div>
+            <div class="ph-xp">
+              <div class="ph-xp-top">
+                <div class="ph-xp-chip">
+                  <svg viewBox="0 0 24 24" fill="#0d1400"><path d="M13 2L4.5 13H11L10 22L19.5 11H13Z"/></svg>
+                  <span class="ph-xp-chip-text">+35 XP</span>
+                </div>
+                <span class="ph-xp-tier">Silver II</span>
+              </div>
+              <div class="ph-xp-track"><div class="ph-xp-fill"></div></div>
+              <div class="ph-xp-sub">1.240 / 2.000 XP</div>
+            </div>
+            <div class="ph-pr">
+              <div class="ph-pr-hdr">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#c4ff00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4H4a1 1 0 0 0-1 1v2a4 4 0 0 0 4 4M17 4h3a1 1 0 0 1 1 1v2a4 4 0 0 1-4 4"/><path d="M7 4h10v7a5 5 0 0 1-10 0V4z"/></svg>
+                <span class="ph-pr-hdr-text">New records</span>
+              </div>
+              <div class="ph-pr-row"><span class="ph-pr-name">Barbell bench press</span><span class="ph-pr-weight">102.5 kg</span></div>
+              <div class="ph-pr-row"><span class="ph-pr-name">Tricep pushdown</span><span class="ph-pr-weight">42.5 kg</span></div>
+            </div>
+          </div>
+          <div class="ph-footer">
+            <button class="ph-btn">Go to home</button>
+          </div>
         </div>
       </div>
     </section>
