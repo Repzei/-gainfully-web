@@ -19,6 +19,7 @@ const PAGES = [
   { file: 'es/index.html',                 url: '/es/',                               lang: 'es',    priority: 0.9 },
   { file: 'pt-br/index.html',              url: '/pt-br/',                            lang: 'pt-BR', priority: 0.9 },
   { file: 'ai-traeningsforloeb.html',      url: '/ai-traeningsforloeb.html',          lang: 'da',    priority: 0.8 },
+  { file: 'ai-personlig-traener.html',    url: '/ai-personlig-traener.html',         lang: 'da',    priority: 0.8 },
   { file: 'ai-workout-plan.html',          url: '/ai-workout-plan.html',              lang: 'en',    priority: 0.8 },
   { file: 'ki-trainingsplan.html',         url: '/ki-trainingsplan.html',             lang: 'de',    priority: 0.8 },
   { file: 'programme-musculation-ia.html', url: '/programme-musculation-ia.html',     lang: 'fr',    priority: 0.8 },
