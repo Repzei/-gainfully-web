@@ -10,6 +10,12 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://gainfully.app/" />
   <link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="da" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="en" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="de" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="fr" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="es" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/" />
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
@@ -21,7 +27,9 @@
   <meta property="og:url" content="https://gainfully.app/" />
   <meta property="og:title" content="Gainfully - AI Personlig Træner App" />
   <meta property="og:description" content="Gratis AI personlig træner der kender dine løft og din historik. Log styrketræning og få skræddersyede råd. 1.400+ øvelser." />
-  <meta property="og:image" content="https://gainfully.app/icon.png" />
+  <meta property="og:image" content="https://gainfully.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Gainfully" />
 
   <meta name="twitter:card" content="summary" />
@@ -93,12 +101,75 @@
     "publisher": {
       "@type": "Person",
       "name": "Jesper Larsen"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "ratingCount": "89",
+      "bestRating": "5",
+      "worstRating": "1"
     }
   }
   </script>
 
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er Gainfully?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gainfully er en fitness tracking app til iPhone og Android med en indbygget AI-træner. Du logger dine styrketræninger, og appen husker alt: vægte, reps, sæt og fremgang. Træneren analyserer din historik og giver dig personlige råd og programforslag."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er Gainfully gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, Gainfully er gratis at downloade og bruge. Gratis inkluderer 1.400+ øvelser med GIFs, ubegrænset træningslogning, op til 3 programmer og 90 dages statistik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching, ubegrænsede programmer og komplet historik."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad ved AI-coachen om mig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-coachen har adgang til din komplette træningshistorik: dine personlige rekorder med datoer, din vægttend over tid, hvilke dage du typisk træner, din muskelbalance og eventuelle noter du selv har skrevet. Den husker også hvad I har talt om i tidligere samtaler."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Virker Gainfully på iPhone og Android?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, Gainfully er tilgængelig til både iPhone (iOS) og Android. Download gratis fra App Store eller Google Play. Alle dine data synkroniseres automatisk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad kan AI-træneren hjælpe mig med?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Træneren kender din historik og svarer ud fra den. Spørg om hvorfor du stagnerer, få et ugentligt program, råd om kost og restitution. Altid baseret på dig - ikke generiske råd."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvilke sprog understøtter appen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Ionicons removed: icons are now inline SVG for better performance -->
 
   <script>
     if (window.location.hash.includes('type=recovery')) {
@@ -280,7 +351,6 @@
       margin-bottom: 24px;
       opacity: 0.8;
     }
-    .hero-content .hero-badge ion-icon { display: none; }
 
     .hero-content h1 {
       font-size: clamp(38px, 5.5vw, 70px);
@@ -339,95 +409,25 @@
 
     .hero-note { margin-top: 16px; color: var(--dim); font-size: 13px; }
 
-    .hero-photo {
-      position: relative;
-      border-radius: 24px;
+    /* Hero phone frame - real screenshot */
+    .hero-phone-frame {
+      border-radius: 28px;
       overflow: hidden;
-      aspect-ratio: 9/16;
-      background: #111113;
-      box-shadow: 0 0 0 1px rgba(196,255,0,0.12), 0 24px 64px rgba(0,0,0,0.6);
-      max-width: 340px;
+      max-width: 300px;
       justify-self: center;
+      box-shadow: 0 0 0 1px rgba(196,255,0,0.12), 0 32px 80px rgba(0,0,0,0.7), 0 0 60px rgba(196,255,0,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
     }
+    .hero-phone-frame img { width: 100%; height: auto; display: block; }
 
-    /* Phone screen content */
-    .ph-screen {
-      width: 100%; height: 100%;
-      background: #111113;
-      display: flex;
-      flex-direction: column;
-      font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
-      -webkit-font-smoothing: antialiased;
+    /* Social proof */
+    .hero-proof {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 18px; font-size: 13px; color: var(--muted);
+      flex-wrap: wrap;
     }
-    .ph-scroll {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 8% 6% 4%;
-      overflow: hidden;
-    }
-    .ph-check {
-      width: 15%;
-      aspect-ratio: 1;
-      min-width: 40px;
-      background: #c4ff00;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 4%;
-      box-shadow: 0 4px 20px rgba(196,255,0,0.4);
-      flex-shrink: 0;
-    }
-    .ph-check svg { width: 55%; height: 55%; }
-    .ph-title { font-size: clamp(11px, 3.6cqi, 18px); font-weight: 800; color: #fff; margin-bottom: 1%; letter-spacing: -0.3px; }
-    .ph-name { font-size: clamp(9px, 2.6cqi, 13px); color: #98989f; margin-bottom: 4%; }
-    .ph-dur-val { font-size: clamp(18px, 5.5cqi, 28px); font-weight: 800; color: #c4ff00; line-height: 1; letter-spacing: -0.5px; }
-    .ph-dur-label { font-size: clamp(7px, 1.8cqi, 9px); font-weight: 600; color: #98989f; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; margin-bottom: 4%; }
-    .ph-stats { display: flex; gap: 3%; width: 100%; margin-bottom: 3%; }
-    .ph-stat {
-      flex: 1; background: #1c1c1f; border-radius: 8px;
-      padding: 3% 4%; display: flex; flex-direction: column; align-items: center;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .ph-stat-val { font-size: clamp(10px, 3cqi, 15px); font-weight: 800; color: #fff; margin-bottom: 1px; }
-    .ph-stat-label { font-size: clamp(6px, 1.5cqi, 8px); font-weight: 600; color: #98989f; text-transform: uppercase; letter-spacing: 0.8px; }
-    .ph-xp {
-      width: 100%; background: #1c1c1f; border-radius: 8px;
-      padding: 3% 4%; margin-bottom: 3%;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .ph-xp-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .ph-xp-chip {
-      display: flex; align-items: center; gap: 3px;
-      background: #c4ff00; border-radius: 5px; padding: 3px 7px;
-    }
-    .ph-xp-chip-text { color: #0d1400; font-size: clamp(6px, 1.8cqi, 9px); font-weight: 800; }
-    .ph-xp-chip svg { width: clamp(7px,1.8cqi,9px); height: clamp(7px,1.8cqi,9px); }
-    .ph-xp-tier { font-size: clamp(7px, 2cqi, 10px); font-weight: 800; color: #a78bfa; }
-    .ph-xp-track { height: 3px; background: #2c2c2e; border-radius: 2px; overflow: hidden; margin-bottom: 4px; }
-    .ph-xp-fill { height: 100%; width: 62%; background: #a78bfa; border-radius: 2px; }
-    .ph-xp-sub { font-size: clamp(6px, 1.5cqi, 8px); color: #98989f; }
-    .ph-pr {
-      width: 100%; background: #1c1c1f; border-radius: 8px;
-      padding: 4%; border: 1px solid #c4ff00; margin-bottom: 3%;
-    }
-    .ph-pr-hdr { display: flex; align-items: center; gap: 5px; margin-bottom: 8px; }
-    .ph-pr-hdr svg { width: clamp(9px,2.5cqi,13px); height: clamp(9px,2.5cqi,13px); flex-shrink:0; }
-    .ph-pr-hdr-text { font-size: clamp(9px, 2.6cqi, 13px); font-weight: 800; color: #fff; }
-    .ph-pr-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #2c2c2e; }
-    .ph-pr-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .ph-pr-row:first-of-type { padding-top: 0; }
-    .ph-pr-name { font-size: clamp(8px, 2.3cqi, 11px); font-weight: 600; color: #fff; }
-    .ph-pr-weight { font-size: clamp(9px, 2.5cqi, 12px); font-weight: 800; color: #c4ff00; }
-    .ph-footer { padding: 3% 5% 6%; flex-shrink: 0; }
-    .ph-btn {
-      width: 100%; background: #c4ff00; color: #0d1400;
-      border: none; border-radius: 10px; padding: 4%;
-      font-size: clamp(9px, 2.6cqi, 13px); font-weight: 700;
-      font-family: inherit; cursor: default; letter-spacing: -0.1px;
-    }
+    .hero-stars { color: #ffd234; letter-spacing: 1px; font-size: 14px; }
+    .hero-proof-sep { color: var(--border); }
 
     /* COMPARE */
     .compare-section { padding: 80px 24px; background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -444,11 +444,15 @@
     .cmp-row-key > .cmp-cell { background: rgba(196,255,0,0.04); }
     .cmp-row-key > .cmp-us { background: rgba(196,255,0,0.08); }
     .cmp-row-key > .cmp-feat { font-weight: 700; }
-    .cmp-yes { color: var(--muted); font-size: 17px; font-weight: 700; }
-    .cmp-no { color: #3a3a3c; font-size: 17px; font-weight: 600; }
-    .cmp-volt { color: var(--volt); font-size: 17px; font-weight: 800; }
-    .cmp-partial { color: #3a3a3c; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; }
+    .cmp-yes { color: var(--muted); font-size: 16px; font-weight: 600; }
+    .cmp-no { color: #3a3a3c; font-size: 14px; font-weight: 500; opacity: 0.5; }
+    .cmp-volt { color: var(--volt); font-size: 18px; font-weight: 800; }
+    .cmp-partial { color: #555; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
     .compare-note { margin-top: 14px; font-size: 12px; color: #3a3a3c; text-align: center; }
+    .cmp-hcell.cmp-us { color: var(--volt); background: rgba(196,255,0,0.1); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; }
+    .cmp-us { background: rgba(196,255,0,0.05); border-left: 1px solid rgba(196,255,0,0.3); }
+    .cmp-row-key > .cmp-feat { font-weight: 700; color: var(--text); }
+    .cmp-row-key > .cmp-us { background: rgba(196,255,0,0.09); }
     @media (max-width: 600px) {
       .cmp-row { grid-template-columns: 1fr 80px 90px; }
       .cmp-cell, .cmp-hcell { padding: 11px 10px; font-size: 13px; }
@@ -474,7 +478,7 @@
     .screenshots-section { padding: 80px 0; }
     .screenshots-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
     .scr-stage-wrap {
-      max-width: 520px;
+      max-width: 660px;
       margin: 0 auto;
       padding: 0 16px;
       position: relative;
@@ -500,8 +504,7 @@
       z-index: 1;
     }
     .scr-frame {
-      /* 360px pa desktop, responsiv pa smaae skaerme */
-      width: min(330px, calc(100vw - 120px));
+      width: min(400px, calc(100vw - 120px));
       overflow: hidden;
       border-radius: 24px;
       box-shadow: 0 40px 100px rgba(0,0,0,0.8);
@@ -608,7 +611,7 @@
       margin-bottom: 16px;
       padding: 0;
     }
-    .feature-icon ion-icon { width: 28px; height: 28px; color: var(--volt); opacity: 0.85; }
+    .feature-icon svg { width: 28px; height: 28px; color: var(--volt); opacity: 0.85; }
     .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
     .feature-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 
@@ -744,7 +747,7 @@
       .hero-wrap { grid-template-columns: 1fr; padding: 60px 24px 48px; gap: 40px; }
       .hero-content h1 { font-size: clamp(32px, 8vw, 52px); }
       .hero-content .hero-buttons { justify-content: flex-start; flex-wrap: wrap; }
-      .hero-photo { max-width: 260px; aspect-ratio: 9/16; }
+      .hero-phone-frame { max-width: 240px; }
     }
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
@@ -753,7 +756,7 @@
       .stats { gap: 32px; }
     }
     @media (max-width: 480px) {
-      .hero-photo { max-height: 260px; }
+      .hero-phone-frame { max-width: 200px; }
     }
     /* MANIFESTO */
     .manifesto-section { padding: 80px 24px; border-top: 1px solid var(--border); }
@@ -880,10 +883,9 @@
     <section class="hero-wrap" aria-label="Hero">
       <div class="hero-content">
         <div class="hero-badge">
-          <ion-icon name="flash-outline"></ion-icon>
           <span data-i18n="hero.badge">Din træning. Din app.</span>
         </div>
-        <h1 data-i18n="hero.h1">Ikke endnu en træningsapp.<br /><span>Træn din måde.</span></h1>
+        <h1 data-i18n="hero.h1">Din AI personlig træner.<br /><span>Træn din måde.</span></h1>
         <p data-i18n="hero.sub">Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.</p>
         <div class="hero-buttons">
           <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
@@ -895,46 +897,15 @@
             <span data-i18n="hero.android">Download til Android</span>
           </a>
         </div>
-        <p class="hero-note" data-i18n="hero.note">Gratis at starte. Over 1.400 øvelser inkluderet.</p>
-      </div>
-      <div class="hero-photo" aria-hidden="true">
-        <div class="ph-screen">
-          <div class="ph-scroll">
-            <div class="ph-check">
-              <svg viewBox="0 0 44 44" fill="none"><path d="M9 22L18 31L35 13" stroke="#0d1400" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="ph-title">Workout complete!</div>
-            <div class="ph-name">Push A</div>
-            <div class="ph-dur-val">47m 23s</div>
-            <div class="ph-dur-label">Duration</div>
-            <div class="ph-stats">
-              <div class="ph-stat"><div class="ph-stat-val">22</div><div class="ph-stat-label">Sets</div></div>
-              <div class="ph-stat"><div class="ph-stat-val">5.240</div><div class="ph-stat-label">KG Lifted</div></div>
-            </div>
-            <div class="ph-xp">
-              <div class="ph-xp-top">
-                <div class="ph-xp-chip">
-                  <svg viewBox="0 0 24 24" fill="#0d1400"><path d="M13 2L4.5 13H11L10 22L19.5 11H13Z"/></svg>
-                  <span class="ph-xp-chip-text">+35 XP</span>
-                </div>
-                <span class="ph-xp-tier">Silver II</span>
-              </div>
-              <div class="ph-xp-track"><div class="ph-xp-fill"></div></div>
-              <div class="ph-xp-sub">1.240 / 2.000 XP</div>
-            </div>
-            <div class="ph-pr">
-              <div class="ph-pr-hdr">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#c4ff00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4H4a1 1 0 0 0-1 1v2a4 4 0 0 0 4 4M17 4h3a1 1 0 0 1 1 1v2a4 4 0 0 1-4 4"/><path d="M7 4h10v7a5 5 0 0 1-10 0V4z"/></svg>
-                <span class="ph-pr-hdr-text">New records</span>
-              </div>
-              <div class="ph-pr-row"><span class="ph-pr-name">Barbell bench press</span><span class="ph-pr-weight">102.5 kg</span></div>
-              <div class="ph-pr-row"><span class="ph-pr-name">Tricep pushdown</span><span class="ph-pr-weight">42.5 kg</span></div>
-            </div>
-          </div>
-          <div class="ph-footer">
-            <button class="ph-btn">Go to home</button>
-          </div>
+        <div class="hero-proof">
+          <span class="hero-stars">★★★★★</span>
+          <span>4.7 App Store</span>
+          <span class="hero-proof-sep">·</span>
+          <span data-i18n="hero.note">Gratis at starte. Over 1.400 øvelser inkluderet.</span>
         </div>
+      </div>
+      <div class="hero-phone-frame">
+        <img src="screenshots/slide-1.jpg" alt="Gainfully app - hjemskærm" width="390" height="844" loading="eager" />
       </div>
     </section>
 
@@ -976,12 +947,12 @@
         <button class="scr-arrow scr-prev" aria-label="Forrige" disabled>&#8592;</button>
         <div class="scr-frame" id="scrFrame">
           <div class="scr-track" id="scrTrack">
-            <div class="scr-slide"><img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" /></div>
-            <div class="scr-slide"><img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" /></div>
-            <div class="scr-slide"><img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" /></div>
-            <div class="scr-slide"><img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" /></div>
-            <div class="scr-slide"><img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" /></div>
-            <div class="scr-slide"><img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-1.jpg" alt="Gainfully hjemskærm" loading="lazy" width="390" height="844" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" loading="lazy" width="390" height="844" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" loading="lazy" width="390" height="844" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-4.jpg" alt="Gainfully træningstracker" loading="lazy" width="390" height="844" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-5.jpg" alt="Gainfully programmer" loading="lazy" width="390" height="844" /></div>
+            <div class="scr-slide"><img src="screenshots/slide-6.jpg" alt="Gainfully øvelsesbibliotek" loading="lazy" width="390" height="844" /></div>
           </div>
         </div>
         <button class="scr-arrow scr-next" aria-label="Næste">&#8594;</button>
@@ -1000,55 +971,112 @@
       </div>
     </section>
 
+    <section class="ai-showcase" aria-label="AI coach details">
+      <div class="ai-showcase-inner">
+        <div class="ai-showcase-header">
+          <div class="section-label" data-i18n="aiDetail.label">Personlig, ikke generisk</div>
+          <h2 data-i18n="aiDetail.title">Din coach kender <span style="color:var(--volt)">DIG</span></h2>
+          <p data-i18n="aiDetail.sub">Gainfully AI-coachen kender din faktiske historik. Næste gang du stiller et spørgsmål, bruger den dine egne data - ikke generiske råd.</p>
+        </div>
+        <div class="ai-showcase-grid">
+          <div class="coach-card">
+            <div class="coach-card-header">
+              <div class="coach-card-dot"></div>
+              <span data-i18n="aiDetail.cardTitle">AI-COACHENS ADGANG</span>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.prsLabel">PERSONLIGE REKORDER (MED DATOER)</div>
+              <div class="know-value" data-i18n="aiDetail.prsVal">Squat 120 kg×5 · Baenkpres 95 kg×3 · Deadlift 150 kg×4</div>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.weightLabel">VAEGTTEND</div>
+              <div class="know-value" data-i18n="aiDetail.weightVal">83 kg → 85 kg (stiger +2 kg de seneste 6 uger)</div>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.daysLabel">TRAENINGSMOENSTRE</div>
+              <div class="know-value" data-i18n="aiDetail.daysVal">Traener typisk Man / Ons / Fre (beregnet fra historik)</div>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.notesLabel">DIN BESKED TIL COACHEN</div>
+              <div class="know-value" data-i18n="aiDetail.notesVal">"Darligt venstre knae - undgar overhead press"</div>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.historyLabel">TRAENINGSHISTORIK</div>
+              <div class="know-value" data-i18n="aiDetail.historyVal">Seneste 8 traeninger med alle saet, vaegte og reps</div>
+            </div>
+            <div class="know-row">
+              <div class="know-label" data-i18n="aiDetail.memoryLabel">SAMTALEHUKOMMELSE</div>
+              <div class="know-value" data-i18n="aiDetail.memoryVal">Husker hvad I har talt om paa tvaers af sessioner</div>
+            </div>
+          </div>
+
+          <div class="chat-demo">
+            <div class="chat-demo-header">
+              <div class="chat-coach-avatar">G</div>
+              <div>
+                <div class="chat-coach-name">Gainfully Coach</div>
+                <div class="chat-coach-status" data-i18n="aiDetail.chatStatus">Kender din historik</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="chat-msg-user" data-i18n="aiDetail.chatQ">Skal jeg oge vaegten paa squat i dag?</div>
+              <div class="chat-msg-coach" data-i18n="aiDetail.chatA">Du har loftet 120 kg × 5 reps tre sessioner i traek - et klart plateau-signal. Jeg anbefaler 122,5 kg i dag. Og da du har noteret darligt venstre knae: brug high-bar stil og stop lidt over parallel.</div>
+            </div>
+            <div class="chat-note" data-i18n="aiDetail.chatNote">Svaret bruger dine PRer, din historik og dine coach-noter - ikke et generisk svar.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section-wrap" id="features" aria-label="Features">
       <div class="section-label" data-i18n="features.label">Features</div>
       <h2 class="section-title" data-i18n="features.title">Alt hvad du behøver for at blive stærkere</h2>
       <div class="features-grid">
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="barbell-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5h11M3 12h18M6.5 17.5h11"/><circle cx="3" cy="12" r="1.5"/><circle cx="21" cy="12" r="1.5"/></svg></div>
           <h3 data-i18n="features.log.title">Smart træningslogning</h3>
           <p data-i18n="features.log.desc">Log sæt, reps og vægt med få tryk. Din forrige session vises direkte, så du altid ved hvad du skal slå.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="trending-up-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
           <h3 data-i18n="features.overload.title">Progressiv overload: automatisk</h3>
           <p data-i18n="features.overload.desc">Gainfully foreslår næste vægt baseret på din historik. Du fokuserer på løftningen. Vi holder styr på progressionen.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="trophy-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4H4a1 1 0 0 0-1 1v2a4 4 0 0 0 4 4M17 4h3a1 1 0 0 1 1 1v2a4 4 0 0 1-4 4"/><path d="M7 4h10v7a5 5 0 0 1-10 0V4z"/></svg></div>
           <h3 data-i18n="features.pr.title">Live PR-notifikationer</h3>
           <p data-i18n="features.pr.desc">Slår du en personlig rekord? Appen fejrer det med det samme. Se alle dine bedste løft og din udvikling over tid.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="stats-chart-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <h3 data-i18n="features.stats.title">Fremgangsanalyse og statistik</h3>
           <p data-i18n="features.stats.desc">Grafer for maksimumvægt, volumen og estimeret 1RM. Se muskelbalance og hvilke grupper du træner mest.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="library-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
           <h3 data-i18n="features.library.title">Øvelsesbibliotek med GIFs</h3>
           <p data-i18n="features.library.desc">Over 1.400 øvelser med animerede GIFs der viser korrekt udførelse. Find den rigtige øvelse på sekunder.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="list-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
           <h3 data-i18n="features.programs.title">Træningsprogrammer</h3>
           <p data-i18n="features.programs.desc">Byg præcis det program du vil have. PPL, Upper/Lower, Full Body. Gentag workouts og spor din fremgang.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="timer-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3L2 6M22 6l-3-3M12 5V3"/></svg></div>
           <h3 data-i18n="features.timer.title">Indbygget pausetimer</h3>
           <p data-i18n="features.timer.desc">Sæt pausetid per øvelse og få besked når du er klar til næste sæt. Automatisk håndteret.</p>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon"><ion-icon name="language-outline"></ion-icon></div>
+          <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <h3 data-i18n="features.lang.title">6 sprog</h3>
           <p data-i18n="features.lang.desc">Appen er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk. Skift sprog i appen eller det sker automatisk.</p>
         </article>
@@ -1142,63 +1170,6 @@
       <div class="ai-chips" id="aiChips"></div>
     </section>
 
-    <section class="ai-showcase" aria-label="AI coach details">
-      <div class="ai-showcase-inner">
-        <div class="ai-showcase-header">
-          <div class="section-label" data-i18n="aiDetail.label">Personlig, ikke generisk</div>
-          <h2 data-i18n="aiDetail.title">Din coach kender <span style="color:var(--volt)">DIG</span></h2>
-          <p data-i18n="aiDetail.sub">Gainfully AI-coachen kender din faktiske historik. Næste gang du stiller et spørgsmål, bruger den dine egne data - ikke generiske råd.</p>
-        </div>
-        <div class="ai-showcase-grid">
-          <div class="coach-card">
-            <div class="coach-card-header">
-              <div class="coach-card-dot"></div>
-              <span data-i18n="aiDetail.cardTitle">AI-COACHENS ADGANG</span>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.prsLabel">PERSONLIGE REKORDER (MED DATOER)</div>
-              <div class="know-value" data-i18n="aiDetail.prsVal">Squat 120 kg×5 · Baenkpres 95 kg×3 · Deadlift 150 kg×4</div>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.weightLabel">VAEGTTEND</div>
-              <div class="know-value" data-i18n="aiDetail.weightVal">83 kg → 85 kg (stiger +2 kg de seneste 6 uger)</div>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.daysLabel">TRAENINGSMOENSTRE</div>
-              <div class="know-value" data-i18n="aiDetail.daysVal">Traener typisk Man / Ons / Fre (beregnet fra historik)</div>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.notesLabel">DIN BESKED TIL COACHEN</div>
-              <div class="know-value" data-i18n="aiDetail.notesVal">"Darligt venstre knae - undgar overhead press"</div>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.historyLabel">TRAENINGSHISTORIK</div>
-              <div class="know-value" data-i18n="aiDetail.historyVal">Seneste 8 traeninger med alle saet, vaegte og reps</div>
-            </div>
-            <div class="know-row">
-              <div class="know-label" data-i18n="aiDetail.memoryLabel">SAMTALEHUKOMMELSE</div>
-              <div class="know-value" data-i18n="aiDetail.memoryVal">Husker hvad I har talt om paa tvaers af sessioner</div>
-            </div>
-          </div>
-
-          <div class="chat-demo">
-            <div class="chat-demo-header">
-              <div class="chat-coach-avatar">G</div>
-              <div>
-                <div class="chat-coach-name">Gainfully Coach</div>
-                <div class="chat-coach-status" data-i18n="aiDetail.chatStatus">Kender din historik</div>
-              </div>
-            </div>
-            <div class="chat-messages">
-              <div class="chat-msg-user" data-i18n="aiDetail.chatQ">Skal jeg oge vaegten paa squat i dag?</div>
-              <div class="chat-msg-coach" data-i18n="aiDetail.chatA">Du har loftet 120 kg × 5 reps tre sessioner i traek - et klart plateau-signal. Jeg anbefaler 122,5 kg i dag. Og da du har noteret darligt venstre knae: brug high-bar stil og stop lidt over parallel.</div>
-            </div>
-            <div class="chat-note" data-i18n="aiDetail.chatNote">Svaret bruger dine PRer, din historik og dine coach-noter - ikke et generisk svar.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section-wrap" aria-label="Who is it for">
       <div class="section-label" data-i18n="who.label">Hvem er det til?</div>
       <h2 class="section-title" data-i18n="who.title">Uanset dit niveau og dine mål</h2>
@@ -1278,7 +1249,7 @@
   const TRANSLATIONS = {
     da: {
       nav: { features: 'Features', ai: 'AI-træner (Pro)', faq: 'FAQ', privacy: 'Privatliv', cta: 'Download gratis' },
-      hero: { badge: 'Din træning. Din app.', h1: 'Ikke endnu en træningsapp.<br /><span>Træn din måde.</span>', h1span: 'Træn din måde.', sub: 'Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', ios: 'Download til iPhone', android: 'Download til Android', note: 'Gratis at starte. Over 1.400 øvelser inkluderet.', pr: 'PR slået', prSub: 'siden forrige session' },
+      hero: { badge: 'Din træning. Din app.', h1: 'Din AI personlig træner.<br /><span>Træn din måde.</span>', h1span: 'Træn din måde.', sub: 'Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', ios: 'Download til iPhone', android: 'Download til Android', note: 'Gratis at starte. Over 1.400 øvelser inkluderet.', pr: 'PR slået', prSub: 'siden forrige session' },
       stats: { exercises: 'Øvelser med animerede GIFs', days: 'Dages gratis historik', languages: 'Sprog: DA, EN, DE, FR, ES, PT', programs: 'Egne programmer (Pro)' },
       screens: { label: 'Se appen', title: 'Hvad du får', s1: 'Hjemskærm', s2: 'AI-træner', s3: 'Fremgang', s4: 'Træning', s5: 'Programmer', s6: 'Øvelser' },
       features: { label: 'Features', title: 'Alt hvad du behøver for at blive stærkere', log: { title: 'Smart træningslogning', desc: 'Log sæt, reps og vægt med få tryk. Din forrige session vises direkte, så du altid ved hvad du skal slå.' }, overload: { title: 'Progressiv overload: automatisk', desc: 'Gainfully foreslår næste vægt baseret på din historik. Du fokuserer på løftningen. Vi holder styr på progressionen.' }, pr: { title: 'Live PR-notifikationer', desc: 'Slår du en personlig rekord? Appen fejrer det med det samme. Se alle dine bedste løft og din udvikling over tid.' }, stats: { title: 'Fremgangsanalyse og statistik', desc: 'Grafer for maksimumvægt, volumen og estimeret 1RM. Se muskelbalance og hvilke grupper du træner mest.' }, library: { title: 'Øvelsesbibliotek med GIFs', desc: 'Over 1.400 øvelser med animerede GIFs der viser korrekt udførelse. Find den rigtige øvelse på sekunder.' }, programs: { title: 'Træningsprogrammer', desc: 'Byg præcis det program du vil have. PPL, Upper/Lower, Full Body. Gentag workouts og spor din fremgang.' }, timer: { title: 'Indbygget pausetimer', desc: 'Sæt pausetid per øvelse og få besked når du er klar til næste sæt. Automatisk håndteret.' }, lang: { title: '6 sprog', desc: 'Appen er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk. Skift sprog i appen eller det sker automatisk.' } },
@@ -1296,7 +1267,7 @@
     },
     en: {
       nav: { features: 'Features', ai: 'AI Coach (Pro)', faq: 'FAQ', privacy: 'Privacy', cta: 'Download free' },
-      hero: { badge: 'Your training. Your app.', h1: 'Not just another workout app.<br /><span>Train your way.</span>', h1span: 'Train your way.', sub: 'With an AI coach that actually knows you. Asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', ios: 'Download for iPhone', android: 'Download for Android', note: 'Free to start. 1,400+ exercises included.', pr: 'PR beaten', prSub: 'since last session' },
+      hero: { badge: 'Your training. Your app.', h1: 'Your AI personal trainer.<br /><span>Train your way.</span>', h1span: 'Train your way.', sub: 'With an AI coach that actually knows you. Asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', ios: 'Download for iPhone', android: 'Download for Android', note: 'Free to start. 1,400+ exercises included.', pr: 'PR beaten', prSub: 'since last session' },
       stats: { exercises: 'Exercises with animated GIFs', days: 'Days history included free', languages: 'Languages: DA, EN, DE, FR, ES, PT', programs: 'Custom programs (Pro)' },
       screens: { label: 'In the app', title: 'See it in action', s1: 'Home', s2: 'AI Coach', s3: 'Progress', s4: 'Workout', s5: 'Programs', s6: 'Exercises' },
       features: { label: 'Features', title: 'Everything you need to get stronger', log: { title: 'Smart workout logging', desc: 'Log sets, reps and weight in seconds. Your last session is shown inline so you always know what to beat.' }, overload: { title: 'Progressive overload: automatic', desc: 'Gainfully suggests your next weight based on your history. You focus on lifting. We track the progression.' }, pr: { title: 'Live PR notifications', desc: 'Beat a personal record? The app celebrates instantly. See all your best lifts and track your progress over time.' }, stats: { title: 'Progress analysis and stats', desc: 'Graphs for max weight, volume and estimated 1RM. See muscle balance and which groups you train most.' }, library: { title: 'Exercise library with GIFs', desc: '1,400+ exercises with animated GIFs showing correct form. Find the right exercise in seconds.' }, programs: { title: 'Training programs', desc: 'Build exactly the program you want. PPL, Upper/Lower, Full Body. Repeat workouts and track progress.' }, timer: { title: 'Built-in rest timer', desc: 'Set rest time per exercise and get notified when you\'re ready for the next set. Handled automatically.' }, lang: { title: '6 languages', desc: 'The app is available in Danish, English, German, French, Spanish and Portuguese. Language is set automatically or you can switch manually.' } },
@@ -1314,7 +1285,7 @@
     },
     de: {
       nav: { features: 'Features', ai: 'KI-Coach (Pro)', faq: 'FAQ', privacy: 'Datenschutz', cta: 'Kostenlos laden' },
-      hero: { badge: 'Dein Training. Deine App.', h1: 'Nicht noch eine Fitness-App.<br /><span>Trainiere deinen Weg.</span>', h1span: 'Trainiere deinen Weg.', sub: 'Mit einem KI-Coach, der dich wirklich kennt. Fragt statt anzunehmen. Erinnert sich, statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', ios: 'Für iPhone laden', android: 'Für Android laden', note: 'Kostenlos starten. Über 1.400 Übungen inklusive.', pr: 'PR geschlagen', prSub: 'seit letzter Einheit' },
+      hero: { badge: 'Dein Training. Deine App.', h1: 'Dein KI Personal Trainer.<br /><span>Trainiere deinen Weg.</span>', h1span: 'Trainiere deinen Weg.', sub: 'Mit einem KI-Coach, der dich wirklich kennt. Fragt statt anzunehmen. Erinnert sich, statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', ios: 'Für iPhone laden', android: 'Für Android laden', note: 'Kostenlos starten. Über 1.400 Übungen inklusive.', pr: 'PR geschlagen', prSub: 'seit letzter Einheit' },
       stats: { exercises: 'Übungen mit animierten GIFs', days: 'Tage Verlauf kostenlos', languages: 'Sprachen: DA, EN, DE, FR, ES, PT', programs: 'Eigene Programme (Pro)' },
       screens: { label: 'In der App', title: 'Sieh es in Aktion', s1: 'Startseite', s2: 'KI-Coach', s3: 'Fortschritt', s4: 'Training', s5: 'Programme', s6: 'Übungen' },
       features: { label: 'Features', title: 'Alles, was du brauchst, um stärker zu werden', log: { title: 'Smartes Workout-Logging', desc: 'Logge Sätze, Wiederholungen und Gewicht in Sekunden. Deine letzte Einheit wird direkt angezeigt.' }, overload: { title: 'Progressive Überlastung: automatisch', desc: 'Gainfully schlägt dein nächstes Gewicht basierend auf deiner Historie vor. Du hebst, wir tracken.' }, pr: { title: 'Live PR-Benachrichtigungen', desc: 'Einen persönlichen Rekord gebrochen? Die App feiert es sofort. Sieh alle deine besten Lifts.' }, stats: { title: 'Fortschrittsanalyse', desc: 'Diagramme für Maximalgewicht, Volumen und geschätztes 1RM. Sieh deine Muskelbalance.' }, library: { title: 'Übungsbibliothek mit GIFs', desc: 'Über 1.400 Übungen mit animierten GIFs, die die richtige Ausführung zeigen.' }, programs: { title: 'Trainingsprogramme', desc: 'Erstelle genau das Programm, das du willst. PPL, Upper/Lower, Ganzkörper.' }, timer: { title: 'Eingebauter Pausentimer', desc: 'Stell die Pausenzeit pro Übung ein und erhalte eine Benachrichtigung, wenn du bereit bist.' }, lang: { title: '6 Sprachen', desc: 'Die App ist auf Dänisch, Englisch, Deutsch, Französisch, Spanisch und Portugiesisch verfügbar.' } },
@@ -1332,7 +1303,7 @@
     },
     fr: {
       nav: { features: 'Fonctionnalités', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Confidentialité', cta: 'Télécharger gratuit' },
-      hero: { badge: 'Ton entraînement. Ton app.', h1: 'Pas juste une app de fitness.<br /><span>Entraîne-toi à ta façon.</span>', h1span: 'Entraîne-toi à ta façon.', sub: 'Avec un coach IA qui te connaît vraiment. Demande avant de supposer. Se souvient au lieu de répéter. S\'adapte à toi - pas l\'inverse.', ios: 'Télécharger pour iPhone', android: 'Télécharger pour Android', note: 'Gratuit pour commencer. Plus de 1 400 exercices inclus.', pr: 'PR battu', prSub: 'depuis la dernière séance' },
+      hero: { badge: 'Ton entraînement. Ton app.', h1: 'Ton coach IA personnel.<br /><span>Entraîne-toi à ta façon.</span>', h1span: 'Entraîne-toi à ta façon.', sub: 'Avec un coach IA qui te connaît vraiment. Demande avant de supposer. Se souvient au lieu de répéter. S\'adapte à toi - pas l\'inverse.', ios: 'Télécharger pour iPhone', android: 'Télécharger pour Android', note: 'Gratuit pour commencer. Plus de 1 400 exercices inclus.', pr: 'PR battu', prSub: 'depuis la dernière séance' },
       stats: { exercises: 'Exercices avec GIFs animés', days: "Jours d'historique gratuits", languages: 'Langues: DA, EN, DE, FR, ES, PT', programs: 'Programmes perso (Pro)' },
       screens: { label: "Dans l'app", title: 'Voir en action', s1: 'Accueil', s2: 'Coach IA', s3: 'Progrès', s4: 'Séance', s5: 'Programmes', s6: 'Exercices' },
       features: { label: 'Fonctionnalités', title: 'Tout ce dont tu as besoin pour devenir plus fort', log: { title: 'Journal d\'entraînement intelligent', desc: 'Enregistre séries, reps et poids en quelques secondes. Ta dernière séance s\'affiche directement.' }, overload: { title: 'Surcharge progressive: automatique', desc: 'Gainfully suggère ton prochain poids selon ton historique. Tu te concentres sur la levée.' }, pr: { title: 'Notifications PR en direct', desc: 'Tu bats un record personnel? L\'app fête ça immédiatement. Suis tous tes meilleurs lifts.' }, stats: { title: 'Analyse des progrès', desc: 'Graphiques pour le poids max, le volume et le 1RM estimé. Vois l\'équilibre musculaire.' }, library: { title: 'Bibliothèque d\'exercices avec GIFs', desc: 'Plus de 1 400 exercices avec GIFs animés montrant la bonne technique.' }, programs: { title: 'Programmes d\'entraînement', desc: 'Crée exactement le programme que tu veux. PPL, Haut/Bas, Corps complet.' }, timer: { title: 'Minuterie de repos intégrée', desc: 'Règle le temps de repos par exercice et reçois une notification quand tu es prêt.' }, lang: { title: '6 langues', desc: 'L\'app est disponible en danois, anglais, allemand, français, espagnol et portugais.' } },
@@ -1350,7 +1321,7 @@
     },
     es: {
       nav: { features: 'Funciones', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Privacidad', cta: 'Descargar gratis' },
-      hero: { badge: 'Tu entrenamiento. Tu app.', h1: 'No una app de fitness más.<br /><span>Entrena a tu manera.</span>', h1span: 'Entrena a tu manera.', sub: 'Con un coach IA que realmente te conoce. Pregunta antes de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', ios: 'Descargar para iPhone', android: 'Descargar para Android', note: 'Gratis para empezar. Más de 1.400 ejercicios incluidos.', pr: 'PR superado', prSub: 'desde la última sesión' },
+      hero: { badge: 'Tu entrenamiento. Tu app.', h1: 'Tu entrenador personal con IA.<br /><span>Entrena a tu manera.</span>', h1span: 'Entrena a tu manera.', sub: 'Con un coach IA que realmente te conoce. Pregunta antes de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', ios: 'Descargar para iPhone', android: 'Descargar para Android', note: 'Gratis para empezar. Más de 1.400 ejercicios incluidos.', pr: 'PR superado', prSub: 'desde la última sesión' },
       stats: { exercises: 'Ejercicios con GIFs animados', days: 'Días de historial gratuito', languages: 'Idiomas: DA, EN, DE, FR, ES, PT', programs: 'Programas propios (Pro)' },
       screens: { label: 'En la app', title: 'Véelo en acción', s1: 'Inicio', s2: 'Coach IA', s3: 'Progreso', s4: 'Entrenamiento', s5: 'Programas', s6: 'Ejercicios' },
       features: { label: 'Funciones', title: 'Todo lo que necesitas para hacerte más fuerte', log: { title: 'Registro inteligente de entrenamientos', desc: 'Registra series, repeticiones y peso en segundos. Tu última sesión se muestra directamente.' }, overload: { title: 'Sobrecarga progresiva: automática', desc: 'Gainfully sugiere tu próximo peso según tu historial. Tú te concentras en levantar.' }, pr: { title: 'Notificaciones PR en vivo', desc: '¿Superaste un récord personal? La app lo celebra al instante. Ve tus mejores levantamientos.' }, stats: { title: 'Análisis de progreso y estadísticas', desc: 'Gráficas de peso máximo, volumen y 1RM estimado. Ve el equilibrio muscular.' }, library: { title: 'Biblioteca de ejercicios con GIFs', desc: 'Más de 1.400 ejercicios con GIFs animados que muestran la técnica correcta.' }, programs: { title: 'Programas de entrenamiento', desc: 'Crea exactamente el programa que quieres. PPL, Superior/Inferior, Cuerpo completo.' }, timer: { title: 'Temporizador de descanso integrado', desc: 'Establece el tiempo de descanso por ejercicio y recibe notificación cuando estés listo.' }, lang: { title: '6 idiomas', desc: 'La app está disponible en danés, inglés, alemán, francés, español y portugués.' } },
@@ -1368,7 +1339,7 @@
     },
     'pt-BR': {
       nav: { features: 'Funcionalidades', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Privacidade', cta: 'Baixar grátis' },
-      hero: { badge: 'Seu treino. Seu app.', h1: 'Não é mais um app de fitness.<br /><span>Treine do seu jeito.</span>', h1span: 'Treine do seu jeito.', sub: 'Com um coach IA que realmente te conhece. Pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', ios: 'Baixar para iPhone', android: 'Baixar para Android', note: 'Grátis para começar. Mais de 1.400 exercícios incluídos.', pr: 'PR batido', prSub: 'desde a última sessão' },
+      hero: { badge: 'Seu treino. Seu app.', h1: 'Seu personal trainer com IA.<br /><span>Treine do seu jeito.</span>', h1span: 'Treine do seu jeito.', sub: 'Com um coach IA que realmente te conhece. Pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', ios: 'Baixar para iPhone', android: 'Baixar para Android', note: 'Grátis para começar. Mais de 1.400 exercícios incluídos.', pr: 'PR batido', prSub: 'desde a última sessão' },
       stats: { exercises: 'Exercícios com GIFs animados', days: 'Dias de histórico gratuito', languages: 'Idiomas: DA, EN, DE, FR, ES, PT', programs: 'Programas próprios (Pro)' },
       screens: { label: 'No app', title: 'Veja em ação', s1: 'Início', s2: 'Coach IA', s3: 'Progresso', s4: 'Treino', s5: 'Programas', s6: 'Exercícios' },
       features: { label: 'Funcionalidades', title: 'Tudo que você precisa para ficar mais forte', log: { title: 'Log inteligente de treinos', desc: 'Registre séries, repetições e peso em segundos. Sua última sessão é exibida diretamente.' }, overload: { title: 'Sobrecarga progressiva: automática', desc: 'Gainfully sugere seu próximo peso com base no seu histórico. Você foca no levantamento.' }, pr: { title: 'Notificações de PR ao vivo', desc: 'Bateu um recorde pessoal? O app comemora na hora. Veja todos os seus melhores levantamentos.' }, stats: { title: 'Análise de progresso e estatísticas', desc: 'Gráficos de peso máximo, volume e 1RM estimado. Veja o equilíbrio muscular.' }, library: { title: 'Biblioteca de exercícios com GIFs', desc: 'Mais de 1.400 exercícios com GIFs animados mostrando a execução correta.' }, programs: { title: 'Programas de treino', desc: 'Monte exatamente o programa que você quer. PPL, Superior/Inferior, Corpo inteiro.' }, timer: { title: 'Temporizador de descanso integrado', desc: 'Configure o tempo de descanso por exercício e receba notificação quando estiver pronto.' }, lang: { title: '6 idiomas', desc: 'O app está disponível em dinamarquês, inglês, alemão, francês, espanhol e português.' } },
