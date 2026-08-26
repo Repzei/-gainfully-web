@@ -323,53 +323,59 @@
     }
     .nav-cta:hover { opacity: 0.85; }
 
-    /* HERO */
-    .hero-wrap {
+    /* HERO — centered with triple phone showcase */
+    .hero-outer {
+      overflow: hidden;
       position: relative;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px 72px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
       animation: fadeUp 0.8s ease both;
     }
-
-    .hero-content .hero-badge {
+    /* Volt radial glow at top */
+    .hero-outer::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 700px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(196,255,0,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-content-centered {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 24px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content-centered .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: none;
-      border: none;
+      justify-content: center;
       color: var(--volt);
-      padding: 0;
-      border-radius: 0;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       opacity: 0.8;
     }
-
-    .hero-content h1 {
-      font-size: clamp(38px, 5.5vw, 70px);
+    .hero-content-centered h1 {
+      font-size: clamp(44px, 7vw, 86px);
       font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -2.5px;
+      line-height: 0.94;
+      letter-spacing: -3px;
       margin-bottom: 24px;
+      text-wrap: balance;
     }
-    .hero-content h1 span { color: var(--volt); text-shadow: 0 0 40px rgba(196,255,0,0.3); }
-
-    .hero-content > p {
-      font-size: 17px;
+    .hero-content-centered h1 span { color: var(--volt); text-shadow: 0 0 60px rgba(196,255,0,0.28); }
+    .hero-content-centered > p {
+      font-size: 18px;
       color: var(--muted);
-      margin-bottom: 36px;
+      max-width: 500px;
+      margin: 0 auto 40px;
       line-height: 1.7;
     }
-
-    .hero-content .hero-buttons { justify-content: flex-start; }
+    .hero-content-centered .hero-buttons { justify-content: center; }
 
     .hero-buttons {
       display: flex;
@@ -476,32 +482,33 @@
       background: #2a2a2e; border-radius: 0 3px 3px 0;
     }
 
-    /* Hero device (uses device-frame above + hero specifics) */
-    .hero-device {
-      max-width: 260px;
-      justify-self: center;
-      transform: perspective(1100px) rotateY(-6deg) rotateX(1deg);
+    /* Triple phone layout */
+    .hero-phones-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
-    /* Volt glow behind hero phone */
-    .hero-wrap::after {
-      content: '';
-      position: absolute;
-      right: 10%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 320px;
-      height: 500px;
-      background: radial-gradient(ellipse, rgba(196,255,0,0.07) 0%, transparent 65%);
-      pointer-events: none;
-      z-index: 0;
+    .hero-phone-side {
+      width: min(185px, 22vw);
+      flex-shrink: 0;
+      opacity: 0.7;
+      filter: brightness(0.85);
     }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-device { position: relative; z-index: 1; }
-    @media (max-width: 768px) {
-      .hero-device { transform: none; max-width: 220px; }
+    .hero-phone-left { transform: rotate(-10deg) translateY(36px); }
+    .hero-phone-right { transform: rotate(10deg) translateY(36px); }
+    .hero-phone-center {
+      width: min(248px, 30vw);
+      z-index: 2;
+      flex-shrink: 0;
     }
-    @media (max-width: 480px) {
-      .hero-device { max-width: 180px; }
+    @media (max-width: 700px) {
+      .hero-phone-side { display: none; }
+      .hero-phone-center { width: min(230px, 66vw); }
+      .hero-content-centered { padding: 72px 24px 48px; }
     }
 
     /* Social proof */
@@ -546,16 +553,26 @@
     .stats {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 0;
       padding: 48px 24px;
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       flex-wrap: wrap;
       background: linear-gradient(180deg, rgba(196,255,0,0.02) 0%, transparent 100%);
     }
-    .stat-item { text-align: center; }
-    .stat-num { font-size: 42px; font-weight: 800; color: var(--volt); letter-spacing: -2px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
-    .stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; font-weight: 500; }
+    .stat-item {
+      text-align: center;
+      padding: 0 48px;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item:last-child { border-right: none; }
+    @media (max-width: 600px) {
+      .stat-item { padding: 16px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); width: 50%; }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+    }
+    .stat-num { font-size: 48px; font-weight: 800; color: var(--volt); letter-spacing: -2.5px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 8px; font-weight: 500; }
 
     /* PHOTO STRIP */
     /* SCREENSHOTS CAROUSEL */
@@ -838,10 +855,29 @@
     .faq-item.open .faq-a { display: block; }
 
     /* CTA */
-    .cta { text-align: center; padding: 96px 24px; max-width: 640px; margin: 0 auto; }
-    .cta-anchor { color: var(--muted); font-size: 16px; margin-bottom: 16px; }
-    .cta h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.5px; }
-    .cta > p { color: var(--muted); font-size: 17px; margin-bottom: 32px; }
+    .cta-wrap {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(196,255,0,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 50% -10%, rgba(196,255,0,0.05) 0%, transparent 70%),
+        #080a06;
+      border-top: 1px solid rgba(196,255,0,0.14);
+      padding: 0 0 0;
+    }
+    .cta { text-align: center; padding: 120px 24px; max-width: 680px; margin: 0 auto; }
+    .cta-anchor {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+    .cta h2 {
+      font-size: clamp(34px, 5.5vw, 64px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+      line-height: 1.0;
+    }
+    .cta > p { color: var(--muted); font-size: 17px; margin-bottom: 40px; line-height: 1.7; }
     .cta-plans { display: flex; gap: 14px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
     .cta-plan {
       background: var(--bg2);
@@ -885,11 +921,6 @@
     .footer-links a { color: var(--dim); font-size: 14px; transition: color 0.2s; }
     .footer-links a:hover { color: var(--muted); }
 
-    @media (max-width: 800px) {
-      .hero-wrap { grid-template-columns: 1fr; padding: 60px 24px 48px; gap: 40px; }
-      .hero-content h1 { font-size: clamp(32px, 8vw, 52px); }
-      .hero-content .hero-buttons { justify-content: flex-start; flex-wrap: wrap; }
-    }
     @media (max-width: 600px) {
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
@@ -1038,8 +1069,8 @@
 
   <main>
 
-    <section class="hero-wrap" aria-label="Hero">
-      <div class="hero-content">
+    <section class="hero-outer" aria-label="Hero">
+      <div class="hero-content-centered">
         <div class="hero-badge">
           <span data-i18n="hero.badge">Din træning. Din app.</span>
         </div>
@@ -1062,14 +1093,28 @@
           <span data-i18n="hero.note">Gratis at starte. Over 1.400 øvelser inkluderet.</span>
         </div>
       </div>
-      <div class="hero-device device-frame">
-        <div class="device-screen">
-          <img src="screenshots/slide-1.jpg" alt="Gainfully app - hjemskærm" width="390" height="844" loading="eager" />
+      <div class="hero-phones-row">
+        <div class="hero-phone-side hero-phone-left device-frame">
+          <div class="device-screen">
+            <img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" width="390" height="844" loading="eager" />
+          </div>
+          <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
+          <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
         </div>
-        <div class="df-btn-action"></div>
-        <div class="df-btn-vol-up"></div>
-        <div class="df-btn-vol-down"></div>
-        <div class="df-btn-power"></div>
+        <div class="hero-phone-center device-frame">
+          <div class="device-screen">
+            <img src="screenshots/slide-1.jpg" alt="Gainfully app - hjemskærm" width="390" height="844" loading="eager" />
+          </div>
+          <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
+          <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
+        </div>
+        <div class="hero-phone-side hero-phone-right device-frame">
+          <div class="device-screen">
+            <img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" width="390" height="844" loading="eager" />
+          </div>
+          <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
+          <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
+        </div>
       </div>
     </section>
 
@@ -1369,7 +1414,7 @@
       <div class="faq-list" id="faqList"></div>
     </section>
 
-    <section class="cta" id="download">
+    <div class="cta-wrap"><section class="cta" id="download">
       <p class="cta-anchor" data-i18n="cta.anchor">En personlig træner koster 400 kr/timen.</p>
       <h2 data-i18n="cta.h2">Gainfully koster<br /><span style="color:var(--volt)">99 kr/md.</span></h2>
       <p data-i18n="cta.sub">Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.</p>
@@ -1402,7 +1447,7 @@
         </a>
       </div>
       <p class="hero-note" data-i18n="hero.note">Gratis at starte. Ingen binding.</p>
-    </section>
+    </section></div>
 
   </main>
 
