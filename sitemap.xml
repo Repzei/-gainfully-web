@@ -2,93 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Danish (default) -->
+  <!-- Forside (ét URL, JS-drevet i18n - alle sprog peger på same side) -->
   <url>
     <loc>https://gainfully.app/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
-  </url>
-
-  <!-- English -->
-  <url>
-    <loc>https://gainfully.app/en/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
-  </url>
-
-  <!-- Deutsch -->
-  <url>
-    <loc>https://gainfully.app/de/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
-  </url>
-
-  <!-- Francais -->
-  <url>
-    <loc>https://gainfully.app/fr/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
-  </url>
-
-  <!-- Espanol -->
-  <url>
-    <loc>https://gainfully.app/es/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
-  </url>
-
-  <!-- Portugues BR -->
-  <url>
-    <loc>https://gainfully.app/pt-br/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/" />
-    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/en/" />
-    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/de/" />
-    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/fr/" />
-    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/es/" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
+    <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
+    <xhtml:link rel="alternate" hreflang="en"      href="https://gainfully.app/" />
+    <xhtml:link rel="alternate" hreflang="de"      href="https://gainfully.app/" />
+    <xhtml:link rel="alternate" hreflang="fr"      href="https://gainfully.app/" />
+    <xhtml:link rel="alternate" hreflang="es"      href="https://gainfully.app/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR"   href="https://gainfully.app/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
   </url>
 
