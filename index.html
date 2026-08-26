@@ -585,7 +585,7 @@
       border-top: 1px solid rgba(255,255,255,0.06);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       flex-wrap: wrap;
-      background: linear-gradient(180deg, rgba(196,255,0,0.02) 0%, transparent 100%);
+      background: transparent;
     }
     .stat-item {
       text-align: center;
@@ -598,7 +598,8 @@
       .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
     }
-    .stat-num { font-size: 48px; font-weight: 800; color: var(--volt); letter-spacing: -2.5px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .stat-num { font-size: 48px; font-weight: 800; color: var(--text); letter-spacing: -2.5px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .stat-item:first-child .stat-num { color: var(--volt); }
     .stat-label { font-size: 13px; color: var(--muted); margin-top: 8px; font-weight: 500; }
 
     /* PHOTO STRIP */
@@ -627,6 +628,7 @@
     .scr-stage {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 20px;
       position: relative;
       z-index: 1;
@@ -642,8 +644,7 @@
         0 0 0 1.5px rgba(255,255,255,0.1),
         0 0 0 3px #050507,
         0 60px 140px rgba(0,0,0,0.8);
-      flex: 1;
-      max-width: min(320px, calc(100vw - 100px));
+      width: min(248px, calc(100vw - 120px));
     }
     /* Dynamic Island on carousel */
     .scr-device-chrome::before {
@@ -652,7 +653,7 @@
       top: 18px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: clamp(52px, 29%, 78px);
       height: 23px;
       background: #000;
       border-radius: 60px;
@@ -756,7 +757,7 @@
     .section-wrap { max-width: 1100px; margin: 0 auto; padding: 96px 24px; }
     .section-label {
       text-align: center;
-      color: var(--volt);
+      color: var(--muted);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.2px;
@@ -794,8 +795,11 @@
     }
     .fh-text .feature-icon { margin-bottom: 16px; }
     .fh-text h3 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -0.6px; margin-bottom: 12px; }
-    .fh-text p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 400px; }
+    .fh-text p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 520px; }
     .fh-visual { width: min(210px, 28vw); align-self: end; }
+    /* Proportional border-radius so feature card phones match hero phone rounding (17.7% = 44/248) */
+    .fh-visual.device-frame { border-radius: min(44px, 17.7%); }
+    .fh-visual .device-screen { border-radius: min(32px, 12.9%); }
     @media (max-width: 768px) {
       .feature-card-hero { grid-template-columns: 1fr; padding: 32px 28px 0; gap: 28px; min-height: auto; }
       .feature-card-hero.fh-rev { grid-template-columns: 1fr; }
@@ -841,7 +845,7 @@
       display: block;
       font-size: 52px;
       font-weight: 800;
-      color: rgba(196,255,0,0.15);
+      color: rgba(255,255,255,0.07);
       letter-spacing: -3px;
       line-height: 1;
       margin: 0 0 10px;
@@ -867,7 +871,7 @@
 
     /* WHO */
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .audience-card { background: var(--bg2); border: 1px solid var(--border); border-left: 2px solid rgba(196,255,0,0.28); border-radius: 14px; padding: 24px; }
+    .audience-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
     .audience-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .audience-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
@@ -1019,7 +1023,7 @@
 
     /* MANIFESTO */
     .manifesto-section { padding: 80px 24px; border-top: 1px solid var(--border); }
-    .manifesto-inner { max-width: 700px; margin: 0 auto; padding-left: 28px; border-left: 2px solid rgba(196,255,0,0.3); }
+    .manifesto-inner { max-width: 700px; margin: 0 auto; padding-left: 28px; border-left: 2px solid var(--border); }
     .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--volt); margin-bottom: 28px; opacity: 0.8; }
     .manifesto-p1 { font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
     .manifesto-p2 { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
@@ -1144,7 +1148,7 @@
         <div class="hero-badge">
           <span data-i18n="hero.badge">Din træning. Din app.</span>
         </div>
-        <h1 data-i18n="hero.h1">Din AI personlig træner.<br /><span>Træn din måde.</span></h1>
+        <h1 data-i18n="hero.h1">Bliv stærkere.<br /><span>Uge for uge.</span></h1>
         <p data-i18n="hero.sub">Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.</p>
         <div class="hero-buttons">
           <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="btn-primary">
@@ -1547,7 +1551,7 @@
   const TRANSLATIONS = {
     da: {
       nav: { features: 'Features', ai: 'AI-træner (Pro)', faq: 'FAQ', privacy: 'Privatliv', cta: 'Download gratis' },
-      hero: { badge: 'Din træning. Din app.', h1: 'Din AI personlig træner.<br /><span>Træn din måde.</span>', h1span: 'Træn din måde.', sub: 'Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', ios: 'Download til iPhone', android: 'Download til Android', note: 'Gratis at starte. Over 1.400 øvelser inkluderet.', pr: 'PR slået', prSub: 'siden forrige session' },
+      hero: { badge: 'Din træning. Din app.', h1: 'Bliv stærkere.<br /><span>Uge for uge.</span>', h1span: 'Uge for uge.', sub: 'Med en coach der kender dig. Spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', ios: 'Download til iPhone', android: 'Download til Android', note: 'Gratis at starte. Over 1.400 øvelser inkluderet.', pr: 'PR slået', prSub: 'siden forrige session' },
       stats: { exercises: 'Øvelser med animerede GIFs', days: 'Dages gratis historik', languages: 'Sprog: DA, EN, DE, FR, ES, PT', programs: 'Egne programmer (Pro)' },
       screens: { label: 'Se appen', title: 'Hvad du får', s1: 'Hjemskærm', s2: 'AI-træner', s3: 'Fremgang', s4: 'Træning', s5: 'Programmer', s6: 'Øvelser' },
       features: { label: 'Features', title: 'Alt hvad du behøver for at blive stærkere', log: { title: 'Smart træningslogning', desc: 'Log sæt, reps og vægt med få tryk. Din forrige session vises direkte, så du altid ved hvad du skal slå.' }, overload: { title: 'Progressiv overload: automatisk', desc: 'Gainfully foreslår næste vægt baseret på din historik. Du fokuserer på løftningen. Vi holder styr på progressionen.' }, pr: { title: 'Live PR-notifikationer', desc: 'Slår du en personlig rekord? Appen fejrer det med det samme. Se alle dine bedste løft og din udvikling over tid.' }, stats: { title: 'Fremgangsanalyse og statistik', desc: 'Grafer for maksimumvægt, volumen og estimeret 1RM. Se muskelbalance og hvilke grupper du træner mest.' }, library: { title: 'Øvelsesbibliotek med GIFs', desc: 'Over 1.400 øvelser med animerede GIFs der viser korrekt udførelse. Find den rigtige øvelse på sekunder.' }, programs: { title: 'Træningsprogrammer', desc: 'Byg præcis det program du vil have. PPL, Upper/Lower, Full Body. Gentag workouts og spor din fremgang.' }, timer: { title: 'Indbygget pausetimer', desc: 'Sæt pausetid per øvelse og få besked når du er klar til næste sæt. Automatisk håndteret.' }, lang: { title: '6 sprog', desc: 'Appen er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk. Skift sprog i appen eller det sker automatisk.' } },
@@ -1566,7 +1570,7 @@
     },
     en: {
       nav: { features: 'Features', ai: 'AI Coach (Pro)', faq: 'FAQ', privacy: 'Privacy', cta: 'Download free' },
-      hero: { badge: 'Your training. Your app.', h1: 'Your AI personal trainer.<br /><span>Train your way.</span>', h1span: 'Train your way.', sub: 'With an AI coach that actually knows you. Asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', ios: 'Download for iPhone', android: 'Download for Android', note: 'Free to start. 1,400+ exercises included.', pr: 'PR beaten', prSub: 'since last session' },
+      hero: { badge: 'Your training. Your app.', h1: 'Get stronger.<br /><span>Week by week.</span>', h1span: 'Week by week.', sub: 'With an AI coach that actually knows you. Asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', ios: 'Download for iPhone', android: 'Download for Android', note: 'Free to start. 1,400+ exercises included.', pr: 'PR beaten', prSub: 'since last session' },
       stats: { exercises: 'Exercises with animated GIFs', days: 'Days history included free', languages: 'Languages: DA, EN, DE, FR, ES, PT', programs: 'Custom programs (Pro)' },
       screens: { label: 'In the app', title: 'See it in action', s1: 'Home', s2: 'AI Coach', s3: 'Progress', s4: 'Workout', s5: 'Programs', s6: 'Exercises' },
       features: { label: 'Features', title: 'Everything you need to get stronger', log: { title: 'Smart workout logging', desc: 'Log sets, reps and weight in seconds. Your last session is shown inline so you always know what to beat.' }, overload: { title: 'Progressive overload: automatic', desc: 'Gainfully suggests your next weight based on your history. You focus on lifting. We track the progression.' }, pr: { title: 'Live PR notifications', desc: 'Beat a personal record? The app celebrates instantly. See all your best lifts and track your progress over time.' }, stats: { title: 'Progress analysis and stats', desc: 'Graphs for max weight, volume and estimated 1RM. See muscle balance and which groups you train most.' }, library: { title: 'Exercise library with GIFs', desc: '1,400+ exercises with animated GIFs showing correct form. Find the right exercise in seconds.' }, programs: { title: 'Training programs', desc: 'Build exactly the program you want. PPL, Upper/Lower, Full Body. Repeat workouts and track progress.' }, timer: { title: 'Built-in rest timer', desc: 'Set rest time per exercise and get notified when you\'re ready for the next set. Handled automatically.' }, lang: { title: '6 languages', desc: 'The app is available in Danish, English, German, French, Spanish and Portuguese. Language is set automatically or you can switch manually.' } },
@@ -1585,7 +1589,7 @@
     },
     de: {
       nav: { features: 'Features', ai: 'KI-Coach (Pro)', faq: 'FAQ', privacy: 'Datenschutz', cta: 'Kostenlos laden' },
-      hero: { badge: 'Dein Training. Deine App.', h1: 'Dein KI Personal Trainer.<br /><span>Trainiere deinen Weg.</span>', h1span: 'Trainiere deinen Weg.', sub: 'Mit einem KI-Coach, der dich wirklich kennt. Fragt statt anzunehmen. Erinnert sich, statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', ios: 'Für iPhone laden', android: 'Für Android laden', note: 'Kostenlos starten. Über 1.400 Übungen inklusive.', pr: 'PR geschlagen', prSub: 'seit letzter Einheit' },
+      hero: { badge: 'Dein Training. Deine App.', h1: 'Werde stärker.<br /><span>Woche für Woche.</span>', h1span: 'Woche für Woche.', sub: 'Mit einem KI-Coach, der dich wirklich kennt. Fragt statt anzunehmen. Erinnert sich, statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', ios: 'Für iPhone laden', android: 'Für Android laden', note: 'Kostenlos starten. Über 1.400 Übungen inklusive.', pr: 'PR geschlagen', prSub: 'seit letzter Einheit' },
       stats: { exercises: 'Übungen mit animierten GIFs', days: 'Tage Verlauf kostenlos', languages: 'Sprachen: DA, EN, DE, FR, ES, PT', programs: 'Eigene Programme (Pro)' },
       screens: { label: 'In der App', title: 'Sieh es in Aktion', s1: 'Startseite', s2: 'KI-Coach', s3: 'Fortschritt', s4: 'Training', s5: 'Programme', s6: 'Übungen' },
       features: { label: 'Features', title: 'Alles, was du brauchst, um stärker zu werden', log: { title: 'Smartes Workout-Logging', desc: 'Logge Sätze, Wiederholungen und Gewicht in Sekunden. Deine letzte Einheit wird direkt angezeigt.' }, overload: { title: 'Progressive Überlastung: automatisch', desc: 'Gainfully schlägt dein nächstes Gewicht basierend auf deiner Historie vor. Du hebst, wir tracken.' }, pr: { title: 'Live PR-Benachrichtigungen', desc: 'Einen persönlichen Rekord gebrochen? Die App feiert es sofort. Sieh alle deine besten Lifts.' }, stats: { title: 'Fortschrittsanalyse', desc: 'Diagramme für Maximalgewicht, Volumen und geschätztes 1RM. Sieh deine Muskelbalance.' }, library: { title: 'Übungsbibliothek mit GIFs', desc: 'Über 1.400 Übungen mit animierten GIFs, die die richtige Ausführung zeigen.' }, programs: { title: 'Trainingsprogramme', desc: 'Erstelle genau das Programm, das du willst. PPL, Upper/Lower, Ganzkörper.' }, timer: { title: 'Eingebauter Pausentimer', desc: 'Stell die Pausenzeit pro Übung ein und erhalte eine Benachrichtigung, wenn du bereit bist.' }, lang: { title: '6 Sprachen', desc: 'Die App ist auf Dänisch, Englisch, Deutsch, Französisch, Spanisch und Portugiesisch verfügbar.' } },
@@ -1604,7 +1608,7 @@
     },
     fr: {
       nav: { features: 'Fonctionnalités', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Confidentialité', cta: 'Télécharger gratuit' },
-      hero: { badge: 'Ton entraînement. Ton app.', h1: 'Ton coach IA personnel.<br /><span>Entraîne-toi à ta façon.</span>', h1span: 'Entraîne-toi à ta façon.', sub: 'Avec un coach IA qui te connaît vraiment. Demande avant de supposer. Se souvient au lieu de répéter. S\'adapte à toi - pas l\'inverse.', ios: 'Télécharger pour iPhone', android: 'Télécharger pour Android', note: 'Gratuit pour commencer. Plus de 1 400 exercices inclus.', pr: 'PR battu', prSub: 'depuis la dernière séance' },
+      hero: { badge: 'Ton entraînement. Ton app.', h1: 'Devenez plus fort.<br /><span>Semaine après semaine.</span>', h1span: 'Semaine après semaine.', sub: 'Avec un coach IA qui te connaît vraiment. Demande avant de supposer. Se souvient au lieu de répéter. S\'adapte à toi - pas l\'inverse.', ios: 'Télécharger pour iPhone', android: 'Télécharger pour Android', note: 'Gratuit pour commencer. Plus de 1 400 exercices inclus.', pr: 'PR battu', prSub: 'depuis la dernière séance' },
       stats: { exercises: 'Exercices avec GIFs animés', days: "Jours d'historique gratuits", languages: 'Langues: DA, EN, DE, FR, ES, PT', programs: 'Programmes perso (Pro)' },
       screens: { label: "Dans l'app", title: 'Voir en action', s1: 'Accueil', s2: 'Coach IA', s3: 'Progrès', s4: 'Séance', s5: 'Programmes', s6: 'Exercices' },
       features: { label: 'Fonctionnalités', title: 'Tout ce dont tu as besoin pour devenir plus fort', log: { title: 'Journal d\'entraînement intelligent', desc: 'Enregistre séries, reps et poids en quelques secondes. Ta dernière séance s\'affiche directement.' }, overload: { title: 'Surcharge progressive: automatique', desc: 'Gainfully suggère ton prochain poids selon ton historique. Tu te concentres sur la levée.' }, pr: { title: 'Notifications PR en direct', desc: 'Tu bats un record personnel? L\'app fête ça immédiatement. Suis tous tes meilleurs lifts.' }, stats: { title: 'Analyse des progrès', desc: 'Graphiques pour le poids max, le volume et le 1RM estimé. Vois l\'équilibre musculaire.' }, library: { title: 'Bibliothèque d\'exercices avec GIFs', desc: 'Plus de 1 400 exercices avec GIFs animés montrant la bonne technique.' }, programs: { title: 'Programmes d\'entraînement', desc: 'Crée exactement le programme que tu veux. PPL, Haut/Bas, Corps complet.' }, timer: { title: 'Minuterie de repos intégrée', desc: 'Règle le temps de repos par exercice et reçois une notification quand tu es prêt.' }, lang: { title: '6 langues', desc: 'L\'app est disponible en danois, anglais, allemand, français, espagnol et portugais.' } },
@@ -1623,7 +1627,7 @@
     },
     es: {
       nav: { features: 'Funciones', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Privacidad', cta: 'Descargar gratis' },
-      hero: { badge: 'Tu entrenamiento. Tu app.', h1: 'Tu entrenador personal con IA.<br /><span>Entrena a tu manera.</span>', h1span: 'Entrena a tu manera.', sub: 'Con un coach IA que realmente te conoce. Pregunta antes de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', ios: 'Descargar para iPhone', android: 'Descargar para Android', note: 'Gratis para empezar. Más de 1.400 ejercicios incluidos.', pr: 'PR superado', prSub: 'desde la última sesión' },
+      hero: { badge: 'Tu entrenamiento. Tu app.', h1: 'Hazte más fuerte.<br /><span>Semana a semana.</span>', h1span: 'Semana a semana.', sub: 'Con un coach IA que realmente te conoce. Pregunta antes de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', ios: 'Descargar para iPhone', android: 'Descargar para Android', note: 'Gratis para empezar. Más de 1.400 ejercicios incluidos.', pr: 'PR superado', prSub: 'desde la última sesión' },
       stats: { exercises: 'Ejercicios con GIFs animados', days: 'Días de historial gratuito', languages: 'Idiomas: DA, EN, DE, FR, ES, PT', programs: 'Programas propios (Pro)' },
       screens: { label: 'En la app', title: 'Véelo en acción', s1: 'Inicio', s2: 'Coach IA', s3: 'Progreso', s4: 'Entrenamiento', s5: 'Programas', s6: 'Ejercicios' },
       features: { label: 'Funciones', title: 'Todo lo que necesitas para hacerte más fuerte', log: { title: 'Registro inteligente de entrenamientos', desc: 'Registra series, repeticiones y peso en segundos. Tu última sesión se muestra directamente.' }, overload: { title: 'Sobrecarga progresiva: automática', desc: 'Gainfully sugiere tu próximo peso según tu historial. Tú te concentras en levantar.' }, pr: { title: 'Notificaciones PR en vivo', desc: '¿Superaste un récord personal? La app lo celebra al instante. Ve tus mejores levantamientos.' }, stats: { title: 'Análisis de progreso y estadísticas', desc: 'Gráficas de peso máximo, volumen y 1RM estimado. Ve el equilibrio muscular.' }, library: { title: 'Biblioteca de ejercicios con GIFs', desc: 'Más de 1.400 ejercicios con GIFs animados que muestran la técnica correcta.' }, programs: { title: 'Programas de entrenamiento', desc: 'Crea exactamente el programa que quieres. PPL, Superior/Inferior, Cuerpo completo.' }, timer: { title: 'Temporizador de descanso integrado', desc: 'Establece el tiempo de descanso por ejercicio y recibe notificación cuando estés listo.' }, lang: { title: '6 idiomas', desc: 'La app está disponible en danés, inglés, alemán, francés, español y portugués.' } },
@@ -1642,7 +1646,7 @@
     },
     'pt-BR': {
       nav: { features: 'Funcionalidades', ai: 'Coach IA (Pro)', faq: 'FAQ', privacy: 'Privacidade', cta: 'Baixar grátis' },
-      hero: { badge: 'Seu treino. Seu app.', h1: 'Seu personal trainer com IA.<br /><span>Treine do seu jeito.</span>', h1span: 'Treine do seu jeito.', sub: 'Com um coach IA que realmente te conhece. Pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', ios: 'Baixar para iPhone', android: 'Baixar para Android', note: 'Grátis para começar. Mais de 1.400 exercícios incluídos.', pr: 'PR batido', prSub: 'desde a última sessão' },
+      hero: { badge: 'Seu treino. Seu app.', h1: 'Fique mais forte.<br /><span>Semana após semana.</span>', h1span: 'Semana após semana.', sub: 'Com um coach IA que realmente te conhece. Pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', ios: 'Baixar para iPhone', android: 'Baixar para Android', note: 'Grátis para começar. Mais de 1.400 exercícios incluídos.', pr: 'PR batido', prSub: 'desde a última sessão' },
       stats: { exercises: 'Exercícios com GIFs animados', days: 'Dias de histórico gratuito', languages: 'Idiomas: DA, EN, DE, FR, ES, PT', programs: 'Programas próprios (Pro)' },
       screens: { label: 'No app', title: 'Veja em ação', s1: 'Início', s2: 'Coach IA', s3: 'Progresso', s4: 'Treino', s5: 'Programas', s6: 'Exercícios' },
       features: { label: 'Funcionalidades', title: 'Tudo que você precisa para ficar mais forte', log: { title: 'Log inteligente de treinos', desc: 'Registre séries, repetições e peso em segundos. Sua última sessão é exibida diretamente.' }, overload: { title: 'Sobrecarga progressiva: automática', desc: 'Gainfully sugere seu próximo peso com base no seu histórico. Você foca no levantamento.' }, pr: { title: 'Notificações de PR ao vivo', desc: 'Bateu um recorde pessoal? O app comemora na hora. Veja todos os seus melhores levantamentos.' }, stats: { title: 'Análise de progresso e estatísticas', desc: 'Gráficos de peso máximo, volume e 1RM estimado. Veja o equilíbrio muscular.' }, library: { title: 'Biblioteca de exercícios com GIFs', desc: 'Mais de 1.400 exercícios com GIFs animados mostrando a execução correta.' }, programs: { title: 'Programas de treino', desc: 'Monte exatamente o programa que você quer. PPL, Superior/Inferior, Corpo inteiro.' }, timer: { title: 'Temporizador de descanso integrado', desc: 'Configure o tempo de descanso por exercício e receba notificação quando estiver pronto.' }, lang: { title: '6 idiomas', desc: 'O app está disponível em dinamarquês, inglês, alemão, francês, espanhol e português.' } },
