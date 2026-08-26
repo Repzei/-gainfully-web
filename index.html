@@ -508,19 +508,24 @@
       position: relative;
       z-index: 1;
     }
+    /* Side phones: SAME width/frame as center, scaled with CSS transform.
+       scale() shrinks ALL properties proportionally so border-radius,
+       Dynamic Island, padding — everything stays identical to center. */
     .hero-phone-side {
-      width: min(185px, 22vw);
+      width: min(248px, 30vw);
       flex-shrink: 0;
-      opacity: 0.7;
-      filter: brightness(0.85);
+      opacity: 0.65;
+      filter: brightness(0.82);
+      /* Pull phones closer to center to compensate for scale() layout space */
+      margin-inline: -32px;
     }
-    .hero-phone-left { transform: rotate(-10deg) translateY(36px); }
-    .hero-phone-right { transform: rotate(10deg) translateY(36px); }
-    /* Side phones are 74% the width of center — scale all decorative values proportionally */
-    .hero-phone-left.device-frame,
-    .hero-phone-right.device-frame {
-      border-radius: 34px;
-      padding: 10px 8px 15px;
+    .hero-phone-left {
+      transform: scale(0.74) rotate(-10deg) translateY(44px);
+      transform-origin: bottom center;
+    }
+    .hero-phone-right {
+      transform: scale(0.74) rotate(10deg) translateY(44px);
+      transform-origin: bottom center;
     }
     .hero-phone-center {
       width: min(248px, 30vw);
