@@ -276,8 +276,25 @@
       font-family: inherit;
     }
     .lang-btn:hover { border-color: var(--dim); color: var(--text); }
-    .lang-btn .lang-flag { width: 20px; height: 15px; border-radius: 2px; display: inline-block; vertical-align: middle; }
     .lang-btn .lang-arrow { font-size: 10px; opacity: 0.6; }
+
+    /* CSS flag sprites — no external CDN, works in all browsers */
+    .flag {
+      display: inline-block;
+      width: 20px;
+      height: 15px;
+      border-radius: 2px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+    .flag-da { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='20' height='15' fill='%23C60C30'/%3E%3Crect x='6' width='3' height='15' fill='white'/%3E%3Crect y='6' width='20' height='3' fill='white'/%3E%3C/svg%3E"); }
+    .flag-en { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='20' height='15' fill='%23012169'/%3E%3Cpath d='M0 0L20 15M20 0L0 15' stroke='white' stroke-width='3'/%3E%3Cpath d='M0 0L20 15M20 0L0 15' stroke='%23C8102E' stroke-width='1.5'/%3E%3Crect x='8.5' width='3' height='15' fill='white'/%3E%3Crect y='6' width='20' height='3' fill='white'/%3E%3Crect x='9' width='2' height='15' fill='%23C8102E'/%3E%3Crect y='6.5' width='20' height='2' fill='%23C8102E'/%3E%3C/svg%3E"); }
+    .flag-de { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='20' height='5' fill='black'/%3E%3Crect y='5' width='20' height='5' fill='%23DD0000'/%3E%3Crect y='10' width='20' height='5' fill='%23FFCE00'/%3E%3C/svg%3E"); }
+    .flag-fr { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='6.7' height='15' fill='%23002395'/%3E%3Crect x='6.7' width='6.6' height='15' fill='white'/%3E%3Crect x='13.3' width='6.7' height='15' fill='%23ED2939'/%3E%3C/svg%3E"); }
+    .flag-es { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='20' height='15' fill='%23AA151B'/%3E%3Crect y='3.75' width='20' height='7.5' fill='%23F1BF00'/%3E%3C/svg%3E"); }
+    .flag-pt { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 15'%3E%3Crect width='20' height='15' fill='%23009C3B'/%3E%3Cpolygon points='10,1.5 19,7.5 10,13.5 1,7.5' fill='%23FFDF00'/%3E%3Ccircle cx='10' cy='7.5' r='3.5' fill='%23002776'/%3E%3C/svg%3E"); }
 
     .lang-dropdown {
       display: none;
@@ -306,7 +323,7 @@
     }
     .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--text); }
     .lang-option.active { color: var(--volt); }
-    .lang-option .opt-flag { width: 22px; height: 16px; border-radius: 2px; display: inline-block; flex-shrink: 0; }
+    .lang-option .opt-flag { width: 22px; height: 16px; border-radius: 2px; display: inline-block; flex-shrink: 0; background-size: cover; }
     .lang-option .opt-label { flex: 1; font-weight: 500; }
     .lang-option .opt-check { color: var(--volt); font-size: 12px; }
 
@@ -499,6 +516,12 @@
     }
     .hero-phone-left { transform: rotate(-10deg) translateY(36px); }
     .hero-phone-right { transform: rotate(10deg) translateY(36px); }
+    /* Side phones are 74% the width of center — scale all decorative values proportionally */
+    .hero-phone-left.device-frame,
+    .hero-phone-right.device-frame {
+      border-radius: 34px;
+      padding: 10px 8px 15px;
+    }
     .hero-phone-center {
       width: min(248px, 30vw);
       z-index: 2;
@@ -514,7 +537,7 @@
     .hero-proof {
       display: flex; align-items: center; gap: 10px;
       margin-top: 18px; font-size: 13px; color: var(--muted);
-      flex-wrap: wrap;
+      flex-wrap: wrap; justify-content: center;
     }
     .hero-stars { color: #ffd234; letter-spacing: 1px; font-size: 14px; }
     .hero-proof-sep { color: var(--border); }
@@ -751,25 +774,29 @@
     /* Hero feature cards (top 2, full-width med screenshot) */
     .feature-card-hero {
       display: grid; grid-template-columns: 1fr auto;
-      align-items: flex-end; gap: 48px;
+      align-items: stretch; gap: 48px;
       background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 20px; padding: 44px 44px 0;
+      border-radius: 20px; padding: 0 44px 0 44px;
       overflow: hidden; transition: border-color 0.25s;
+      min-height: 320px;
     }
     .feature-card-hero:hover { border-color: rgba(196,255,0,0.3); }
     .feature-card-hero.fh-rev { grid-template-columns: auto 1fr; }
     .feature-card-hero.fh-rev .fh-visual { order: -1; }
-    .fh-text { padding-bottom: 44px; }
+    .fh-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: 44px; padding-bottom: 44px;
+    }
     .fh-text .feature-icon { margin-bottom: 16px; }
     .fh-text h3 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -0.6px; margin-bottom: 12px; }
     .fh-text p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 400px; }
-    .fh-visual { width: min(175px, 24vw); align-self: flex-end; }
+    .fh-visual { width: min(210px, 28vw); align-self: end; }
     @media (max-width: 768px) {
-      .feature-card-hero { grid-template-columns: 1fr; padding: 32px 28px 0; gap: 28px; }
+      .feature-card-hero { grid-template-columns: 1fr; padding: 32px 28px 0; gap: 28px; min-height: auto; }
       .feature-card-hero.fh-rev { grid-template-columns: 1fr; }
       .feature-card-hero.fh-rev .fh-visual { order: 0; }
-      .fh-visual { width: min(155px, 48vw); margin: 0 auto; }
-      .fh-text { padding-bottom: 0; }
+      .fh-visual { width: min(155px, 48vw); margin: 0 auto; align-self: auto; }
+      .fh-text { padding-top: 0; padding-bottom: 0; }
     }
 
     /* Sub-grid for remaining feature cards */
@@ -1088,17 +1115,17 @@
     <div class="nav-right">
       <div class="lang-switcher" id="langSwitcher">
         <button class="lang-btn" id="langBtn" aria-label="Change language">
-          <span id="langFlag" style="font-size:18px;line-height:1">🇩🇰</span>
+          <span id="langFlag" class="flag flag-da"></span>
           <span id="langCode">DA</span>
           <span class="lang-arrow">▾</span>
         </button>
         <div class="lang-dropdown" id="langDropdown">
-          <div class="lang-option" data-lang="da"><span class="opt-flag">🇩🇰</span><span class="opt-label">Dansk</span><span class="opt-check" style="display:none">✓</span></div>
-          <div class="lang-option" data-lang="en"><span class="opt-flag">🇬🇧</span><span class="opt-label">English</span><span class="opt-check" style="display:none">✓</span></div>
-          <div class="lang-option" data-lang="de"><span class="opt-flag">🇩🇪</span><span class="opt-label">Deutsch</span><span class="opt-check" style="display:none">✓</span></div>
-          <div class="lang-option" data-lang="fr"><span class="opt-flag">🇫🇷</span><span class="opt-label">Français</span><span class="opt-check" style="display:none">✓</span></div>
-          <div class="lang-option" data-lang="es"><span class="opt-flag">🇪🇸</span><span class="opt-label">Español</span><span class="opt-check" style="display:none">✓</span></div>
-          <div class="lang-option" data-lang="pt-BR"><span class="opt-flag">🇧🇷</span><span class="opt-label">Português (BR)</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="da"><span class="opt-flag flag flag-da"></span><span class="opt-label">Dansk</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="en"><span class="opt-flag flag flag-en"></span><span class="opt-label">English</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="de"><span class="opt-flag flag flag-de"></span><span class="opt-label">Deutsch</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="fr"><span class="opt-flag flag flag-fr"></span><span class="opt-label">Français</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="es"><span class="opt-flag flag flag-es"></span><span class="opt-label">Español</span><span class="opt-check" style="display:none">✓</span></div>
+          <div class="lang-option" data-lang="pt-BR"><span class="opt-flag flag flag-pt"></span><span class="opt-label">Português (BR)</span><span class="opt-check" style="display:none">✓</span></div>
         </div>
       </div>
       <a href="#download" class="nav-cta" data-i18n="nav.cta">Download free</a>
@@ -1655,7 +1682,9 @@
     localStorage.setItem('gainfully_lang', lang)
     document.documentElement.lang = lang.startsWith('pt') ? 'pt-BR' : lang
 
-    document.getElementById('langFlag').textContent = t.langFlag
+    const flagClasses = { da: 'flag-da', en: 'flag-en', de: 'flag-de', fr: 'flag-fr', es: 'flag-es', 'pt-BR': 'flag-pt' }
+    const flagEl = document.getElementById('langFlag')
+    flagEl.className = 'flag ' + (flagClasses[lang] || 'flag-da')
     document.getElementById('langCode').textContent = t.langCode
 
     // Update active state in dropdown
