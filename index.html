@@ -13,6 +13,9 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/" />
@@ -140,6 +143,8 @@
 
     nav, section, div, footer, main, header, aside { position: relative; z-index: 1; }
     a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { text-wrap: balance; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .nav-logo { font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
@@ -262,24 +267,27 @@
     .hero-content .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: var(--volt-dark);
-      border: 1px solid rgba(196,255,0,0.4);
+      gap: 8px;
+      background: none;
+      border: none;
       color: var(--volt);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 28px;
-      box-shadow: 0 0 20px rgba(196,255,0,0.08);
+      padding: 0;
+      border-radius: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0.8;
     }
+    .hero-content .hero-badge ion-icon { display: none; }
 
     .hero-content h1 {
-      font-size: clamp(32px, 4.5vw, 58px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
+      font-size: clamp(38px, 5.5vw, 70px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2.5px;
+      margin-bottom: 24px;
     }
     .hero-content h1 span { color: var(--volt); text-shadow: 0 0 40px rgba(196,255,0,0.3); }
 
@@ -309,10 +317,10 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+      transition: opacity 0.2s, box-shadow 0.2s;
       box-shadow: 0 0 30px rgba(196,255,0,0.2);
     }
-    .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 0 40px rgba(196,255,0,0.35); }
+    .btn-primary:hover { opacity: 0.88; box-shadow: 0 0 50px rgba(196,255,0,0.42); }
 
     .btn-secondary {
       background: var(--bg2);
@@ -458,8 +466,8 @@
       background: linear-gradient(180deg, rgba(196,255,0,0.02) 0%, transparent 100%);
     }
     .stat-item { text-align: center; }
-    .stat-num { font-size: 36px; font-weight: 900; color: var(--volt); }
-    .stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .stat-num { font-size: 42px; font-weight: 800; color: var(--volt); letter-spacing: -2px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; font-weight: 500; }
 
     /* PHOTO STRIP */
     /* SCREENSHOTS CAROUSEL */
@@ -560,18 +568,20 @@
     .section-label {
       text-align: center;
       color: var(--volt);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      opacity: 0.85;
     }
     .section-title {
       text-align: center;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      margin-bottom: 64px;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.08;
+      margin-bottom: 56px;
     }
 
     /* FEATURES */
@@ -579,53 +589,54 @@
     .feature-card {
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 18px;
       padding: 28px;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      transition: border-color 0.25s, box-shadow 0.25s;
     }
     .feature-card:hover {
-      border-color: rgba(196,255,0,0.25);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(196,255,0,0.05);
+      border-color: rgba(196,255,0,0.3);
+      box-shadow: inset 0 0 60px rgba(196,255,0,0.025), 0 8px 40px rgba(0,0,0,0.2);
     }
     .feature-icon {
-      width: 48px;
-      height: 48px;
-      background: var(--volt-dark);
-      border-radius: 14px;
+      width: auto;
+      height: auto;
+      background: none;
+      border-radius: 0;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
+      justify-content: flex-start;
+      margin-bottom: 16px;
+      padding: 0;
     }
-    .feature-icon ion-icon { width: 24px; height: 24px; color: var(--volt); }
-    .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-    .feature-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .feature-icon ion-icon { width: 28px; height: 28px; color: var(--volt); opacity: 0.85; }
+    .feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .feature-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
 
     /* STEPS */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 16px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 16px; }
     .step {
-      text-align: center;
-      padding: 32px 20px;
+      text-align: left;
+      padding: 28px 24px;
       background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 16px;
     }
     .step-num {
-      width: 44px;
-      height: 44px;
-      background: var(--volt-dark);
-      border: 1px solid rgba(196,255,0,0.4);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 900;
-      color: var(--volt);
-      margin: 0 auto 20px;
+      width: auto;
+      height: auto;
+      background: none;
+      border: none;
+      border-radius: 0;
+      display: block;
+      font-size: 52px;
+      font-weight: 800;
+      color: rgba(196,255,0,0.15);
+      letter-spacing: -3px;
+      line-height: 1;
+      margin: 0 0 10px;
+      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
     }
-    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     .step p { color: var(--muted); font-size: 14px; line-height: 1.65; }
 
     /* AI SECTION */
@@ -636,7 +647,7 @@
       padding: 96px 24px;
       text-align: center;
     }
-    .ai-section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .ai-section h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 800; margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.05; }
     .ai-section h2 span { color: var(--volt); }
     .ai-section > p { color: var(--muted); font-size: 17px; max-width: 580px; margin: 0 auto 40px; line-height: 1.7; }
     .ai-chips { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; max-width: 640px; margin: 0 auto; }
@@ -652,7 +663,7 @@
 
     /* WHO */
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .audience-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .audience-card { background: var(--bg2); border: 1px solid var(--border); border-left: 2px solid rgba(196,255,0,0.28); border-radius: 14px; padding: 24px; }
     .audience-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .audience-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
@@ -689,14 +700,16 @@
     .cta-plans { display: flex; gap: 14px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
     .cta-plan {
       background: var(--bg2);
-      border: 2px solid var(--border);
-      border-radius: 18px;
-      padding: 20px 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
       text-align: center;
-      min-width: 160px;
+      min-width: 150px;
       position: relative;
+      transition: border-color 0.2s;
     }
-    .cta-plan-best { border-color: var(--volt); background: var(--volt-dark); padding-top: 36px; }
+    .cta-plan:not(.cta-plan-best):hover { border-color: var(--dim); }
+    .cta-plan-best { border-color: rgba(196,255,0,0.65); background: var(--volt-dark); padding-top: 36px; }
     .cta-plan-badge {
       position: absolute;
       top: 0; left: 0; right: 0;
@@ -708,7 +721,7 @@
       border-radius: 14px 14px 0 0;
     }
     .cta-plan-name { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-    .cta-plan-price { font-size: 28px; font-weight: 900; color: var(--text); }
+    .cta-plan-price { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.8px; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
     .cta-plan-price span { font-size: 14px; font-weight: 400; color: var(--muted); }
     .cta-plan-sub { color: var(--muted); font-size: 12px; margin-top: 4px; }
 
@@ -742,6 +755,14 @@
     @media (max-width: 480px) {
       .hero-photo { max-height: 260px; }
     }
+    /* MANIFESTO */
+    .manifesto-section { padding: 80px 24px; border-top: 1px solid var(--border); }
+    .manifesto-inner { max-width: 700px; margin: 0 auto; padding-left: 28px; border-left: 2px solid rgba(196,255,0,0.3); }
+    .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--volt); margin-bottom: 28px; opacity: 0.8; }
+    .manifesto-p1 { font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
+    .manifesto-p2 { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
+    .manifesto-p3 { font-size: clamp(17px, 2.1vw, 22px); font-weight: 700; line-height: 1.55; color: var(--volt); letter-spacing: -0.2px; }
+
     /* AI SHOWCASE */
     .ai-showcase {
       background: rgba(255,255,255,0.02);
@@ -752,11 +773,11 @@
     .ai-showcase-inner { max-width: 1100px; margin: 0 auto; }
     .ai-showcase-header { text-align: center; margin-bottom: 52px; }
     .ai-showcase-header h2 {
-      font-size: clamp(26px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: -0.5px;
+      font-size: clamp(26px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
       margin-bottom: 14px;
-      line-height: 1.15;
+      line-height: 1.05;
     }
     .ai-showcase-header p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
     .ai-showcase-grid {
@@ -936,12 +957,12 @@
       </div>
     </div>
 
-    <section style="padding:72px 24px;border-top:1px solid var(--border);" aria-label="Brand manifesto" id="manifesto">
-      <div style="max-width:680px;margin:0 auto;text-align:center;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--volt);margin-bottom:32px;" data-i18n="manifesto.label">Hvorfor Gainfully</div>
-        <p style="font-size:clamp(18px,2.5vw,26px);font-weight:600;line-height:1.6;color:var(--muted);margin-bottom:20px;" data-i18n="manifesto.p1">De fleste træningsapps er bygget til gennemsnittet. Et program for alle er et program for ingen.</p>
-        <p style="font-size:clamp(18px,2.5vw,26px);font-weight:600;line-height:1.6;color:var(--text);margin-bottom:20px;" data-i18n="manifesto.p2">Gainfully spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.</p>
-        <p style="font-size:clamp(18px,2.5vw,26px);font-weight:700;line-height:1.6;color:var(--volt);" data-i18n="manifesto.p3">Fordi din træning ikke ligner andres. Og det bør din app heller ikke.</p>
+    <section class="manifesto-section" aria-label="Brand manifesto" id="manifesto">
+      <div class="manifesto-inner">
+        <div class="manifesto-label" data-i18n="manifesto.label">Hvorfor Gainfully</div>
+        <p class="manifesto-p1" data-i18n="manifesto.p1">De fleste træningsapps er bygget til gennemsnittet. Et program for alle er et program for ingen.</p>
+        <p class="manifesto-p2" data-i18n="manifesto.p2">Gainfully spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.</p>
+        <p class="manifesto-p3" data-i18n="manifesto.p3">Fordi din træning ikke ligner andres. Og det bør din app heller ikke.</p>
       </div>
     </section>
 
