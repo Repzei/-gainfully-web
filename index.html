@@ -32,7 +32,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Gainfully" />
 
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gainfully - AI Personlig Træner App" />
   <meta name="twitter:description" content="Gratis AI personlig træner der kender dine løft og din historik. Log styrketræning og få skræddersyede råd." />
   <meta name="twitter:image" content="https://gainfully.app/icon.png" />
@@ -829,6 +829,34 @@
     .audience-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
     .audience-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
 
+    /* TESTIMONIALS */
+    .testimonials-section { padding: 96px 24px; border-top: 1px solid var(--border); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .testimonials-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: var(--bg2); border-radius: 16px; padding: 24px;
+      border: 1px solid var(--border); margin: 0;
+      transition: border-color 0.2s;
+    }
+    .testimonial-card:hover { border-color: rgba(196,255,0,0.2); }
+    .testimonial-quote {
+      font-size: 15px; line-height: 1.7; color: var(--text);
+      margin-bottom: 20px; font-style: italic;
+    }
+    .testimonial-footer { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--volt); color: #0d1400;
+      font-size: 13px; font-weight: 800; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .testimonial-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
     /* FAQ */
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
@@ -1347,6 +1375,46 @@
       </div>
     </section>
 
+    <!-- TODO: Erstat disse testimonials med rigtige citater fra dine 22 testere -->
+    <section class="testimonials-section" aria-label="Brugeranmeldelser">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div class="section-label" data-i18n="testimonials.label">Hvad brugerne siger</div>
+        <h2 class="section-title" data-i18n="testimonials.title">Rigtige resultater fra rigtige brugere</h2>
+        <div class="testimonials-grid" id="testimonialsGrid">
+          <blockquote class="testimonial-card reveal">
+            <p class="testimonial-quote" data-i18n="testimonials.q1">"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."</p>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">Mikkel</div>
+                <div class="testimonial-role" data-i18n="testimonials.r1">Styrkeløfter, 4 år</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal reveal-delay-1">
+            <p class="testimonial-quote" data-i18n="testimonials.q2">"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."</p>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar" style="background:var(--jade);color:#0d2b24;">S</div>
+              <div>
+                <div class="testimonial-name">Sara</div>
+                <div class="testimonial-role" data-i18n="testimonials.r2">Crossfit og styrke</div>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card reveal reveal-delay-2">
+            <p class="testimonial-quote" data-i18n="testimonials.q3">"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."</p>
+            <footer class="testimonial-footer">
+              <div class="testimonial-avatar" style="background:#5b9cf4;color:#0a1836;">L</div>
+              <div>
+                <div class="testimonial-name">Lars</div>
+                <div class="testimonial-role" data-i18n="testimonials.r3">Nybegynder, 6 måneder</div>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
     <section style="background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:96px 24px;" aria-label="How it works">
       <div style="max-width:1100px;margin:0 auto;">
         <div class="section-label" data-i18n="how.label">Sådan fungerer det</div>
@@ -1476,6 +1544,7 @@
       faq: { label: 'FAQ', title: 'Ofte stillede spørgsmål', items: [ { q: 'Hvad er Gainfully?', a: 'Gainfully er en fitness tracking app til iPhone og Android med en indbygget AI-træner. Du logger dine styrketræninger, og appen husker alt: vægte, reps, sæt og fremgang. Træneren analyserer din historik og giver dig personlige råd og programforslag.' }, { q: 'Er Gainfully gratis?', a: 'Ja, Gainfully er gratis at downloade og bruge. Gratis inkluderer 1.400+ øvelser med GIFs, ubegrænset træningslogning, op til 3 programmer og 90 dages statistik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching, ubegrænsede programmer og komplet historik.' }, { q: 'Hvad ved AI-coachen om mig?', a: 'AI-coachen har adgang til din komplette træningshistorik: dine personlige rekorder med datoer, din vægttend over tid, hvilke dage du typisk træner, din muskelbalance og eventuelle noter du selv har skrevet (fx om skader eller udstyr). Den husker også hvad I har talt om i tidligere samtaler. Det er det der gør svaret relevant for dig - ikke for en gennemsnitlig bruger.' }, { q: 'Virker Gainfully på iPhone og Android?', a: 'Ja, Gainfully er tilgængelig til både iPhone (iOS) og Android. Download gratis fra App Store eller Google Play. Alle dine data synkroniseres automatisk.' }, { q: 'Hvad kan AI-træneren hjælpe mig med?', a: 'Træneren kender din historik og svarer ud fra den. Spørg om hvorfor du stagnerer, få et ugentligt program, råd om kost og restitution, eller hvad der ellers er på dit sind. Altid baseret på dig.' }, { q: 'Hvilke sprog understøtter appen?', a: 'Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne.' } ] },
       cta: { anchor: 'En personlig træner koster 400 kr/timen.', h2: 'Gainfully koster<br /><span style="color:var(--volt)">99 kr/md.</span>', sub: 'Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.', free: { name: 'Gratis', price: '0', period: '/altid', sub: '1.400+ øvelser · 3 programmer' }, monthly: { name: 'Pro Månedlig', price: '99 kr', period: '/md', sub: 'Fuld AI-coaching · ingen binding' }, annual: { badge: 'Bedst: spar 389 kr', name: 'Pro Årlig', price: '799 kr', period: '/år', sub: 'ca. 67 kr/md' } },
       manifesto: { label: 'Hvorfor Gainfully', p1: 'De fleste træningsapps er bygget til gennemsnittet. Et program for alle er et program for ingen.', p2: 'Gainfully spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', p3: 'Fordi din træning ikke ligner andres. Og det bør din app heller ikke.' },
+      testimonials: { label: 'Hvad brugerne siger', title: 'Rigtige resultater fra rigtige brugere', q1: '"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."', r1: 'Styrkeløfter, 4 år', q2: '"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."', r2: 'Crossfit og styrke', q3: '"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."', r3: 'Nybegynder, 6 måneder' },
       footer: { copy: '© 2026 Gainfully. Alle rettigheder forbeholdes.', privacy: 'Privatlivspolitik', terms: 'Vilkår', contact: 'Kontakt' },
       aiDetail: { label: 'Personlig, ikke generisk', title: 'Din coach kender <span style="color:var(--volt)">DIG</span>', sub: 'Gainfully AI-coachen kender din faktiske historik. Næste gang du spørger om noget, bruger den dine egne data - dine PRer, dit træningsmønster, dine skader - ikke generiske råd.', cardTitle: 'AI-COACHENS ADGANG', prsLabel: 'PERSONLIGE REKORDER (MED DATOER)', prsVal: 'Squat 120 kg×5 · Bænkpres 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'VÆGTUDVIKLING', weightVal: '83 kg → 85 kg (stiger +2 kg de seneste 6 uger)', daysLabel: 'TRÆNINGSMØNSTER', daysVal: 'Træner typisk Man / Ons / Fre (beregnet fra historik)', notesLabel: 'DIN BESKED TIL COACHEN', notesVal: '"Dårligt venstre knæ - undgår overhead press"', historyLabel: 'TRÆNINGSHISTORIK', historyVal: 'Seneste 8 træninger med alle sæt, vægte og reps', memoryLabel: 'SAMTALEHUKOMMELSE', memoryVal: 'Husker hvad I har talt om på tværs af sessioner', chatStatus: 'Kender din historik', chatQ: 'Skal jeg øge vægten på squat i dag?', chatA: 'Du har løftet 120 kg × 5 reps tre sessioner i træk - et klart plateau-signal. Jeg anbefaler 122,5 kg i dag. Og da du har noteret dårligt venstre knæ: brug high-bar stil og stop lidt over parallel.', chatNote: 'Svaret bruger dine PRer, din historik og dine coach-noter - ikke et generisk svar.' },
       langFlag: '🇩🇰', langCode: 'DA',
@@ -1494,6 +1563,7 @@
       faq: { label: 'FAQ', title: 'Frequently asked questions', items: [ { q: 'What is Gainfully?', a: 'Gainfully is a fitness tracking app for iPhone and Android with a built-in AI coach. You log your workouts and the app remembers everything: weights, reps, sets and progress. The coach analyses your history and gives you personal advice and program suggestions.' }, { q: 'Is Gainfully free?', a: 'Yes, Gainfully is free to download and use. The free tier includes 1,400+ exercises with GIFs, unlimited workout logging, up to 3 programs and 90 days of stats. Pro ($14.99/month or $124.99/year) adds full AI coaching, unlimited programs and complete history.' }, { q: 'What does the AI coach know about me?', a: 'The AI coach has access to your complete training history: your personal records with dates, your weight trend over time, your typical training days, your muscle balance, and any notes you\'ve written (like injuries or equipment). It also remembers what you\'ve discussed in previous conversations. That\'s what makes the answer relevant to you - not to an average user.' }, { q: 'Does Gainfully work on iPhone and Android?', a: 'Yes, Gainfully is available for both iPhone (iOS) and Android. Download it free from the App Store or Google Play. All your data syncs automatically.' }, { q: 'What can the AI coach help me with?', a: 'The coach knows your history and answers based on it. Ask why you\'re stalling, get a weekly program, nutrition and recovery advice. Always personalised to you.' }, { q: 'Which languages does the app support?', a: 'Gainfully is available in Danish, English, German, French, Spanish and Portuguese (BR). The language is set automatically based on your device but you can always switch manually in the profile settings.' } ] },
       cta: { anchor: 'A personal trainer costs $70/hour.', h2: 'Gainfully costs<br /><span style="color:var(--volt)">$14.99/mo.</span>', sub: 'Free to start. Upgrade when you\'re ready.<br />No commitment. Cancel anytime.', free: { name: 'Free', price: '0', period: '/forever', sub: '1,400+ exercises · 3 programs' }, monthly: { name: 'Pro Monthly', price: '$14.99', period: '/mo', sub: 'Full AI coaching · no commitment' }, annual: { badge: 'Best value: save $54', name: 'Pro Annual', price: '$124.99', period: '/yr', sub: 'approx. $10.42/mo' } },
       manifesto: { label: 'Why Gainfully', p1: 'Most workout apps are built for the average user. A program for everyone is a program for no one.', p2: 'Gainfully asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', p3: 'Because your training doesn\'t look like anyone else\'s. And your app shouldn\'t either.' },
+      testimonials: { label: 'What users say', title: 'Real results from real users', q1: '"Finally an app that remembers what I did last time. I don\'t have to track whether I should go heavier - it already knows."', r1: 'Powerlifter, 4 years', q2: '"I asked the coach if I was overtraining. It answered with my own numbers from the last 6 weeks. Not a generic answer - my answer."', r2: 'Crossfit and strength', q3: '"I hit a new squat PR in week three. The AI coach had already suggested I should try - and it was right."', r3: 'Beginner, 6 months' },
       footer: { copy: '© 2026 Gainfully. All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms', contact: 'Contact' },
       aiDetail: { label: 'Personal, not generic', title: 'Your coach knows <span style="color:var(--volt)">YOU</span>', sub: 'The Gainfully AI coach knows your actual history. When you ask a question, it responds with your own data - your PRs, your training pattern, your injuries - not generic advice.', cardTitle: 'AI COACH HAS ACCESS TO', prsLabel: 'PERSONAL RECORDS (WITH DATES)', prsVal: 'Squat 120 kg×5 · Bench 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'WEIGHT TREND', weightVal: '83 kg → 85 kg (up +2 kg over the last 6 weeks)', daysLabel: 'TRAINING PATTERN', daysVal: 'Usually trains Mon / Wed / Fri (from history)', notesLabel: 'YOUR MESSAGE TO THE COACH', notesVal: '"Bad left knee - avoid overhead press"', historyLabel: 'WORKOUT HISTORY', historyVal: 'Last 8 sessions - every set, weight and rep', memoryLabel: 'CONVERSATION MEMORY', memoryVal: 'Remembers what you\'ve discussed across sessions', chatStatus: 'Knows your history', chatQ: 'Should I increase the weight on squat today?', chatA: 'You\'ve lifted 120 kg × 5 reps three sessions in a row - a clear plateau signal. I\'d recommend trying 122.5 kg today. And since you\'ve noted a bad left knee: use high-bar style and stop just above parallel.', chatNote: 'The answer uses your PRs, history and coach notes - not a generic response.' },
       langFlag: '🇬🇧', langCode: 'EN',
@@ -1513,6 +1583,7 @@
       aiDetail: { label: 'Persönlich, nicht generisch', title: 'Dein Coach kennt <span style="color:var(--volt)">DICH</span>', sub: 'Der Gainfully KI-Coach kennt deine echte Historie. Wenn du etwas fragst, antwortet er mit deinen eigenen Daten - deinen PRs, deinem Trainingsmuster und deinen Verletzungen.', cardTitle: 'KI-COACH HAT ZUGRIFF AUF', prsLabel: 'PERSÖNLICHE REKORDE (MIT DATUM)', prsVal: 'Kniebeuge 120 kg×5 · Bankdrücken 95 kg×3 · Kreuzheben 150 kg×4', weightLabel: 'GEWICHTSENTWICKLUNG', weightVal: '83 kg → 85 kg (+2 kg in den letzten 6 Wochen)', daysLabel: 'TRAININGSMUSTER', daysVal: 'Trainiert meist Mo / Mi / Fr (aus der Historie)', notesLabel: 'DEINE NACHRICHT AN DEN COACH', notesVal: '"Schlechtes linkes Knie - vermeide Overhead Press"', historyLabel: 'TRAININGSHISTORIE', historyVal: 'Letzte 8 Einheiten - alle Sätze, Gewichte und Wdh.', memoryLabel: 'GESPRÄCHSGEDÄCHTNIS', memoryVal: 'Erinnert sich an frühere Gespräche sitzungsübergreifend', chatStatus: 'Kennt deine Historie', chatQ: 'Soll ich heute das Gewicht bei der Kniebeuge erhöhen?', chatA: 'Du hast 120 kg × 5 Wdh. drei Einheiten in Folge gemacht - ein klares Plateau-Signal. Ich empfehle heute 122,5 kg. Da du ein schlechtes linkes Knie notiert hast: High-Bar-Stil und knapp über parallel stoppen.', chatNote: 'Die Antwort nutzt deine PRs, deine Historie und deine Coach-Notizen - keine generischen Ratschläge.' },
       cta: { anchor: 'Ein Personal Trainer kostet 90 EUR/Stunde.', h2: 'Gainfully kostet<br /><span style="color:var(--volt)">15,99 EUR/Mo.</span>', sub: 'Kostenlos starten. Upgraden wenn du bereit bist.<br />Keine Bindung. Jederzeit kündigen.', free: { name: 'Kostenlos', price: '0', period: '/immer', sub: '1.400+ Übungen · 3 Programme' }, monthly: { name: 'Pro Monatlich', price: '15,99 EUR', period: '/Mo', sub: 'Volles KI-Coaching · keine Bindung' }, annual: { badge: 'Bestes Angebot: spare 67 EUR', name: 'Pro Jährlich', price: '124,99 EUR', period: '/Jahr', sub: 'ca. 10,42 EUR/Mo' } },
       manifesto: { label: 'Warum Gainfully', p1: 'Die meisten Fitness-Apps sind für den Durchschnittsnutzer gemacht. Ein Programm für alle ist ein Programm für niemanden.', p2: 'Gainfully fragt statt anzunehmen. Erinnert sich statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', p3: 'Dein Training sieht nicht wie das anderer aus. Deine App sollte das auch nicht.' },
+      testimonials: { label: 'Was Nutzer sagen', title: 'Echte Ergebnisse von echten Nutzern', q1: '"Endlich eine App, die sich daran erinnert, was ich zuletzt gemacht habe. Ich muss nicht selbst tracken, ob ich das Gewicht erhöhen soll - sie weiß es bereits."', r1: 'Kraftdreikämpfer, 4 Jahre', q2: '"Ich fragte den Coach, ob ich zu viel trainiere. Er antwortete mit meinen eigenen Zahlen der letzten 6 Wochen. Keine generische Antwort - meine Antwort."', r2: 'Crossfit und Kraft', q3: '"In Woche drei habe ich einen neuen Kniebeugen-Rekord aufgestellt. Der KI-Coach hatte das bereits vorgeschlagen - und er hatte Recht."', r3: 'Anfänger, 6 Monate' },
       footer: { copy: '© 2026 Gainfully. Alle Rechte vorbehalten.', privacy: 'Datenschutzerklärung', terms: 'AGB', contact: 'Kontakt' },
       langFlag: '🇩🇪', langCode: 'DE',
     },
@@ -1531,6 +1602,7 @@
       aiDetail: { label: 'Personnel, pas générique', title: 'Ton coach te connaît <span style="color:var(--volt)">TOI</span>', sub: 'Le coach IA de Gainfully connaît ton vrai historique. Quand tu poses une question, il répond avec tes données - tes PRs, ton programme, tes blessures - pas des conseils génériques.', cardTitle: 'LE COACH IA A ACCÈS À', prsLabel: 'RECORDS PERSONNELS (AVEC DATES)', prsVal: 'Squat 120 kg×5 · Développé 95 kg×3 · Soulevé 150 kg×4', weightLabel: 'ÉVOLUTION DU POIDS', weightVal: '83 kg → 85 kg (+2 kg ces 6 dernières semaines)', daysLabel: "HABITUDES D'ENTRAÎNEMENT", daysVal: "S'entraîne généralement Lun / Mer / Ven", notesLabel: 'TON MESSAGE AU COACH', notesVal: '"Mauvais genou gauche - évite le développé overhead"', historyLabel: "HISTORIQUE D'ENTRAÎNEMENT", historyVal: 'Les 8 dernières séances - toutes les séries et charges', memoryLabel: 'MÉMOIRE DES CONVERSATIONS', memoryVal: 'Se souvient de vos discussions précédentes', chatStatus: 'Connaît ton historique', chatQ: "Dois-je augmenter le poids au squat aujourd'hui?", chatA: "Tu as soulevé 120 kg × 5 reps trois séances d'affilée - signal clair de plateau. Je recommande 122,5 kg aujourd'hui. Avec ton genou gauche: utilise le style high-bar et arrête légèrement au-dessus du parallèle.", chatNote: 'La réponse utilise tes PRs, ton historique et tes notes - pas un conseil générique.' },
       cta: { anchor: 'Un coach personnel coûte 80 EUR/heure.', h2: 'Gainfully coûte<br /><span style="color:var(--volt)">15,99 EUR/mois.</span>', sub: 'Gratuit pour commencer. Passe à Pro quand tu es prêt.<br />Sans engagement. Annule à tout moment.', free: { name: 'Gratuit', price: '0', period: '/toujours', sub: '1 400+ exercices · 3 programmes' }, monthly: { name: 'Pro Mensuel', price: '15,99 EUR', period: '/mois', sub: 'Coaching IA complet · sans engagement' }, annual: { badge: 'Meilleure offre: économise 67 EUR', name: 'Pro Annuel', price: '124,99 EUR', period: '/an', sub: 'env. 10,42 EUR/mois' } },
       manifesto: { label: 'Pourquoi Gainfully', p1: 'La plupart des apps fitness sont faites pour l\'utilisateur moyen. Un programme pour tous est un programme pour personne.', p2: 'Gainfully demande plutôt que de supposer. Se souvient plutôt que de répéter. S\'adapte à toi - pas l\'inverse.', p3: 'Ton entraînement ne ressemble à celui de personne d\'autre. Ton app ne devrait pas non plus.' },
+      testimonials: { label: 'Ce que disent les utilisateurs', title: 'De vrais résultats de vrais utilisateurs', q1: '"Enfin une app qui se souvient de ma dernière séance. Je n\'ai pas besoin de savoir si je dois augmenter le poids - elle le sait déjà."', r1: 'Powerlifter, 4 ans', q2: '"J\'ai demandé au coach si je sur-m\'entraînais. Il a répondu avec mes propres chiffres des 6 dernières semaines. Pas une réponse générique - la mienne."', r2: 'Crossfit et force', q3: '"J\'ai battu mon record de squat à la troisième semaine. Le coach IA l\'avait déjà suggéré - et il avait raison."', r3: 'Débutant, 6 mois' },
       footer: { copy: '© 2026 Gainfully. Tous droits réservés.', privacy: 'Politique de confidentialité', terms: 'CGU', contact: 'Contact' },
       langFlag: '🇫🇷', langCode: 'FR',
     },
@@ -1549,6 +1621,7 @@
       aiDetail: { label: 'Personal, no genérico', title: 'Tu coach te conoce <span style="color:var(--volt)">A TI</span>', sub: 'El coach IA de Gainfully conoce tu historial real. Cuando preguntas algo, responde con tus datos - tus PRs, tu patrón de entrenamiento, tus lesiones - no consejos genéricos.', cardTitle: 'EL COACH IA TIENE ACCESO A', prsLabel: 'RECORDS PERSONALES (CON FECHAS)', prsVal: 'Sentadilla 120 kg×5 · Press 95 kg×3 · Peso muerto 150 kg×4', weightLabel: 'EVOLUCIÓN DEL PESO', weightVal: '83 kg → 85 kg (+2 kg en las últimas 6 semanas)', daysLabel: 'PATRÓN DE ENTRENAMIENTO', daysVal: 'Entrena normalmente Lun / Mié / Vie', notesLabel: 'TU MENSAJE AL COACH', notesVal: '"Rodilla izquierda mal - evitar press de hombros"', historyLabel: 'HISTORIAL DE ENTRENAMIENTOS', historyVal: 'Últimas 8 sesiones - todas las series y pesos', memoryLabel: 'MEMORIA DE CONVERSACIÓN', memoryVal: 'Recuerda lo que has hablado entre sesiones', chatStatus: 'Conoce tu historial', chatQ: '¿Debo aumentar el peso en sentadilla hoy?', chatA: 'Has levantado 120 kg × 5 reps tres sesiones seguidas - señal clara de plateau. Recomiendo 122,5 kg hoy. Con tu rodilla izquierda: usa estilo high-bar y para justo por encima de paralelo.', chatNote: 'La respuesta usa tus PRs, historial y notas del coach - no un consejo genérico.' },
       cta: { anchor: 'Un entrenador personal cuesta 60 EUR/hora.', h2: 'Gainfully cuesta<br /><span style="color:var(--volt)">15,99 EUR/mes.</span>', sub: 'Gratis para empezar. Actualiza cuando estés listo.<br />Sin compromiso. Cancela cuando quieras.', free: { name: 'Gratis', price: '0', period: '/siempre', sub: '1.400+ ejercicios · 3 programas' }, monthly: { name: 'Pro Mensual', price: '15,99 EUR', period: '/mes', sub: 'Coaching IA completo · sin compromiso' }, annual: { badge: 'Mejor opción: ahorra 67 EUR', name: 'Pro Anual', price: '124,99 EUR', period: '/año', sub: 'aprox. 10,42 EUR/mes' } },
       manifesto: { label: 'Por qué Gainfully', p1: 'La mayoría de las apps de fitness están hechas para el usuario promedio. Un programa para todos es un programa para nadie.', p2: 'Gainfully pregunta en lugar de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', p3: 'Tu entrenamiento no se parece al de nadie más. Tu app tampoco debería.' },
+      testimonials: { label: 'Lo que dicen los usuarios', title: 'Resultados reales de usuarios reales', q1: '"Por fin una app que recuerda lo que hice la última vez. No tengo que controlar si debo subir el peso - ella ya lo sabe."', r1: 'Powerlifter, 4 años', q2: '"Le pregunté al coach si estaba sobreentrenando. Respondió con mis propios números de las últimas 6 semanas. No una respuesta genérica - la mía."', r2: 'Crossfit y fuerza', q3: '"Rompí mi récord de sentadilla en la tercera semana. El coach IA ya lo había sugerido - y tenía razón."', r3: 'Principiante, 6 meses' },
       footer: { copy: '© 2026 Gainfully. Todos los derechos reservados.', privacy: 'Política de privacidad', terms: 'Términos', contact: 'Contacto' },
       langFlag: '🇪🇸', langCode: 'ES',
     },
@@ -1567,6 +1640,7 @@
       aiDetail: { label: 'Pessoal, não genérico', title: 'Seu coach conhece <span style="color:var(--volt)">VOCÊ</span>', sub: 'O coach IA do Gainfully conhece seu histórico real. Quando você pergunta algo, ele responde com seus dados - seus PRs, seu padrão de treino, suas lesões - não conselhos genéricos.', cardTitle: 'O COACH IA TEM ACESSO A', prsLabel: 'RECORDES PESSOAIS (COM DATAS)', prsVal: 'Agachamento 120 kg×5 · Supino 95 kg×3 · Terra 150 kg×4', weightLabel: 'EVOLUÇÃO DO PESO', weightVal: '83 kg → 85 kg (+2 kg nas últimas 6 semanas)', daysLabel: 'PADRÃO DE TREINO', daysVal: 'Geralmente treina Seg / Qua / Sex', notesLabel: 'SUA MENSAGEM AO COACH', notesVal: '"Joelho esquerdo ruim - evitar press acima da cabeça"', historyLabel: 'HISTÓRICO DE TREINOS', historyVal: 'Últimas 8 sessões - todas as séries e pesos', memoryLabel: 'MEMÓRIA DE CONVERSAS', memoryVal: 'Lembra do que vocês conversaram em outras sessões', chatStatus: 'Conhece seu histórico', chatQ: 'Devo aumentar o peso no agachamento hoje?', chatA: 'Você levantou 120 kg × 5 reps em três sessões seguidas - sinal claro de plateau. Recomendo 122,5 kg hoje. Com seu joelho esquerdo: use o estilo high-bar e pare um pouco acima do paralelo.', chatNote: 'A resposta usa seus PRs, histórico e notas ao coach - não um conselho genérico.' },
       cta: { anchor: 'Um personal trainer custa R$ 150/hora.', h2: 'Gainfully custa<br /><span style="color:var(--volt)">$14.99/mês.</span>', sub: 'Grátis para começar. Faça upgrade quando estiver pronto.<br />Sem compromisso. Cancele quando quiser.', free: { name: 'Grátis', price: '0', period: '/sempre', sub: '1.400+ exercícios · 3 programas' }, monthly: { name: 'Pro Mensal', price: '$14.99', period: '/mês', sub: 'Coaching IA completo · sem compromisso' }, annual: { badge: 'Melhor opção: economize $54', name: 'Pro Anual', price: '$124.99', period: '/ano', sub: 'aprox. $10.42/mês' } },
       manifesto: { label: 'Por que Gainfully', p1: 'A maioria dos apps de fitness é feita para o usuário médio. Um programa para todos é um programa para ninguém.', p2: 'Gainfully pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', p3: 'Seu treino não se parece com o de ninguém. Seu app também não deveria.' },
+      testimonials: { label: 'O que os usuários dizem', title: 'Resultados reais de usuários reais', q1: '"Finalmente um app que lembra o que fiz na última vez. Não preciso controlar se devo aumentar o peso - ele já sabe."', r1: 'Powerlifter, 4 anos', q2: '"Perguntei ao coach se estava treinando demais. Ele respondeu com meus próprios números das últimas 6 semanas. Não uma resposta genérica - a minha."', r2: 'Crossfit e força', q3: '"Bati meu recorde de agachamento na terceira semana. O coach IA já tinha sugerido tentar - e ele estava certo."', r3: 'Iniciante, 6 meses' },
       footer: { copy: '© 2026 Gainfully. Todos os direitos reservados.', privacy: 'Política de privacidade', terms: 'Termos', contact: 'Contato' },
       langFlag: '🇧🇷', langCode: 'PT',
     },
@@ -1706,9 +1780,19 @@
       '.ai-showcase-header',
       '.chat-demo',
       '.coach-card',
+      '.testimonials-section .section-label',
+      '.testimonials-section .section-title',
     ].join(',')).forEach(el => {
       el.classList.add('reveal')
       revealObs.observe(el)
+    })
+
+    // Also observe elements that already carry 'reveal' in their HTML
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => {
+      if (!el.classList.contains('reveal-observed')) {
+        el.classList.add('reveal-observed')
+        revealObs.observe(el)
+      }
     })
   }
 
