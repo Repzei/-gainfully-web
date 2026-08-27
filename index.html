@@ -980,6 +980,12 @@
     .cta-plan-price span { font-size: 14px; font-weight: 400; color: var(--muted); }
     .cta-plan-sub { color: var(--muted); font-size: 12px; margin-top: 4px; }
 
+    /* CURRENCY SWITCHER */
+    .currency-switcher { display: flex; gap: 6px; justify-content: center; margin-bottom: 28px; }
+    .currency-btn { padding: 5px 14px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em; }
+    .currency-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .currency-btn.active { border-color: rgba(255,255,255,0.25); color: var(--text); background: rgba(255,255,255,0.07); }
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
@@ -1505,6 +1511,11 @@
       <p class="cta-anchor" data-i18n="cta.anchor">En personlig træner koster 400 kr/timen.</p>
       <h2 data-i18n="cta.h2">Gainfully koster<br /><span style="color:var(--volt)">99 kr/md.</span></h2>
       <p data-i18n="cta.sub">Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.</p>
+      <div class="currency-switcher" id="currencySwitcher">
+        <button class="currency-btn" data-currency="DKK" onclick="setCurrency('DKK')">DKK</button>
+        <button class="currency-btn" data-currency="EUR" onclick="setCurrency('EUR')">EUR</button>
+        <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD')">USD</button>
+      </div>
       <div class="cta-plans">
         <div class="cta-plan">
           <div class="cta-plan-name" data-i18n="cta.free.name">Gratis</div>
@@ -1513,14 +1524,14 @@
         </div>
         <div class="cta-plan">
           <div class="cta-plan-name" data-i18n="cta.monthly.name">Pro Månedlig</div>
-          <div class="cta-plan-price"><span data-i18n="cta.monthly.price">99 kr</span><span data-i18n="cta.monthly.period">/md</span></div>
+          <div class="cta-plan-price"><span id="ctaMonthlyPrice" data-i18n="cta.monthly.price">99 kr</span><span data-i18n="cta.monthly.period">/md</span></div>
           <div class="cta-plan-sub" data-i18n="cta.monthly.sub">Fuld AI-coaching · ingen binding</div>
         </div>
         <div class="cta-plan cta-plan-best">
-          <div class="cta-plan-badge" data-i18n="cta.annual.badge">Bedst: spar 389 kr</div>
+          <div class="cta-plan-badge" id="ctaAnnualBadge" data-i18n="cta.annual.badge">Bedst: spar 389 kr</div>
           <div class="cta-plan-name" data-i18n="cta.annual.name">Pro Årlig</div>
-          <div class="cta-plan-price"><span data-i18n="cta.annual.price">799 kr</span><span data-i18n="cta.annual.period">/år</span></div>
-          <div class="cta-plan-sub" data-i18n="cta.annual.sub">ca. 67 kr/md</div>
+          <div class="cta-plan-price"><span id="ctaAnnualPrice" data-i18n="cta.annual.price">799 kr</span><span data-i18n="cta.annual.period">/år</span></div>
+          <div class="cta-plan-sub" id="ctaAnnualSub" data-i18n="cta.annual.sub">ca. 67 kr/md</div>
         </div>
       </div>
       <div class="hero-buttons">
@@ -1543,7 +1554,7 @@
     <div class="footer-links">
       <a href="privacy.html" data-i18n="footer.privacy">Privatlivspolitik</a>
       <a href="terms.html" data-i18n="footer.terms">Vilkår</a>
-      <a href="mailto:support@gainfully.app" data-i18n="footer.contact">Kontakt</a>
+      <a href="mailto:support@gainfully.app" id="contactLink" data-i18n="footer.contact" onclick="copyContactEmail(event)">Kontakt</a>
     </div>
   </footer>
 
@@ -1782,6 +1793,8 @@
       e.stopPropagation()
       applyLang(opt.dataset.lang)
       switcher.classList.remove('open')
+      // Genberegn valuta-priser efter sprog-skift (i18n overskriver priserne)
+      setCurrency(detectCurrency())
     })
   })
 
@@ -1890,6 +1903,93 @@
 
   // Init
   applyLang(detectLang())
+
+  // --- CURRENCY SWITCHER ---
+  const CURRENCY_DATA = {
+    DKK: {
+      monthly: '99 kr',
+      annual: '799 kr',
+      sub: 'ca. 67 kr/md.',
+      badges: { da: 'Bedst: spar 389 kr', en: 'Best: save 389 DKK', de: 'Bestes Angebot: spare 389 DKK', fr: 'Meilleure offre: économiser 389 DKK', es: 'Mejor oferta: ahorra 389 DKK', pt: 'Melhor oferta: poupe 389 DKK' },
+      h2: { da: '99 kr/md.', en: '99 DKK/mo.', de: '99 DKK/Mo.', fr: '99 DKK/mois.', es: '99 DKK/mes.', pt: '99 DKK/mês.' }
+    },
+    EUR: {
+      monthly: '15,99 EUR',
+      annual: '124,99 EUR',
+      sub: 'ca. 10,42 EUR/md.',
+      badges: { da: 'Bedst: spar 67 EUR', en: 'Best: save €67', de: 'Bestes Angebot: spare 67 EUR', fr: 'Meilleure offre: économiser 67 EUR', es: 'Mejor oferta: ahorra 67 EUR', pt: 'Melhor oferta: poupe 67 EUR' },
+      h2: { da: '15,99 EUR/md.', en: '€15.99/mo.', de: '15,99 EUR/Mo.', fr: '15,99 EUR/mois.', es: '15,99 EUR/mes.', pt: '15,99 EUR/mês.' }
+    },
+    USD: {
+      monthly: '$14.99',
+      annual: '$124.99',
+      sub: '~$10.42/mo.',
+      badges: { da: 'Bedst: spar $54', en: 'Best value: save $54', de: 'Bestes Angebot: spare $54', fr: 'Meilleure offre: économiser $54', es: 'Mejor oferta: ahorra $54', pt: 'Melhor oferta: poupe $54' },
+      h2: { da: '$14.99/md.', en: '$14.99/mo.', de: '$14.99/Mo.', fr: '$14.99/mois.', es: '$14.99/mes.', pt: '$14.99/mês.' }
+    }
+  }
+
+  function detectCurrency() {
+    try {
+      const stored = localStorage.getItem('pref_currency')
+      if (stored && CURRENCY_DATA[stored]) return stored
+    } catch(e) {}
+    const region = (navigator.language || 'en').split('-')[1]?.toUpperCase() || ''
+    const base = (navigator.language || 'en').split('-')[0].toLowerCase()
+    if (region === 'DK' || base === 'da') return 'DKK'
+    const eurRegions = ['DE','FR','ES','PT','IT','NL','BE','AT','FI','IE','GR','LU','MT','CY','SI','SK','EE','LV','LT']
+    if (eurRegions.includes(region) || ['de','fr','es','pt'].includes(base)) return 'EUR'
+    return 'USD'
+  }
+
+  function setCurrency(currency) {
+    const lang = detectLang()
+    const d = CURRENCY_DATA[currency]
+    if (!d) return
+    const monthly = document.getElementById('ctaMonthlyPrice')
+    const annual = document.getElementById('ctaAnnualPrice')
+    const sub = document.getElementById('ctaAnnualSub')
+    const badge = document.getElementById('ctaAnnualBadge')
+    const h2Span = document.querySelector('[data-i18n="cta.h2"] span[style]')
+    if (monthly) monthly.textContent = d.monthly
+    if (annual) annual.textContent = d.annual
+    if (sub) sub.textContent = d.sub
+    if (badge) badge.textContent = d.badges[lang] || d.badges.en
+    if (h2Span) h2Span.textContent = d.h2[lang] || d.h2.en
+    document.querySelectorAll('.currency-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.currency === currency)
+    })
+    try { localStorage.setItem('pref_currency', currency) } catch(e) {}
+  }
+
+  // Auto-detect og sæt valuta efter lang er applied
+  setCurrency(detectCurrency())
+
+  // --- KONTAKT: kopi til clipboard ---
+  function copyContactEmail(e) {
+    e.preventDefault()
+    const email = 'support@gainfully.app'
+    navigator.clipboard.writeText(email).then(() => {
+      showEmailToast(email)
+    }).catch(() => {
+      // Fallback: åbn mailto hvis clipboard fejler
+      window.location.href = 'mailto:' + email
+    })
+  }
+
+  function showEmailToast(email) {
+    let toast = document.getElementById('emailToast')
+    if (!toast) {
+      toast = document.createElement('div')
+      toast.id = 'emailToast'
+      toast.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--border);color:var(--text);padding:11px 22px;border-radius:12px;font-size:14px;z-index:9999;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.2s;'
+      document.body.appendChild(toast)
+    }
+    toast.textContent = email + ' kopieret'
+    toast.style.opacity = '1'
+    clearTimeout(toast._t)
+    toast._t = setTimeout(() => { toast.style.opacity = '0' }, 2500)
+  }
   </script>
 
 </body>
