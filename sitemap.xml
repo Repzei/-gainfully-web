@@ -5,7 +5,7 @@
   <!-- Forside (ét URL, JS-drevet i18n - alle sprog peger på same side) -->
   <url>
     <loc>https://gainfully.app/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -20,7 +20,7 @@
   <!-- Danish SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-traeningsforloeb.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -35,7 +35,7 @@
   <!-- English SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-workout-plan.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -50,7 +50,7 @@
   <!-- Deutsch SEO landing page -->
   <url>
     <loc>https://gainfully.app/ki-trainingsplan.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -65,7 +65,7 @@
   <!-- Francais SEO landing page -->
   <url>
     <loc>https://gainfully.app/programme-musculation-ia.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -80,7 +80,7 @@
   <!-- Espanol SEO landing page -->
   <url>
     <loc>https://gainfully.app/plan-entrenamiento-ia.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -95,7 +95,7 @@
   <!-- Portugues BR SEO landing page -->
   <url>
     <loc>https://gainfully.app/plano-treino-ia.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -110,7 +110,7 @@
   <!-- AI personlig traener - dansk SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-personlig-traener.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/ai-personlig-traener.html" />
@@ -120,13 +120,13 @@
   <!-- Legal -->
   <url>
     <loc>https://gainfully.app/privacy.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://gainfully.app/terms.html</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
