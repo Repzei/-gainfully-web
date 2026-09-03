@@ -547,6 +547,38 @@
     .hero-stars { color: #ffd234; letter-spacing: 1px; font-size: 14px; }
     .hero-proof-sep { color: var(--border); }
 
+    /* HERO SIDE-BY-SIDE */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 48px;
+      min-height: calc(100vh - 72px);
+    }
+    .hero-layout .hero-content-centered {
+      text-align: left;
+      padding: 48px 0;
+      margin: 0;
+      max-width: none;
+    }
+    .hero-layout .hero-content-centered .hero-badge { justify-content: flex-start; }
+    .hero-layout .hero-buttons { justify-content: flex-start; }
+    .hero-layout .hero-proof { justify-content: flex-start; }
+    .hero-layout .hero-phones-row {
+      padding: 0;
+      align-self: stretch;
+      align-items: flex-end;
+    }
+    @media (max-width: 900px) {
+      .hero-layout { grid-template-columns: 1fr; min-height: auto; padding: 0 24px; }
+      .hero-layout .hero-content-centered { text-align: center; padding: 60px 0 24px; }
+      .hero-layout .hero-content-centered .hero-badge,
+      .hero-layout .hero-buttons,
+      .hero-layout .hero-proof { justify-content: center; }
+    }
+
     /* COMPARE */
     .compare-section { padding: 80px 24px; background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .compare-inner { max-width: 720px; margin: 0 auto; }
@@ -1263,6 +1295,7 @@
   <main>
 
     <section class="hero-outer" aria-label="Hero">
+      <div class="hero-layout">
       <div class="hero-content-centered">
         <div class="hero-badge">
           <span data-i18n="hero.badge">Din træning. Din app.</span>
@@ -1308,6 +1341,7 @@
           <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
           <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
         </div>
+      </div>
       </div>
     </section>
 
@@ -1670,25 +1704,39 @@
       </div>
     </section>
 
-<section class="section-wrap" aria-label="Who is it for">
-      <h2 class="section-title" data-i18n="who.title">Uanset dit niveau og dine mål</h2>
-      <div class="audience-grid">
-        <div class="audience-card">
-          <h3 data-i18n="who.beginners.title">Begyndere</h3>
-          <p data-i18n="who.beginners.desc">Ny til styrketræning? Gainfully guider dig med 1.400+ øvelser og en AI-træner der forklarer hvad du skal gøre. Fortæl den om eventuelle skader eller begrænsninger, og den husker det i alle fremtidige råd.</p>
-        </div>
-        <div class="audience-card">
-          <h3 data-i18n="who.experienced.title">Erfarne løftere</h3>
-          <p data-i18n="who.experienced.desc">Hold styr på volumen, PR'er og progression. Gainfully giver dig data til at tage bedre beslutninger i og udenfor gymet.</p>
-        </div>
-        <div class="audience-card">
-          <h3 data-i18n="who.home.title">Dem der træner hjemme</h3>
-          <p data-i18n="who.home.desc">Håndvægte, kettlebells eller kropsvægt. Filtrer øvelsesbiblioteket på det udstyr du har og byg programmer derefter.</p>
-        </div>
-        <div class="audience-card">
-          <h3 data-i18n="who.gym.title">Fitnesscenter-brugere</h3>
-          <p data-i18n="who.gym.desc">Appen er bygget til at bruge mens du træner. Pausetimer, inline historik og PR-notifikationer klar når du er i gang.</p>
-        </div>
+    <section class="testimonials-section" aria-label="Brugercitater">
+      <div style="text-align:center; margin-bottom:48px;">
+        <div class="section-label" data-i18n="testimonials.label">Hvad brugerne siger</div>
+        <h2 class="section-title" data-i18n="testimonials.title">Rigtige resultater fra rigtige brugere</h2>
+      </div>
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q1">"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-role" data-i18n="testimonials.r1">Styrkeløfter, 4 år</div>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q2">"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-role" data-i18n="testimonials.r2">Crossfit og styrke</div>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q3">"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">L</div>
+            <div>
+              <div class="testimonial-role" data-i18n="testimonials.r3">Nybegynder, 6 måneder</div>
+            </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
