@@ -11,11 +11,11 @@
   <link rel="canonical" href="https://gainfully.app/" />
   <link rel="alternate" hreflang="x-default" href="https://gainfully.app/" />
   <link rel="alternate" hreflang="da" href="https://gainfully.app/" />
-  <link rel="alternate" hreflang="en" href="https://gainfully.app/" />
-  <link rel="alternate" hreflang="de" href="https://gainfully.app/" />
-  <link rel="alternate" hreflang="fr" href="https://gainfully.app/" />
-  <link rel="alternate" hreflang="es" href="https://gainfully.app/" />
-  <link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/" />
+  <link rel="alternate" hreflang="en" href="https://gainfully.app/en/" />
+  <link rel="alternate" hreflang="de" href="https://gainfully.app/de/" />
+  <link rel="alternate" hreflang="fr" href="https://gainfully.app/fr/" />
+  <link rel="alternate" hreflang="es" href="https://gainfully.app/es/" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/pt-br/" />
   <link rel="icon" type="image/png" href="/icon.png" />
   <link rel="apple-touch-icon" href="/icon.png" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -101,15 +101,13 @@
       "https://play.google.com/store/apps/details?id=com.gainfully.app"
     ],
     "publisher": {
-      "@type": "Person",
-      "name": "Jesper Larsen"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "ratingCount": "89",
-      "bestRating": "5",
-      "worstRating": "1"
+      "@type": "Organization",
+      "name": "Gainfully",
+      "url": "https://gainfully.app",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gainfully.app/icon.png"
+      }
     }
   }
   </script>
@@ -166,6 +164,54 @@
           "@type": "Answer",
           "text": "Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er progressiv overload og hvordan hjælper Gainfully med det?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Progressiv overload betyder at du gradvist øger belastningen over tid - mere vægt, flere reps eller sæt - så musklerne fortsætter med at vokse. Gainfully husker din historik og foreslår automatisk næste løft baseret på din aktuelle progression. Du behøver ikke holde styr på det selv."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvornår ser jeg fremgang i styrketræning med Gainfully?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "De fleste begyndere ser fremgang i styrke allerede efter 2-4 uger med konsekvent træning. Gainfully viser dig din fremgang grafisk: maksimumvægt, estimeret 1RM og volumen over tid. AI-coachen kan fortælle dig præcist hvornår du er klar til at øge vægten baseret på din faktiske historik."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kan Gainfully erstatte en rigtig personlig træner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gainfully er ikke en erstatning for hands-on coaching ved siden af dig i gymet. Men til programmering, progressionsstyring og spørgsmål baseret på din træningshistorik er AI-coachen sammenlignelig med hvad mange bruger en personlig træner til - til en brøkdel af prisen (99 kr/md vs. 400+ kr/time)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Virker appen uden internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Træningslogging fungerer offline - du kan logge sæt, reps og vægt uden internetforbindelse. Data synkroniseres automatisk næste gang du er online. AI-coaching kræver internetforbindelse da svarene genereres i realtid."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad er forskellen på Gainfully Pro og gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gratis giver adgang til 1.400+ øvelser med animerede GIFs, ubegrænset træningslogging, op til 3 egne programmer og 90 dages historik. Pro (99 kr/md eller 799 kr/år) tilføjer ubegrænset AI-coaching, ubegrænsede programmer og komplet historik uden grænser. Gratis er fuldt funktionelt til tracking - Pro er til dig der vil have en træner med."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Understøtter Gainfully PPL, Upper/Lower og Full Body programmer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Du kan bygge og gemme egne programmer med præcis den splitstruktur du vil: Push/Pull/Legs (PPL), Upper/Lower, Full Body, eller helt dit eget split. AI-coachen kan også generere et program til dig baseret på din historik, mål og træningstid."
+        }
       }
     ]
   }
@@ -179,6 +225,14 @@
     "url": "https://gainfully.app",
     "description": "Gratis styrketræning app med AI personlig træner til iPhone og Android",
     "inLanguage": ["da", "en", "de", "fr", "es", "pt-BR"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://gainfully.app/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Gainfully",
@@ -187,6 +241,10 @@
         "@type": "ImageObject",
         "url": "https://gainfully.app/icon.png"
       },
+      "sameAs": [
+        "https://apps.apple.com/dk/app/gainfully/id6775987256",
+        "https://play.google.com/store/apps/details?id=com.gainfully.app"
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "support@gainfully.app",
@@ -1732,12 +1790,110 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS: tilfoej her naar rigtige citater fra testere er klar -->
+    <section class="testimonials-section" aria-label="Brugercitater fra beta-testere">
+      <div class="section-label" data-i18n="testimonials.label">Hvad brugerne siger</div>
+      <h2 class="section-title" data-i18n="testimonials.title">Rigtige resultater fra rigtige brugere</h2>
+      <p style="text-align:center;font-size:13px;color:var(--dim);margin-top:-36px;margin-bottom:48px;">Beta-testere · citater fra tidlige brugere af Gainfully</p>
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q1">"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Simon</div>
+              <div class="testimonial-role" data-i18n="testimonials.r1">Styrkeløfter, 4 år</div>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q2">"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">M</div>
+            <div>
+              <div class="testimonial-name">Maria</div>
+              <div class="testimonial-role" data-i18n="testimonials.r2">Crossfit og styrke</div>
+            </div>
+          </figcaption>
+        </figure>
+        <figure class="testimonial-card">
+          <blockquote class="testimonial-quote" data-i18n="testimonials.q3">"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."</blockquote>
+          <figcaption class="testimonial-footer">
+            <div class="testimonial-avatar">L</div>
+            <div>
+              <div class="testimonial-name">Louise</div>
+              <div class="testimonial-role" data-i18n="testimonials.r3">Nybegynder, 6 måneder</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section style="background:rgba(255,255,255,0.02);border-top:1px solid var(--border);padding:96px 24px;" id="faq">
       <div class="section-label" data-i18n="faq.label">FAQ</div>
       <h2 class="section-title" data-i18n="faq.title">Ofte stillede spørgsmål</h2>
-      <div class="faq-list" id="faqList"></div>
+      <div class="faq-list" id="faqList">
+        <!-- Statisk HTML til Google - JS overskriver med i18n ved sideload -->
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Hvad er Gainfully?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Gainfully er en fitness tracking app til iPhone og Android med en indbygget AI-træner. Du logger dine styrketræninger, og appen husker alt: vægte, reps, sæt og fremgang. Træneren analyserer din historik og giver dig personlige råd og programforslag.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Er Gainfully gratis?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Ja, Gainfully er gratis at downloade og bruge. Gratis inkluderer 1.400+ øvelser med GIFs, ubegrænset træningslogning, op til 3 programmer og 90 dages statistik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching, ubegrænsede programmer og komplet historik.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Hvad ved AI-coachen om mig?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">AI-coachen har adgang til din komplette træningshistorik: dine personlige rekorder med datoer, din vægttend over tid, hvilke dage du typisk træner, din muskelbalance og eventuelle noter du selv har skrevet. Den husker også hvad I har talt om i tidligere samtaler. Det er det der gør svaret relevant for dig - ikke for en gennemsnitlig bruger.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Virker Gainfully på iPhone og Android?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Ja, Gainfully er tilgængelig til både iPhone (iOS) og Android. Download gratis fra App Store eller Google Play. Alle dine data synkroniseres automatisk.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Hvad er progressiv overload og hvordan hjælper Gainfully?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Progressiv overload betyder at du gradvist øger belastningen over tid - mere vægt, flere reps eller sæt - så musklerne fortsætter med at vokse. Gainfully husker din historik og foreslår automatisk næste løft baseret på din aktuelle progression. Du behøver ikke holde styr på det selv.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Hvornår ser jeg fremgang i styrketræning?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">De fleste begyndere ser fremgang i styrke allerede efter 2-4 uger med konsekvent træning. Gainfully viser dig din fremgang grafisk: maksimumvægt, estimeret 1RM og volumen over tid. AI-coachen fortæller dig præcist hvornår du er klar til at øge vægten baseret på din faktiske historik.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Kan Gainfully erstatte en personlig træner?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Gainfully er ikke en erstatning for hands-on coaching i gymet. Men til programmering, progressionsstyring og spørgsmål baseret på din træningshistorik er AI-coachen sammenlignelig med hvad mange bruger en personlig træner til - til en brøkdel af prisen (99 kr/md vs. 400+ kr/time).</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Understøtter Gainfully PPL, Upper/Lower og Full Body?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Ja. Du kan bygge og gemme egne programmer med præcis den splitstruktur du vil: Push/Pull/Legs (PPL), Upper/Lower, Full Body, eller helt dit eget split. AI-coachen kan også generere et program til dig baseret på din historik, mål og træningstid.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Virker appen uden internet?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Træningslogging fungerer offline - du kan logge sæt, reps og vægt uden internetforbindelse. Data synkroniseres automatisk næste gang du er online. AI-coaching kræver internetforbindelse da svarene genereres i realtid.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span>Hvilke sprog understøtter appen?</span><span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne.</div>
+        </div>
+      </div>
     </section>
 
     <div class="cta-wrap"><section class="cta" id="download">
@@ -1811,6 +1967,14 @@
         <a href="privacy.html" data-i18n="footer.privacy">Privatlivspolitik</a>
         <a href="terms.html" data-i18n="footer.terms">Vilkår</a>
         <a href="mailto:support@gainfully.app" id="contactLink" data-i18n="footer.contact" onclick="copyContactEmail(event)">Kontakt</a>
+      </div>
+      <div class="footer-links-col" style="min-width:160px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:block;">Se mere</span>
+        <a href="ai-personlig-traener.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Personlig Træner</a>
+        <a href="ai-traeningsforloeb.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Træningsforløb</a>
+        <a href="ai-workout-plan.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Workout Plan</a>
+        <a href="ki-trainingsplan.html" style="color:var(--muted);font-size:13px;line-height:2;">KI Trainingsplan (DE)</a>
+        <a href="progressiv-overload.html" style="color:var(--muted);font-size:13px;line-height:2;">Guide: Progressiv overload</a>
       </div>
     </div>
     <div class="footer-bottom">

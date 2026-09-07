@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Progressiv overload: Den komplette guide til stærkere løft</title>
+  <meta name="description" content="Lær hvad progressiv overload er, hvordan du bruger det i styrketræning, og hvordan Gainfully automatisk holder styr på din progression. Gratis guide med eksempler." />
+  <meta name="keywords" content="progressiv overload, styrketræning fremgang, stærkere løft, træningsprogression, progressiv overbelastning" />
+  <link rel="canonical" href="https://gainfully.app/progressiv-overload.html" />
+  <link rel="alternate" hreflang="da" href="https://gainfully.app/progressiv-overload.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gainfully.app/progressiv-overload.html" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://gainfully.app/progressiv-overload.html" />
+  <meta property="og:title" content="Progressiv overload: Den komplette guide" />
+  <meta property="og:description" content="Hvad er progressiv overload, og hvordan bruger du det korrekt i styrketræning? Komplet guide med eksempler og praktiske råd." />
+  <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
+  <meta property="og:site_name" content="Gainfully" />
+  <meta name="author" content="Gainfully" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Progressiv overload: Den komplette guide til stærkere løft",
+    "description": "Hvad er progressiv overload, og hvordan bruger du det korrekt i styrketræning? Komplet guide med eksempler og praktiske råd.",
+    "url": "https://gainfully.app/progressiv-overload.html",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "inLanguage": "da",
+    "author": {
+      "@type": "Organization",
+      "name": "Gainfully",
+      "url": "https://gainfully.app"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Gainfully",
+      "url": "https://gainfully.app",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gainfully.app/icon.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gainfully.app/progressiv-overload.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er progressiv overload?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Progressiv overload er princippet om gradvist at øge belastningen i din styrketræning over tid. Det kan ske ved at øge vægten, antallet af reps, sæt, eller reducere pausetiden. Uden progressiv overload holder musklerne op med at vokse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvor meget skal jeg øge vægten per træning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Begyndere kan typisk øge 2,5 kg per session på store løft (squat, dødløft, bænkpres). Erfarne løftere øger 1,25-2,5 kg pr. uge eller endda sjældnere. Det afhænger af løftet, dit niveau og din restitution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad gør jeg når jeg ikke kan øge vægten?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Øg reps i stedet (f.eks. fra 3x5 til 3x6), tilsæt et ekstra sæt, reducer pausetiden, eller prøv en deload uge med lavere intensitet. Progression er ikke altid lineær - det er normalt at stagnerere midlertidigt."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #111113; --bg2: #1c1c1f; --border: #2c2c2e;
+      --volt: #c4ff00; --volt-dark: #0d1400;
+      --text: #ffffff; --muted: #9a9d97; --dim: #636366;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 17px; line-height: 1.75;
+    }
+    a { color: var(--volt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Bricolage Grotesque', -apple-system, sans-serif; text-wrap: balance; }
+
+    /* NAV */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px; border-bottom: 1px solid var(--border);
+      background: rgba(17,17,19,0.96); backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 18px; font-weight: 900; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-back { font-size: 14px; color: var(--muted); }
+    .nav-cta {
+      background: var(--volt); color: var(--volt-dark);
+      font-weight: 700; font-size: 14px; padding: 8px 18px;
+      border-radius: 10px;
+    }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap { max-width: 740px; margin: 0 auto; padding: 64px 24px 120px; }
+
+    .article-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--volt); margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 44px); font-weight: 900;
+      letter-spacing: -1.5px; line-height: 1.07; margin-bottom: 20px;
+    }
+    .article-meta {
+      font-size: 13px; color: var(--dim); display: flex; gap: 16px;
+      flex-wrap: wrap; margin-bottom: 48px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: clamp(20px, 3vw, 28px); font-weight: 800;
+      letter-spacing: -0.8px; margin-top: 56px; margin-bottom: 14px;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 19px; font-weight: 700; letter-spacing: -0.4px;
+      margin-top: 36px; margin-bottom: 10px; color: var(--text);
+    }
+    p { color: var(--muted); margin-bottom: 18px; max-width: 65ch; }
+    p strong { color: var(--text); font-weight: 600; }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-left: 3px solid var(--volt);
+      border-radius: 12px; padding: 20px 24px; margin: 28px 0;
+    }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--volt); margin-bottom: 8px;
+    }
+    .callout p { margin-bottom: 0; }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 28px 0; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+      background: var(--bg2); border-radius: 12px; overflow: hidden;
+    }
+    th {
+      background: rgba(196,255,0,0.08); color: var(--volt);
+      font-weight: 700; font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 12px 16px; text-align: left;
+    }
+    td { padding: 12px 16px; color: var(--muted); border-top: 1px solid var(--border); }
+    td:first-child { color: var(--text); font-weight: 600; }
+
+    /* APP PROMO */
+    .app-promo {
+      background: linear-gradient(135deg, rgba(196,255,0,0.08) 0%, rgba(196,255,0,0.02) 100%);
+      border: 1px solid rgba(196,255,0,0.2);
+      border-radius: 20px; padding: 36px 40px; margin: 56px 0;
+      text-align: center;
+    }
+    .app-promo h3 { margin-top: 0; margin-bottom: 12px; font-size: 22px; }
+    .app-promo p { margin: 0 auto 24px; max-width: 50ch; }
+    .promo-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .promo-btn-primary {
+      background: var(--volt); color: var(--volt-dark);
+      font-weight: 700; padding: 12px 24px; border-radius: 12px;
+      font-size: 15px;
+    }
+    .promo-btn-secondary {
+      color: var(--muted); border: 1px solid var(--border);
+      padding: 12px 24px; border-radius: 12px; font-size: 15px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      font-size: 13px; color: var(--dim);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .article-wrap { padding: 40px 20px 80px; }
+      .app-promo { padding: 28px 24px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="Gainfully" width="28" height="28" style="border-radius:6px;" />
+      Gainfully
+    </a>
+    <a href="/" class="nav-back">← Tilbage til forsiden</a>
+    <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="nav-cta">Download gratis</a>
+  </nav>
+
+  <main>
+    <article class="article-wrap">
+
+      <div class="article-label">Styrketræning guide</div>
+      <h1>Progressiv overload: Den komplette guide til stærkere løft</h1>
+      <div class="article-meta">
+        <span>Gainfully · 7. september 2026</span>
+        <span>8 minutters læsning</span>
+      </div>
+
+      <p>
+        Hvis du træner styrketræning og ikke bliver stærkere, er det sandsynligvis fordi du mangler <strong>progressiv overload</strong>.
+        Det er det ene princip der adskiller folk der bliver stærkere fra dem der kører de samme sæt år efter år.
+      </p>
+      <p>
+        I denne guide forklarer vi hvad progressiv overload er, hvordan du implementerer det i din træning,
+        og hvilke fejl der stopper de fleste - uanset om du er begynder eller erfaren løfter.
+      </p>
+
+      <h2>Hvad er progressiv overload?</h2>
+      <p>
+        Progressiv overload er princippet om <strong>gradvist at øge den samlede belastning på dine muskler over tid</strong>.
+        Det er den mekanisme der tvinger musklerne til at tilpasse sig - vokse, blive stærkere og mere udholdende.
+      </p>
+      <p>
+        Grundtanken er simpel: din krop tilpasser sig det den udsættes for. Hvis du altid løfter de samme 60 kg i bænkpres,
+        holder kroppen op med at se det som en udfordring og stopper med at tilpasse sig. Du skal altid give musklerne
+        en lidt større stimulus end de er vant til.
+      </p>
+
+      <div class="callout">
+        <div class="callout-label">Nøgledefinition</div>
+        <p>Progressiv overload = systematisk øge træningsbelastningen (vægt, reps, sæt, volumen, intensitet eller reduceret pause) over tid for at fortsætte med at stimulere muskeladaptation.</p>
+      </div>
+
+      <h2>6 måder at skabe progressiv overload</h2>
+      <p>
+        De fleste tænker kun på at øge vægten. Men der er mindst 6 måder at skabe progressiv overload:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metode</th>
+              <th>Eksempel</th>
+              <th>Bedst til</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Øg vægten</td>
+              <td>60 kg → 62,5 kg i bænkpres</td>
+              <td>Alle niveauer, primær metode</td>
+            </tr>
+            <tr>
+              <td>Øg reps</td>
+              <td>3×5 → 3×6 ved samme vægt</td>
+              <td>Når du ikke kan øge vægten endnu</td>
+            </tr>
+            <tr>
+              <td>Øg sæt</td>
+              <td>3 sæt → 4 sæt</td>
+              <td>Øge volumen/træningsvolumen</td>
+            </tr>
+            <tr>
+              <td>Reducer pause</td>
+              <td>3 min → 2,5 min pause</td>
+              <td>Kondition og muskeludholdenhed</td>
+            </tr>
+            <tr>
+              <td>Øg frekvens</td>
+              <td>1×/uge squat → 2×/uge</td>
+              <td>Erfarne løftere med god restitution</td>
+            </tr>
+            <tr>
+              <td>Øg range of motion</td>
+              <td>Dybere squat med samme vægt</td>
+              <td>Teknik og mobilitetsudvikling</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Lineær progression: den hurtigste vej for begyndere</h2>
+      <p>
+        Er du ny til styrketræning, kan du udnytte <strong>lineær progression</strong> - at øge vægten ved
+        næsten hver eneste træning. Din nervesystem og muskler er endnu ikke optimerede, så fremgangen er hurtigere end
+        for erfarne løftere.
+      </p>
+      <p>
+        En typisk lineær progressionsstrategi for begyndere ser sådan ud:
+      </p>
+      <ul style="color:var(--muted);padding-left:20px;margin-bottom:18px;">
+        <li style="margin-bottom:8px;">Squat og dødløft: +2,5-5 kg per session</li>
+        <li style="margin-bottom:8px;">Bænkpres og overhead press: +1,25-2,5 kg per session</li>
+        <li style="margin-bottom:8px;">Roning og pull-ups: +1,25-2,5 kg per session eller +1 rep</li>
+      </ul>
+      <p>
+        Det lyder simpelt - og det er det. Det er den fase begyndere bør fokusere 100% på: holde sig til
+        de store løft, møde op konsekvent og øge belastningen lidt ad gangen.
+      </p>
+
+      <div class="callout">
+        <div class="callout-label">Gainfully gør dette automatisk</div>
+        <p>Gainfully husker dit seneste løft og viser det direkte under dit input i trackeren - så du altid ved præcis hvad du slog sidst. Ingen mentalt regnestykke, ingen Excel-ark.</p>
+      </div>
+
+      <h2>Hvornår holder du op med at se fremgang - og hvad gør du så?</h2>
+      <p>
+        Lineær progression varer ikke evigt. Typisk holder begyndere op med at se fremgang efter 3-6 måneder,
+        og erfarne løftere plateauer kan vare uger til måneder. Det er normalt.
+      </p>
+      <p>
+        Når du ikke kan øge vægten mere fra session til session, er der tre veje frem:
+      </p>
+      <h3>1. Skift til ugentlig progression</h3>
+      <p>
+        I stedet for at sætte ny rekord hver session, sigter du mod rekord én gang om ugen.
+        Du varierer intensiteten: en tung dag, en medium dag, en lettere dag.
+      </p>
+      <h3>2. Brug rep-ranges</h3>
+      <p>
+        Sæt et rep-mål i stedet for et fast antal. Eksempel: løft 80 kg i 3-5 reps per sæt.
+        Når du rammer 5 reps på alle sæt, øger du vægten. Denne metode giver mere fleksibilitet
+        og er holdbar på lang sigt.
+      </p>
+      <h3>3. Deload og genstart</h3>
+      <p>
+        En deload-uge med 40-60% af din normale intensitet kan genlade batteri og hormoner.
+        Mange erfarne løftere planlægger en deload-uge hver 4-8 uge som standard.
+      </p>
+
+      <h2>De 3 fejl der stopper de fleste</h2>
+      <h3>Fejl 1: For store spring</h3>
+      <p>
+        At gå fra 80 kg til 90 kg i squat på én gang er for meget. <strong>Små, hyppige spring</strong>
+        (2,5 kg ad gangen) akkumuleres til store fremskridt over tid. 2,5 kg × 50 sessioner = 125 kg mere på stangen.
+      </p>
+      <h3>Fejl 2: Ingen systematisk tracking</h3>
+      <p>
+        Progressiv overload kræver at du ved hvad du løftede sidst. Uden tracking er du blind.
+        Du gætter - og gættet er sjældent det optimale næste skridt.
+      </p>
+      <h3>Fejl 3: For meget variation</h3>
+      <p>
+        Nye øvelser hver uge giver nul progression. Progression kræver gentagelse: de samme øvelser
+        udført konsekvent over mange måneder. Variation er godt - men ikke på bekostning af kontinuitet
+        i de store løft.
+      </p>
+
+      <div class="app-promo">
+        <h3>Gainfully holder styr på din progression</h3>
+        <p>
+          Appen husker alle dine løft, foreslår næste vægt automatisk og fortæller dig
+          hvornår du er klar til at øge. Gratis at starte.
+        </p>
+        <div class="promo-btns">
+          <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="promo-btn-primary">Download til iPhone</a>
+          <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="promo-btn-secondary">Download til Android</a>
+        </div>
+      </div>
+
+      <h2>Progressiv overload og din kost</h2>
+      <p>
+        Progressiv overload handler om belastning - men din krop kan kun bygge muskler hvis den har
+        de rette byggesten. Det betyder ikke at du skal spise perfekt, men et par tommelfingerregler:
+      </p>
+      <ul style="color:var(--muted);padding-left:20px;margin-bottom:18px;">
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">Protein:</strong> 1,6-2,2 gram per kg kropsvægt per dag er evidensbaseret anbefaling</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">Kalorieoverskud:</strong> +200-400 kcal over vedligehold accelererer muskelopbygning</li>
+        <li style="margin-bottom:8px;"><strong style="color:var(--text);">Restitution:</strong> 7-9 timers søvn er ikke valgfrit - det er her musklerne bygges</li>
+      </ul>
+
+      <h2>Konklusion: start simpelt, bliv konsekvent</h2>
+      <p>
+        Progressiv overload er ikke kompliceret - men det kræver tålmodighed og systematik.
+        Fokuser på de store løft, øg vægten lidt ad gangen, og hold styr på din progression.
+      </p>
+      <p>
+        Uanset om du bruger Gainfully, en notesbog eller et Excel-ark: <strong>det vigtigste er at du
+        tracker</strong>. Fremgang du ikke måler, er fremgang du ikke kan bygge videre på.
+      </p>
+
+      <div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--border);">
+        <p style="font-size:14px;color:var(--dim);">
+          Relaterede sider:
+          <a href="ai-personlig-traener.html" style="color:var(--muted);margin:0 8px;">AI personlig træner</a> ·
+          <a href="ai-traeningsforloeb.html" style="color:var(--muted);margin:0 8px;">AI træningsforløb</a> ·
+          <a href="/" style="color:var(--muted);margin:0 8px;">Gainfully forsiden</a>
+        </p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Gainfully</span>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html" style="color:var(--dim);">Privatlivspolitik</a>
+      <a href="terms.html" style="color:var(--dim);">Vilkår</a>
+      <a href="mailto:support@gainfully.app" style="color:var(--dim);">Kontakt</a>
+    </div>
+  </footer>
+
+</body>
+</html>
