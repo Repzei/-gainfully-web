@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styrketræning app: Hvorfor de fleste svigter dig (og hvad der virker)</title>
+  <meta name="description" content="De fleste styrketrænings-apps logger bare dine løft. Gainfully er den eneste app der husker hvem du er, kender dine PRer og coacher dig baseret på din faktiske historik. Gratis at starte." />
+  <meta name="keywords" content="styrketræning app, bedste træningsapp, AI personlig træner app, træningsapp der husker historik, styrketræning fremgang" />
+  <link rel="canonical" href="https://gainfully.app/styrketraening-app.html" />
+  <link rel="alternate" hreflang="da" href="https://gainfully.app/styrketraening-app.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gainfully.app/styrketraening-app.html" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://gainfully.app/styrketraening-app.html" />
+  <meta property="og:title" content="Styrketræning app: Hvorfor de fleste svigter dig" />
+  <meta property="og:description" content="De fleste apps logger bare dine løft. Gainfully husker hvem du er og coacher dig ud fra din faktiske historik. Gratis at starte." />
+  <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
+  <meta property="og:site_name" content="Gainfully" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Styrketræning app: Hvorfor de fleste svigter dig (og hvad der faktisk virker)",
+    "description": "De fleste styrketrænings-apps logger bare dine løft. Gainfully er den eneste der husker hvem du er og coacher dig baseret på din faktiske historik.",
+    "url": "https://gainfully.app/styrketraening-app.html",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "inLanguage": "da",
+    "author": { "@type": "Organization", "name": "Gainfully", "url": "https://gainfully.app" },
+    "publisher": {
+      "@type": "Organization", "name": "Gainfully", "url": "https://gainfully.app",
+      "logo": { "@type": "ImageObject", "url": "https://gainfully.app/icon.png" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://gainfully.app/styrketraening-app.html" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Hvad er den bedste styrketræning app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Det afhænger af hvad du har brug for. Vil du have en app der bare logger, er Strong og Hevy gode valg. Vil du have en app der analyserer din historik, foreslår næste vægt og har en AI-coach der kender dig, er Gainfully det bedste valg. Gainfully er gratis at downloade med 1.400+ øvelser inkluderet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hvad gør Gainfully anderledes end Strong og Hevy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Strong og Hevy logger dine løft og viser din historik. Gainfully gør det samme - men tilføjer en AI-coach der faktisk kender din historik: dine personlige rekorder, dit træningsmønster, eventuelle skader du har nævnt. Coachen svarer ud fra hvad du specifikt har løftet, ikke generiske råd."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Er Gainfully gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Gainfully er gratis at downloade med 1.400+ øvelser, ubegrænset træningslogging, 3 programmer og 90 dages historik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching og ubegrænsede programmer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Virker Gainfully på iPhone og Android?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, Gainfully er tilgængelig til både iPhone og Android. Data synkroniseres automatisk mellem enheder."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #111113; --bg2: #1c1c1f; --bg3: #202023;
+      --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400;
+      --jade: #34d399; --jade-dim: #0d2b24;
+      --text: #ffffff; --muted: #9a9d97; --dim: #636366;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--volt); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', -apple-system, sans-serif; text-wrap: balance; }
+
+    /* NAV */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px; border-bottom: 1px solid var(--border);
+      background: rgba(17,17,19,0.96); backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 18px; font-weight: 900; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-cta {
+      background: var(--volt); color: var(--volt-dark);
+      font-weight: 700; font-size: 14px; padding: 9px 20px; border-radius: 10px;
+    }
+
+    /* HERO */
+    .article-hero {
+      max-width: 820px; margin: 0 auto;
+      padding: 72px 24px 0;
+    }
+    .article-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--volt); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .article-label::before {
+      content: ''; width: 24px; height: 2px; background: var(--volt);
+    }
+    h1 {
+      font-size: clamp(30px, 5.5vw, 52px); font-weight: 900;
+      letter-spacing: -2px; line-height: 1.05; margin-bottom: 24px;
+      color: var(--text);
+    }
+    h1 em { font-style: normal; color: var(--volt); }
+    .article-intro {
+      font-size: 19px; color: var(--muted); line-height: 1.7;
+      max-width: 640px; margin-bottom: 36px;
+      border-left: 3px solid var(--volt); padding-left: 20px;
+    }
+    .article-meta {
+      font-size: 13px; color: var(--dim); display: flex; gap: 20px;
+      flex-wrap: wrap; padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* BODY */
+    .article-body { max-width: 740px; margin: 0 auto; padding: 0 24px 120px; }
+    h2 {
+      font-size: clamp(22px, 3.5vw, 32px); font-weight: 800;
+      letter-spacing: -1px; margin-top: 64px; margin-bottom: 16px;
+    }
+    h3 {
+      font-size: 20px; font-weight: 700; letter-spacing: -0.5px;
+      margin-top: 40px; margin-bottom: 10px;
+    }
+    p { color: var(--muted); margin-bottom: 20px; max-width: 65ch; }
+    p strong { color: var(--text); font-weight: 600; }
+    p em { font-style: italic; color: var(--text); }
+    ul, ol { color: var(--muted); padding-left: 22px; margin-bottom: 20px; }
+    li { margin-bottom: 10px; }
+    li strong { color: var(--text); }
+
+    /* STAT BOX */
+    .stat-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px; margin: 36px 0;
+    }
+    .stat-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 20px;
+    }
+    .stat-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 36px; font-weight: 900; letter-spacing: -1.5px;
+      color: var(--volt); line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+    /* BLOCKQUOTE */
+    blockquote {
+      border-left: 3px solid var(--volt);
+      margin: 36px 0; padding: 20px 24px;
+      background: var(--bg2); border-radius: 0 12px 12px 0;
+    }
+    blockquote p {
+      font-size: 19px; font-style: italic; color: var(--text);
+      margin: 0; max-width: none;
+    }
+
+    /* COMPARE TABLE */
+    .compare-wrap { overflow-x: auto; margin: 36px 0; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 15px;
+      background: var(--bg2); border-radius: 14px; overflow: hidden;
+      min-width: 400px;
+    }
+    thead th {
+      padding: 14px 18px; text-align: left; font-size: 12px;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    thead th:first-child { color: var(--dim); }
+    thead th:nth-child(2) { color: var(--dim); }
+    thead th:nth-child(3) { color: var(--volt); background: rgba(196,255,0,0.06); }
+    tbody tr { border-top: 1px solid var(--border); }
+    tbody td { padding: 13px 18px; color: var(--muted); }
+    tbody td:first-child { color: var(--text); font-weight: 500; }
+    tbody td:nth-child(3) { background: rgba(196,255,0,0.04); }
+    .cmp-yes { color: var(--jade); font-weight: 700; }
+    .cmp-no  { color: var(--dim); }
+    .cmp-volt { color: var(--volt); font-weight: 700; }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--bg2); border: 1px solid rgba(196,255,0,0.2);
+      border-radius: 14px; padding: 24px 28px; margin: 32px 0;
+    }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--volt); margin-bottom: 10px;
+    }
+    .callout p { margin: 0; }
+
+    /* SCENARIO */
+    .scenario {
+      background: var(--bg3); border-radius: 14px;
+      padding: 28px; margin: 32px 0;
+      border: 1px solid var(--border);
+    }
+    .scenario-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px;
+    }
+    .scenario h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .scenario p { font-size: 15px; margin: 0; }
+    .scenario-divider {
+      height: 1px; background: var(--border); margin: 20px 0;
+    }
+    .scenario .after { color: var(--jade); font-weight: 600; }
+
+    /* CTA BLOCK */
+    .cta-block {
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(196,255,0,0.12) 0%, transparent 60%), #0d1300;
+      border: 1px solid rgba(196,255,0,0.22); border-radius: 20px;
+      padding: 44px 40px; margin: 56px 0; text-align: center;
+    }
+    .cta-block h3 { font-size: 26px; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 12px; }
+    .cta-block p { margin: 0 auto 28px; max-width: 48ch; font-size: 16px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-primary {
+      background: var(--volt); color: var(--volt-dark);
+      font-weight: 800; padding: 14px 28px; border-radius: 12px; font-size: 16px;
+    }
+    .cta-secondary {
+      color: var(--muted); border: 1px solid var(--border);
+      padding: 14px 28px; border-radius: 12px; font-size: 16px;
+    }
+    .cta-note { font-size: 13px; color: var(--dim); margin-top: 16px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--dim);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .article-hero { padding: 48px 20px 0; }
+      .article-body { padding: 0 20px 80px; }
+      .cta-block { padding: 32px 24px; }
+      footer { padding: 24px 20px; }
+      .stat-num { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="Gainfully" width="28" height="28" style="border-radius:6px;" />
+      Gainfully
+    </a>
+    <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="nav-cta">Download gratis</a>
+  </nav>
+
+  <main>
+
+    <header class="article-hero">
+      <div class="article-label">Styrketræning apps</div>
+      <h1>Hvorfor de fleste styrketrænings-apps<br /><em>svigter dig</em></h1>
+      <p class="article-intro">
+        De logger dine løft. Og dermed stopper det.
+        Ingen husker hvem du er. Ingen ved hvad du løftede tirsdag.
+        Ingen kan fortælle dig hvorfor du er gået i stå.
+      </p>
+      <div class="article-meta">
+        <span>Gainfully · 7. september 2026</span>
+        <span>10 minutters læsning</span>
+      </div>
+    </header>
+
+    <article class="article-body">
+
+      <h2>Du har prøvet en styrketrænings-app. Det gik ikke som forventet.</h2>
+      <p>
+        Du downloadede en app. Logede dine løft. Fulgte et program.
+        Og et sted mellem uge 4 og uge 8 stoppede fremgangen.
+        Vægten på stangen bevægede sig ikke. Du vidste ikke om du skulle øge, holde eller lave om.
+        Appen vidste det heller ikke - for appen kendte dig ikke.
+      </p>
+      <p>
+        Det er ikke din skyld. Det er appens.
+      </p>
+      <p>
+        <strong>De fleste styrketrænings-apps er avancerede notizbøger.</strong>
+        De husker hvad du har skrevet ned. Men de forstår det ikke.
+        De ser ikke at du har plateauet i bænkpres i fire sessioner.
+        De ser ikke at dit dødløft vokser dobbelt så hurtigt som din squat.
+        De ser ikke at du træner om mandagen fordi det er der du er frisk nok.
+      </p>
+      <p>
+        De gemmer data. De bruger den ikke til noget.
+      </p>
+
+      <blockquote>
+        <p>"En logbog er ikke en træner. En app der logger er ikke en coach."</p>
+      </blockquote>
+
+      <h2>Hvad en personlig træner faktisk giver dig</h2>
+      <p>
+        Forestil dig at du har en personlig træner der kender dig godt.
+        Du behøver ikke forklare hvad du har løftet de seneste seks uger - vedkommende var der.
+        Du behøver ikke forklare at dit venstre knæ driller - det ved de allerede.
+        Når du spørger "hvad skal jeg løfte i dag?", svarer de ikke med et generisk program.
+        De svarer med <em>dit</em> svar.
+      </p>
+      <p>
+        Det er det en god personlig træner giver dig. Kontekst. Hukommelse. Relevans.
+      </p>
+      <p>
+        Og det koster typisk <strong>400-600 kr. i timen</strong>.
+        For mange er det ikke en mulighed. Ikke fordi de ikke vil investere i deres træning,
+        men fordi det er en pris der ikke passer ind i hverdagen.
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">400+</div>
+          <div class="stat-label">kr. pr. time for en personlig træner i DK</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">99</div>
+          <div class="stat-label">kr. pr. måned for Gainfully Pro</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1.400+</div>
+          <div class="stat-label">øvelser inkluderet i gratis-versionen</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">0</div>
+          <div class="stat-label">kr. at downloade og komme i gang</div>
+        </div>
+      </div>
+
+      <h2>Hvad Gainfully gør anderledes</h2>
+      <p>
+        Gainfully logger dine løft. Det gør alle apps.
+        Men Gainfully stopper ikke der.
+      </p>
+      <p>
+        Appen husker alt du har løftet. Den analyserer dit træningsmønster.
+        Den ved hvilke ugedage du møder op. Den ser hvilke muskelgrupper du forsømmer.
+        Den kender dine personlige rekorder med præcise datoer.
+        Og den husker hvad du har fortalt den om dine mål og begrænsninger.
+      </p>
+      <p>
+        <strong>Og så bruger den det.</strong>
+      </p>
+      <p>
+        Ikke til at give dig et generelt program. Til at give dig <em>dit</em> svar.
+      </p>
+
+      <div class="scenario">
+        <div class="scenario-label">Eksempel fra virkeligheden</div>
+        <h4>Dig til en generisk app:</h4>
+        <p>"Jeg er gået i stå i bænkpres. Hvad gør jeg?"</p>
+        <div class="scenario-divider"></div>
+        <h4>Generisk app / ChatGPT:</h4>
+        <p class="muted" style="color:var(--dim);">"Prøv at skifte rep-range, tilsæt accessory-arbejde, tag en deload-uge."</p>
+        <div class="scenario-divider"></div>
+        <h4>Gainfully AI-coach - med din historik:</h4>
+        <p class="after">"Du har løftet 95 kg × 3 reps fire sessioner i træk - klassisk plateau. Prøv 92,5 kg × 5 × 5 i to uger. Du har dine tungeste sessioner om mandagen, så det er der vi starter. Og da du har noteret dårligt venstre knæ: pas på ved arch-setup."</p>
+      </div>
+
+      <p>
+        Det er forskellen. Ikke bare et svar. <em>Dit</em> svar.
+      </p>
+
+      <h2>Hvad du får - fra gratis til Pro</h2>
+      <p>
+        Gainfully er bygget til at give dig fuld værdi fra dag ét - uden at kreditkort er et krav.
+      </p>
+
+      <h3>Gratis for alle</h3>
+      <ul>
+        <li><strong>1.400+ øvelser med animerede GIFs</strong> - korrekt teknik for alle store løft og alt derimellem</li>
+        <li><strong>Ubegrænset træningslogging</strong> - log alle sæt, reps og vægte uden begrænsning</li>
+        <li><strong>Forrige session inline</strong> - hvad du løftede sidst vises direkte under dit input, så du altid ved hvad du skal slå</li>
+        <li><strong>Live PR-notifikationer</strong> - appen fejrer øjeblikket du sætter ny personlig rekord</li>
+        <li><strong>Progressiv overload-forslag</strong> - automatisk anbefaling til næste session</li>
+        <li><strong>Op til 3 egne programmer</strong> - PPL, Upper/Lower, Full Body eller dit eget split</li>
+        <li><strong>90 dages træningshistorik</strong> - grafer for styrke, volumen og muskelbalance</li>
+        <li><strong>6 sprog</strong> - dansk, engelsk, tysk, fransk, spansk og portugisisk</li>
+      </ul>
+
+      <h3>Pro: din AI-coach (99 kr/md eller 799 kr/år)</h3>
+      <ul>
+        <li><strong>Ubegrænset AI-coaching</strong> - stil spørgsmål og få svar baseret på din faktiske historik</li>
+        <li><strong>AI-genererede programmer</strong> - fortæl coachen dine mål og antallet af dage, og få et komplet program</li>
+        <li><strong>Komplet historik</strong> - alle sæt du nogensinde har logget, ingen 90-dages grænse</li>
+        <li><strong>Ubegrænsede programmer</strong> - byg og gem så mange splitvarianter du vil</li>
+        <li><strong>Samtalehukommelse</strong> - coachen husker hvad I har talt om på tværs af sessioner</li>
+      </ul>
+
+      <div class="cta-block">
+        <h3>Prøv Gainfully gratis i dag</h3>
+        <p>Download, opret konto på under et minut og log din første træning. Ingen kreditkort, ingen binding.</p>
+        <div class="cta-btns">
+          <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="cta-primary">Download til iPhone</a>
+          <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="cta-secondary">Download til Android</a>
+        </div>
+        <p class="cta-note">Gratis at starte. 1.400+ øvelser inkluderet fra dag ét.</p>
+      </div>
+
+      <h2>Gainfully vs. Strong og Hevy</h2>
+      <p>
+        Strong og Hevy er gode apps. De logger dine løft, viser din historik og hjælper dig med at holde styr på progression.
+        Bruger du dem, er du foran 80% af dem der træner uden at logge overhovedet.
+      </p>
+      <p>
+        Men der er én afgørende forskel.
+      </p>
+
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Funktion</th>
+              <th>Strong / Hevy</th>
+              <th>Gainfully</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Træningslogging og PRer</td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-volt">✓</span></td>
+            </tr>
+            <tr>
+              <td>Forrige session inline</td>
+              <td><span class="cmp-yes">✓</span></td>
+              <td><span class="cmp-volt">✓</span></td>
+            </tr>
+            <tr>
+              <td>Progressionsforslag</td>
+              <td><span class="cmp-yes">Delvist</span></td>
+              <td><span class="cmp-volt">✓</span></td>
+            </tr>
+            <tr>
+              <td>AI-coaching</td>
+              <td><span class="cmp-no">Nej</span></td>
+              <td><span class="cmp-volt">✓ (Pro)</span></td>
+            </tr>
+            <tr>
+              <td>AI der kender din historik</td>
+              <td><span class="cmp-no">Nej</span></td>
+              <td><span class="cmp-volt">✓ (Pro)</span></td>
+            </tr>
+            <tr>
+              <td>AI-genererede programmer</td>
+              <td><span class="cmp-no">Nej</span></td>
+              <td><span class="cmp-volt">✓ (Pro)</span></td>
+            </tr>
+            <tr>
+              <td>1.400+ øvelser med GIFs</td>
+              <td><span class="cmp-no">Begrænset</span></td>
+              <td><span class="cmp-volt">✓</span></td>
+            </tr>
+            <tr>
+              <td>6 sprog</td>
+              <td><span class="cmp-no">Nej</span></td>
+              <td><span class="cmp-volt">✓</span></td>
+            </tr>
+            <tr>
+              <td>Gratis at starte</td>
+              <td><span class="cmp-yes">Delvist</span></td>
+              <td><span class="cmp-volt">✓ Fuldt gratis</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:13px;color:var(--dim);">Strong og Hevy er varemærker tilhørende deres respektive ejere. Sammenligning baseret på offentlige funktionsbeskrivelser september 2026.</p>
+
+      <h2>Til hvem er Gainfully?</h2>
+      <p>
+        Gainfully er ikke bygget til en bestemt type løfter. Det er bygget til alle der løfter.
+      </p>
+
+      <h3>Begyndere</h3>
+      <p>
+        Ny til styrketræning? Gainfully guider dig fra dag ét med animerede GIFs der viser præcis
+        hvordan øvelserne udføres. Fortæl AI-coachen om eventuelle skader eller begrænsninger,
+        og den tilpasser alle råd derefter - og husker det i alle fremtidige samtaler.
+        Du behøver ikke vide noget om programlægning. Det klarer coachen.
+      </p>
+
+      <h3>Erfarne løftere</h3>
+      <p>
+        Du ved hvad du laver - men du har brug for data til at tage bedre beslutninger.
+        Gainfully giver dig grafer for 1RM-udvikling, volumenprogression og muskelbalance.
+        AI-coachen kan diskutere periodisering, deload-timing og avancerede progression-strategier
+        baseret på din faktiske historik - ikke hypotetiske eksempler.
+      </p>
+
+      <h3>Dem der træner hjemme</h3>
+      <p>
+        Håndvægte, kettlebells eller kropsvægt. Filtrer øvelsesbiblioteket på det udstyr du har
+        og byg programmer derefter. Appen tilpasser sig hvad du har til rådighed - ikke omvendt.
+      </p>
+
+      <h3>Dem der altid har glemt hvad de løftede sidst</h3>
+      <p>
+        Det er for dig. Gainfully viser din forrige session direkte under dit input under træning.
+        Ingen gætterier. Ingen løse noter på telefonen. Bare præcis hvad du løftede tirsdag og hvad
+        du burde sigte efter i dag.
+      </p>
+
+      <h2>Fremgang er ikke tilfældig. Det er systematisk.</h2>
+      <p>
+        De stærkeste løftere i gymet deler én egenskab: de tracker.
+        De ved præcist hvad de løftede for tre uger siden. De ved hvornår de er klar til at øge.
+        De lader ikke fornemmelsen bestemme - de lader data bestemme.
+      </p>
+      <p>
+        Men data alene er ikke nok. Data skal fortolkes.
+        Og det er der Gainfully adskiller sig.
+      </p>
+      <p>
+        <strong>Din historik er ikke bare tal i en database.</strong>
+        Det er et mønster. En fortælling om hvad der virker for dig specifikt,
+        hvornår du er stærkest, hvad der stopper dig og hvad der sender dig fremad.
+      </p>
+      <p>
+        Gainfully læser den fortælling. Og svarer dig ud fra den.
+      </p>
+
+      <blockquote>
+        <p>Din træning ligner ikke andres. Din app burde heller ikke.</p>
+      </blockquote>
+
+      <div class="callout">
+        <div class="callout-label">Det koster 0 kr. at starte</div>
+        <p>Download Gainfully gratis fra App Store eller Google Play. Opret konto på under et minut. Ingen kreditkort, ingen binding. 1.400+ øvelser inkluderet fra dag ét. Opgrader til Pro når du er klar til AI-coaching.</p>
+      </div>
+
+      <div class="cta-block">
+        <h3>Din styrketræning. Din app.</h3>
+        <p>Den eneste app der husker hvem du er.</p>
+        <div class="cta-btns">
+          <a href="https://apps.apple.com/dk/app/gainfully/id6775987256" class="cta-primary">Download til iPhone</a>
+          <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="cta-secondary">Download til Android</a>
+        </div>
+        <p class="cta-note">Gratis at starte. Ingen binding. Opsig når som helst.</p>
+      </div>
+
+      <div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--border);">
+        <p style="font-size:14px;color:var(--dim);">
+          Relaterede artikler og sider:
+          <a href="progressiv-overload.html" style="color:var(--muted);margin:0 8px;">Guide: Progressiv overload</a> ·
+          <a href="ai-personlig-traener.html" style="color:var(--muted);margin:0 8px;">AI Personlig Træner</a> ·
+          <a href="ai-traeningsforloeb.html" style="color:var(--muted);margin:0 8px;">AI Træningsforløb</a> ·
+          <a href="/" style="color:var(--muted);margin:0 8px;">Gainfully forsiden</a>
+        </p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <span>© 2026 Gainfully</span>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      <a href="privacy.html" style="color:var(--dim);">Privatlivspolitik</a>
+      <a href="terms.html" style="color:var(--dim);">Vilkår</a>
+      <a href="mailto:support@gainfully.app" style="color:var(--dim);">Kontakt</a>
+    </div>
+  </footer>
+
+</body>
+</html>

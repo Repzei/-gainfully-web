@@ -202,6 +202,16 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/progressiv-overload.html" />
   </url>
 
+  <!-- Pillar article: Styrketræning app -->
+  <url>
+    <loc>https://gainfully.app/styrketraening-app.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/styrketraening-app.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/styrketraening-app.html" />
+  </url>
+
   <!-- Legal -->
   <url>
     <loc>https://gainfully.app/privacy.html</loc>
