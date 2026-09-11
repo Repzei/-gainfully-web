@@ -278,7 +278,7 @@
       --jade: #34d399;
       --jade-dim: #0d2b24;
       --text: #ffffff;
-      --muted: #9a9d97;
+      --muted: #98989f;
       --dim: #636366;
     }
 
@@ -722,7 +722,7 @@
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
     }
     .stat-num { font-size: 48px; font-weight: 800; color: var(--text); letter-spacing: -2.5px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
-    .stat-item:first-child .stat-num { color: var(--volt); }
+    .stat-item:first-child .stat-num { color: var(--text); }
     .stat-label { font-size: 13px; color: var(--muted); margin-top: 8px; font-weight: 500; }
 
     /* PHOTO STRIP */
@@ -1266,7 +1266,7 @@
     /* MANIFESTO */
     .manifesto-section { padding: 80px 24px; border-top: 1px solid var(--border); }
     .manifesto-inner { max-width: 700px; margin: 0 auto; padding-left: 28px; border-left: 2px solid var(--border); }
-    .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--volt); margin-bottom: 28px; opacity: 0.8; }
+    .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; opacity: 0.85; }
     .manifesto-p1 { font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
     .manifesto-p2 { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
     .manifesto-p3 { font-size: clamp(17px, 2.1vw, 22px); font-weight: 700; line-height: 1.55; color: var(--volt); letter-spacing: -0.2px; }
@@ -2417,7 +2417,7 @@
     if (!toast) {
       toast = document.createElement('div')
       toast.id = 'emailToast'
-      toast.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--border);color:var(--text);padding:11px 22px;border-radius:12px;font-size:14px;z-index:9999;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.2s;'
+      toast.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:11px 22px;border-radius:12px;font-size:14px;z-index:9999;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.2s;'
       document.body.appendChild(toast)
     }
     toast.textContent = email + ' kopieret'
