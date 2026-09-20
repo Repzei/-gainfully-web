@@ -222,6 +222,26 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-beregner.html" />
   </url>
 
+  <!-- App landing: Progressiv Overload App -->
+  <url>
+    <loc>https://gainfully.app/progressiv-overload-app.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/progressiv-overload-app.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/progressiv-overload-app.html" />
+  </url>
+
+  <!-- App landing: AI Traener App -->
+  <url>
+    <loc>https://gainfully.app/ai-traener-app.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/ai-traener-app.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-traener-app.html" />
+  </url>
+
   <!-- Interactive tool: TDEE Beregner -->
   <url>
     <loc>https://gainfully.app/tdee-beregner.html</loc>
