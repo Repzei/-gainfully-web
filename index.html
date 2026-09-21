@@ -602,32 +602,12 @@
       position: relative;
       z-index: 1;
     }
-    /* Side phones: SAME width/frame as center, scaled with CSS transform.
-       scale() shrinks ALL properties proportionally so border-radius,
-       Dynamic Island, padding — everything stays identical to center. */
-    .hero-phone-side {
-      width: min(248px, 30vw);
-      flex-shrink: 0;
-      opacity: 0.65;
-      filter: brightness(0.82);
-      /* Pull phones closer to center to compensate for scale() layout space */
-      margin-inline: -32px;
-    }
-    .hero-phone-left {
-      transform: scale(0.74) rotate(-10deg) translateY(44px);
-      transform-origin: bottom center;
-    }
-    .hero-phone-right {
-      transform: scale(0.74) rotate(10deg) translateY(44px);
-      transform-origin: bottom center;
-    }
     .hero-phone-center {
       width: min(248px, 30vw);
       z-index: 2;
       flex-shrink: 0;
     }
     @media (max-width: 700px) {
-      .hero-phone-side { display: none; }
       .hero-phone-center { width: min(230px, 66vw); }
       .hero-content-centered { padding: 72px 24px 48px; }
     }
@@ -666,7 +646,6 @@
     .hero-layout .hero-content-centered > p { margin-left: 0; margin-right: 0; }
     .hero-layout .hero-buttons { justify-content: flex-start; }
     .hero-layout .hero-proof { justify-content: flex-start; }
-    .hero-layout .hero-phone-side { display: none; }
     .hero-layout .hero-phones-row {
       padding: 0;
       align-self: center;
@@ -1418,30 +1397,15 @@
           </a>
         </div>
         <div class="hero-proof">
-          <span class="hero-stars">★★★★★</span>
-          <span>4.7 App Store</span>
-          <span class="hero-proof-sep">·</span>
           <span data-i18n="hero.note">Gratis at starte. Over 1.400 øvelser inkluderet.</span>
+          <span class="hero-proof-sep">·</span>
+          <span>iOS &amp; Android</span>
         </div>
       </div>
       <div class="hero-phones-row">
-        <div class="hero-phone-side hero-phone-left device-frame">
-          <div class="device-screen">
-            <img src="screenshots/slide-3.jpg" alt="Gainfully fremgang" width="390" height="844" loading="eager" />
-          </div>
-          <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
-          <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
-        </div>
         <div class="hero-phone-center device-frame">
           <div class="device-screen">
             <img src="screenshots/slide-1.jpg" alt="Gainfully app - hjemskærm" width="390" height="844" loading="eager" />
-          </div>
-          <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
-          <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
-        </div>
-        <div class="hero-phone-side hero-phone-right device-frame">
-          <div class="device-screen">
-            <img src="screenshots/slide-2.jpg" alt="Gainfully AI-træner" width="390" height="844" loading="eager" />
           </div>
           <div class="df-btn-action"></div><div class="df-btn-vol-up"></div>
           <div class="df-btn-vol-down"></div><div class="df-btn-power"></div>
@@ -1950,8 +1914,8 @@
     </section>
 
     <div class="cta-wrap"><section class="cta" id="download">
-      <p class="cta-anchor" data-i18n="cta.anchor">En personlig træner koster 400 kr/timen.</p>
-      <h2 data-i18n="cta.h2">Gainfully koster<br /><span style="color:var(--volt)">99 kr/md.</span></h2>
+      <p class="cta-anchor" data-i18n="cta.anchor">Ingen kreditkort krævet. Start i dag.</p>
+      <h2 data-i18n="cta.h2">Download gratis.<br /><span style="color:var(--volt)">Pro fra 99 kr/md.</span></h2>
       <p data-i18n="cta.sub">Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.</p>
       <div class="currency-switcher" id="currencySwitcher">
         <button class="currency-btn" data-currency="DKK" onclick="setCurrency('DKK')">DKK</button>
@@ -2051,7 +2015,7 @@
       ai: { label: 'AI-træner (Pro)', h2a: 'Din træner der ', h2b: 'kender dig', sub: 'Din træner kender din historik, dine rekorder og din fremgang. Stil et spørgsmål og få et svar der faktisk passer til dig.', chips: ['Hvorfor stagnerer jeg i bænkpres?', 'Lav mig et program til 3 dage om ugen', 'Hvad skal jeg spise for at bygge muskler?', 'Hvordan forbedrer jeg min squat?', 'Træner jeg for meget?', 'Hvad er min stærkeste muskelgruppe?'], chipResponses: [ { q: 'Hvorfor stagnerer jeg i bænkpres?', a: 'Du har løftet 95 kg × 3 reps 4 sessioner i træk - klassisk plateau. Prøv 92,5 kg × 5 × 5 i 2 uger. Volumen frem for intensitet, og øg pausetid til 4 min.' }, { q: 'Lav mig et program til 3 dage om ugen', a: 'Baseret på din historik: Man: Squat + Bryst · Ons: Rows + Pull-ups · Fre: Deadlift + Skuldre. Du har flest PR-hits om mandagen - hold det som din tungeste dag.' }, { q: 'Hvad skal jeg spise for at bygge muskler?', a: 'Din vægttend er +2 kg på 6 uger - godt udgangspunkt. Sigt efter 2g protein/kg bodyweight. Med din træningsvolumen er timing vigtig: protein inden for 2 timer efter træning.' }, { q: 'Hvordan forbedrer jeg min squat?', a: 'Din squat: 110 → 115 → 120 kg på 12 uger - sundt tempo. Da du har noteret dårligt venstre knæ, prøv high-bar og stop lidt over parallel til knæet er klar igen.' }, { q: 'Træner jeg for meget?', a: 'Du har trænet 3,2 gange om ugen i 8 uger med fremgang i alle store løft. Ingen tegn på overreaching. Din pausetid på 3-4 min er optimal - fortsæt som du er.' }, { q: 'Hvad er min stærkeste muskelgruppe?', a: 'Ben er klart din styrke: Squat 120 kg og Deadlift 150 kg. Bryst sidder på 95 kg × 3 - relativt lavere. Mere volumen på bryst og skuldre ville balancere din profil.' } ] },
       who: { label: 'Hvem er det til?', title: 'Uanset dit niveau og dine mål', beginners: { title: 'Begyndere', desc: 'Ny til styrketræning? Gainfully guider dig med 1.400+ øvelser og en AI-træner der forklarer hvad du skal gøre. Fortæl den om eventuelle skader eller begrænsninger, og den husker det i alle fremtidige råd.' }, experienced: { title: 'Erfarne løftere', desc: 'Hold styr på volumen, PR\'er og progression. Gainfully giver dig data til at tage bedre beslutninger i og udenfor gymet.' }, home: { title: 'Dem der træner hjemme', desc: 'Håndvægte, kettlebells eller kropsvægt. Filtrer øvelsesbiblioteket på det udstyr du har og byg programmer derefter.' }, gym: { title: 'Fitnesscenter-brugere', desc: 'Appen er bygget til at bruge mens du træner. Pausetimer, inline historik og PR-notifikationer klar når du er i gang.' } },
       faq: { label: 'FAQ', title: 'Ofte stillede spørgsmål', items: [ { q: 'Hvad er Gainfully?', a: 'Gainfully er en fitness tracking app til iPhone og Android med en indbygget AI-træner. Du logger dine styrketræninger, og appen husker alt: vægte, reps, sæt og fremgang. Træneren analyserer din historik og giver dig personlige råd og programforslag.' }, { q: 'Er Gainfully gratis?', a: 'Ja, Gainfully er gratis at downloade og bruge. Gratis inkluderer 1.400+ øvelser med GIFs, ubegrænset træningslogning, op til 3 programmer og 90 dages statistik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching, ubegrænsede programmer og komplet historik.' }, { q: 'Hvad ved AI-coachen om mig?', a: 'AI-coachen har adgang til din komplette træningshistorik: dine personlige rekorder med datoer, din vægttend over tid, hvilke dage du typisk træner, din muskelbalance og eventuelle noter du selv har skrevet (fx om skader eller udstyr). Den husker også hvad I har talt om i tidligere samtaler. Det er det der gør svaret relevant for dig - ikke for en gennemsnitlig bruger.' }, { q: 'Virker Gainfully på iPhone og Android?', a: 'Ja, Gainfully er tilgængelig til både iPhone (iOS) og Android. Download gratis fra App Store eller Google Play. Alle dine data synkroniseres automatisk.' }, { q: 'Hvad kan AI-træneren hjælpe mig med?', a: 'Træneren kender din historik og svarer ud fra den. Spørg om hvorfor du stagnerer, få et ugentligt program, råd om kost og restitution, eller hvad der ellers er på dit sind. Altid baseret på dig.' }, { q: 'Hvilke sprog understøtter appen?', a: 'Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne.' } ] },
-      cta: { anchor: 'En personlig træner koster 400 kr/timen.', h2: 'Gainfully koster<br /><span style="color:var(--volt)">99 kr/md.</span>', sub: 'Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.', free: { name: 'Gratis', price: '0', period: '/altid', sub: '1.400+ øvelser · 3 programmer' }, monthly: { name: 'Pro Månedlig', price: '99 kr', period: '/md', sub: 'Fuld AI-coaching · ingen binding' }, annual: { badge: 'Bedst: spar 389 kr', name: 'Pro Årlig', price: '799 kr', period: '/år', sub: 'ca. 67 kr/md' } },
+      cta: { anchor: 'Ingen kreditkort krævet. Start i dag.', h2: 'Download gratis.<br /><span style="color:var(--volt)">Pro fra 99 kr/md.</span>', sub: 'Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.', free: { name: 'Gratis', price: '0', period: '/altid', sub: '1.400+ øvelser · 3 programmer' }, monthly: { name: 'Pro Månedlig', price: '99 kr', period: '/md', sub: 'Fuld AI-coaching · ingen binding' }, annual: { badge: 'Bedst: spar 389 kr', name: 'Pro Årlig', price: '799 kr', period: '/år', sub: 'ca. 67 kr/md' } },
       manifesto: { label: 'Hvorfor Gainfully', p1: 'De fleste træningsapps er bygget til gennemsnittet. Et program for alle er et program for ingen.', p2: 'Gainfully spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', p3: 'Fordi din træning ikke ligner andres. Og det bør din app heller ikke.' },
       testimonials: { label: 'Hvad brugerne siger', title: 'Rigtige resultater fra rigtige brugere', q1: '"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."', r1: 'Styrkeløfter, 4 år', q2: '"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."', r2: 'Crossfit og styrke', q3: '"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."', r3: 'Nybegynder, 6 måneder' },
       footer: { copy: '© 2026 Gainfully. Alle rettigheder forbeholdes.', privacy: 'Privatlivspolitik', terms: 'Vilkår', contact: 'Kontakt', tagline: 'Din AI personlige træner. Gratis at starte.', iosSub: 'Download on the', androidSub: 'Get it on' },
