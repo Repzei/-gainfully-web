@@ -212,14 +212,94 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/styrketraening-app.html" />
   </url>
 
-  <!-- Interactive tool: 1RM Beregner -->
+  <!-- Interactive tool: 1RM Beregner (DA) -->
   <url>
     <loc>https://gainfully.app/1rm-beregner.html</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/1rm-beregner.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: 1RM Calculator (EN) -->
+  <url>
+    <loc>https://gainfully.app/1rm-calculator.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: 1RM Rechner (DE) -->
+  <url>
+    <loc>https://gainfully.app/1rm-rechner.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculateur 1RM (FR) -->
+  <url>
+    <loc>https://gainfully.app/calculateur-1rm.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculadora 1RM (ES) -->
+  <url>
+    <loc>https://gainfully.app/calculadora-1rm.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculadora 1RM (PT-BR) -->
+  <url>
+    <loc>https://gainfully.app/calculadora-1rm-br.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/1rm-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-1rm.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-1rm-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/1rm-calculator.html" />
   </url>
 
   <!-- App landing: Progressiv Overload App -->
@@ -242,14 +322,94 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/ai-traener-app.html" />
   </url>
 
-  <!-- Interactive tool: TDEE Beregner -->
+  <!-- Interactive tool: TDEE Beregner (DA) -->
   <url>
     <loc>https://gainfully.app/tdee-beregner.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/tdee-beregner.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: TDEE Calculator (EN) -->
+  <url>
+    <loc>https://gainfully.app/tdee-calculator.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: TDEE Rechner (DE) -->
+  <url>
+    <loc>https://gainfully.app/tdee-rechner.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculateur TDEE (FR) -->
+  <url>
+    <loc>https://gainfully.app/calculateur-tdee.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculadora TDEE (ES) -->
+  <url>
+    <loc>https://gainfully.app/calculadora-tdee.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  </url>
+
+  <!-- Interactive tool: Calculadora TDEE (PT-BR) -->
+  <url>
+    <loc>https://gainfully.app/calculadora-tdee-br.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+    <xhtml:link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+    <xhtml:link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+    <xhtml:link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
   </url>
 
   <!-- Legal -->

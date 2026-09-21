@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora TDEE - Calcular calorias diárias necessárias</title>
+  <meta name="description" content="Calcule seu TDEE (gasto energético total diário) de graça com a fórmula Mifflin-St Jeor. Resultados precisos baseados em idade, peso, altura e nível de atividade." />
+  <meta name="keywords" content="calculadora TDEE, calcular calorias diárias, gasto energético total, calcular metabolismo basal, calculadora de calorias, TDEE calcular" />
+  <link rel="canonical" href="https://gainfully.app/calculadora-tdee-br.html" />
+  <link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
+  <link rel="alternate" hreflang="en"    href="https://gainfully.app/tdee-calculator.html" />
+  <link rel="alternate" hreflang="de"    href="https://gainfully.app/tdee-rechner.html" />
+  <link rel="alternate" hreflang="fr"    href="https://gainfully.app/calculateur-tdee.html" />
+  <link rel="alternate" hreflang="es"    href="https://gainfully.app/calculadora-tdee.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/calculadora-tdee-br.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gainfully.app/tdee-calculator.html" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Calculadora TDEE","description":"Calcule seu TDEE de graça com a fórmula Mifflin-St Jeor.","url":"https://gainfully.app/calculadora-tdee-br.html","applicationCategory":"HealthApplication","operatingSystem":"Web","inLanguage":"pt-BR","offers":{"@type":"Offer","price":"0","priceCurrency":"BRL"},"publisher":{"@type":"Organization","name":"Gainfully","url":"https://gainfully.app"}}</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #111113; --bg2: #1c1c1f; --bg3: #202023; --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400; --jade: #34d399; --text: #ffffff; --muted: #9a9d97; --dim: #636366; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    a { color: var(--volt); text-decoration: none; } a:hover { text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Bricolage Grotesque', -apple-system, sans-serif; text-wrap: balance; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: rgba(17,17,19,0.96); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 900; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .nav-cta { background: var(--volt); color: var(--volt-dark); font-weight: 700; font-size: 14px; padding: 9px 20px; border-radius: 10px; }
+    .page { max-width: 820px; margin: 0 auto; padding: 0 24px 120px; }
+    .hero { padding: 64px 0 48px; }
+    .hero-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--volt); margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+    .hero-label::before { content: ''; width: 24px; height: 2px; background: var(--volt); }
+    h1 { font-size: clamp(30px, 6vw, 54px); font-weight: 900; letter-spacing: -2px; line-height: 1.05; margin-bottom: 16px; }
+    h1 em { font-style: normal; color: var(--volt); }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 560px; }
+    .calc-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 32px; margin: 40px 0; }
+    .calc-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 800; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+    .calc-title-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--volt); }
+    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .input-group { display: flex; flex-direction: column; gap: 8px; }
+    .input-label { font-size: 13px; font-weight: 600; color: var(--muted); }
+    .input-wrap { position: relative; }
+    .calc-input { width: 100%; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 14px 52px 14px 16px; color: var(--text); font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
+    .calc-input::-webkit-outer-spin-button, .calc-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .calc-input:focus { border-color: rgba(196,255,0,0.4); }
+    .input-unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600; color: var(--dim); }
+    .gender-row { display: flex; gap: 10px; margin-bottom: 20px; }
+    .gender-btn { flex: 1; padding: 13px; border-radius: 12px; background: var(--bg3); border: 1.5px solid var(--border); cursor: pointer; font-size: 15px; font-weight: 600; color: var(--muted); transition: all 0.18s; text-align: center; }
+    .gender-btn:hover { border-color: rgba(196,255,0,0.25); }
+    .gender-btn.active { border-color: var(--volt); background: rgba(196,255,0,0.06); color: var(--volt); }
+    .activity-section { margin-bottom: 24px; }
+    .activity-label { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 10px; }
+    .activity-grid { display: flex; flex-direction: column; gap: 8px; }
+    .activity-btn { display: flex; align-items: center; gap: 14px; background: var(--bg3); border: 1.5px solid var(--border); border-radius: 12px; padding: 14px 16px; cursor: pointer; transition: all 0.18s; }
+    .activity-btn:hover { border-color: rgba(196,255,0,0.25); }
+    .activity-btn.active { border-color: var(--volt); background: rgba(196,255,0,0.06); }
+    .activity-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: background 0.18s; }
+    .activity-btn.active .activity-dot { background: var(--volt); }
+    .activity-name { font-size: 15px; font-weight: 600; color: var(--text); }
+    .activity-desc { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .activity-mult { font-size: 12px; font-weight: 700; color: var(--dim); margin-left: auto; flex-shrink: 0; }
+    .activity-btn.active .activity-mult { color: var(--volt); }
+    .result-section { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-top: 28px; display: none; }
+    .result-section.visible { display: block; }
+    .result-primary { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .result-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--dim); margin-bottom: 4px; }
+    .result-kcal { font-size: 52px; font-weight: 900; color: var(--volt); letter-spacing: -2px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .result-unit-big { font-size: 15px; color: var(--muted); margin-top: 6px; font-weight: 500; }
+    .result-divider { width: 1px; background: var(--border); align-self: stretch; }
+    .result-bmr { text-align: right; }
+    .result-bmr-val { font-size: 28px; font-weight: 800; color: var(--text); letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+    .result-goals { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 16px; }
+    .goal-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; }
+    .goal-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--dim); margin-bottom: 4px; }
+    .goal-kcal { font-size: 20px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+    .goal-desc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .goal-box.deficit .goal-kcal { color: var(--jade); }
+    .goal-box.surplus .goal-kcal { color: #f97316; }
+    .ai-callout { background: rgba(196,255,0,0.05); border: 1px solid rgba(196,255,0,0.2); border-radius: 14px; padding: 18px 20px; margin-top: 20px; display: flex; align-items: flex-start; gap: 14px; }
+    .ai-callout-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(196,255,0,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .ai-callout-title { font-size: 14px; font-weight: 700; color: var(--volt); margin-bottom: 4px; }
+    .ai-callout-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .ai-callout-link { color: var(--volt); font-weight: 700; }
+    h2 { font-size: clamp(22px, 3.5vw, 32px); font-weight: 800; letter-spacing: -1px; margin-top: 64px; margin-bottom: 14px; }
+    h3 { font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 10px; }
+    p { color: var(--muted); margin-bottom: 18px; max-width: 65ch; }
+    p strong { color: var(--text); }
+    ul, ol { color: var(--muted); padding-left: 22px; margin-bottom: 18px; }
+    li { margin-bottom: 8px; } li strong { color: var(--text); }
+    .formula-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+    .formula-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--volt); margin-bottom: 6px; }
+    .formula-eq { font-size: 16px; font-weight: 700; color: var(--text); }
+    .formula-note { font-size: 13px; color: var(--dim); margin-top: 4px; }
+    .cta-block { background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(196,255,0,0.12) 0%, transparent 60%), #0d1300; border: 1px solid rgba(196,255,0,0.22); border-radius: 20px; padding: 44px 40px; margin: 56px 0; text-align: center; }
+    .cta-block h3 { font-size: 24px; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 12px; margin-top: 0; }
+    .cta-block p { margin: 0 auto 24px; max-width: 48ch; font-size: 16px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-primary { background: var(--volt); color: var(--volt-dark); font-weight: 800; padding: 14px 28px; border-radius: 12px; font-size: 16px; }
+    .cta-secondary { color: var(--muted); border: 1px solid var(--border); padding: 14px 28px; border-radius: 12px; font-size: 16px; }
+    .cta-note { font-size: 13px; color: var(--dim); margin-top: 14px; margin-bottom: 0; }
+    .related { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .related p { font-size: 14px; color: var(--dim); }
+    .related a { color: var(--muted); margin: 0 8px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--dim); }
+    @media (max-width: 640px) { nav { padding: 16px 20px; } .page { padding: 0 20px 80px; } .hero { padding: 48px 0 36px; } .calc-card { padding: 24px 20px; } .input-row { grid-template-columns: 1fr; } .result-goals { grid-template-columns: 1fr; } .cta-block { padding: 32px 20px; } footer { padding: 24px 20px; } .result-primary { flex-direction: column; gap: 16px; } .result-divider { display: none; } .result-bmr { text-align: left; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/pt-br/" class="nav-logo"><img src="/logo.png" alt="Gainfully" width="28" height="28" style="border-radius:6px;" /> Gainfully</a>
+    <a href="https://apps.apple.com/app/gainfully/id6775987256" class="nav-cta">Baixar grátis</a>
+  </nav>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-label">Calculadora gratuita</div>
+      <h1><em>Calculadora TDEE</em><br />Encontre suas calorias diárias</h1>
+      <p class="hero-sub">Calcule seu gasto energético diário de acordo com sua idade, peso, altura e nível de atividade. Gratuito e preciso.</p>
+    </header>
+    <div class="calc-card">
+      <div class="calc-title"><div class="calc-title-dot"></div>Calcular seu TDEE</div>
+      <div class="input-group" style="margin-bottom:20px;">
+        <span class="input-label">SEXO</span>
+        <div class="gender-row">
+          <button class="gender-btn active" id="btnMale" onclick="setGender('male')">Homem</button>
+          <button class="gender-btn" id="btnFemale" onclick="setGender('female')">Mulher</button>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-group"><span class="input-label">IDADE</span><div class="input-wrap"><input class="calc-input" type="number" id="ageInput" min="15" max="100" placeholder="30" inputmode="numeric" /><span class="input-unit">anos</span></div></div>
+        <div class="input-group"><span class="input-label">PESO</span><div class="input-wrap"><input class="calc-input" type="number" id="weightInput" min="30" max="300" placeholder="80" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
+      </div>
+      <div class="input-row" style="margin-bottom:24px;">
+        <div class="input-group"><span class="input-label">ALTURA</span><div class="input-wrap"><input class="calc-input" type="number" id="heightInput" min="100" max="250" placeholder="178" inputmode="numeric" /><span class="input-unit">cm</span></div></div>
+      </div>
+      <div class="activity-section">
+        <div class="activity-label">NIVEL DE ATIVIDADE</div>
+        <div class="activity-grid">
+          <button class="activity-btn" data-mult="1.2" onclick="setActivity(this)"><div class="activity-dot"></div><div><div class="activity-name">Sedentário</div><div class="activity-desc">Trabalho de escritório, sem exercício</div></div><div class="activity-mult">x 1,20</div></button>
+          <button class="activity-btn" data-mult="1.375" onclick="setActivity(this)"><div class="activity-dot"></div><div><div class="activity-name">Levemente ativo</div><div class="activity-desc">Exercício leve 1-3 dias/semana</div></div><div class="activity-mult">x 1,375</div></button>
+          <button class="activity-btn active" data-mult="1.55" onclick="setActivity(this)"><div class="activity-dot"></div><div><div class="activity-name">Moderadamente ativo</div><div class="activity-desc">Treino 3-5 dias/semana</div></div><div class="activity-mult">x 1,55</div></button>
+          <button class="activity-btn" data-mult="1.725" onclick="setActivity(this)"><div class="activity-dot"></div><div><div class="activity-name">Muito ativo</div><div class="activity-desc">Treino intenso 6-7 dias/semana</div></div><div class="activity-mult">x 1,725</div></button>
+          <button class="activity-btn" data-mult="1.9" onclick="setActivity(this)"><div class="activity-dot"></div><div><div class="activity-name">Extremamente ativo</div><div class="activity-desc">Trabalho físico ou 2 treinos por dia</div></div><div class="activity-mult">x 1,90</div></button>
+        </div>
+      </div>
+      <div class="result-section" id="resultSection">
+        <div class="result-primary">
+          <div><div class="result-label">Seu TDEE</div><div class="result-kcal" id="tdeeResult">-</div><div class="result-unit-big">kcal por dia</div></div>
+          <div class="result-divider"></div>
+          <div class="result-bmr"><div class="result-label">TMB (repouso)</div><div class="result-bmr-val" id="bmrResult">-</div><div class="result-unit-big">kcal por dia</div></div>
+        </div>
+        <div class="result-goals">
+          <div class="goal-box deficit"><div class="goal-label">Perda de peso</div><div class="goal-kcal" id="deficitResult">-</div><div class="goal-desc">-500 kcal/dia</div></div>
+          <div class="goal-box"><div class="goal-label">Manutenção</div><div class="goal-kcal" id="maintainResult">-</div><div class="goal-desc">Seu TDEE</div></div>
+          <div class="goal-box surplus"><div class="goal-label">Ganho muscular</div><div class="goal-kcal" id="surplusResult">-</div><div class="goal-desc">+300 kcal/dia</div></div>
+        </div>
+        <div class="ai-callout">
+          <div class="ai-callout-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c4ff00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div><div class="ai-callout-title">O Gainfully Pro usa seu TDEE automaticamente</div><div class="ai-callout-body">Quando você registra seu peso no app, seu TDEE é atualizado automaticamente. <a href="https://apps.apple.com/app/gainfully/id6775987256" class="ai-callout-link">Experimente o Gainfully Pro grátis por 7 dias</a></div></div>
+        </div>
+      </div>
+    </div>
+    <h2>O que é o TDEE?</h2>
+    <p><strong>TDEE (Total Daily Energy Expenditure)</strong> é o total de calorias que seu corpo queima em um dia. Inclui sua taxa metabólica basal (TMB), o efeito térmico dos alimentos e toda a atividade física.</p>
+    <p>Seu TDEE é seu <strong>nível calórico de manutenção</strong>: coma exatamente seu TDEE e seu peso permanece estável. Coma mais e você engorda. Coma menos e você emagrece. Essa é a base de qualquer plano nutricional.</p>
+    <h2>A fórmula Mifflin-St Jeor</h2>
+    <p>Usamos a fórmula Mifflin-St Jeor (1990), a mais precisa e amplamente recomendada para calcular a taxa metabólica basal. Estudos mostram que é cerca de 10% mais precisa que a antiga fórmula Harris-Benedict.</p>
+    <div class="formula-box"><div class="formula-name">Homens</div><div class="formula-eq">TMB = 10 x peso (kg) + 6,25 x altura (cm) - 5 x idade (anos) + 5</div></div>
+    <div class="formula-box"><div class="formula-name">Mulheres</div><div class="formula-eq">TMB = 10 x peso (kg) + 6,25 x altura (cm) - 5 x idade (anos) - 161</div></div>
+    <h2>Usando seu TDEE na prática</h2>
+    <h3>Perda de peso</h3>
+    <p>Um déficit de 300-500 kcal/dia é ideal para perda de gordura sustentável sem perda muscular. Isso representa cerca de 0,3-0,5 kg/semana de perda de peso.</p>
+    <h3>Ganho muscular</h3>
+    <p>Um superávit de 200-400 kcal/dia favorece o crescimento muscular sem ganho excessivo de gordura. Mire 1,6-2,2 g/kg de peso corporal em proteínas diariamente.</p>
+    <div class="cta-block">
+      <h3>Seu coach de IA conhece seu orçamento calórico</h3>
+      <p>Configure seu TDEE no Gainfully e receba recomendações personalizadas que correspondem aos seus objetivos.</p>
+      <div class="cta-btns">
+        <a href="https://apps.apple.com/app/gainfully/id6775987256" class="cta-primary">Baixar para iPhone</a>
+        <a href="https://play.google.com/store/apps/details?id=com.gainfully.app" class="cta-secondary">Baixar para Android</a>
+      </div>
+      <p class="cta-note">7 dias de teste Pro grátis. Grátis para começar.</p>
+    </div>
+    <div class="related"><p>Ferramentas relacionadas : <a href="calculadora-1rm-br.html">Calculadora 1RM</a> - <a href="/pt-br/">Início Gainfully</a></p></div>
+  </main>
+  <footer>
+    <span>&copy; 2026 Gainfully</span>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="privacy.html" style="color:var(--dim);">Privacidade</a><a href="terms.html" style="color:var(--dim);">Termos</a><a href="mailto:support@gainfully.app" style="color:var(--dim);">Contato</a></div>
+  </footer>
+  <script>
+    let gender = 'male', activityMult = 1.55
+    function setGender(g) { gender = g; document.getElementById('btnMale').classList.toggle('active', g==='male'); document.getElementById('btnFemale').classList.toggle('active', g==='female'); calculate() }
+    function setActivity(btn) { document.querySelectorAll('.activity-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); activityMult = parseFloat(btn.dataset.mult); calculate() }
+    function calculate() {
+      const age=parseInt(document.getElementById('ageInput').value), weight=parseFloat(document.getElementById('weightInput').value), height=parseFloat(document.getElementById('heightInput').value)
+      if (!age||!weight||!height||age<15||weight<30||height<100){document.getElementById('resultSection').classList.remove('visible');return}
+      const bmr=gender==='male'?10*weight+6.25*height-5*age+5:10*weight+6.25*height-5*age-161, tdee=Math.round(bmr*activityMult)
+      document.getElementById('bmrResult').textContent=Math.round(bmr).toLocaleString('pt-BR')
+      document.getElementById('tdeeResult').textContent=tdee.toLocaleString('pt-BR')
+      document.getElementById('deficitResult').textContent=(tdee-500).toLocaleString('pt-BR')
+      document.getElementById('maintainResult').textContent=tdee.toLocaleString('pt-BR')
+      document.getElementById('surplusResult').textContent=(tdee+300).toLocaleString('pt-BR')
+      document.getElementById('resultSection').classList.add('visible')
+    }
+    ['ageInput','weightInput','heightInput'].forEach(id=>document.getElementById(id).addEventListener('input',calculate))
+  </script>
+</body>
+</html>
