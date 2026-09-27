@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /reset-password/
 
 Sitemap: https://gainfully.app/sitemap.xml
