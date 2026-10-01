@@ -5,28 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Nulstil adgangskode – Gainfully</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/tokens.css">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #0b1120; color: #eef2ff; font-family: -apple-system, Arial, sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.card { background: #111c30; border: 1px solid #1d2f4a; border-radius: 16px; padding: 40px; max-width: 420px; width: 100%; text-align: center; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 40px; max-width: 420px; width: 100%; text-align: center; }
 h1 { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
-.sub { color: #7b91b5; font-size: 14px; margin-bottom: 32px; }
+.sub { color: var(--text-muted); font-size: 14px; margin-bottom: 32px; }
 h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-p { color: #7b91b5; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-label { display: block; color: #eef2ff; font-size: 14px; font-weight: 600; margin-bottom: 6px; margin-top: 16px; text-align: left; }
-input { width: 100%; background: #0b1120; border: 1px solid #1d2f4a; border-radius: 12px; padding: 14px 16px; color: #eef2ff; font-size: 16px; outline: none; }
-input:focus { border-color: #c4ff00; }
-.hint { color: #3d5070; font-size: 12px; text-align: left; margin-top: 6px; }
-.btn { display: block; width: 100%; background: #c4ff00; color: #0d1400; font-size: 16px; font-weight: 700; padding: 16px; border-radius: 12px; border: none; cursor: pointer; margin-top: 24px; text-decoration: none; text-align: center; }
+p { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+label { display: block; color: var(--text); font-size: 14px; font-weight: 600; margin-bottom: 6px; margin-top: 16px; text-align: left; }
+input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; color: var(--text); font-size: 16px; outline: none; }
+input:focus { border-color: var(--accent); }
+.hint { color: var(--text-muted); font-size: 12px; text-align: left; margin-top: 6px; }
+.btn { display: block; width: 100%; background: var(--accent); color: var(--on-accent); font-size: 16px; font-weight: 700; padding: 16px; border-radius: 12px; border: none; cursor: pointer; margin-top: 24px; text-decoration: none; text-align: center; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.error { color: #ff4757; font-size: 14px; margin-top: 12px; text-align: left; }
-.success-text { color: #4ade80; font-size: 16px; margin-bottom: 24px; }
-.copyright { color: #3d5070; font-size: 12px; margin-top: 28px; }
+.error { color: var(--danger); font-size: 14px; margin-top: 12px; text-align: left; }
+.success-text { color: var(--success); font-size: 16px; margin-bottom: 24px; }
+.copyright { color: var(--text-muted); font-size: 12px; margin-top: 28px; }
 </style>
 </head>
 <body>
 <div class="card">
-  <img src="/logo.png" alt="Gainfully" style="width:72px;height:72px;object-fit:contain;margin-bottom:16px;">
+  <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully" style="width:72px;height:72px;margin-bottom:16px;"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <h1>Gainfully</h1>
   <div class="sub">Din personlige AI træner</div>
 

@@ -1,0 +1,62 @@
+/* Gainfully design tokens (runde 5) - eneste sted farver og fonte defineres.
+   Siden foelger besoegendes systemtema. Havglas (--progress) betyder kun "du blev staerkere". */
+:root {
+  color-scheme: dark light;
+
+  --bg: #17181B;
+  --surface: #202125;
+  --surface-2: #292A2F;
+  --border: #34363B;
+  --input-border: #6B6D74;
+  --text: #F3F2EE;
+  --text-muted: #B0B2B8;
+
+  --action: #F3F2EE;
+  --on-action: #17181B;
+
+  --progress: #3DDC97;
+  --progress-text: #3DDC97;
+  --progress-soft: #243B35;
+
+  --warning: #F5A524;
+  --danger: #F87171;
+
+  --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Aliaser fra den tidligere palet, saa siderne ikke skal skrives om linje for linje.
+     Accent er nu den neutrale handlingsfarve (ben-hvid i moerk, grafit i lys). */
+  --surface-3: var(--surface-2);
+  --divider: var(--border);
+  --accent: var(--action);
+  --accent-fill: var(--action);
+  --on-accent: var(--on-action);
+  --accent-soft: var(--surface-2);
+  --accent-soft-solid: var(--surface-2);
+  --accent-border: var(--border);
+  --accent-border-strong: var(--input-border);
+  --success: var(--text);
+  --success-soft: var(--surface-2);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #F4F3EF;
+    --surface: #FFFFFF;
+    --surface-2: #EEEDE8;
+    --border: #E0DED8;
+    --input-border: #8A8C91;
+    --text: #17181B;
+    --text-muted: #5B5E65;
+
+    --action: #17181B;
+    --on-action: #F4F3EF;
+
+    --progress: #199A68;
+    --progress-text: #0A7A4F;
+    --progress-soft: #E0F9EE;
+
+    --warning: #B45309;
+    --danger: #B91C1C;
+  }
+}

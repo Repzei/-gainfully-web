@@ -22,7 +22,6 @@
   <link rel="preload" as="image" href="screenshots/slide-1.jpg" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/" />
@@ -255,30 +254,17 @@
     }
   </script>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/tokens.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #111113;
-      --bg2: #1c1c1f;
-      --border: #2c2c2e;
-      --volt: #c4ff00;
-      --volt-dark: #0d1400;
-      --volt-dim: rgba(196,255,0,0.07);        /* glow/baggrund */
-      --volt-chip-bg: rgba(196,255,0,0.10);   /* chip/badge baggrund */
-      --volt-border: rgba(196,255,0,0.18);     /* standard volt border */
-      --volt-border-hover: rgba(196,255,0,0.30); /* hover state border */
-      --jade: #34d399;
-      --jade-dim: #0d2b24;
-      --text: #ffffff;
-      --muted: #98989f;
-      --dim: #636366;
-    }
+    
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -287,17 +273,15 @@
       content: '';
       position: fixed;
       inset: 0;
-      background:
-        radial-gradient(ellipse 70% 50% at 50% -10%, var(--volt-dim) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(196,255,0,0.03) 0%, transparent 50%);
+      background: transparent;
       pointer-events: none;
       z-index: 0;
     }
 
     nav, section, div, footer, main, header, aside { position: relative; z-index: 1; }
     a { color: inherit; text-decoration: none; }
-    h1, h2, h3 { text-wrap: balance; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
-    .nav-logo { font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); }
+    .nav-logo { font-family: var(--font-display); }
 
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
@@ -317,7 +301,7 @@
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: rgba(17,17,19,0.92);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
       backdrop-filter: blur(12px);
       z-index: 100;
       gap: 16px;
@@ -335,7 +319,7 @@
     .logo-mark { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
 
     .nav-links { display: flex; gap: 32px; }
-    .nav-links a { color: var(--muted); font-size: 15px; transition: color 0.2s; }
+    .nav-links a { color: var(--text-muted); font-size: 15px; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
     .nav-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
@@ -347,10 +331,10 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 13px;
       font-weight: 600;
       padding: 7px 11px;
@@ -358,7 +342,7 @@
       transition: border-color 0.2s, color 0.2s;
       font-family: inherit;
     }
-    .lang-btn:hover { border-color: var(--dim); color: var(--text); }
+    .lang-btn:hover { border-color: var(--text-muted); color: var(--text); }
     .lang-btn .lang-arrow { font-size: 10px; opacity: 0.6; }
 
     /* CSS flag sprites — no external CDN, works in all browsers */
@@ -384,7 +368,7 @@
       position: absolute;
       top: calc(100% + 8px);
       right: 0;
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       overflow: hidden;
@@ -401,18 +385,18 @@
       padding: 11px 16px;
       cursor: pointer;
       font-size: 14px;
-      color: var(--muted);
+      color: var(--text-muted);
       transition: background 0.15s, color 0.15s;
     }
-    .lang-option:hover { background: rgba(255,255,255,0.05); color: var(--text); }
-    .lang-option.active { color: var(--volt); }
+    .lang-option:hover { background: color-mix(in srgb, var(--text) 5%, transparent); color: var(--text); }
+    .lang-option.active { color: var(--accent); }
     .lang-option .opt-flag { width: 22px; height: 16px; border-radius: 2px; display: inline-block; flex-shrink: 0; background-size: cover; }
     .lang-option .opt-label { flex: 1; font-weight: 500; }
-    .lang-option .opt-check { color: var(--volt); font-size: 12px; }
+    .lang-option .opt-check { color: var(--accent); font-size: 12px; }
 
     .nav-cta {
-      background: var(--volt);
-      color: var(--volt-dark);
+      background: var(--accent);
+      color: var(--on-accent);
       font-weight: 700;
       padding: 10px 22px;
       border-radius: 10px;
@@ -434,7 +418,7 @@
       position: absolute;
       top: -80px; left: 50%; transform: translateX(-50%);
       width: 900px; height: 700px;
-      background: radial-gradient(ellipse at 50% 30%, var(--volt-dim) 0%, transparent 60%);
+      background: transparent;
       pointer-events: none;
       z-index: 0;
     }
@@ -451,7 +435,7 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1.8px;
@@ -459,8 +443,8 @@
       margin-bottom: 32px;
       padding: 7px 14px;
       border-radius: 100px;
-      border: 1px solid rgba(152,152,159,0.18);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(156,163,175,0.18);
+      background: color-mix(in srgb, var(--text) 3%, transparent);
     }
     .hero-content-centered h1 {
       font-size: clamp(44px, 7vw, 86px);
@@ -470,10 +454,10 @@
       margin-bottom: 28px;
       text-wrap: balance;
     }
-    .hero-content-centered h1 span { color: var(--volt); text-shadow: 0 0 60px rgba(196,255,0,0.28); }
+    .hero-content-centered h1 span { color: var(--accent); }
     .hero-content-centered > p {
       font-size: 18px;
-      color: var(--muted);
+      color: var(--text-muted);
       max-width: 500px;
       margin: 0 auto 40px;
       line-height: 1.7;
@@ -488,8 +472,8 @@
     }
 
     .btn-primary {
-      background: var(--volt);
-      color: var(--volt-dark);
+      background: var(--accent);
+      color: var(--on-accent);
       font-weight: 700;
       padding: 16px 32px;
       border-radius: 14px;
@@ -498,12 +482,11 @@
       align-items: center;
       gap: 8px;
       transition: opacity 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(196,255,0,0.2);
     }
-    .btn-primary:hover { opacity: 0.88; box-shadow: 0 0 50px rgba(196,255,0,0.42); }
+    .btn-primary:hover { opacity: 0.88; }
 
     .btn-secondary {
-      background: var(--bg2);
+      background: var(--surface);
       color: var(--text);
       font-weight: 600;
       padding: 16px 32px;
@@ -515,9 +498,9 @@
       gap: 8px;
       transition: border-color 0.2s;
     }
-    .btn-secondary:hover { border-color: var(--dim); }
+    .btn-secondary:hover { border-color: var(--text-muted); }
 
-    .hero-note { margin-top: 16px; color: var(--dim); font-size: 13px; }
+    .hero-note { margin-top: 16px; color: var(--text-muted); font-size: 13px; }
 
     /* === DEVICE FRAME (iPhone 15 Pro style) === */
     .device-frame {
@@ -526,8 +509,8 @@
       border-radius: 44px;
       padding: 13px 11px 20px;
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1.5px rgba(255,255,255,0.1),
+        inset 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent),
+        0 0 0 1.5px color-mix(in srgb, var(--text) 10%, transparent),
         0 0 0 3px #050507,
         0 60px 140px rgba(0,0,0,0.8),
         0 24px 60px rgba(0,0,0,0.5);
@@ -555,7 +538,7 @@
       transform: translateX(-50%);
       width: 36%;
       height: 4px;
-      background: rgba(255,255,255,0.18);
+      background: color-mix(in srgb, var(--text) 18%, transparent);
       border-radius: 10px;
     }
     .device-screen {
@@ -613,11 +596,11 @@
     /* Social proof */
     .hero-proof {
       display: flex; align-items: center; gap: 10px;
-      margin-top: 24px; font-size: 13px; color: var(--muted);
+      margin-top: 24px; font-size: 13px; color: var(--text-muted);
       flex-wrap: wrap; justify-content: center;
     }
-    .hero-stars { color: #ffd234; letter-spacing: 1px; font-size: 14px; }
-    .hero-proof-sep { color: var(--dim); }
+    .hero-stars { color: var(--text); letter-spacing: 1px; font-size: 14px; }
+    .hero-proof-sep { color: var(--text-muted); }
 
     /* HERO SIDE-BY-SIDE */
     .hero-layout {
@@ -654,29 +637,29 @@
     }
 
     /* COMPARE */
-    .compare-section { padding: 80px 24px; background: rgba(255,255,255,0.015); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .compare-section { padding: 80px 24px; background: color-mix(in srgb, var(--text) 1.5%, transparent); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .compare-inner { max-width: 720px; margin: 0 auto; }
-    .compare-sub { font-size: 17px; color: var(--muted); margin-top: 16px; margin-bottom: 40px; line-height: 1.6; max-width: 560px; }
+    .compare-sub { font-size: 17px; color: var(--text-muted); margin-top: 16px; margin-bottom: 40px; line-height: 1.6; max-width: 560px; }
     /* Row-based layout: each cmp-row is a 3-column grid so cells align horizontally */
     .compare-grid { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
     .cmp-row { display: grid; grid-template-columns: 1fr 110px 120px; }
-    .cmp-hcell { padding: 13px 16px; font-size: 12px; font-weight: 700; color: var(--muted); background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 0.8px; }
-    .cmp-hcell.cmp-us { color: var(--volt); }
+    .cmp-hcell { padding: 13px 16px; font-size: 12px; font-weight: 700; color: var(--text-muted); background: color-mix(in srgb, var(--text) 3%, transparent); display: flex; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 0.8px; }
+    .cmp-hcell.cmp-us { color: var(--accent); }
     .cmp-cell { padding: 13px 16px; font-size: 14px; color: var(--text); border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
     .cmp-feat { justify-content: flex-start; }
-    .cmp-us { background: rgba(196,255,0,0.04); border-left: 1px solid rgba(196,255,0,0.25); }
-    .cmp-row-key > .cmp-cell { background: rgba(196,255,0,0.04); }
-    .cmp-row-key > .cmp-us { background: rgba(196,255,0,0.08); }
+    .cmp-us { background: color-mix(in srgb, var(--text) 4%, transparent); border-left: 1px solid color-mix(in srgb, var(--text) 25%, transparent); }
+    .cmp-row-key > .cmp-cell { background: color-mix(in srgb, var(--text) 4%, transparent); }
+    .cmp-row-key > .cmp-us { background: color-mix(in srgb, var(--text) 8%, transparent); }
     .cmp-row-key > .cmp-feat { font-weight: 700; }
-    .cmp-yes { color: var(--muted); font-size: 16px; font-weight: 600; }
-    .cmp-no { color: #3a3a3c; font-size: 14px; font-weight: 500; opacity: 0.5; }
-    .cmp-volt { color: var(--volt); font-size: 18px; font-weight: 800; }
-    .cmp-partial { color: #555; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
-    .compare-note { margin-top: 14px; font-size: 12px; color: #3a3a3c; text-align: center; }
-    .cmp-hcell.cmp-us { color: var(--volt); background: var(--volt-chip-bg); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; }
-    .cmp-us { background: rgba(196,255,0,0.05); border-left: 1px solid var(--volt-border-hover); }
+    .cmp-yes { color: var(--text-muted); font-size: 16px; font-weight: 600; }
+    .cmp-no { color: var(--text-muted); font-size: 14px; font-weight: 500; opacity: 0.5; }
+    .cmp-volt { color: var(--accent); font-size: 18px; font-weight: 800; }
+    .cmp-partial { color: var(--text-muted); font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+    .compare-note { margin-top: 14px; font-size: 12px; color: var(--text-muted); text-align: center; }
+    .cmp-hcell.cmp-us { color: var(--accent); background: var(--accent-soft); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; }
+    .cmp-us { background: color-mix(in srgb, var(--text) 5%, transparent); border-left: 1px solid var(--accent-border-strong); }
     .cmp-row-key > .cmp-feat { font-weight: 700; color: var(--text); }
-    .cmp-row-key > .cmp-us { background: rgba(196,255,0,0.09); }
+    .cmp-row-key > .cmp-us { background: color-mix(in srgb, var(--text) 9%, transparent); }
     @media (max-width: 600px) {
       .cmp-row { grid-template-columns: 1fr 80px 90px; }
       .cmp-cell, .cmp-hcell { padding: 11px 10px; font-size: 13px; }
@@ -688,25 +671,25 @@
       justify-content: center;
       gap: 0;
       padding: 48px 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
       flex-wrap: wrap;
       background: transparent;
     }
     .stat-item {
       text-align: center;
       padding: 0 48px;
-      border-right: 1px solid rgba(255,255,255,0.06);
+      border-right: 1px solid color-mix(in srgb, var(--text) 6%, transparent);
     }
     .stat-item:last-child { border-right: none; }
     @media (max-width: 600px) {
-      .stat-item { padding: 16px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); width: 50%; }
-      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.06); }
+      .stat-item { padding: 16px 24px; border-right: none; border-bottom: 1px solid color-mix(in srgb, var(--text) 6%, transparent); width: 50%; }
+      .stat-item:nth-child(odd) { border-right: 1px solid color-mix(in srgb, var(--text) 6%, transparent); }
       .stat-item:nth-last-child(-n+2) { border-bottom: none; }
     }
-    .stat-num { font-size: 48px; font-weight: 800; color: var(--text); letter-spacing: -2.5px; line-height: 1; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .stat-num { font-size: 48px; font-weight: 800; color: var(--text); letter-spacing: -2.5px; line-height: 1; font-family: var(--font-display); }
     .stat-item:first-child .stat-num { color: var(--text); }
-    .stat-label { font-size: 13px; color: var(--muted); margin-top: 8px; font-weight: 500; }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 8px; font-weight: 500; }
 
     /* PHOTO STRIP */
     /* SCREENSHOTS CAROUSEL */
@@ -727,7 +710,7 @@
       transform: translateX(-50%);
       width: 340px;
       height: 60%;
-      background: radial-gradient(ellipse, var(--volt-dim) 0%, transparent 70%);
+      background: transparent;
       pointer-events: none;
       z-index: 0;
     }
@@ -746,8 +729,8 @@
       border-radius: 44px;
       padding: 13px 11px 20px;
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        0 0 0 1.5px rgba(255,255,255,0.1),
+        inset 0 1px 0 color-mix(in srgb, var(--text) 8%, transparent),
+        0 0 0 1.5px color-mix(in srgb, var(--text) 10%, transparent),
         0 0 0 3px #050507,
         0 60px 140px rgba(0,0,0,0.8);
       width: min(248px, calc(100vw - 120px));
@@ -775,7 +758,7 @@
       transform: translateX(-50%);
       width: 36%;
       height: 4px;
-      background: rgba(255,255,255,0.18);
+      background: color-mix(in srgb, var(--text) 18%, transparent);
       border-radius: 10px;
     }
     /* iPhone side buttons on carousel */
@@ -817,7 +800,7 @@
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
       font-size: 20px;
@@ -828,7 +811,7 @@
       transition: border-color 0.2s, color 0.2s, background 0.2s;
       user-select: none;
     }
-    .scr-arrow:hover { border-color: var(--volt); color: var(--volt); background: rgba(196,255,0,0.06); }
+    .scr-arrow:hover { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--text) 6%, transparent); }
     .scr-arrow:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
     .scr-meta {
       display: flex;
@@ -840,7 +823,7 @@
     .scr-label {
       font-size: 14px;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--text-muted);
       letter-spacing: 0.2px;
       transition: opacity 0.2s;
     }
@@ -853,7 +836,7 @@
       transition: background 0.25s, width 0.25s;
       cursor: pointer;
     }
-    .screenshots-dot.active { background: var(--volt); width: 20px; }
+    .screenshots-dot.active { background: var(--accent); width: 20px; }
     @media (max-width: 500px) {
       .scr-arrow { width: 38px; height: 38px; font-size: 17px; }
       .scr-stage { gap: 14px; }
@@ -863,7 +846,7 @@
     .section-wrap { max-width: 1100px; margin: 0 auto; padding: 96px 24px; }
     .section-label {
       text-align: center;
-      color: var(--muted);
+      color: var(--text-muted);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.2px;
@@ -887,12 +870,12 @@
     .feature-card-hero {
       display: grid; grid-template-columns: 1fr auto;
       align-items: stretch; gap: 48px;
-      background: var(--bg2); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 20px; padding: 0 44px 0 44px;
       overflow: hidden; transition: border-color 0.25s;
       min-height: 320px;
     }
-    .feature-card-hero:hover { border-color: var(--volt-border-hover); }
+    .feature-card-hero:hover { border-color: var(--accent-border-strong); }
     .feature-card-hero.fh-rev { grid-template-columns: auto 1fr; }
     .feature-card-hero.fh-rev .fh-visual { order: -1; }
     .fh-text {
@@ -901,7 +884,7 @@
     }
     .fh-text .feature-icon { margin-bottom: 16px; }
     .fh-text h3 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -0.6px; margin-bottom: 12px; }
-    .fh-text p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 520px; }
+    .fh-text p { color: var(--text-muted); font-size: 16px; line-height: 1.7; max-width: 520px; }
     .fh-visual { width: min(210px, 28vw); align-self: end; }
     /* Proportional border-radius so feature card phones match hero phone rounding (17.7% = 44/248) */
     .fh-visual.device-frame { border-radius: min(44px, 17.7%); }
@@ -920,25 +903,25 @@
     @media (max-width: 560px) { .features-sub-grid { grid-template-columns: 1fr; } }
 
     .feature-card {
-      background: var(--bg2); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 18px; padding: 24px;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
-    .feature-card:hover { border-color: rgba(196,255,0,0.25); box-shadow: inset 0 0 60px rgba(196,255,0,0.02); }
+    .feature-card:hover { border-color: color-mix(in srgb, var(--text) 25%, transparent); }
     .feature-icon {
       display: flex; align-items: center; justify-content: flex-start;
       margin-bottom: 16px;
     }
-    .feature-icon svg { width: 28px; height: 28px; color: var(--volt); opacity: 0.85; }
+    .feature-icon svg { width: 28px; height: 28px; color: var(--accent); opacity: 0.85; }
     .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.2px; }
-    .feature-card p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .feature-card p { color: var(--text-muted); font-size: 13px; line-height: 1.7; }
 
     /* STEPS */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 16px; }
     .step {
       text-align: left;
       padding: 28px 24px;
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
     }
@@ -951,54 +934,54 @@
       display: block;
       font-size: 52px;
       font-weight: 800;
-      color: var(--volt-border);
+      color: var(--accent-border);
       letter-spacing: -3px;
       line-height: 1;
       margin: 0 0 10px;
-      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-display);
     }
     .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .step p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .step p { color: var(--text-muted); font-size: 14px; line-height: 1.65; }
 
     /* AI CHIPS (nu inde i chat-demo) */
     .chat-chip-bar { padding: 12px 18px 16px; border-top: 1px solid var(--border); background: rgba(0,0,0,0.15); }
-    .chat-chip-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 9px; font-weight: 700; }
+    .chat-chip-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 9px; font-weight: 700; }
     .ai-chips { display: flex; gap: 7px; flex-wrap: wrap; }
     .ai-chip {
-      background: var(--volt-dim); border: 1px solid var(--volt-border);
-      color: rgba(255,255,255,0.65); padding: 6px 12px; border-radius: 20px;
+      background: var(--accent-soft); border: 1px solid var(--accent-border);
+      color: color-mix(in srgb, var(--text) 65%, transparent); padding: 6px 12px; border-radius: 20px;
       font-size: 12px; font-weight: 500; cursor: pointer;
       transition: background 0.15s, border-color 0.15s, color 0.15s;
       font-family: inherit;
     }
-    .ai-chip:hover { background: rgba(196,255,0,0.14); border-color: rgba(196,255,0,0.5); color: var(--volt); }
-    .ai-chip.chip-active { background: var(--volt-border); border-color: var(--volt); color: var(--volt); }
+    .ai-chip:hover { background: color-mix(in srgb, var(--text) 14%, transparent); border-color: color-mix(in srgb, var(--text) 50%, transparent); color: var(--accent); }
+    .ai-chip.chip-active { background: var(--accent-border); border-color: var(--accent); color: var(--accent); }
     #chatUserMsg, #chatCoachMsg { transition: opacity 0.18s ease; }
 
     /* WHO */
     .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .audience-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .audience-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
     .audience-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-    .audience-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .audience-card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
 
     /* EXERCISE LIBRARY */
     .ex-section {
       padding: 96px 24px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.018);
+      background: color-mix(in srgb, var(--text) 1.8%, transparent);
     }
     .ex-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-    .ex-sub { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto 36px; line-height: 1.65; }
+    .ex-sub { color: var(--text-muted); font-size: 17px; max-width: 560px; margin: 0 auto 36px; line-height: 1.65; }
 
     /* Category chips - decorative breadcrumb */
     .ex-cats { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 48px; }
     .ex-cat {
       padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
-      border: 1px solid var(--border); color: var(--muted); cursor: default; user-select: none;
+      border: 1px solid var(--border); color: var(--text-muted); cursor: default; user-select: none;
     }
     .ex-cat.is-all {
-      background: rgba(255,255,255,0.07); color: var(--text); border-color: rgba(255,255,255,0.18);
+      background: color-mix(in srgb, var(--text) 7%, transparent); color: var(--text); border-color: color-mix(in srgb, var(--text) 18%, transparent);
     }
 
     /* Exercise grid */
@@ -1013,7 +996,7 @@
     @media (max-width: 500px) { .ex-grid { grid-template-columns: 1fr; } }
 
     .ex-card {
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
       overflow: hidden;
@@ -1021,11 +1004,11 @@
       position: relative;
       transition: border-color 0.22s, transform 0.22s;
     }
-    .ex-card:hover { border-color: var(--volt-border-hover); transform: translateY(-3px); }
+    .ex-card:hover { border-color: var(--accent-border-strong); transform: translateY(-3px); }
     .ex-card img {
       width: 100%; height: 220px;
       object-fit: contain;
-      background: #f2f2f3;
+      background: var(--text);
       display: block;
       padding: 8px;
     }
@@ -1039,20 +1022,20 @@
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.8px; text-transform: uppercase;
       padding: 4px 9px; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
       pointer-events: none;
     }
 
     .ex-card-body { padding: 14px 16px 16px; }
     .ex-card-name { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -0.2px; }
-    .ex-card-muscle { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .ex-card-muscle { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 
     /* Bottom CTA row */
     .ex-cta-wrap { margin-top: 44px; display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; }
-    .ex-count { font-size: 14px; color: var(--muted); }
+    .ex-count { font-size: 14px; color: var(--text-muted); }
     .ex-count strong { color: var(--text); font-weight: 700; }
     .ex-dl-link {
-      font-size: 14px; font-weight: 600; color: var(--volt);
+      font-size: 14px; font-weight: 600; color: var(--accent);
       text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
       transition: opacity 0.15s;
     }
@@ -1067,11 +1050,11 @@
     @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .testimonials-grid { grid-template-columns: 1fr; } }
     .testimonial-card {
-      background: var(--bg2); border-radius: 16px; padding: 24px;
+      background: var(--surface); border-radius: 16px; padding: 24px;
       border: 1px solid var(--border); margin: 0;
       transition: border-color 0.2s;
     }
-    .testimonial-card:hover { border-color: rgba(196,255,0,0.2); }
+    .testimonial-card:hover { border-color: color-mix(in srgb, var(--text) 20%, transparent); }
     .testimonial-quote {
       font-size: 15px; line-height: 1.7; color: var(--text);
       margin-bottom: 20px; font-style: italic;
@@ -1079,18 +1062,18 @@
     .testimonial-footer { display: flex; align-items: center; gap: 12px; }
     .testimonial-avatar {
       width: 36px; height: 36px; border-radius: 50%;
-      background: var(--volt); color: #0d1400;
+      background: var(--accent); color: var(--on-accent);
       font-size: 13px; font-weight: 800; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
     }
     .testimonial-name { font-size: 14px; font-weight: 600; color: var(--text); }
-    .testimonial-role { font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .testimonial-role { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
 
     /* FAQ */
-    .tool-card { display:block; background:var(--bg2); border:1px solid var(--border); border-radius:20px; padding:32px; transition:border-color 0.25s; }
-    .tool-card:hover { border-color: rgba(196,255,0,0.3); }
+    .tool-card { display:block; background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:32px; transition:border-color 0.25s; }
+    .tool-card:hover { border-color: color-mix(in srgb, var(--text) 30%, transparent); }
     .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-    .faq-item { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
     .faq-q {
       width: 100%;
       background: none;
@@ -1107,24 +1090,21 @@
       gap: 16px;
       font-family: inherit;
     }
-    .faq-q:hover { color: var(--volt); }
-    .faq-icon { flex-shrink: 0; font-size: 20px; color: var(--volt); transition: transform 0.2s; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-icon { flex-shrink: 0; font-size: 20px; color: var(--accent); transition: transform 0.2s; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-    .faq-a { display: none; padding: 0 24px 20px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .faq-a { display: none; padding: 0 24px 20px; color: var(--text-muted); font-size: 15px; line-height: 1.7; }
     .faq-item.open .faq-a { display: block; }
 
     /* CTA */
     .cta-wrap {
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 110%, var(--volt-chip-bg) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 50% -10%, rgba(196,255,0,0.05) 0%, transparent 70%),
-        #080a06;
-      border-top: 1px solid rgba(196,255,0,0.14);
+      background: var(--surface-2);
+      border-top: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
       padding: 0 0 0;
     }
     .cta { text-align: center; padding: 120px 24px; max-width: 680px; margin: 0 auto; }
     .cta-anchor {
-      color: var(--dim);
+      color: var(--text-muted);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1.2px;
@@ -1138,10 +1118,10 @@
       letter-spacing: -2px;
       line-height: 1.0;
     }
-    .cta > p { color: var(--muted); font-size: 17px; margin-bottom: 40px; line-height: 1.7; }
+    .cta > p { color: var(--text-muted); font-size: 17px; margin-bottom: 40px; line-height: 1.7; }
     .cta-plans { display: flex; gap: 14px; justify-content: center; margin-bottom: 32px; flex-wrap: wrap; }
     .cta-plan {
-      background: var(--bg2);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 20px 24px;
@@ -1150,28 +1130,28 @@
       position: relative;
       transition: border-color 0.2s;
     }
-    .cta-plan:not(.cta-plan-best):hover { border-color: var(--dim); }
-    .cta-plan-best { border-color: rgba(196,255,0,0.65); background: var(--volt-dark); padding-top: 36px; }
+    .cta-plan:not(.cta-plan-best):hover { border-color: var(--text-muted); }
+    .cta-plan-best { border-color: color-mix(in srgb, var(--text) 65%, transparent); background: var(--accent-soft-solid); padding-top: 36px; }
     .cta-plan-badge {
       position: absolute;
       top: 0; left: 0; right: 0;
-      background: var(--volt);
-      color: var(--volt-dark);
+      background: var(--accent);
+      color: var(--on-accent);
       font-size: 11px;
       font-weight: 800;
       padding: 5px;
       border-radius: 14px 14px 0 0;
     }
-    .cta-plan-name { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-    .cta-plan-price { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.8px; font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif; }
-    .cta-plan-price span { font-size: 14px; font-weight: 400; color: var(--muted); }
-    .cta-plan-sub { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .cta-plan-name { color: var(--text-muted); font-size: 13px; margin-bottom: 6px; }
+    .cta-plan-price { font-size: 26px; font-weight: 800; color: var(--text); letter-spacing: -0.8px; font-family: var(--font-display); }
+    .cta-plan-price span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+    .cta-plan-sub { color: var(--text-muted); font-size: 12px; margin-top: 4px; }
 
     /* CURRENCY SWITCHER */
     .currency-switcher { display: flex; gap: 6px; justify-content: center; margin-bottom: 28px; }
-    .currency-btn { padding: 5px 14px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--muted); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em; }
-    .currency-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
-    .currency-btn.active { border-color: rgba(255,255,255,0.25); color: var(--text); background: rgba(255,255,255,0.07); }
+    .currency-btn { padding: 5px 14px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; letter-spacing: 0.04em; }
+    .currency-btn:hover { color: var(--text); border-color: color-mix(in srgb, var(--text) 20%, transparent); }
+    .currency-btn.active { border-color: color-mix(in srgb, var(--text) 25%, transparent); color: var(--text); background: color-mix(in srgb, var(--text) 7%, transparent); }
 
     /* FOOTER */
     footer {
@@ -1191,35 +1171,35 @@
       .footer-top { grid-template-columns: 1fr; gap: 36px; padding: 40px 24px 32px; }
     }
     .footer-brand-name {
-      font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--font-display);
       font-size: 18px; font-weight: 900; color: var(--text);
     }
     .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
     .footer-logo-img { border-radius: 6px; width: 28px; height: 28px; }
-    .footer-tagline { font-size: 14px; color: var(--dim); line-height: 1.6; max-width: 220px; }
+    .footer-tagline { font-size: 14px; color: var(--text-muted); line-height: 1.6; max-width: 220px; }
     .footer-stores { display: flex; flex-direction: column; gap: 10px; }
     .footer-store-btn {
       display: flex; align-items: center; gap: 12px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: color-mix(in srgb, var(--text) 6%, transparent);
+      border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
       border-radius: 12px; padding: 12px 18px;
       text-decoration: none; color: var(--text);
       transition: background 0.2s, border-color 0.2s;
       min-width: 160px;
     }
-    .footer-store-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+    .footer-store-btn:hover { background: color-mix(in srgb, var(--text) 10%, transparent); border-color: color-mix(in srgb, var(--text) 20%, transparent); }
     .footer-store-icon { width: 22px; height: 22px; flex-shrink: 0; color: var(--text); }
     .footer-store-text { display: flex; flex-direction: column; }
-    .footer-store-sub { font-size: 10px; color: rgba(255,255,255,0.5); line-height: 1.2; }
+    .footer-store-sub { font-size: 10px; color: color-mix(in srgb, var(--text) 50%, transparent); line-height: 1.2; }
     .footer-store-name { font-size: 14px; font-weight: 700; line-height: 1.3; }
     .footer-links-col { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
-    .footer-links-col a { color: var(--dim); font-size: 14px; transition: color 0.2s; }
-    .footer-links-col a:hover { color: var(--muted); }
+    .footer-links-col a { color: var(--text-muted); font-size: 14px; transition: color 0.2s; }
+    .footer-links-col a:hover { color: var(--text-muted); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid color-mix(in srgb, var(--text) 5%, transparent);
       padding: 20px 40px;
       text-align: center;
-      color: #3a3a3c;
+      color: var(--text-muted);
       font-size: 13px;
     }
     @media (max-width: 820px) { .footer-bottom { padding: 20px 24px; } }
@@ -1253,14 +1233,14 @@
     /* MANIFESTO */
     .manifesto-section { padding: 80px 24px; border-top: 1px solid var(--border); }
     .manifesto-inner { max-width: 700px; margin: 0 auto; padding-left: 28px; border-left: 2px solid var(--border); }
-    .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; opacity: 0.85; }
-    .manifesto-p1 { font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.7; color: var(--muted); margin-bottom: 20px; }
+    .manifesto-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 28px; opacity: 0.85; }
+    .manifesto-p1 { font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.7; color: var(--text-muted); margin-bottom: 20px; }
     .manifesto-p2 { font-size: clamp(20px, 2.6vw, 28px); font-weight: 700; line-height: 1.5; color: var(--text); margin-bottom: 20px; letter-spacing: -0.5px; }
-    .manifesto-p3 { font-size: clamp(17px, 2.1vw, 22px); font-weight: 700; line-height: 1.55; color: var(--volt); letter-spacing: -0.2px; }
+    .manifesto-p3 { font-size: clamp(17px, 2.1vw, 22px); font-weight: 700; line-height: 1.55; color: var(--accent); letter-spacing: -0.2px; }
 
     /* AI SHOWCASE */
     .ai-showcase {
-      background: rgba(255,255,255,0.02);
+      background: color-mix(in srgb, var(--text) 2%, transparent);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       padding: 80px 24px;
@@ -1274,7 +1254,7 @@
       margin-bottom: 14px;
       line-height: 1.05;
     }
-    .ai-showcase-header p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    .ai-showcase-header p { color: var(--text-muted); font-size: 17px; max-width: 560px; margin: 0 auto; line-height: 1.7; }
     .ai-showcase-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1285,8 +1265,8 @@
 
     /* Coach card */
     .coach-card {
-      background: #0b1500;
-      border: 1px solid rgba(196,255,0,0.22);
+      background: var(--accent-soft-solid);
+      border: 1px solid color-mix(in srgb, var(--text) 22%, transparent);
       border-radius: 16px;
       padding: 22px 22px 16px;
       font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
@@ -1294,47 +1274,47 @@
     .coach-card-header {
       display: flex; align-items: center; gap: 8px;
       font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text-muted);
       margin-bottom: 16px; padding-bottom: 14px;
       border-bottom: 1px solid var(--border);
     }
     /* Status dot = jade, not volt. Jade = data/status. Volt = action. */
-    .coach-card-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--jade); flex-shrink: 0; }
+    .coach-card-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
     .know-row {
       display: flex; flex-direction: column; gap: 3px;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid color-mix(in srgb, var(--text) 5%, transparent);
     }
     .know-row:last-child { border-bottom: none; padding-bottom: 4px; }
-    .know-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--jade); }
-    .know-value { font-size: 12.5px; color: rgba(255,255,255,0.82); line-height: 1.5; }
+    .know-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--success); }
+    .know-value { font-size: 12.5px; color: color-mix(in srgb, var(--text) 82%, transparent); line-height: 1.5; }
 
     /* Chat demo */
-    .chat-demo { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .chat-demo { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
     .chat-demo-header {
       background: var(--bg); border-bottom: 1px solid var(--border);
       padding: 13px 18px; display: flex; align-items: center; gap: 10px;
     }
     .chat-coach-avatar {
-      width: 32px; height: 32px; background: var(--volt); border-radius: 50%;
+      width: 32px; height: 32px; background: var(--accent); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      color: #0d1400; font-weight: 900; font-size: 14px; flex-shrink: 0;
+      color: var(--on-accent); font-weight: 900; font-size: 14px; flex-shrink: 0;
     }
     .chat-coach-name { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.2; }
-    .chat-coach-status { font-size: 12px; color: var(--jade); }
+    .chat-coach-status { font-size: 12px; color: var(--success); }
     .chat-messages { padding: 18px; display: flex; flex-direction: column; gap: 12px; }
     .chat-msg-user {
-      background: rgba(196,255,0,0.09); border: 1px solid var(--volt-border);
+      background: color-mix(in srgb, var(--text) 9%, transparent); border: 1px solid var(--accent-border);
       color: var(--text); align-self: flex-end; border-bottom-right-radius: 4px;
       max-width: 88%; padding: 11px 14px; border-radius: 14px; font-size: 14px; line-height: 1.55;
     }
     .chat-msg-coach {
-      background: #121e00; border: 1px solid var(--volt-chip-bg);
+      background: var(--accent-soft-solid); border: 1px solid var(--accent-soft);
       color: var(--text); align-self: flex-start; border-bottom-left-radius: 4px;
       max-width: 92%; padding: 11px 14px; border-radius: 14px; font-size: 14px; line-height: 1.6;
     }
     .chat-note {
-      font-size: 12px; color: var(--muted); padding: 10px 18px 14px;
+      font-size: 12px; color: var(--text-muted); padding: 10px 18px 14px;
       line-height: 1.5; border-top: 1px solid var(--border);
     }
   </style>
@@ -1343,7 +1323,7 @@
 
   <nav>
     <div class="nav-logo">
-      <img src="logo.png" class="logo-mark" alt="Gainfully logo" width="36" height="36" />
+      <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully logo" width="36" height="36" class="logo-mark"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Gainfully
     </div>
     <div class="nav-links">
@@ -1477,7 +1457,7 @@
       </div>
     </section>
 
-    <section style="background:rgba(255,255,255,0.02);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:96px 24px;" aria-label="How it works">
+    <section style="background:color-mix(in srgb, var(--text) 2%, transparent);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:96px 24px;" aria-label="How it works">
       <div style="max-width:1100px;margin:0 auto;">
         <h2 class="section-title" data-i18n="how.title">Kom i gang på 3 minutter</h2>
         <div class="steps">
@@ -1583,7 +1563,7 @@
       <div class="ai-showcase-inner">
         <div class="ai-showcase-header">
           <div class="section-label" data-i18n="aiDetail.label">Personlig, ikke generisk</div>
-          <h2 data-i18n="aiDetail.title">Din coach kender <span style="color:var(--volt)">DIG</span></h2>
+          <h2 data-i18n="aiDetail.title">Din coach kender <span style="color:var(--accent)">DIG</span></h2>
           <p data-i18n="aiDetail.sub">Gainfully AI-coachen kender din faktiske historik. Næste gang du stiller et spørgsmål, bruger den dine egne data - ikke generiske råd.</p>
         </div>
         <div class="ai-showcase-grid">
@@ -1772,7 +1752,7 @@
     <section class="testimonials-section" aria-label="Brugercitater fra beta-testere">
       <div class="section-label" data-i18n="testimonials.label">Hvad brugerne siger</div>
       <h2 class="section-title" data-i18n="testimonials.title">Rigtige resultater fra rigtige brugere</h2>
-      <p style="text-align:center;font-size:13px;color:var(--dim);margin-top:-36px;margin-bottom:48px;">Beta-testere · citater fra tidlige brugere af Gainfully</p>
+      <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:-36px;margin-bottom:48px;">Beta-testere · citater fra tidlige brugere af Gainfully</p>
       <div class="testimonials-grid">
         <figure class="testimonial-card">
           <blockquote class="testimonial-quote" data-i18n="testimonials.q1">"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."</blockquote>
@@ -1816,31 +1796,31 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto;">
           <a href="/tdee-beregner.html" style="text-decoration:none;">
             <div class="tool-card">
-              <div style="width:44px;height:44px;background:var(--volt-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c4ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+              <div style="width:44px;height:44px;background:var(--accent-soft);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
               </div>
-              <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">TDEE Beregner</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">TDEE Beregner</div>
               <div style="font-size:20px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin-bottom:10px;">Dagligt kalorieindtag</div>
-              <div style="font-size:15px;color:var(--muted);line-height:1.6;">Find dit Total Daily Energy Expenditure baseret på din vægt, højde og aktivitetsniveau.</div>
-              <div style="margin-top:20px;font-size:13px;font-weight:600;color:#c4ff00;">Beregn gratis &rarr;</div>
+              <div style="font-size:15px;color:var(--text-muted);line-height:1.6;">Find dit Total Daily Energy Expenditure baseret på din vægt, højde og aktivitetsniveau.</div>
+              <div style="margin-top:20px;font-size:13px;font-weight:600;color:var(--accent);">Beregn gratis &rarr;</div>
             </div>
           </a>
           <a href="/1rm-beregner.html" style="text-decoration:none;">
             <div class="tool-card">
-              <div style="width:44px;height:44px;background:var(--volt-dim);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c4ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0012 0V4"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
+              <div style="width:44px;height:44px;background:var(--accent-soft);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v6a6 6 0 0012 0V4"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
               </div>
-              <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">1RM Beregner</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">1RM Beregner</div>
               <div style="font-size:20px;font-weight:800;letter-spacing:-0.5px;color:var(--text);margin-bottom:10px;">Dit maksimale loft</div>
-              <div style="font-size:15px;color:var(--muted);line-height:1.6;">Beregn dit One Rep Max ud fra vægt og reps - uden at løfte til udmattelse.</div>
-              <div style="margin-top:20px;font-size:13px;font-weight:600;color:#c4ff00;">Beregn gratis &rarr;</div>
+              <div style="font-size:15px;color:var(--text-muted);line-height:1.6;">Beregn dit One Rep Max ud fra vægt og reps - uden at løfte til udmattelse.</div>
+              <div style="margin-top:20px;font-size:13px;font-weight:600;color:var(--accent);">Beregn gratis &rarr;</div>
             </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section style="background:rgba(255,255,255,0.02);border-top:1px solid var(--border);padding:96px 24px;" id="faq">
+    <section style="background:color-mix(in srgb, var(--text) 2%, transparent);border-top:1px solid var(--border);padding:96px 24px;" id="faq">
       <div class="section-label" data-i18n="faq.label">FAQ</div>
       <h2 class="section-title" data-i18n="faq.title">Ofte stillede spørgsmål</h2>
       <div class="faq-list" id="faqList">
@@ -1910,7 +1890,7 @@
 
     <div class="cta-wrap"><section class="cta" id="download">
       <p class="cta-anchor" data-i18n="cta.anchor">Ingen kreditkort krævet. Start i dag.</p>
-      <h2 data-i18n="cta.h2">Download gratis.<br /><span style="color:var(--volt)">Pro fra 99 kr/md.</span></h2>
+      <h2 data-i18n="cta.h2">Download gratis.<br /><span style="color:var(--accent)">Pro fra 99 kr/md.</span></h2>
       <p data-i18n="cta.sub">Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.</p>
       <div class="currency-switcher" id="currencySwitcher">
         <button class="currency-btn" data-currency="DKK" onclick="setCurrency('DKK')">DKK</button>
@@ -1954,7 +1934,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo-row">
-          <img src="logo.png" class="footer-logo-img" alt="Gainfully" width="28" height="28" />
+          <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully" width="28" height="28" class="footer-logo-img"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span class="footer-brand-name">Gainfully</span>
         </div>
         <p class="footer-tagline" data-i18n="footer.tagline">Din AI personlige træner. Gratis at starte.</p>
@@ -1981,13 +1961,13 @@
         <a href="mailto:support@gainfully.app" id="contactLink" data-i18n="footer.contact" onclick="copyContactEmail(event)">Kontakt</a>
       </div>
       <div class="footer-links-col" style="min-width:160px;">
-        <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:block;">Se mere</span>
-        <a href="ai-personlig-traener.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Personlig Træner</a>
-        <a href="ai-traeningsforloeb.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Træningsforløb</a>
-        <a href="ai-workout-plan.html" style="color:var(--muted);font-size:13px;line-height:2;">AI Workout Plan</a>
-        <a href="ki-trainingsplan.html" style="color:var(--muted);font-size:13px;line-height:2;">KI Trainingsplan (DE)</a>
-        <a href="progressiv-overload.html" style="color:var(--muted);font-size:13px;line-height:2;">Guide: Progressiv overload</a>
-        <a href="styrketraening-app.html" style="color:var(--muted);font-size:13px;line-height:2;">Bedste styrketræning app</a>
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;display:block;">Se mere</span>
+        <a href="ai-personlig-traener.html" style="color:var(--text-muted);font-size:13px;line-height:2;">AI Personlig Træner</a>
+        <a href="ai-traeningsforloeb.html" style="color:var(--text-muted);font-size:13px;line-height:2;">AI Træningsforløb</a>
+        <a href="ai-workout-plan.html" style="color:var(--text-muted);font-size:13px;line-height:2;">AI Workout Plan</a>
+        <a href="ki-trainingsplan.html" style="color:var(--text-muted);font-size:13px;line-height:2;">KI Trainingsplan (DE)</a>
+        <a href="progressiv-overload.html" style="color:var(--text-muted);font-size:13px;line-height:2;">Guide: Progressiv overload</a>
+        <a href="styrketraening-app.html" style="color:var(--text-muted);font-size:13px;line-height:2;">Bedste styrketræning app</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2010,11 +1990,11 @@
       ai: { label: 'AI-træner (Pro)', h2a: 'Din træner der ', h2b: 'kender dig', sub: 'Din træner kender din historik, dine rekorder og din fremgang. Stil et spørgsmål og få et svar der faktisk passer til dig.', chips: ['Hvorfor stagnerer jeg i bænkpres?', 'Lav mig et program til 3 dage om ugen', 'Hvad skal jeg spise for at bygge muskler?', 'Hvordan forbedrer jeg min squat?', 'Træner jeg for meget?', 'Hvad er min stærkeste muskelgruppe?'], chipResponses: [ { q: 'Hvorfor stagnerer jeg i bænkpres?', a: 'Du har løftet 95 kg × 3 reps 4 sessioner i træk - klassisk plateau. Prøv 92,5 kg × 5 × 5 i 2 uger. Volumen frem for intensitet, og øg pausetid til 4 min.' }, { q: 'Lav mig et program til 3 dage om ugen', a: 'Baseret på din historik: Man: Squat + Bryst · Ons: Rows + Pull-ups · Fre: Deadlift + Skuldre. Du har flest PR-hits om mandagen - hold det som din tungeste dag.' }, { q: 'Hvad skal jeg spise for at bygge muskler?', a: 'Din vægttend er +2 kg på 6 uger - godt udgangspunkt. Sigt efter 2g protein/kg bodyweight. Med din træningsvolumen er timing vigtig: protein inden for 2 timer efter træning.' }, { q: 'Hvordan forbedrer jeg min squat?', a: 'Din squat: 110 → 115 → 120 kg på 12 uger - sundt tempo. Da du har noteret dårligt venstre knæ, prøv high-bar og stop lidt over parallel til knæet er klar igen.' }, { q: 'Træner jeg for meget?', a: 'Du har trænet 3,2 gange om ugen i 8 uger med fremgang i alle store løft. Ingen tegn på overreaching. Din pausetid på 3-4 min er optimal - fortsæt som du er.' }, { q: 'Hvad er min stærkeste muskelgruppe?', a: 'Ben er klart din styrke: Squat 120 kg og Deadlift 150 kg. Bryst sidder på 95 kg × 3 - relativt lavere. Mere volumen på bryst og skuldre ville balancere din profil.' } ] },
       who: { label: 'Hvem er det til?', title: 'Uanset dit niveau og dine mål', beginners: { title: 'Begyndere', desc: 'Ny til styrketræning? Gainfully guider dig med 1.400+ øvelser og en AI-træner der forklarer hvad du skal gøre. Fortæl den om eventuelle skader eller begrænsninger, og den husker det i alle fremtidige råd.' }, experienced: { title: 'Erfarne løftere', desc: 'Hold styr på volumen, PR\'er og progression. Gainfully giver dig data til at tage bedre beslutninger i og udenfor gymet.' }, home: { title: 'Dem der træner hjemme', desc: 'Håndvægte, kettlebells eller kropsvægt. Filtrer øvelsesbiblioteket på det udstyr du har og byg programmer derefter.' }, gym: { title: 'Fitnesscenter-brugere', desc: 'Appen er bygget til at bruge mens du træner. Pausetimer, inline historik og PR-notifikationer klar når du er i gang.' } },
       faq: { label: 'FAQ', title: 'Ofte stillede spørgsmål', items: [ { q: 'Hvad er Gainfully?', a: 'Gainfully er en fitness tracking app til iPhone og Android med en indbygget AI-træner. Du logger dine styrketræninger, og appen husker alt: vægte, reps, sæt og fremgang. Træneren analyserer din historik og giver dig personlige råd og programforslag.' }, { q: 'Er Gainfully gratis?', a: 'Ja, Gainfully er gratis at downloade og bruge. Gratis inkluderer 1.400+ øvelser med GIFs, ubegrænset træningslogning, op til 3 programmer og 90 dages statistik. Pro (99 kr/md eller 799 kr/år) giver fuld AI-coaching, ubegrænsede programmer og komplet historik.' }, { q: 'Hvad ved AI-coachen om mig?', a: 'AI-coachen har adgang til din komplette træningshistorik: dine personlige rekorder med datoer, din vægttend over tid, hvilke dage du typisk træner, din muskelbalance og eventuelle noter du selv har skrevet (fx om skader eller udstyr). Den husker også hvad I har talt om i tidligere samtaler. Det er det der gør svaret relevant for dig - ikke for en gennemsnitlig bruger.' }, { q: 'Virker Gainfully på iPhone og Android?', a: 'Ja, Gainfully er tilgængelig til både iPhone (iOS) og Android. Download gratis fra App Store eller Google Play. Alle dine data synkroniseres automatisk.' }, { q: 'Hvad kan AI-træneren hjælpe mig med?', a: 'Træneren kender din historik og svarer ud fra den. Spørg om hvorfor du stagnerer, få et ugentligt program, råd om kost og restitution, eller hvad der ellers er på dit sind. Altid baseret på dig.' }, { q: 'Hvilke sprog understøtter appen?', a: 'Gainfully er tilgængelig på dansk, engelsk, tysk, fransk, spansk og portugisisk (BR). Sproget vælges automatisk baseret på din enhed, men du kan altid skifte manuelt i profilindstillingerne.' } ] },
-      cta: { anchor: 'Ingen kreditkort krævet. Start i dag.', h2: 'Download gratis.<br /><span style="color:var(--volt)">Pro fra 99 kr/md.</span>', sub: 'Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.', free: { name: 'Gratis', price: '0', period: '/altid', sub: '1.400+ øvelser · 3 programmer' }, monthly: { name: 'Pro Månedlig', price: '99 kr', period: '/md', sub: 'Fuld AI-coaching · ingen binding' }, annual: { badge: 'Bedst: spar 389 kr', name: 'Pro Årlig', price: '799 kr', period: '/år', sub: 'ca. 67 kr/md' } },
+      cta: { anchor: 'Ingen kreditkort krævet. Start i dag.', h2: 'Download gratis.<br /><span style="color:var(--accent)">Pro fra 99 kr/md.</span>', sub: 'Gratis at starte. Opgrader når du er klar.<br />Ingen binding. Opsig når som helst.', free: { name: 'Gratis', price: '0', period: '/altid', sub: '1.400+ øvelser · 3 programmer' }, monthly: { name: 'Pro Månedlig', price: '99 kr', period: '/md', sub: 'Fuld AI-coaching · ingen binding' }, annual: { badge: 'Bedst: spar 389 kr', name: 'Pro Årlig', price: '799 kr', period: '/år', sub: 'ca. 67 kr/md' } },
       manifesto: { label: 'Hvorfor Gainfully', p1: 'De fleste træningsapps er bygget til gennemsnittet. Et program for alle er et program for ingen.', p2: 'Gainfully spørger fremfor at antage. Husker fremfor at gentage. Tilpasser sig dig - ikke omvendt.', p3: 'Fordi din træning ikke ligner andres. Og det bør din app heller ikke.' },
       testimonials: { label: 'Hvad brugerne siger', title: 'Rigtige resultater fra rigtige brugere', q1: '"Endelig en app der husker hvad jeg lavede sidst. Jeg behøver ikke selv holde styr på om jeg skal op i vægt - den ved det."', r1: 'Styrkeløfter, 4 år', q2: '"Spurgte træneren om jeg trænede for meget. Den svarede med mine egne tal fra de sidste 6 uger. Det er ikke et generisk svar - det er MIT svar."', r2: 'Crossfit og styrke', q3: '"Jeg satte ny squat-rekord i tredje uge. AI-coachen havde allerede foreslået at jeg burde prøve - og den havde ret."', r3: 'Nybegynder, 6 måneder' },
       footer: { copy: '© 2026 Gainfully. Alle rettigheder forbeholdes.', privacy: 'Privatlivspolitik', terms: 'Vilkår', contact: 'Kontakt', tagline: 'Din AI personlige træner. Gratis at starte.', iosSub: 'Download on the', androidSub: 'Get it on' },
-      aiDetail: { label: 'Personlig, ikke generisk', title: 'Din coach kender <span style="color:var(--volt)">DIG</span>', sub: 'Gainfully AI-coachen kender din faktiske historik. Næste gang du spørger om noget, bruger den dine egne data - dine PRer, dit træningsmønster, dine skader - ikke generiske råd.', cardTitle: 'AI-COACHENS ADGANG', prsLabel: 'PERSONLIGE REKORDER (MED DATOER)', prsVal: 'Squat 120 kg×5 · Bænkpres 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'VÆGTUDVIKLING', weightVal: '83 kg → 85 kg (stiger +2 kg de seneste 6 uger)', daysLabel: 'TRÆNINGSMØNSTER', daysVal: 'Træner typisk Man / Ons / Fre (beregnet fra historik)', notesLabel: 'DIN BESKED TIL COACHEN', notesVal: '"Dårligt venstre knæ - undgår overhead press"', historyLabel: 'TRÆNINGSHISTORIK', historyVal: 'Seneste 8 træninger med alle sæt, vægte og reps', memoryLabel: 'SAMTALEHUKOMMELSE', memoryVal: 'Husker hvad I har talt om på tværs af sessioner', chatStatus: 'Kender din historik', chatQ: 'Skal jeg øge vægten på squat i dag?', chatA: 'Du har løftet 120 kg × 5 reps tre sessioner i træk - et klart plateau-signal. Jeg anbefaler 122,5 kg i dag. Og da du har noteret dårligt venstre knæ: brug high-bar stil og stop lidt over parallel.', chatNote: 'Svaret bruger dine PRer, din historik og dine coach-noter - ikke et generisk svar.', tryLabel: 'Prøv et spørgsmål:' },
+      aiDetail: { label: 'Personlig, ikke generisk', title: 'Din coach kender <span style="color:var(--accent)">DIG</span>', sub: 'Gainfully AI-coachen kender din faktiske historik. Næste gang du spørger om noget, bruger den dine egne data - dine PRer, dit træningsmønster, dine skader - ikke generiske råd.', cardTitle: 'AI-COACHENS ADGANG', prsLabel: 'PERSONLIGE REKORDER (MED DATOER)', prsVal: 'Squat 120 kg×5 · Bænkpres 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'VÆGTUDVIKLING', weightVal: '83 kg → 85 kg (stiger +2 kg de seneste 6 uger)', daysLabel: 'TRÆNINGSMØNSTER', daysVal: 'Træner typisk Man / Ons / Fre (beregnet fra historik)', notesLabel: 'DIN BESKED TIL COACHEN', notesVal: '"Dårligt venstre knæ - undgår overhead press"', historyLabel: 'TRÆNINGSHISTORIK', historyVal: 'Seneste 8 træninger med alle sæt, vægte og reps', memoryLabel: 'SAMTALEHUKOMMELSE', memoryVal: 'Husker hvad I har talt om på tværs af sessioner', chatStatus: 'Kender din historik', chatQ: 'Skal jeg øge vægten på squat i dag?', chatA: 'Du har løftet 120 kg × 5 reps tre sessioner i træk - et klart plateau-signal. Jeg anbefaler 122,5 kg i dag. Og da du har noteret dårligt venstre knæ: brug high-bar stil og stop lidt over parallel.', chatNote: 'Svaret bruger dine PRer, din historik og dine coach-noter - ikke et generisk svar.', tryLabel: 'Prøv et spørgsmål:' },
       langFlag: '🇩🇰', langCode: 'DA',
     },
     en: {
@@ -2030,11 +2010,11 @@
       ai: { label: 'AI Coach (Pro)', h2a: 'Your coach that ', h2b: 'knows you', sub: 'Your coach knows your history, your records and your progress. Ask a question and get an answer that actually fits you.', chips: ['Why am I stalling on bench press?', 'Build me a 3-day program', 'What should I eat to build muscle?', 'How do I improve my squat?', 'Am I overtraining?', 'What is my strongest muscle group?'], chipResponses: [ { q: 'Why am I stalling on bench press?', a: 'You\'ve lifted 95 kg × 3 reps 4 sessions in a row - classic plateau. Try 92.5 kg × 5 × 5 for 2 weeks. Volume over intensity, and increase rest time to 4 min.' }, { q: 'Build me a 3-day program', a: 'Based on your history: Mon: Squat + Chest · Wed: Rows + Pull-ups · Fri: Deadlift + Shoulders. You hit the most PRs on Mondays - keep that as your heaviest day.' }, { q: 'What should I eat to build muscle?', a: 'Your weight trend is +2 kg over 6 weeks - solid start. Aim for 2g protein/kg bodyweight. With your training volume, timing matters: protein within 2 hours post-workout.' }, { q: 'How do I improve my squat?', a: 'Your squat: 110 → 115 → 120 kg over 12 weeks - healthy tempo. Since you\'ve noted a bad left knee, try high-bar and stop slightly above parallel until it\'s ready.' }, { q: 'Am I overtraining?', a: 'You\'ve trained 3.2x/week for 8 weeks with progress on all main lifts. No signs of overreaching. Your 3-4 min rest time is optimal - keep going as you are.' }, { q: 'What is my strongest muscle group?', a: 'Legs are clearly your strength: Squat 120 kg and Deadlift 150 kg. Chest sits at 95 kg × 3 - relatively lower. More volume on chest and shoulders would balance your profile.' } ] },
       who: { label: 'Who is it for?', title: 'Whatever your level and goals', beginners: { title: 'Beginners', desc: 'New to strength training? Gainfully guides you with 1,400+ exercises with GIFs and an AI coach that explains what to do. Tell it about any injuries or limitations and it will always remember.' }, experienced: { title: 'Experienced lifters', desc: 'Track volume, PRs and progression. Gainfully gives you data to make better decisions in and outside the gym.' }, home: { title: 'Home trainers', desc: 'Dumbbells, kettlebells or bodyweight. Filter the exercise library by equipment you have and build programs accordingly.' }, gym: { title: 'Gym users', desc: 'The app is built to use while you train. Rest timer, inline history and PR notifications ready when you need them.' } },
       faq: { label: 'FAQ', title: 'Frequently asked questions', items: [ { q: 'What is Gainfully?', a: 'Gainfully is a fitness tracking app for iPhone and Android with a built-in AI coach. You log your workouts and the app remembers everything: weights, reps, sets and progress. The coach analyses your history and gives you personal advice and program suggestions.' }, { q: 'Is Gainfully free?', a: 'Yes, Gainfully is free to download and use. The free tier includes 1,400+ exercises with GIFs, unlimited workout logging, up to 3 programs and 90 days of stats. Pro ($14.99/month or $124.99/year) adds full AI coaching, unlimited programs and complete history.' }, { q: 'What does the AI coach know about me?', a: 'The AI coach has access to your complete training history: your personal records with dates, your weight trend over time, your typical training days, your muscle balance, and any notes you\'ve written (like injuries or equipment). It also remembers what you\'ve discussed in previous conversations. That\'s what makes the answer relevant to you - not to an average user.' }, { q: 'Does Gainfully work on iPhone and Android?', a: 'Yes, Gainfully is available for both iPhone (iOS) and Android. Download it free from the App Store or Google Play. All your data syncs automatically.' }, { q: 'What can the AI coach help me with?', a: 'The coach knows your history and answers based on it. Ask why you\'re stalling, get a weekly program, nutrition and recovery advice. Always personalised to you.' }, { q: 'Which languages does the app support?', a: 'Gainfully is available in Danish, English, German, French, Spanish and Portuguese (BR). The language is set automatically based on your device but you can always switch manually in the profile settings.' } ] },
-      cta: { anchor: 'A personal trainer costs $70/hour.', h2: 'Gainfully costs<br /><span style="color:var(--volt)">$14.99/mo.</span>', sub: 'Free to start. Upgrade when you\'re ready.<br />No commitment. Cancel anytime.', free: { name: 'Free', price: '0', period: '/forever', sub: '1,400+ exercises · 3 programs' }, monthly: { name: 'Pro Monthly', price: '$14.99', period: '/mo', sub: 'Full AI coaching · no commitment' }, annual: { badge: 'Best value: save $54', name: 'Pro Annual', price: '$124.99', period: '/yr', sub: 'approx. $10.42/mo' } },
+      cta: { anchor: 'A personal trainer costs $70/hour.', h2: 'Gainfully costs<br /><span style="color:var(--accent)">$14.99/mo.</span>', sub: 'Free to start. Upgrade when you\'re ready.<br />No commitment. Cancel anytime.', free: { name: 'Free', price: '0', period: '/forever', sub: '1,400+ exercises · 3 programs' }, monthly: { name: 'Pro Monthly', price: '$14.99', period: '/mo', sub: 'Full AI coaching · no commitment' }, annual: { badge: 'Best value: save $54', name: 'Pro Annual', price: '$124.99', period: '/yr', sub: 'approx. $10.42/mo' } },
       manifesto: { label: 'Why Gainfully', p1: 'Most workout apps are built for the average user. A program for everyone is a program for no one.', p2: 'Gainfully asks before assuming. Remembers instead of repeating. Adapts to you - not the other way around.', p3: 'Because your training doesn\'t look like anyone else\'s. And your app shouldn\'t either.' },
       testimonials: { label: 'What users say', title: 'Real results from real users', q1: '"Finally an app that remembers what I did last time. I don\'t have to track whether I should go heavier - it already knows."', r1: 'Powerlifter, 4 years', q2: '"I asked the coach if I was overtraining. It answered with my own numbers from the last 6 weeks. Not a generic answer - my answer."', r2: 'Crossfit and strength', q3: '"I hit a new squat PR in week three. The AI coach had already suggested I should try - and it was right."', r3: 'Beginner, 6 months' },
       footer: { copy: '© 2026 Gainfully. All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms', contact: 'Contact', tagline: 'Your AI personal trainer. Free to start.', iosSub: 'Download on the', androidSub: 'Get it on' },
-      aiDetail: { label: 'Personal, not generic', title: 'Your coach knows <span style="color:var(--volt)">YOU</span>', sub: 'The Gainfully AI coach knows your actual history. When you ask a question, it responds with your own data - your PRs, your training pattern, your injuries - not generic advice.', cardTitle: 'AI COACH HAS ACCESS TO', prsLabel: 'PERSONAL RECORDS (WITH DATES)', prsVal: 'Squat 120 kg×5 · Bench 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'WEIGHT TREND', weightVal: '83 kg → 85 kg (up +2 kg over the last 6 weeks)', daysLabel: 'TRAINING PATTERN', daysVal: 'Usually trains Mon / Wed / Fri (from history)', notesLabel: 'YOUR MESSAGE TO THE COACH', notesVal: '"Bad left knee - avoid overhead press"', historyLabel: 'WORKOUT HISTORY', historyVal: 'Last 8 sessions - every set, weight and rep', memoryLabel: 'CONVERSATION MEMORY', memoryVal: 'Remembers what you\'ve discussed across sessions', chatStatus: 'Knows your history', chatQ: 'Should I increase the weight on squat today?', chatA: 'You\'ve lifted 120 kg × 5 reps three sessions in a row - a clear plateau signal. I\'d recommend trying 122.5 kg today. And since you\'ve noted a bad left knee: use high-bar style and stop just above parallel.', chatNote: 'The answer uses your PRs, history and coach notes - not a generic response.', tryLabel: 'Try a question:' },
+      aiDetail: { label: 'Personal, not generic', title: 'Your coach knows <span style="color:var(--accent)">YOU</span>', sub: 'The Gainfully AI coach knows your actual history. When you ask a question, it responds with your own data - your PRs, your training pattern, your injuries - not generic advice.', cardTitle: 'AI COACH HAS ACCESS TO', prsLabel: 'PERSONAL RECORDS (WITH DATES)', prsVal: 'Squat 120 kg×5 · Bench 95 kg×3 · Deadlift 150 kg×4', weightLabel: 'WEIGHT TREND', weightVal: '83 kg → 85 kg (up +2 kg over the last 6 weeks)', daysLabel: 'TRAINING PATTERN', daysVal: 'Usually trains Mon / Wed / Fri (from history)', notesLabel: 'YOUR MESSAGE TO THE COACH', notesVal: '"Bad left knee - avoid overhead press"', historyLabel: 'WORKOUT HISTORY', historyVal: 'Last 8 sessions - every set, weight and rep', memoryLabel: 'CONVERSATION MEMORY', memoryVal: 'Remembers what you\'ve discussed across sessions', chatStatus: 'Knows your history', chatQ: 'Should I increase the weight on squat today?', chatA: 'You\'ve lifted 120 kg × 5 reps three sessions in a row - a clear plateau signal. I\'d recommend trying 122.5 kg today. And since you\'ve noted a bad left knee: use high-bar style and stop just above parallel.', chatNote: 'The answer uses your PRs, history and coach notes - not a generic response.', tryLabel: 'Try a question:' },
       langFlag: '🇬🇧', langCode: 'EN',
     },
     de: {
@@ -2050,8 +2030,8 @@
       ai: { label: 'KI-Coach (Pro)', h2a: 'Dein Coach, der ', h2b: 'dich kennt', sub: 'Dein Coach kennt deine Historie, Rekorde und Fortschritte. Stelle eine Frage und erhalte eine Antwort, die wirklich zu dir passt.', chips: ['Warum stagniere ich bei der Bankdrücken?', 'Erstell mir ein 3-Tage-Programm', 'Was soll ich essen, um Muskeln aufzubauen?', 'Wie verbessere ich mein Kniebeugen?', 'Trainiere ich zu viel?', 'Was ist meine stärkste Muskelgruppe?'], chipResponses: [ { q: 'Warum stagniere ich bei der Bankdrücken?', a: 'Du hast 95 kg × 3 Wdh. 4 Einheiten in Folge gehoben - klassisches Plateau. Versuche 92,5 kg × 5 × 5 für 2 Wochen. Volumen vor Intensität, und erhöhe die Pausenzeit auf 4 Min.' }, { q: 'Erstell mir ein 3-Tage-Programm', a: 'Basierend auf deiner Historie: Mo: Kniebeuge + Brust · Mi: Rows + Klimmzüge · Fr: Kreuzheben + Schultern. Du erzielst die meisten PRs montags - behalte das als schwersten Tag.' }, { q: 'Was soll ich essen, um Muskeln aufzubauen?', a: 'Dein Gewichtstrend ist +2 kg in 6 Wochen - guter Start. Ziel: 2g Protein/kg Körpergewicht. Mit deinem Trainingsvolumen ist Timing wichtig: Protein innerhalb von 2 Stunden nach dem Training.' }, { q: 'Wie verbessere ich mein Kniebeugen?', a: 'Deine Kniebeuge: 110 → 115 → 120 kg in 12 Wochen - gesundes Tempo. Da du ein schlechtes linkes Knie notiert hast, versuche High-Bar und stopp knapp über parallel.' }, { q: 'Trainiere ich zu viel?', a: 'Du hast 3,2x/Woche für 8 Wochen trainiert mit Fortschritt bei allen Hauptübungen. Keine Anzeichen von Übertraining. Deine 3-4 Min Pause ist optimal - mach weiter so.' }, { q: 'Was ist meine stärkste Muskelgruppe?', a: 'Beine sind klar deine Stärke: Kniebeuge 120 kg und Kreuzheben 150 kg. Brust liegt bei 95 kg × 3 - relativ niedriger. Mehr Volumen auf Brust und Schultern würde dein Profil ausgleichen.' } ] },
       who: { label: 'Für wen ist es?', title: 'Egal was dein Level und deine Ziele sind', beginners: { title: 'Anfänger', desc: 'Neu im Krafttraining? Gainfully führt dich mit 1.400+ Übungen mit GIFs und einem KI-Coach, der erklärt was zu tun ist. Verletzungen oder Einschränkungen? Der Coach merkt sie sich für alle künftigen Ratschläge.' }, experienced: { title: 'Erfahrene Lifter', desc: 'Behalte Volumen, PRs und Progression im Blick. Gainfully gibt dir Daten für bessere Entscheidungen.' }, home: { title: 'Heimtrainer', desc: 'Hanteln, Kettlebells oder Körpergewicht. Filtere die Übungsbibliothek nach deinem Equipment.' }, gym: { title: 'Fitnessstudio-Nutzer', desc: 'Die App ist fürs Training gemacht. Pausentimer, Inline-Historie und PR-Benachrichtigungen.' } },
       faq: { label: 'FAQ', title: 'Häufig gestellte Fragen', items: [ { q: 'Was ist Gainfully?', a: 'Gainfully ist eine Fitness-Tracking-App für iPhone und Android mit einem eingebauten KI-Coach. Du loggst deine Workouts und die App erinnert sich an alles: Gewichte, Wiederholungen, Sätze und Fortschritte.' }, { q: 'Ist Gainfully kostenlos?', a: 'Ja, Gainfully ist kostenlos. Das kostenlose Paket enthält 1.400+ Übungen mit GIFs, unbegrenztes Workout-Logging, bis zu 3 Programme und 90 Tage Statistiken. Pro (15,99 EUR/Monat oder 124,99 EUR/Jahr) fügt volles KI-Coaching hinzu.' }, { q: 'Welche Sprachen unterstützt die App?', a: 'Gainfully ist auf Dänisch, Englisch, Deutsch, Französisch, Spanisch und Portugiesisch (BR) verfügbar. Die Sprache wird automatisch eingestellt, kann aber manuell geändert werden.' }, { q: 'Funktioniert Gainfully auf iPhone und Android?', a: 'Ja, Gainfully ist für iPhone (iOS) und Android verfügbar. Kostenlos aus dem App Store oder Google Play laden.' }, { q: 'Was kann der KI-Coach mir helfen?', a: 'Der Coach kennt deine Historie und antwortet darauf basierend. Frage warum du stagnierst, bekomm ein wöchentliches Programm oder Ernährungsberatung. Immer personalisiert.' } ] },
-      aiDetail: { label: 'Persönlich, nicht generisch', title: 'Dein Coach kennt <span style="color:var(--volt)">DICH</span>', sub: 'Der Gainfully KI-Coach kennt deine echte Historie. Wenn du etwas fragst, antwortet er mit deinen eigenen Daten - deinen PRs, deinem Trainingsmuster und deinen Verletzungen.', cardTitle: 'KI-COACH HAT ZUGRIFF AUF', prsLabel: 'PERSÖNLICHE REKORDE (MIT DATUM)', prsVal: 'Kniebeuge 120 kg×5 · Bankdrücken 95 kg×3 · Kreuzheben 150 kg×4', weightLabel: 'GEWICHTSENTWICKLUNG', weightVal: '83 kg → 85 kg (+2 kg in den letzten 6 Wochen)', daysLabel: 'TRAININGSMUSTER', daysVal: 'Trainiert meist Mo / Mi / Fr (aus der Historie)', notesLabel: 'DEINE NACHRICHT AN DEN COACH', notesVal: '"Schlechtes linkes Knie - vermeide Overhead Press"', historyLabel: 'TRAININGSHISTORIE', historyVal: 'Letzte 8 Einheiten - alle Sätze, Gewichte und Wdh.', memoryLabel: 'GESPRÄCHSGEDÄCHTNIS', memoryVal: 'Erinnert sich an frühere Gespräche sitzungsübergreifend', chatStatus: 'Kennt deine Historie', chatQ: 'Soll ich heute das Gewicht bei der Kniebeuge erhöhen?', chatA: 'Du hast 120 kg × 5 Wdh. drei Einheiten in Folge gemacht - ein klares Plateau-Signal. Ich empfehle heute 122,5 kg. Da du ein schlechtes linkes Knie notiert hast: High-Bar-Stil und knapp über parallel stoppen.', chatNote: 'Die Antwort nutzt deine PRs, deine Historie und deine Coach-Notizen - keine generischen Ratschläge.', tryLabel: 'Frage stellen:' },
-      cta: { anchor: 'Ein Personal Trainer kostet 90 EUR/Stunde.', h2: 'Gainfully kostet<br /><span style="color:var(--volt)">15,99 EUR/Mo.</span>', sub: 'Kostenlos starten. Upgraden wenn du bereit bist.<br />Keine Bindung. Jederzeit kündigen.', free: { name: 'Kostenlos', price: '0', period: '/immer', sub: '1.400+ Übungen · 3 Programme' }, monthly: { name: 'Pro Monatlich', price: '15,99 EUR', period: '/Mo', sub: 'Volles KI-Coaching · keine Bindung' }, annual: { badge: 'Bestes Angebot: spare 67 EUR', name: 'Pro Jährlich', price: '124,99 EUR', period: '/Jahr', sub: 'ca. 10,42 EUR/Mo' } },
+      aiDetail: { label: 'Persönlich, nicht generisch', title: 'Dein Coach kennt <span style="color:var(--accent)">DICH</span>', sub: 'Der Gainfully KI-Coach kennt deine echte Historie. Wenn du etwas fragst, antwortet er mit deinen eigenen Daten - deinen PRs, deinem Trainingsmuster und deinen Verletzungen.', cardTitle: 'KI-COACH HAT ZUGRIFF AUF', prsLabel: 'PERSÖNLICHE REKORDE (MIT DATUM)', prsVal: 'Kniebeuge 120 kg×5 · Bankdrücken 95 kg×3 · Kreuzheben 150 kg×4', weightLabel: 'GEWICHTSENTWICKLUNG', weightVal: '83 kg → 85 kg (+2 kg in den letzten 6 Wochen)', daysLabel: 'TRAININGSMUSTER', daysVal: 'Trainiert meist Mo / Mi / Fr (aus der Historie)', notesLabel: 'DEINE NACHRICHT AN DEN COACH', notesVal: '"Schlechtes linkes Knie - vermeide Overhead Press"', historyLabel: 'TRAININGSHISTORIE', historyVal: 'Letzte 8 Einheiten - alle Sätze, Gewichte und Wdh.', memoryLabel: 'GESPRÄCHSGEDÄCHTNIS', memoryVal: 'Erinnert sich an frühere Gespräche sitzungsübergreifend', chatStatus: 'Kennt deine Historie', chatQ: 'Soll ich heute das Gewicht bei der Kniebeuge erhöhen?', chatA: 'Du hast 120 kg × 5 Wdh. drei Einheiten in Folge gemacht - ein klares Plateau-Signal. Ich empfehle heute 122,5 kg. Da du ein schlechtes linkes Knie notiert hast: High-Bar-Stil und knapp über parallel stoppen.', chatNote: 'Die Antwort nutzt deine PRs, deine Historie und deine Coach-Notizen - keine generischen Ratschläge.', tryLabel: 'Frage stellen:' },
+      cta: { anchor: 'Ein Personal Trainer kostet 90 EUR/Stunde.', h2: 'Gainfully kostet<br /><span style="color:var(--accent)">15,99 EUR/Mo.</span>', sub: 'Kostenlos starten. Upgraden wenn du bereit bist.<br />Keine Bindung. Jederzeit kündigen.', free: { name: 'Kostenlos', price: '0', period: '/immer', sub: '1.400+ Übungen · 3 Programme' }, monthly: { name: 'Pro Monatlich', price: '15,99 EUR', period: '/Mo', sub: 'Volles KI-Coaching · keine Bindung' }, annual: { badge: 'Bestes Angebot: spare 67 EUR', name: 'Pro Jährlich', price: '124,99 EUR', period: '/Jahr', sub: 'ca. 10,42 EUR/Mo' } },
       manifesto: { label: 'Warum Gainfully', p1: 'Die meisten Fitness-Apps sind für den Durchschnittsnutzer gemacht. Ein Programm für alle ist ein Programm für niemanden.', p2: 'Gainfully fragt statt anzunehmen. Erinnert sich statt zu wiederholen. Passt sich dir an - nicht umgekehrt.', p3: 'Dein Training sieht nicht wie das anderer aus. Deine App sollte das auch nicht.' },
       testimonials: { label: 'Was Nutzer sagen', title: 'Echte Ergebnisse von echten Nutzern', q1: '"Endlich eine App, die sich daran erinnert, was ich zuletzt gemacht habe. Ich muss nicht selbst tracken, ob ich das Gewicht erhöhen soll - sie weiß es bereits."', r1: 'Kraftdreikämpfer, 4 Jahre', q2: '"Ich fragte den Coach, ob ich zu viel trainiere. Er antwortete mit meinen eigenen Zahlen der letzten 6 Wochen. Keine generische Antwort - meine Antwort."', r2: 'Crossfit und Kraft', q3: '"In Woche drei habe ich einen neuen Kniebeugen-Rekord aufgestellt. Der KI-Coach hatte das bereits vorgeschlagen - und er hatte Recht."', r3: 'Anfänger, 6 Monate' },
       footer: { copy: '© 2026 Gainfully. Alle Rechte vorbehalten.', privacy: 'Datenschutzerklärung', terms: 'AGB', contact: 'Kontakt', tagline: 'Dein KI Personal Trainer. Kostenlos starten.', iosSub: 'Download on the', androidSub: 'Get it on' },
@@ -2070,8 +2050,8 @@
       ai: { label: 'Coach IA (Pro)', h2a: 'Ton coach qui ', h2b: 'te connaît', sub: 'Ton coach connaît ton historique, tes records et tes progrès. Pose une question et obtiens une réponse qui te correspond vraiment.', chips: ['Pourquoi je stagne au développé couché?', 'Crée-moi un programme 3 jours/semaine', 'Que manger pour prendre du muscle?', 'Comment améliorer mon squat?', 'Est-ce que je surm\'entraîne?', 'Quel est mon groupe musculaire le plus fort?'], chipResponses: [ { q: 'Pourquoi je stagne au développé couché?', a: 'Tu as soulevé 95 kg × 3 reps 4 séances d\'affilée - plateau classique. Essaie 92,5 kg × 5 × 5 pendant 2 semaines. Volume avant intensité, et augmente le repos à 4 min.' }, { q: 'Crée-moi un programme 3 jours/semaine', a: 'D\'après ton historique: Lun: Squat + Pectoraux · Mer: Rowing + Tractions · Ven: Soulevé + Épaules. Tu bats le plus de PRs le lundi - garde-le comme jour le plus lourd.' }, { q: 'Que manger pour prendre du muscle?', a: 'Ta tendance de poids est +2 kg en 6 semaines - bon départ. Vise 2g de protéines/kg de poids corporel. Avec ton volume d\'entraînement, le timing compte: protéines dans les 2h après l\'entraînement.' }, { q: 'Comment améliorer mon squat?', a: 'Ton squat: 110 → 115 → 120 kg en 12 semaines - rythme sain. Comme tu as noté un mauvais genou gauche, essaie le high-bar et arrête légèrement au-dessus du parallèle.' }, { q: 'Est-ce que je surm\'entraîne?', a: 'Tu t\'es entraîné 3,2x/semaine pendant 8 semaines avec des progrès sur tous les levées principales. Aucun signe de surmenage. Tes 3-4 min de repos sont optimaux - continue comme ça.' }, { q: 'Quel est mon groupe musculaire le plus fort?', a: 'Les jambes sont clairement ton point fort: Squat 120 kg et Soulevé 150 kg. La poitrine est à 95 kg × 3 - relativement plus faible. Plus de volume sur poitrine et épaules équilibrerait ton profil.' } ] },
       who: { label: 'Pour qui?', title: 'Quel que soit ton niveau et tes objectifs', beginners: { title: 'Débutants', desc: 'Nouveau dans la musculation? Gainfully te guide avec 1 400+ exercices et un coach IA qui explique tout. Parle-lui de tes blessures ou limitations, il s\'en souviendra dans tous ses conseils.' }, experienced: { title: 'Pratiquants expérimentés', desc: 'Suis le volume, les PRs et la progression. Gainfully te donne les données pour de meilleures décisions.' }, home: { title: 'Entraînement à la maison', desc: 'Haltères, kettlebells ou poids du corps. Filtre par équipement disponible.' }, gym: { title: 'Membres de salle', desc: 'L\'app est conçue pour être utilisée pendant l\'entraînement. Minuterie, historique et notifications PR.' } },
       faq: { label: 'FAQ', title: 'Questions fréquentes', items: [ { q: 'Qu\'est-ce que Gainfully?', a: 'Gainfully est une app de suivi fitness pour iPhone et Android avec un coach IA intégré. Tu enregistres tes entraînements et l\'app retient tout: poids, reps, séries et progrès.' }, { q: 'Gainfully est-il gratuit?', a: 'Oui, Gainfully est gratuit. L\'offre gratuite inclut 1 400+ exercices avec GIFs, journal illimité, 3 programmes et 90 jours de stats. Pro (15,99 EUR/mois ou 124,99 EUR/an) ajoute le coaching IA complet.' }, { q: 'Quelles langues l\'app supporte-t-elle?', a: 'Gainfully est disponible en danois, anglais, allemand, français, espagnol et portugais (BR). La langue est définie automatiquement mais peut être changée manuellement.' }, { q: 'Gainfully fonctionne-t-il sur iPhone et Android?', a: 'Oui, Gainfully est disponible sur iPhone (iOS) et Android. Télécharge gratuitement sur l\'App Store ou Google Play.' }, { q: 'Que peut faire le coach IA pour moi?', a: 'Le coach connaît ton historique et répond sur cette base. Demande pourquoi tu stagnes, obtiens un programme hebdomadaire ou des conseils nutritionnels. Toujours personnalisé.' } ] },
-      aiDetail: { label: 'Personnel, pas générique', title: 'Ton coach te connaît <span style="color:var(--volt)">TOI</span>', sub: 'Le coach IA de Gainfully connaît ton vrai historique. Quand tu poses une question, il répond avec tes données - tes PRs, ton programme, tes blessures - pas des conseils génériques.', cardTitle: 'LE COACH IA A ACCÈS À', prsLabel: 'RECORDS PERSONNELS (AVEC DATES)', prsVal: 'Squat 120 kg×5 · Développé 95 kg×3 · Soulevé 150 kg×4', weightLabel: 'ÉVOLUTION DU POIDS', weightVal: '83 kg → 85 kg (+2 kg ces 6 dernières semaines)', daysLabel: "HABITUDES D'ENTRAÎNEMENT", daysVal: "S'entraîne généralement Lun / Mer / Ven", notesLabel: 'TON MESSAGE AU COACH', notesVal: '"Mauvais genou gauche - évite le développé overhead"', historyLabel: "HISTORIQUE D'ENTRAÎNEMENT", historyVal: 'Les 8 dernières séances - toutes les séries et charges', memoryLabel: 'MÉMOIRE DES CONVERSATIONS', memoryVal: 'Se souvient de vos discussions précédentes', chatStatus: 'Connaît ton historique', chatQ: "Dois-je augmenter le poids au squat aujourd'hui?", chatA: "Tu as soulevé 120 kg × 5 reps trois séances d'affilée - signal clair de plateau. Je recommande 122,5 kg aujourd'hui. Avec ton genou gauche: utilise le style high-bar et arrête légèrement au-dessus du parallèle.", chatNote: 'La réponse utilise tes PRs, ton historique et tes notes - pas un conseil générique.', tryLabel: 'Essaie une question:' },
-      cta: { anchor: 'Un coach personnel coûte 80 EUR/heure.', h2: 'Gainfully coûte<br /><span style="color:var(--volt)">15,99 EUR/mois.</span>', sub: 'Gratuit pour commencer. Passe à Pro quand tu es prêt.<br />Sans engagement. Annule à tout moment.', free: { name: 'Gratuit', price: '0', period: '/toujours', sub: '1 400+ exercices · 3 programmes' }, monthly: { name: 'Pro Mensuel', price: '15,99 EUR', period: '/mois', sub: 'Coaching IA complet · sans engagement' }, annual: { badge: 'Meilleure offre: économise 67 EUR', name: 'Pro Annuel', price: '124,99 EUR', period: '/an', sub: 'env. 10,42 EUR/mois' } },
+      aiDetail: { label: 'Personnel, pas générique', title: 'Ton coach te connaît <span style="color:var(--accent)">TOI</span>', sub: 'Le coach IA de Gainfully connaît ton vrai historique. Quand tu poses une question, il répond avec tes données - tes PRs, ton programme, tes blessures - pas des conseils génériques.', cardTitle: 'LE COACH IA A ACCÈS À', prsLabel: 'RECORDS PERSONNELS (AVEC DATES)', prsVal: 'Squat 120 kg×5 · Développé 95 kg×3 · Soulevé 150 kg×4', weightLabel: 'ÉVOLUTION DU POIDS', weightVal: '83 kg → 85 kg (+2 kg ces 6 dernières semaines)', daysLabel: "HABITUDES D'ENTRAÎNEMENT", daysVal: "S'entraîne généralement Lun / Mer / Ven", notesLabel: 'TON MESSAGE AU COACH', notesVal: '"Mauvais genou gauche - évite le développé overhead"', historyLabel: "HISTORIQUE D'ENTRAÎNEMENT", historyVal: 'Les 8 dernières séances - toutes les séries et charges', memoryLabel: 'MÉMOIRE DES CONVERSATIONS', memoryVal: 'Se souvient de vos discussions précédentes', chatStatus: 'Connaît ton historique', chatQ: "Dois-je augmenter le poids au squat aujourd'hui?", chatA: "Tu as soulevé 120 kg × 5 reps trois séances d'affilée - signal clair de plateau. Je recommande 122,5 kg aujourd'hui. Avec ton genou gauche: utilise le style high-bar et arrête légèrement au-dessus du parallèle.", chatNote: 'La réponse utilise tes PRs, ton historique et tes notes - pas un conseil générique.', tryLabel: 'Essaie une question:' },
+      cta: { anchor: 'Un coach personnel coûte 80 EUR/heure.', h2: 'Gainfully coûte<br /><span style="color:var(--accent)">15,99 EUR/mois.</span>', sub: 'Gratuit pour commencer. Passe à Pro quand tu es prêt.<br />Sans engagement. Annule à tout moment.', free: { name: 'Gratuit', price: '0', period: '/toujours', sub: '1 400+ exercices · 3 programmes' }, monthly: { name: 'Pro Mensuel', price: '15,99 EUR', period: '/mois', sub: 'Coaching IA complet · sans engagement' }, annual: { badge: 'Meilleure offre: économise 67 EUR', name: 'Pro Annuel', price: '124,99 EUR', period: '/an', sub: 'env. 10,42 EUR/mois' } },
       manifesto: { label: 'Pourquoi Gainfully', p1: 'La plupart des apps fitness sont faites pour l\'utilisateur moyen. Un programme pour tous est un programme pour personne.', p2: 'Gainfully demande plutôt que de supposer. Se souvient plutôt que de répéter. S\'adapte à toi - pas l\'inverse.', p3: 'Ton entraînement ne ressemble à celui de personne d\'autre. Ton app ne devrait pas non plus.' },
       testimonials: { label: 'Ce que disent les utilisateurs', title: 'De vrais résultats de vrais utilisateurs', q1: '"Enfin une app qui se souvient de ma dernière séance. Je n\'ai pas besoin de savoir si je dois augmenter le poids - elle le sait déjà."', r1: 'Powerlifter, 4 ans', q2: '"J\'ai demandé au coach si je sur-m\'entraînais. Il a répondu avec mes propres chiffres des 6 dernières semaines. Pas une réponse générique - la mienne."', r2: 'Crossfit et force', q3: '"J\'ai battu mon record de squat à la troisième semaine. Le coach IA l\'avait déjà suggéré - et il avait raison."', r3: 'Débutant, 6 mois' },
       footer: { copy: '© 2026 Gainfully. Tous droits réservés.', privacy: 'Politique de confidentialité', terms: 'CGU', contact: 'Contact', tagline: 'Ton coach IA personnel. Gratuit pour commencer.', iosSub: 'Télécharger sur', androidSub: 'Disponible sur' },
@@ -2090,8 +2070,8 @@
       ai: { label: 'Coach IA (Pro)', h2a: 'Tu coach que ', h2b: 'te conoce', sub: 'Tu coach conoce tu historial, tus récords y tu progreso. Haz una pregunta y obtén una respuesta que realmente se adapte a ti.', chips: ['¿Por qué me estanco en press de banca?', 'Hazme un programa de 3 días a la semana', '¿Qué debo comer para ganar músculo?', '¿Cómo mejoro mi sentadilla?', '¿Estoy sobreentrenando?', '¿Cuál es mi grupo muscular más fuerte?'], chipResponses: [ { q: '¿Por qué me estanco en press de banca?', a: 'Has levantado 95 kg × 3 reps 4 sesiones seguidas - plateau clásico. Prueba 92,5 kg × 5 × 5 durante 2 semanas. Volumen antes que intensidad, y aumenta el descanso a 4 min.' }, { q: 'Hazme un programa de 3 días a la semana', a: 'Basado en tu historial: Lun: Sentadilla + Pecho · Mié: Remo + Dominadas · Vie: Peso muerto + Hombros. Tienes más PRs los lunes - mantenlo como tu día más pesado.' }, { q: '¿Qué debo comer para ganar músculo?', a: 'Tu tendencia de peso es +2 kg en 6 semanas - buen comienzo. Apunta a 2g proteína/kg de peso corporal. Con tu volumen de entrenamiento, el timing importa: proteína dentro de 2h post-entrenamiento.' }, { q: '¿Cómo mejoro mi sentadilla?', a: 'Tu sentadilla: 110 → 115 → 120 kg en 12 semanas - ritmo saludable. Ya que has notado rodilla izquierda mal, prueba high-bar y para justo por encima del paralelo.' }, { q: '¿Estoy sobreentrenando?', a: 'Has entrenado 3,2x/semana durante 8 semanas con progreso en todos los levantamientos principales. Sin signos de sobreentrenamiento. Tus 3-4 min de descanso son óptimos - sigue así.' }, { q: '¿Cuál es mi grupo muscular más fuerte?', a: 'Las piernas son claramente tu punto fuerte: Sentadilla 120 kg y Peso muerto 150 kg. Pecho está en 95 kg × 3 - relativamente más bajo. Más volumen en pecho y hombros equilibraría tu perfil.' } ] },
       who: { label: '¿Para quién es?', title: 'Sin importar tu nivel y objetivos', beginners: { title: 'Principiantes', desc: '¿Nuevo en el entrenamiento de fuerza? Gainfully te guía con 1.400+ ejercicios con GIFs y un coach IA que explica qué hacer. Cuéntale sobre lesiones o limitaciones y las tendrá en cuenta siempre.' }, experienced: { title: 'Levantadores experimentados', desc: 'Controla el volumen, PRs y progresión. Gainfully te da datos para mejores decisiones.' }, home: { title: 'Entrenamiento en casa', desc: 'Mancuernas, kettlebells o peso corporal. Filtra la biblioteca por el equipo que tienes.' }, gym: { title: 'Usuarios de gimnasio', desc: 'La app está hecha para usar mientras entrenas. Temporizador, historial en línea y notificaciones PR.' } },
       faq: { label: 'FAQ', title: 'Preguntas frecuentes', items: [ { q: '¿Qué es Gainfully?', a: 'Gainfully es una app de seguimiento fitness para iPhone y Android con un coach IA integrado. Registras tus entrenamientos y la app recuerda todo: pesos, repeticiones, series y progreso.' }, { q: '¿Es Gainfully gratis?', a: 'Sí, Gainfully es gratis. El plan gratuito incluye 1.400+ ejercicios con GIFs, registro ilimitado, hasta 3 programas y 90 días de estadísticas. Pro (15,99 EUR/mes o 124,99 EUR/año) añade coaching IA completo.' }, { q: '¿Qué idiomas soporta la app?', a: 'Gainfully está disponible en danés, inglés, alemán, francés, español y portugués (BR). El idioma se establece automáticamente pero puedes cambiarlo manualmente.' }, { q: '¿Funciona Gainfully en iPhone y Android?', a: 'Sí, Gainfully está disponible para iPhone (iOS) y Android. Descárgalo gratis en App Store o Google Play.' }, { q: '¿Con qué puede ayudarme el coach IA?', a: 'El coach conoce tu historial y responde basándose en él. Pregunta por qué te estancas, obtén un programa semanal o consejos de nutrición. Siempre personalizado.' } ] },
-      aiDetail: { label: 'Personal, no genérico', title: 'Tu coach te conoce <span style="color:var(--volt)">A TI</span>', sub: 'El coach IA de Gainfully conoce tu historial real. Cuando preguntas algo, responde con tus datos - tus PRs, tu patrón de entrenamiento, tus lesiones - no consejos genéricos.', cardTitle: 'EL COACH IA TIENE ACCESO A', prsLabel: 'RECORDS PERSONALES (CON FECHAS)', prsVal: 'Sentadilla 120 kg×5 · Press 95 kg×3 · Peso muerto 150 kg×4', weightLabel: 'EVOLUCIÓN DEL PESO', weightVal: '83 kg → 85 kg (+2 kg en las últimas 6 semanas)', daysLabel: 'PATRÓN DE ENTRENAMIENTO', daysVal: 'Entrena normalmente Lun / Mié / Vie', notesLabel: 'TU MENSAJE AL COACH', notesVal: '"Rodilla izquierda mal - evitar press de hombros"', historyLabel: 'HISTORIAL DE ENTRENAMIENTOS', historyVal: 'Últimas 8 sesiones - todas las series y pesos', memoryLabel: 'MEMORIA DE CONVERSACIÓN', memoryVal: 'Recuerda lo que has hablado entre sesiones', chatStatus: 'Conoce tu historial', chatQ: '¿Debo aumentar el peso en sentadilla hoy?', chatA: 'Has levantado 120 kg × 5 reps tres sesiones seguidas - señal clara de plateau. Recomiendo 122,5 kg hoy. Con tu rodilla izquierda: usa estilo high-bar y para justo por encima de paralelo.', chatNote: 'La respuesta usa tus PRs, historial y notas del coach - no un consejo genérico.', tryLabel: 'Prueba una pregunta:' },
-      cta: { anchor: 'Un entrenador personal cuesta 60 EUR/hora.', h2: 'Gainfully cuesta<br /><span style="color:var(--volt)">15,99 EUR/mes.</span>', sub: 'Gratis para empezar. Actualiza cuando estés listo.<br />Sin compromiso. Cancela cuando quieras.', free: { name: 'Gratis', price: '0', period: '/siempre', sub: '1.400+ ejercicios · 3 programas' }, monthly: { name: 'Pro Mensual', price: '15,99 EUR', period: '/mes', sub: 'Coaching IA completo · sin compromiso' }, annual: { badge: 'Mejor opción: ahorra 67 EUR', name: 'Pro Anual', price: '124,99 EUR', period: '/año', sub: 'aprox. 10,42 EUR/mes' } },
+      aiDetail: { label: 'Personal, no genérico', title: 'Tu coach te conoce <span style="color:var(--accent)">A TI</span>', sub: 'El coach IA de Gainfully conoce tu historial real. Cuando preguntas algo, responde con tus datos - tus PRs, tu patrón de entrenamiento, tus lesiones - no consejos genéricos.', cardTitle: 'EL COACH IA TIENE ACCESO A', prsLabel: 'RECORDS PERSONALES (CON FECHAS)', prsVal: 'Sentadilla 120 kg×5 · Press 95 kg×3 · Peso muerto 150 kg×4', weightLabel: 'EVOLUCIÓN DEL PESO', weightVal: '83 kg → 85 kg (+2 kg en las últimas 6 semanas)', daysLabel: 'PATRÓN DE ENTRENAMIENTO', daysVal: 'Entrena normalmente Lun / Mié / Vie', notesLabel: 'TU MENSAJE AL COACH', notesVal: '"Rodilla izquierda mal - evitar press de hombros"', historyLabel: 'HISTORIAL DE ENTRENAMIENTOS', historyVal: 'Últimas 8 sesiones - todas las series y pesos', memoryLabel: 'MEMORIA DE CONVERSACIÓN', memoryVal: 'Recuerda lo que has hablado entre sesiones', chatStatus: 'Conoce tu historial', chatQ: '¿Debo aumentar el peso en sentadilla hoy?', chatA: 'Has levantado 120 kg × 5 reps tres sesiones seguidas - señal clara de plateau. Recomiendo 122,5 kg hoy. Con tu rodilla izquierda: usa estilo high-bar y para justo por encima de paralelo.', chatNote: 'La respuesta usa tus PRs, historial y notas del coach - no un consejo genérico.', tryLabel: 'Prueba una pregunta:' },
+      cta: { anchor: 'Un entrenador personal cuesta 60 EUR/hora.', h2: 'Gainfully cuesta<br /><span style="color:var(--accent)">15,99 EUR/mes.</span>', sub: 'Gratis para empezar. Actualiza cuando estés listo.<br />Sin compromiso. Cancela cuando quieras.', free: { name: 'Gratis', price: '0', period: '/siempre', sub: '1.400+ ejercicios · 3 programas' }, monthly: { name: 'Pro Mensual', price: '15,99 EUR', period: '/mes', sub: 'Coaching IA completo · sin compromiso' }, annual: { badge: 'Mejor opción: ahorra 67 EUR', name: 'Pro Anual', price: '124,99 EUR', period: '/año', sub: 'aprox. 10,42 EUR/mes' } },
       manifesto: { label: 'Por qué Gainfully', p1: 'La mayoría de las apps de fitness están hechas para el usuario promedio. Un programa para todos es un programa para nadie.', p2: 'Gainfully pregunta en lugar de asumir. Recuerda en lugar de repetir. Se adapta a ti - no al revés.', p3: 'Tu entrenamiento no se parece al de nadie más. Tu app tampoco debería.' },
       testimonials: { label: 'Lo que dicen los usuarios', title: 'Resultados reales de usuarios reales', q1: '"Por fin una app que recuerda lo que hice la última vez. No tengo que controlar si debo subir el peso - ella ya lo sabe."', r1: 'Powerlifter, 4 años', q2: '"Le pregunté al coach si estaba sobreentrenando. Respondió con mis propios números de las últimas 6 semanas. No una respuesta genérica - la mía."', r2: 'Crossfit y fuerza', q3: '"Rompí mi récord de sentadilla en la tercera semana. El coach IA ya lo había sugerido - y tenía razón."', r3: 'Principiante, 6 meses' },
       footer: { copy: '© 2026 Gainfully. Todos los derechos reservados.', privacy: 'Política de privacidad', terms: 'Términos', contact: 'Contacto', tagline: 'Tu entrenador personal con IA. Gratis para empezar.', iosSub: 'Download on the', androidSub: 'Disponible en' },
@@ -2110,8 +2090,8 @@
       ai: { label: 'Coach IA (Pro)', h2a: 'Seu coach que ', h2b: 'te conhece', sub: 'Seu coach conhece seu histórico, seus recordes e seu progresso. Faça uma pergunta e receba uma resposta que realmente se encaixa em você.', chips: ['Por que estou estagnado no supino?', 'Monte um programa de 3 dias por semana', 'O que devo comer para ganhar músculo?', 'Como melhoro meu agachamento?', 'Estou treinando demais?', 'Qual é meu grupo muscular mais forte?'], chipResponses: [ { q: 'Por que estou estagnado no supino?', a: 'Você levantou 95 kg × 3 reps em 4 sessões seguidas - plateau clássico. Tente 92,5 kg × 5 × 5 por 2 semanas. Volume antes da intensidade, e aumente o descanso para 4 min.' }, { q: 'Monte um programa de 3 dias por semana', a: 'Baseado no seu histórico: Seg: Agachamento + Peito · Qua: Remada + Barra · Sex: Terra + Ombros. Você bate mais PRs nas segundas - mantenha como seu dia mais pesado.' }, { q: 'O que devo comer para ganhar músculo?', a: 'Sua tendência de peso é +2 kg em 6 semanas - bom começo. Mire em 2g de proteína/kg de peso corporal. Com seu volume de treino, o timing importa: proteína dentro de 2h pós-treino.' }, { q: 'Como melhoro meu agachamento?', a: 'Seu agachamento: 110 → 115 → 120 kg em 12 semanas - ritmo saudável. Como você notou joelho esquerdo ruim, tente high-bar e pare um pouco acima do paralelo.' }, { q: 'Estou treinando demais?', a: 'Você treinou 3,2x/semana por 8 semanas com progresso em todos os levantamentos principais. Sem sinais de overreaching. Seus 3-4 min de descanso são ótimos - continue assim.' }, { q: 'Qual é meu grupo muscular mais forte?', a: 'Pernas são claramente seu ponto forte: Agachamento 120 kg e Terra 150 kg. Peito está em 95 kg × 3 - relativamente mais baixo. Mais volume em peito e ombros equilibraria seu perfil.' } ] },
       who: { label: 'Para quem é?', title: 'Independente do seu nível e objetivos', beginners: { title: 'Iniciantes', desc: 'Novo no treino de força? Gainfully te guia com 1.400+ exercícios com GIFs e um coach de IA que explica o que fazer. Fale sobre lesões ou limitações e ele sempre lembrará em todos os conselhos.' }, experienced: { title: 'Levantadores experientes', desc: 'Controle volume, PRs e progressão. Gainfully te dá dados para melhores decisões.' }, home: { title: 'Treino em casa', desc: 'Halteres, kettlebells ou peso corporal. Filtre a biblioteca pelo equipamento que você tem.' }, gym: { title: 'Usuários de academia', desc: 'O app foi feito para usar durante o treino. Temporizador, histórico em linha e notificações de PR.' } },
       faq: { label: 'FAQ', title: 'Perguntas frequentes', items: [ { q: 'O que é Gainfully?', a: 'Gainfully é um app de rastreamento fitness para iPhone e Android com um coach IA integrado. Você registra seus treinos e o app lembra tudo: pesos, repetições, séries e progresso.' }, { q: 'Gainfully é gratuito?', a: 'Sim, Gainfully é gratuito. O plano grátis inclui 1.400+ exercícios com GIFs, log ilimitado, até 3 programas e 90 dias de estatísticas. Pro ($14.99/mês ou $124.99/ano) adiciona coaching IA completo.' }, { q: 'Quais idiomas o app suporta?', a: 'Gainfully está disponível em dinamarquês, inglês, alemão, francês, espanhol e português (BR). O idioma é definido automaticamente, mas pode ser alterado manualmente.' }, { q: 'Gainfully funciona em iPhone e Android?', a: 'Sim, Gainfully está disponível para iPhone (iOS) e Android. Baixe grátis na App Store ou Google Play.' }, { q: 'Com o que o coach IA pode me ajudar?', a: 'O coach conhece seu histórico e responde com base nele. Pergunte por que está estagnado, obtenha um programa semanal ou conselhos de nutrição. Sempre personalizado.' } ] },
-      aiDetail: { label: 'Pessoal, não genérico', title: 'Seu coach conhece <span style="color:var(--volt)">VOCÊ</span>', sub: 'O coach IA do Gainfully conhece seu histórico real. Quando você pergunta algo, ele responde com seus dados - seus PRs, seu padrão de treino, suas lesões - não conselhos genéricos.', cardTitle: 'O COACH IA TEM ACESSO A', prsLabel: 'RECORDES PESSOAIS (COM DATAS)', prsVal: 'Agachamento 120 kg×5 · Supino 95 kg×3 · Terra 150 kg×4', weightLabel: 'EVOLUÇÃO DO PESO', weightVal: '83 kg → 85 kg (+2 kg nas últimas 6 semanas)', daysLabel: 'PADRÃO DE TREINO', daysVal: 'Geralmente treina Seg / Qua / Sex', notesLabel: 'SUA MENSAGEM AO COACH', notesVal: '"Joelho esquerdo ruim - evitar press acima da cabeça"', historyLabel: 'HISTÓRICO DE TREINOS', historyVal: 'Últimas 8 sessões - todas as séries e pesos', memoryLabel: 'MEMÓRIA DE CONVERSAS', memoryVal: 'Lembra do que vocês conversaram em outras sessões', chatStatus: 'Conhece seu histórico', chatQ: 'Devo aumentar o peso no agachamento hoje?', chatA: 'Você levantou 120 kg × 5 reps em três sessões seguidas - sinal claro de plateau. Recomendo 122,5 kg hoje. Com seu joelho esquerdo: use o estilo high-bar e pare um pouco acima do paralelo.', chatNote: 'A resposta usa seus PRs, histórico e notas ao coach - não um conselho genérico.', tryLabel: 'Experimente uma pergunta:' },
-      cta: { anchor: 'Um personal trainer custa R$ 150/hora.', h2: 'Gainfully custa<br /><span style="color:var(--volt)">$14.99/mês.</span>', sub: 'Grátis para começar. Faça upgrade quando estiver pronto.<br />Sem compromisso. Cancele quando quiser.', free: { name: 'Grátis', price: '0', period: '/sempre', sub: '1.400+ exercícios · 3 programas' }, monthly: { name: 'Pro Mensal', price: '$14.99', period: '/mês', sub: 'Coaching IA completo · sem compromisso' }, annual: { badge: 'Melhor opção: economize $54', name: 'Pro Anual', price: '$124.99', period: '/ano', sub: 'aprox. $10.42/mês' } },
+      aiDetail: { label: 'Pessoal, não genérico', title: 'Seu coach conhece <span style="color:var(--accent)">VOCÊ</span>', sub: 'O coach IA do Gainfully conhece seu histórico real. Quando você pergunta algo, ele responde com seus dados - seus PRs, seu padrão de treino, suas lesões - não conselhos genéricos.', cardTitle: 'O COACH IA TEM ACESSO A', prsLabel: 'RECORDES PESSOAIS (COM DATAS)', prsVal: 'Agachamento 120 kg×5 · Supino 95 kg×3 · Terra 150 kg×4', weightLabel: 'EVOLUÇÃO DO PESO', weightVal: '83 kg → 85 kg (+2 kg nas últimas 6 semanas)', daysLabel: 'PADRÃO DE TREINO', daysVal: 'Geralmente treina Seg / Qua / Sex', notesLabel: 'SUA MENSAGEM AO COACH', notesVal: '"Joelho esquerdo ruim - evitar press acima da cabeça"', historyLabel: 'HISTÓRICO DE TREINOS', historyVal: 'Últimas 8 sessões - todas as séries e pesos', memoryLabel: 'MEMÓRIA DE CONVERSAS', memoryVal: 'Lembra do que vocês conversaram em outras sessões', chatStatus: 'Conhece seu histórico', chatQ: 'Devo aumentar o peso no agachamento hoje?', chatA: 'Você levantou 120 kg × 5 reps em três sessões seguidas - sinal claro de plateau. Recomendo 122,5 kg hoje. Com seu joelho esquerdo: use o estilo high-bar e pare um pouco acima do paralelo.', chatNote: 'A resposta usa seus PRs, histórico e notas ao coach - não um conselho genérico.', tryLabel: 'Experimente uma pergunta:' },
+      cta: { anchor: 'Um personal trainer custa R$ 150/hora.', h2: 'Gainfully custa<br /><span style="color:var(--accent)">$14.99/mês.</span>', sub: 'Grátis para começar. Faça upgrade quando estiver pronto.<br />Sem compromisso. Cancele quando quiser.', free: { name: 'Grátis', price: '0', period: '/sempre', sub: '1.400+ exercícios · 3 programas' }, monthly: { name: 'Pro Mensal', price: '$14.99', period: '/mês', sub: 'Coaching IA completo · sem compromisso' }, annual: { badge: 'Melhor opção: economize $54', name: 'Pro Anual', price: '$124.99', period: '/ano', sub: 'aprox. $10.42/mês' } },
       manifesto: { label: 'Por que Gainfully', p1: 'A maioria dos apps de fitness é feita para o usuário médio. Um programa para todos é um programa para ninguém.', p2: 'Gainfully pergunta antes de presumir. Lembra em vez de repetir. Se adapta a você - não ao contrário.', p3: 'Seu treino não se parece com o de ninguém. Seu app também não deveria.' },
       testimonials: { label: 'O que os usuários dizem', title: 'Resultados reais de usuários reais', q1: '"Finalmente um app que lembra o que fiz na última vez. Não preciso controlar se devo aumentar o peso - ele já sabe."', r1: 'Powerlifter, 4 anos', q2: '"Perguntei ao coach se estava treinando demais. Ele respondeu com meus próprios números das últimas 6 semanas. Não uma resposta genérica - a minha."', r2: 'Crossfit e força', q3: '"Bati meu recorde de agachamento na terceira semana. O coach IA já tinha sugerido tentar - e ele estava certo."', r3: 'Iniciante, 6 meses' },
       footer: { copy: '© 2026 Gainfully. Todos os direitos reservados.', privacy: 'Política de privacidade', terms: 'Termos', contact: 'Contato', tagline: 'Seu personal trainer com IA. Grátis para começar.', iosSub: 'Download on the', androidSub: 'Disponível no' },
@@ -2425,7 +2405,7 @@
     if (!toast) {
       toast = document.createElement('div')
       toast.id = 'emailToast'
-      toast.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);color:var(--text);padding:11px 22px;border-radius:12px;font-size:14px;z-index:9999;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.2s;'
+      toast.style.cssText = 'position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:11px 22px;border-radius:12px;font-size:14px;z-index:9999;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:opacity 0.2s;'
       document.body.appendChild(toast)
     }
     toast.textContent = email + ' kopieret'

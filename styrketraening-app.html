@@ -18,7 +18,6 @@
   <meta property="og:site_name" content="Gainfully" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800;12..96,900&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -80,37 +79,34 @@
   }
   </script>
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/tokens.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #111113; --bg2: #1c1c1f; --bg3: #202023;
-      --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400;
-      --jade: #34d399; --jade-dim: #0d2b24;
-      --text: #ffffff; --muted: #9a9d97; --dim: #636366;
-    }
+    
     body {
       background: var(--bg); color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: var(--font-body);
       font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--volt); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    h1, h2, h3, h4 { font-family: 'Bricolage Grotesque', -apple-system, sans-serif; text-wrap: balance; }
+    h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; }
 
     /* NAV */
     nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 18px 40px; border-bottom: 1px solid var(--border);
-      background: rgba(17,17,19,0.96); backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 96%, transparent); backdrop-filter: blur(12px);
       position: sticky; top: 0; z-index: 100;
     }
     .nav-logo {
-      font-family: 'Bricolage Grotesque', sans-serif;
+      font-family: var(--font-display);
       font-size: 18px; font-weight: 900; color: var(--text);
       display: flex; align-items: center; gap: 8px;
     }
     .nav-cta {
-      background: var(--volt); color: var(--volt-dark);
+      background: var(--accent); color: var(--on-accent);
       font-weight: 700; font-size: 14px; padding: 9px 20px; border-radius: 10px;
     }
 
@@ -121,25 +117,25 @@
     }
     .article-label {
       font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--volt); margin-bottom: 20px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
       display: flex; align-items: center; gap: 8px;
     }
     .article-label::before {
-      content: ''; width: 24px; height: 2px; background: var(--volt);
+      content: ''; width: 24px; height: 2px; background: var(--accent);
     }
     h1 {
       font-size: clamp(30px, 5.5vw, 52px); font-weight: 900;
       letter-spacing: -2px; line-height: 1.05; margin-bottom: 24px;
       color: var(--text);
     }
-    h1 em { font-style: normal; color: var(--volt); }
+    h1 em { font-style: normal; color: var(--accent); }
     .article-intro {
-      font-size: 19px; color: var(--muted); line-height: 1.7;
+      font-size: 19px; color: var(--text-muted); line-height: 1.7;
       max-width: 640px; margin-bottom: 36px;
-      border-left: 3px solid var(--volt); padding-left: 20px;
+      border-left: 3px solid var(--accent); padding-left: 20px;
     }
     .article-meta {
-      font-size: 13px; color: var(--dim); display: flex; gap: 20px;
+      font-size: 13px; color: var(--text-muted); display: flex; gap: 20px;
       flex-wrap: wrap; padding-bottom: 40px;
       border-bottom: 1px solid var(--border);
     }
@@ -154,10 +150,10 @@
       font-size: 20px; font-weight: 700; letter-spacing: -0.5px;
       margin-top: 40px; margin-bottom: 10px;
     }
-    p { color: var(--muted); margin-bottom: 20px; max-width: 65ch; }
+    p { color: var(--text-muted); margin-bottom: 20px; max-width: 65ch; }
     p strong { color: var(--text); font-weight: 600; }
     p em { font-style: italic; color: var(--text); }
-    ul, ol { color: var(--muted); padding-left: 22px; margin-bottom: 20px; }
+    ul, ol { color: var(--text-muted); padding-left: 22px; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     li strong { color: var(--text); }
 
@@ -167,22 +163,22 @@
       gap: 14px; margin: 36px 0;
     }
     .stat-box {
-      background: var(--bg2); border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: 14px; padding: 22px 20px;
     }
     .stat-num {
-      font-family: 'Bricolage Grotesque', sans-serif;
+      font-family: var(--font-display);
       font-size: 36px; font-weight: 900; letter-spacing: -1.5px;
-      color: var(--volt); line-height: 1;
+      color: var(--accent); line-height: 1;
       font-variant-numeric: tabular-nums;
     }
-    .stat-label { font-size: 13px; color: var(--muted); margin-top: 6px; }
+    .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
 
     /* BLOCKQUOTE */
     blockquote {
-      border-left: 3px solid var(--volt);
+      border-left: 3px solid var(--accent);
       margin: 36px 0; padding: 20px 24px;
-      background: var(--bg2); border-radius: 0 12px 12px 0;
+      background: var(--surface); border-radius: 0 12px 12px 0;
     }
     blockquote p {
       font-size: 19px; font-style: italic; color: var(--text);
@@ -193,76 +189,76 @@
     .compare-wrap { overflow-x: auto; margin: 36px 0; }
     table {
       width: 100%; border-collapse: collapse; font-size: 15px;
-      background: var(--bg2); border-radius: 14px; overflow: hidden;
+      background: var(--surface); border-radius: 14px; overflow: hidden;
       min-width: 400px;
     }
     thead th {
       padding: 14px 18px; text-align: left; font-size: 12px;
       font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
     }
-    thead th:first-child { color: var(--dim); }
-    thead th:nth-child(2) { color: var(--dim); }
-    thead th:nth-child(3) { color: var(--volt); background: rgba(196,255,0,0.06); }
+    thead th:first-child { color: var(--text-muted); }
+    thead th:nth-child(2) { color: var(--text-muted); }
+    thead th:nth-child(3) { color: var(--accent); background: color-mix(in srgb, var(--text) 6%, transparent); }
     tbody tr { border-top: 1px solid var(--border); }
-    tbody td { padding: 13px 18px; color: var(--muted); }
+    tbody td { padding: 13px 18px; color: var(--text-muted); }
     tbody td:first-child { color: var(--text); font-weight: 500; }
-    tbody td:nth-child(3) { background: rgba(196,255,0,0.04); }
-    .cmp-yes { color: var(--jade); font-weight: 700; }
-    .cmp-no  { color: var(--dim); }
-    .cmp-volt { color: var(--volt); font-weight: 700; }
+    tbody td:nth-child(3) { background: color-mix(in srgb, var(--text) 4%, transparent); }
+    .cmp-yes { color: var(--success); font-weight: 700; }
+    .cmp-no  { color: var(--text-muted); }
+    .cmp-volt { color: var(--accent); font-weight: 700; }
 
     /* CALLOUT */
     .callout {
-      background: var(--bg2); border: 1px solid rgba(196,255,0,0.2);
+      background: var(--surface); border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
       border-radius: 14px; padding: 24px 28px; margin: 32px 0;
     }
     .callout-label {
       font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--volt); margin-bottom: 10px;
+      letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px;
     }
     .callout p { margin: 0; }
 
     /* SCENARIO */
     .scenario {
-      background: var(--bg3); border-radius: 14px;
+      background: var(--surface-3); border-radius: 14px;
       padding: 28px; margin: 32px 0;
       border: 1px solid var(--border);
     }
     .scenario-label {
       font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px;
+      letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 14px;
     }
     .scenario h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .scenario p { font-size: 15px; margin: 0; }
     .scenario-divider {
       height: 1px; background: var(--border); margin: 20px 0;
     }
-    .scenario .after { color: var(--jade); font-weight: 600; }
+    .scenario .after { color: var(--success); font-weight: 600; }
 
     /* CTA BLOCK */
     .cta-block {
-      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(196,255,0,0.12) 0%, transparent 60%), #0d1300;
-      border: 1px solid rgba(196,255,0,0.22); border-radius: 20px;
+      background: var(--surface-2);
+      border: 1px solid color-mix(in srgb, var(--text) 22%, transparent); border-radius: 20px;
       padding: 44px 40px; margin: 56px 0; text-align: center;
     }
     .cta-block h3 { font-size: 26px; font-weight: 900; letter-spacing: -0.8px; margin-bottom: 12px; }
     .cta-block p { margin: 0 auto 28px; max-width: 48ch; font-size: 16px; }
     .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .cta-primary {
-      background: var(--volt); color: var(--volt-dark);
+      background: var(--accent); color: var(--on-accent);
       font-weight: 800; padding: 14px 28px; border-radius: 12px; font-size: 16px;
     }
     .cta-secondary {
-      color: var(--muted); border: 1px solid var(--border);
+      color: var(--text-muted); border: 1px solid var(--border);
       padding: 14px 28px; border-radius: 12px; font-size: 16px;
     }
-    .cta-note { font-size: 13px; color: var(--dim); margin-top: 16px; }
+    .cta-note { font-size: 13px; color: var(--text-muted); margin-top: 16px; }
 
     /* FOOTER */
     footer {
       border-top: 1px solid var(--border); padding: 32px 40px;
       display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--dim);
+      flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-muted);
     }
 
     @media (max-width: 640px) {
@@ -279,7 +275,7 @@
 
   <nav>
     <a href="/" class="nav-logo">
-      <img src="logo.png" alt="Gainfully" width="28" height="28" style="border-radius:6px;" />
+      <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully" width="28" height="28"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Gainfully
     </a>
     <a href="https://apps.apple.com/app/gainfully/id6775987256" class="nav-cta">Download gratis</a>
@@ -388,7 +384,7 @@
         <p>"Jeg er gået i stå i bænkpres. Hvad gør jeg?"</p>
         <div class="scenario-divider"></div>
         <h4>Generisk app / ChatGPT:</h4>
-        <p class="muted" style="color:var(--dim);">"Prøv at skifte rep-range, tilsæt accessory-arbejde, tag en deload-uge."</p>
+        <p class="muted" style="color:var(--text-muted);">"Prøv at skifte rep-range, tilsæt accessory-arbejde, tag en deload-uge."</p>
         <div class="scenario-divider"></div>
         <h4>Gainfully AI-coach - med din historik:</h4>
         <p class="after">"Du har løftet 95 kg × 3 reps fire sessioner i træk - klassisk plateau. Prøv 92,5 kg × 5 × 5 i to uger. Du har dine tungeste sessioner om mandagen, så det er der vi starter. Og da du har noteret dårligt venstre knæ: pas på ved arch-setup."</p>
@@ -502,7 +498,7 @@
         </table>
       </div>
 
-      <p style="font-size:13px;color:var(--dim);">Strong og Hevy er varemærker tilhørende deres respektive ejere. Sammenligning baseret på offentlige funktionsbeskrivelser september 2026.</p>
+      <p style="font-size:13px;color:var(--text-muted);">Strong og Hevy er varemærker tilhørende deres respektive ejere. Sammenligning baseret på offentlige funktionsbeskrivelser september 2026.</p>
 
       <h2>Til hvem er Gainfully?</h2>
       <p>
@@ -577,12 +573,12 @@
       </div>
 
       <div style="margin-top:48px;padding-top:28px;border-top:1px solid var(--border);">
-        <p style="font-size:14px;color:var(--dim);">
+        <p style="font-size:14px;color:var(--text-muted);">
           Relaterede artikler og sider:
-          <a href="progressiv-overload.html" style="color:var(--muted);margin:0 8px;">Guide: Progressiv overload</a> ·
-          <a href="ai-personlig-traener.html" style="color:var(--muted);margin:0 8px;">AI Personlig Træner</a> ·
-          <a href="ai-traeningsforloeb.html" style="color:var(--muted);margin:0 8px;">AI Træningsforløb</a> ·
-          <a href="/" style="color:var(--muted);margin:0 8px;">Gainfully forsiden</a>
+          <a href="progressiv-overload.html" style="color:var(--text-muted);margin:0 8px;">Guide: Progressiv overload</a> ·
+          <a href="ai-personlig-traener.html" style="color:var(--text-muted);margin:0 8px;">AI Personlig Træner</a> ·
+          <a href="ai-traeningsforloeb.html" style="color:var(--text-muted);margin:0 8px;">AI Træningsforløb</a> ·
+          <a href="/" style="color:var(--text-muted);margin:0 8px;">Gainfully forsiden</a>
         </p>
       </div>
 
@@ -592,9 +588,9 @@
   <footer>
     <span>© 2026 Gainfully</span>
     <div style="display:flex;gap:20px;flex-wrap:wrap;">
-      <a href="privacy.html" style="color:var(--dim);">Privatlivspolitik</a>
-      <a href="terms.html" style="color:var(--dim);">Vilkår</a>
-      <a href="mailto:support@gainfully.app" style="color:var(--dim);">Kontakt</a>
+      <a href="privacy.html" style="color:var(--text-muted);">Privatlivspolitik</a>
+      <a href="terms.html" style="color:var(--text-muted);">Vilkår</a>
+      <a href="mailto:support@gainfully.app" style="color:var(--text-muted);">Kontakt</a>
     </div>
   </footer>
 

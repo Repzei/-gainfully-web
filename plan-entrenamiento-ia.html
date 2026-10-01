@@ -38,52 +38,54 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/tokens.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #111113; --bg2: #1c1c1f; --border: #2c2c2e; --volt: #c4ff00; --volt-dark: #0d1400; --text: #ffffff; --muted: #98989f; --dim: #636366; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.7; }
+    
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: rgba(17,17,19,0.95); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 40px; border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 95%, transparent); position: sticky; top: 0; z-index: 100; }
     .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; }
     .logo-mark { width: 34px; height: 34px; border-radius: 8px; }
-    .nav-cta { background: var(--volt); color: var(--volt-dark); font-weight: 700; padding: 10px 22px; border-radius: 10px; font-size: 14px; }
+    .nav-cta { background: var(--accent); color: var(--on-accent); font-weight: 700; padding: 10px 22px; border-radius: 10px; font-size: 14px; }
     main { max-width: 780px; margin: 0 auto; padding: 64px 24px 96px; }
-    .tag { display: inline-block; background: var(--volt-dark); border: 1px solid rgba(196,255,0,0.4); color: var(--volt); padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    .tag { display: inline-block; background: var(--accent-soft-solid); border: 1px solid color-mix(in srgb, var(--text) 40%, transparent); color: var(--accent); padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
     h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
-    h1 em { color: var(--volt); font-style: normal; }
-    .intro { font-size: 18px; color: var(--muted); margin-bottom: 40px; max-width: 640px; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .intro { font-size: 18px; color: var(--text-muted); margin-bottom: 40px; max-width: 640px; }
     .btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
-    .btn-p { background: var(--volt); color: var(--volt-dark); font-weight: 700; padding: 15px 30px; border-radius: 14px; font-size: 16px; }
-    .btn-s { background: var(--bg2); color: var(--text); font-weight: 600; padding: 15px 30px; border-radius: 14px; font-size: 16px; border: 1px solid var(--border); }
+    .btn-p { background: var(--accent); color: var(--on-accent); font-weight: 700; padding: 15px 30px; border-radius: 14px; font-size: 16px; }
+    .btn-s { background: var(--surface); color: var(--text); font-weight: 600; padding: 15px 30px; border-radius: 14px; font-size: 16px; border: 1px solid var(--border); }
     h2 { font-size: clamp(22px, 3vw, 32px); font-weight: 800; margin: 56px 0 16px; letter-spacing: -0.3px; }
     h3 { font-size: 18px; font-weight: 700; margin: 32px 0 10px; }
-    p { color: var(--muted); margin-bottom: 18px; font-size: 16px; }
+    p { color: var(--text-muted); margin-bottom: 18px; font-size: 16px; }
     strong { color: var(--text); }
-    .callout { background: var(--volt-dark); border: 1px solid rgba(196,255,0,0.25); border-radius: 16px; padding: 24px 28px; margin: 32px 0; }
-    .callout p { color: rgba(196,255,0,0.85); margin: 0; }
-    .callout strong { color: var(--volt); }
+    .callout { background: var(--accent-soft-solid); border: 1px solid color-mix(in srgb, var(--text) 25%, transparent); border-radius: 16px; padding: 24px 28px; margin: 32px 0; }
+    .callout p { color: color-mix(in srgb, var(--text) 85%, transparent); margin: 0; }
+    .callout strong { color: var(--accent); }
     .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0 40px; }
-    .feat { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+    .feat { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
     .feat h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
     .feat p { font-size: 14px; margin: 0; }
-    .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; background: var(--bg2); }
+    .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; background: var(--surface); }
     .faq-q { width: 100%; background: none; border: none; color: var(--text); font-size: 16px; font-weight: 600; text-align: left; padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; font-family: inherit; gap: 16px; }
-    .faq-icon { flex-shrink: 0; color: var(--volt); }
-    .faq-a { display: none; padding: 0 22px 18px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .faq-icon { flex-shrink: 0; color: var(--accent); }
+    .faq-a { display: none; padding: 0 22px 18px; color: var(--text-muted); font-size: 15px; line-height: 1.7; }
     .faq-item.open .faq-a { display: block; }
-    .cta-box { background: var(--bg2); border: 1px solid rgba(196,255,0,0.25); border-radius: 20px; padding: 40px; text-align: center; margin-top: 64px; }
+    .cta-box { background: var(--surface); border: 1px solid color-mix(in srgb, var(--text) 25%, transparent); border-radius: 20px; padding: 40px; text-align: center; margin-top: 64px; }
     .cta-box h2 { margin: 0 0 12px; font-size: 28px; }
     .cta-box p { margin-bottom: 28px; }
-    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--dim); font-size: 14px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--text-muted); font-size: 14px; }
     .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: var(--dim); }
+    .footer-links a { color: var(--text-muted); }
     @media (max-width: 600px) { nav { padding: 16px 20px; } .feature-grid { grid-template-columns: 1fr; } footer { flex-direction: column; padding: 24px 20px; } }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-logo">
-      <img src="/logo.png" class="logo-mark" alt="Gainfully" width="34" height="34" />
+      <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully" width="34" height="34" class="logo-mark"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Gainfully
     </div>
     <a href="https://apps.apple.com/app/gainfully/id6775987256" class="nav-cta">Descargar gratis</a>
@@ -178,7 +180,7 @@
     </div>
 
     <p style="margin-top:40px; font-size:14px;">
-      <a href="/es/" style="color:var(--volt)">Volver a Gainfully Espanol</a>
+      <a href="/es/" style="color:var(--accent)">Volver a Gainfully Espanol</a>
     </p>
   </main>
 
