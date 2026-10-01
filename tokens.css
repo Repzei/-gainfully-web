@@ -60,3 +60,45 @@
     --danger: #B91C1C;
   }
 }
+
+/* App-udsnit paa forsiden: altid moerke (som appens delkort), undtagen hero-telefonen (.app-follow),
+   der foelger besoegendes tema. Vaerdier = constants/colors.ts i appen. */
+.app {
+  --a-bg: #17181B;
+  --a-surface: #202125;
+  --a-surface-2: #292A2F;
+  --a-border: #34363B;
+  --a-input: #6B6D74;
+  --a-text: #F3F2EE;
+  --a-muted: #B0B2B8;
+  --a-action: #F3F2EE;
+  --a-on-action: #17181B;
+  --a-progress: #3DDC97;
+  --a-progress-text: #3DDC97;
+  --a-progress-soft: #243B35;
+  --a-bar-empty: #292A2F;
+  --a-photo: #2A2C31;
+  --a-photo-text: #8A8C93;
+  --bezel: #0B0C0E;
+}
+
+@media (prefers-color-scheme: light) {
+  .app.app-follow {
+    --a-bg: #F4F3EF;
+    --a-surface: #FFFFFF;
+    --a-surface-2: #EEEDE8;
+    --a-border: #E0DED8;
+    --a-input: #8A8C91;
+    --a-text: #17181B;
+    --a-muted: #5B5E65;
+    --a-action: #17181B;
+    --a-on-action: #F4F3EF;
+    --a-progress: #199A68;
+    --a-progress-text: #0A7A4F;
+    --a-progress-soft: #E0F9EE;
+    --a-bar-empty: #E6E4DE;
+  }
+}
+
+:root { --shadow: rgba(8, 9, 11, 0.45); }
+@media (prefers-color-scheme: light) { :root { --shadow: rgba(23, 24, 27, 0.12); } }
