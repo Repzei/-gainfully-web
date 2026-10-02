@@ -222,6 +222,12 @@
     .formula-eq { font-size: 16px; font-weight: 700; color: var(--text); }
     .formula-note { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
 
+    .rm-table-wrap { overflow-x: auto; margin: 8px 0 22px; border: 1px solid var(--border); border-radius: 12px; }
+    .rm-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .rm-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface); padding: 10px 14px; }
+    .rm-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+    .rm-table td:first-child { font-weight: 700; }
+
     /* CTA */
     .cta-block {
       background: var(--surface-2);
@@ -397,6 +403,35 @@
     <p>
       Eksempel: Din 1RM i bænkpres er 100 kg. Et 5x5-program på 80% = 5 sæt x 5 reps x 80 kg.
       Et hypertrofi-program på 70% = 4 sæt x 10 reps x 70 kg.
+    </p>
+
+    <h2>1RM-tabel: hvor mange reps ved hvilken procent?</h2>
+    <p>
+      Tabellen viser omtrent hvor mange reps de fleste kan tage ved en given procent af deres 1RM
+      (afrundede standardværdier, som også bruges i NSCA's træningslitteratur). Kolonnerne til højre
+      viser arbejdsvægten for en løfter med 1RM på 100 kg og 140 kg, afrundet til nærmeste 0,5 kg.
+    </p>
+    <div class="rm-table-wrap">
+      <table class="rm-table">
+        <thead><tr><th>Reps</th><th>% af 1RM</th><th>1RM 100 kg</th><th>1RM 140 kg</th></tr></thead>
+        <tbody>
+        <tr><td>1</td><td>100 %</td><td>100 kg</td><td>140 kg</td></tr>
+        <tr><td>2</td><td>95 %</td><td>95 kg</td><td>133 kg</td></tr>
+        <tr><td>3</td><td>93 %</td><td>93 kg</td><td>130 kg</td></tr>
+        <tr><td>4</td><td>90 %</td><td>90 kg</td><td>126 kg</td></tr>
+        <tr><td>5</td><td>87 %</td><td>87 kg</td><td>122 kg</td></tr>
+        <tr><td>6</td><td>85 %</td><td>85 kg</td><td>119 kg</td></tr>
+        <tr><td>8</td><td>80 %</td><td>80 kg</td><td>112 kg</td></tr>
+        <tr><td>10</td><td>75 %</td><td>75 kg</td><td>105 kg</td></tr>
+        <tr><td>12</td><td>70 %</td><td>70 kg</td><td>98 kg</td></tr>
+        <tr><td>15</td><td>65 %</td><td>65 kg</td><td>91 kg</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Brug tabellen begge veje: kender du din 1RM, finder du vægten til dit næste sæt. Kan du tage
+      80 kg 8 gange, ligger din 1RM omkring 100 kg. Tal over 10 reps er mindre præcise, fordi
+      udholdenhed fylder mere.
     </p>
 
     <h2>Hvorfor din 1RM stiger over tid</h2>
