@@ -25,8 +25,10 @@ på dansk.
 
 ## 2. Research
 
-- Søg på søgeordet på hvert sprog (WebSearch, hvis du har det) og se hvad top-resultaterne
-  dækker. Skriv en guide, der svarer bedre og mere konkret end dem, ikke en kopi.
+- OBLIGATORISK: søg med WebSearch på søgeordet på mindst dansk, engelsk og tysk, og notér
+  hvad top-3 dækker, og hvad de mangler. Skriv en guide, der svarer bedre og mere konkret end
+  dem, ikke en kopi. Notaterne skal med i PR-teksten under "Research". Virker WebSearch ikke,
+  så skriv det tydeligt i PR-titlen ("UDEN research") i stedet for at springe det stille over.
 - Brug kun almindeligt anerkendt træningsviden (fx protein 1,6-2,2 g/kg, 10-20 sæt pr.
   muskelgruppe om ugen som typisk interval). Henviser du til en undersøgelse, skal du have
   åbnet kilden og linke til den. Opfind ALDRIG studier, tal, citater eller eksperter.
@@ -98,8 +100,10 @@ Kør og ret til alt er grønt:
 - Validér JSON-LD: udtræk hver `application/ld+json`-blok og kør den gennem `JSON.parse`
   med node.
 - Hvert `hreflang`-sæt er identisk på alle 6 sider, og alle filer det peger på findes.
-- Læs den danske og engelske side igennem én gang til som læser: er den konkret, korrekt og
-  fri for floskler ("revolutionerende", "seamless", "i en verden hvor", "lad os dykke ned")?
+- OBLIGATORISK: læs den færdige danske og engelske HTML-fil igennem fra start til slut som
+  læser (Read på filen, ikke dine kladder): er den konkret, korrekt og fri for floskler
+  ("revolutionerende", "seamless", "i en verden hvor", "lad os dykke ned")? Ret det du finder,
+  og skriv i PR-teksten hvad du rettede.
 
 ## 7. Backlog, commit og PR
 
