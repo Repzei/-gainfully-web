@@ -9,15 +9,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 ## Kø
 
-- [ ] Træningsprogram for begyndere (styrketræning, 3 dage om ugen)
-  - da: styrketræning for begyndere / træningsprogram begynder
-  - en: beginner gym workout plan
-  - de: Trainingsplan Anfänger Fitnessstudio
-  - fr: programme musculation débutant
-  - es: rutina de gimnasio para principiantes
-  - pt-BR: treino de academia para iniciantes
-  - Relevant app-funktion: færdige programmer, vægtforslag, historik
-
 - [ ] Plateau i styrketræning: sådan kommer du videre
   - da: plateau styrketræning
   - en: strength plateau how to break
@@ -102,3 +93,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 ## Færdige
 
 (agenten flytter færdige emner hertil med dato og branch)
+
+- [x] Træningsprogram for begyndere (styrketræning, 3 dage om ugen) - 2026-10-08, branch `claude/guide-traeningsprogram-begynder`
+  - Filer: traeningsprogram-begynder.html, beginner-gym-workout-plan.html, trainingsplan-anfaenger.html, programme-musculation-debutant.html, rutina-gimnasio-principiantes.html, treino-academia-iniciantes.html
