@@ -25,6 +25,12 @@ const PAGES = [
   { file: 'programme-musculation-ia.html', url: '/programme-musculation-ia.html',     lang: 'fr',    priority: 0.8 },
   { file: 'plan-entrenamiento-ia.html',    url: '/plan-entrenamiento-ia.html',        lang: 'es',    priority: 0.8 },
   { file: 'plano-treino-ia.html',          url: '/plano-treino-ia.html',              lang: 'pt-BR', priority: 0.8 },
+  { file: 'traeningsprogram-begynder.html', url: '/traeningsprogram-begynder.html', lang: 'da', priority: 0.75 },
+  { file: 'beginner-gym-workout-plan.html', url: '/beginner-gym-workout-plan.html', lang: 'en', priority: 0.75 },
+  { file: 'trainingsplan-anfaenger.html', url: '/trainingsplan-anfaenger.html', lang: 'de', priority: 0.75 },
+  { file: 'programme-musculation-debutant.html', url: '/programme-musculation-debutant.html', lang: 'fr', priority: 0.75 },
+  { file: 'rutina-gimnasio-principiantes.html', url: '/rutina-gimnasio-principiantes.html', lang: 'es', priority: 0.75 },
+  { file: 'treino-academia-iniciantes.html', url: '/treino-academia-iniciantes.html', lang: 'pt-BR', priority: 0.75 },
   { file: 'privacy.html',                  url: '/privacy.html',                      lang: 'en',    priority: 0.3 },
   { file: 'terms.html',                    url: '/terms.html',                        lang: 'en',    priority: 0.3 },
 ]
