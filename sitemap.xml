@@ -5,7 +5,7 @@
   <!-- Forside: dansk (default) -->
   <url>
     <loc>https://gainfully.app/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -20,7 +20,7 @@
   <!-- Forside: English -->
   <url>
     <loc>https://gainfully.app/en/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -35,7 +35,7 @@
   <!-- Forside: Deutsch -->
   <url>
     <loc>https://gainfully.app/de/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -50,7 +50,7 @@
   <!-- Forside: Français -->
   <url>
     <loc>https://gainfully.app/fr/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -65,7 +65,7 @@
   <!-- Forside: Español -->
   <url>
     <loc>https://gainfully.app/es/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -80,7 +80,7 @@
   <!-- Forside: Português (BR) -->
   <url>
     <loc>https://gainfully.app/pt-br/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -95,7 +95,7 @@
   <!-- Danish SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-traeningsforloeb.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -110,7 +110,7 @@
   <!-- English SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-workout-plan.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -125,7 +125,7 @@
   <!-- Deutsch SEO landing page -->
   <url>
     <loc>https://gainfully.app/ki-trainingsplan.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -140,7 +140,7 @@
   <!-- Francais SEO landing page -->
   <url>
     <loc>https://gainfully.app/programme-musculation-ia.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -155,7 +155,7 @@
   <!-- Espanol SEO landing page -->
   <url>
     <loc>https://gainfully.app/plan-entrenamiento-ia.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -170,7 +170,7 @@
   <!-- Portugues BR SEO landing page -->
   <url>
     <loc>https://gainfully.app/plano-treino-ia.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/ai-traeningsforloeb.html" />
@@ -185,7 +185,7 @@
   <!-- AI personlig traener - dansk SEO landing page -->
   <url>
     <loc>https://gainfully.app/ai-personlig-traener.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/ai-personlig-traener.html" />
@@ -195,7 +195,7 @@
   <!-- Guide: Progressiv overload -->
   <url>
     <loc>https://gainfully.app/progressiv-overload.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/progressiv-overload.html" />
@@ -205,7 +205,7 @@
   <!-- Pillar article: Styrketræning app -->
   <url>
     <loc>https://gainfully.app/styrketraening-app.html</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/styrketraening-app.html" />
@@ -215,7 +215,7 @@
   <!-- Interactive tool: 1RM Beregner (DA) -->
   <url>
     <loc>https://gainfully.app/1rm-beregner.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -230,7 +230,7 @@
   <!-- Interactive tool: 1RM Calculator (EN) -->
   <url>
     <loc>https://gainfully.app/1rm-calculator.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -245,7 +245,7 @@
   <!-- Interactive tool: 1RM Rechner (DE) -->
   <url>
     <loc>https://gainfully.app/1rm-rechner.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -260,7 +260,7 @@
   <!-- Interactive tool: Calculateur 1RM (FR) -->
   <url>
     <loc>https://gainfully.app/calculateur-1rm.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -275,7 +275,7 @@
   <!-- Interactive tool: Calculadora 1RM (ES) -->
   <url>
     <loc>https://gainfully.app/calculadora-1rm.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -290,7 +290,7 @@
   <!-- Interactive tool: Calculadora 1RM (PT-BR) -->
   <url>
     <loc>https://gainfully.app/calculadora-1rm-br.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -305,7 +305,7 @@
   <!-- App landing: Progressiv Overload App -->
   <url>
     <loc>https://gainfully.app/progressiv-overload-app.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/progressiv-overload-app.html" />
@@ -315,7 +315,7 @@
   <!-- App landing: AI Traener App -->
   <url>
     <loc>https://gainfully.app/ai-traener-app.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/ai-traener-app.html" />
@@ -325,7 +325,7 @@
   <!-- Interactive tool: TDEE Beregner (DA) -->
   <url>
     <loc>https://gainfully.app/tdee-beregner.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -340,7 +340,7 @@
   <!-- Interactive tool: TDEE Calculator (EN) -->
   <url>
     <loc>https://gainfully.app/tdee-calculator.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -355,7 +355,7 @@
   <!-- Interactive tool: TDEE Rechner (DE) -->
   <url>
     <loc>https://gainfully.app/tdee-rechner.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -370,7 +370,7 @@
   <!-- Interactive tool: Calculateur TDEE (FR) -->
   <url>
     <loc>https://gainfully.app/calculateur-tdee.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -385,7 +385,7 @@
   <!-- Interactive tool: Calculadora TDEE (ES) -->
   <url>
     <loc>https://gainfully.app/calculadora-tdee.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -400,7 +400,7 @@
   <!-- Interactive tool: Calculadora TDEE (PT-BR) -->
   <url>
     <loc>https://gainfully.app/calculadora-tdee-br.html</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="da"    href="https://gainfully.app/tdee-beregner.html" />
@@ -415,13 +415,13 @@
   <!-- Legal -->
   <url>
     <loc>https://gainfully.app/privacy.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://gainfully.app/terms.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

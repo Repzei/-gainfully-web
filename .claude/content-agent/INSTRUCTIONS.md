@@ -75,19 +75,18 @@ skal være på sidens sprog. `{{HOME_URL}}`: `/` for dansk, `/en/`, `/de/`, `/fr
 
 1. `sitemap.xml`: tilføj 6 `<url>`-blokke i samme format som de eksisterende sprog-grupper
    (fx `ai-workout-plan.html`): lastmod = i dag, changefreq monthly, priority 0.75, og alle
-   6 `xhtml:link` + x-default.
-2. `scripts/seo-agent.mjs`: tilføj de 6 sider til `PAGES` med korrekt `lang` og priority 0.75.
-3. `index.html`: tilføj guiden i `tools.guides` for hvert af de 6 sprog (sidens sprog-slug
+   6 `xhtml:link` + x-default. `scripts/seo-agent.mjs` læser sine sider fra sitemap, så
+   den skal ikke ændres; en side der mangler i sitemap, giver en advarsel i auditten.
+2. `index.html`: tilføj guiden i `tools.guides` for hvert af de 6 sprog (sidens sprog-slug
    og en kort titel på det sprog), og et link i footer-linjen `.foot-bottom` til den danske.
    Har `/en/index.html` osv. en egen guide-liste, så tilføj den der også.
-4. Tilføj et link til den nye guide fra 1-2 relaterede eksisterende guides på samme sprog
+3. Tilføj et link til den nye guide fra 1-2 relaterede eksisterende guides på samme sprog
    (fx i "Relaterede sider"-linjen). Små, præcise ændringer. Ingen omskrivning af andre sider.
 
 ## 6. Kvalitetstjek (alt skal bestå før PR)
 
 Kør og ret til alt er grønt:
-- `node scripts/seo-agent.mjs` skal give 0 kritiske fejl og ingen advarsler på de nye sider.
-- Lange tankestreger er FORBUDT overalt (em dash U+2014 og en dash U+2013):
+- `node scripts/seo-agent.mjs` skal give 0 kritiske fejl og ingen advarsler på de nye sider.- Lange tankestreger er FORBUDT overalt (em dash U+2014 og en dash U+2013):
   `grep -nP '\x{2014}|\x{2013}' <nye og ændrede filer>` skal give 0 linjer.
   Brug almindelig bindestreg (`10-20`) eller omformuler sætningen.
 - Ingen farvekoder i nye sider: `grep -nE '#[0-9a-fA-F]{3,8}\b|rgba?\(' <nye filer>` skal give

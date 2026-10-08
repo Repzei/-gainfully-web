@@ -5,29 +5,54 @@
 
 import fs from 'fs'
 import path from 'path'
+import { execFileSync } from 'child_process'
 import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const BASE_URL = 'https://gainfully.app'
+const SITEMAP = path.join(ROOT, 'sitemap.xml')
 
-const PAGES = [
-  { file: 'index.html',                    url: '/',                                  lang: 'da',    priority: 1.0 },
-  { file: 'en/index.html',                 url: '/en/',                               lang: 'en',    priority: 0.9 },
-  { file: 'de/index.html',                 url: '/de/',                               lang: 'de',    priority: 0.9 },
-  { file: 'fr/index.html',                 url: '/fr/',                               lang: 'fr',    priority: 0.9 },
-  { file: 'es/index.html',                 url: '/es/',                               lang: 'es',    priority: 0.9 },
-  { file: 'pt-br/index.html',              url: '/pt-br/',                            lang: 'pt-BR', priority: 0.9 },
-  { file: 'ai-traeningsforloeb.html',      url: '/ai-traeningsforloeb.html',          lang: 'da',    priority: 0.8 },
-  { file: 'ai-personlig-traener.html',    url: '/ai-personlig-traener.html',         lang: 'da',    priority: 0.8 },
-  { file: 'ai-workout-plan.html',          url: '/ai-workout-plan.html',              lang: 'en',    priority: 0.8 },
-  { file: 'ki-trainingsplan.html',         url: '/ki-trainingsplan.html',             lang: 'de',    priority: 0.8 },
-  { file: 'programme-musculation-ia.html', url: '/programme-musculation-ia.html',     lang: 'fr',    priority: 0.8 },
-  { file: 'plan-entrenamiento-ia.html',    url: '/plan-entrenamiento-ia.html',        lang: 'es',    priority: 0.8 },
-  { file: 'plano-treino-ia.html',          url: '/plano-treino-ia.html',              lang: 'pt-BR', priority: 0.8 },
-  { file: 'privacy.html',                  url: '/privacy.html',                      lang: 'en',    priority: 0.3 },
-  { file: 'terms.html',                    url: '/terms.html',                        lang: 'en',    priority: 0.3 },
-]
+// Sitemap er den eneste liste over sider, saa en ny side auditeres saa snart den staar der.
+// Forventet sprog = sidens egen hreflang i sitemap (privacy/terms har ingen og tjekkes ikke for sprog).
+function loadPages() {
+  const xml = fs.readFileSync(SITEMAP, 'utf-8')
+  return xml.split('<url>').slice(1).map(block => {
+    const loc = block.match(/<loc>([^<]+)<\/loc>/)[1].trim()
+    const url = loc.replace(BASE_URL, '')
+    const file = url.endsWith('/') ? url.slice(1) + 'index.html' : url.slice(1)
+    const self = [...block.matchAll(/hreflang="([^"]+)"\s+href="([^"]+)"/g)].find(m => m[2] === loc)
+    const priority = parseFloat((block.match(/<priority>([^<]+)<\/priority>/) || [])[1] ?? '0.5')
+    return { file, url, lang: self ? self[1] : null, priority }
+  })
+}
+
+// HTML-sider der findes, men mangler i sitemap (Google finder dem saa kun via links).
+function findUnlistedPages(pages) {
+  const listed = new Set(pages.map(p => p.file))
+  const entries = fs.readdirSync(ROOT, { withFileTypes: true })
+  const candidates = [
+    ...entries.filter(e => e.isFile() && e.name.endsWith('.html')).map(e => e.name),
+    ...entries
+      .filter(e => e.isDirectory() && !e.name.startsWith('.') && fs.existsSync(path.join(ROOT, e.name, 'index.html')))
+      .map(e => `${e.name}/index.html`),
+  ]
+  return candidates.filter(f =>
+    !listed.has(f) && !/^google[0-9a-f]+\.html$/.test(f) && !f.startsWith('reset-password/')
+  )
+}
+
+// Datoen for sidste commit der aendrede filen. Filens mtime duer ikke: i CI er den altid
+// tidspunktet for checkout, saa alle lastmod-datoer blev til "i dag" ved hvert push.
+// null = git ikke tilgaengeligt (lastmod roeres ikke); tom = fil ikke committet endnu (i dag).
+function lastCommitDate(file) {
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { cwd: ROOT, encoding: 'utf-8' }).trim()
+    return out || new Date().toISOString().split('T')[0]
+  } catch {
+    return null
+  }
+}
 
 // Extraherer en tag-attribut korrekt for baade double- og single-quoted vaerdier.
 // Bruger separate regexes per quote-type for at undgaa at stoppe ved apostrofer i content.
@@ -124,7 +149,7 @@ function auditPage(page) {
   if (!htmlLang) {
     issues.push({ level: 'warn', msg: '<html lang="..."> mangler' })
     score -= 3
-  } else if (htmlLang.toLowerCase() !== page.lang.toLowerCase()) {
+  } else if (page.lang && htmlLang.toLowerCase() !== page.lang.toLowerCase()) {
     issues.push({ level: 'warn', msg: `lang="${htmlLang}" men forventet "${page.lang}"` })
     score -= 3
   }
@@ -181,17 +206,14 @@ function auditPage(page) {
 }
 
 function updateSitemap(results) {
-  const sitemapPath = path.join(ROOT, 'sitemap.xml')
-  if (!fs.existsSync(sitemapPath)) return { changed: false, updates: [] }
-
-  let xml = fs.readFileSync(sitemapPath, 'utf-8')
+  let xml = fs.readFileSync(SITEMAP, 'utf-8')
   let changed = false
   const updates = []
 
   for (const r of results) {
     if (!r.exists) continue
-    const filepath = path.join(ROOT, r.page.file)
-    const fileDate = fs.statSync(filepath).mtime.toISOString().split('T')[0]
+    const fileDate = lastCommitDate(r.page.file)
+    if (!fileDate) continue
     const fullUrl = BASE_URL + r.page.url
     const escapedUrl = fullUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
@@ -208,11 +230,11 @@ function updateSitemap(results) {
     )
   }
 
-  if (changed) fs.writeFileSync(sitemapPath, xml, 'utf-8')
+  if (changed) fs.writeFileSync(SITEMAP, xml, 'utf-8')
   return { changed, updates }
 }
 
-function printReport(results, sitemapResult) {
+function printReport(results, sitemapResult, unlisted) {
   const line = '='.repeat(65)
   const today = new Date().toISOString().split('T')[0]
 
@@ -261,14 +283,20 @@ function printReport(results, sitemapResult) {
     console.log('\nsitemap.xml: alle datoer er aktuelle')
   }
 
+  if (unlisted.length > 0) {
+    console.log(`\nADVAR: ${unlisted.length} side(r) mangler i sitemap.xml:`)
+    unlisted.forEach(f => console.log(`  - ${f}`))
+  }
+
   console.log(line)
   return { avgScore, totalCriticals, totalWarnings }
 }
 
 // --- Main ---
-const results = PAGES.map(auditPage)
+const pages = loadPages()
+const results = pages.map(auditPage)
 const sitemapResult = updateSitemap(results)
-const { totalCriticals } = printReport(results, sitemapResult)
+const { totalCriticals } = printReport(results, sitemapResult, findUnlistedPages(pages))
 
 if (totalCriticals > 0) {
   console.error(`\nAudit fejlet: ${totalCriticals} kritisk(e) problem(er) fundet`)
