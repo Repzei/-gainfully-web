@@ -506,4 +506,84 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Guide: Plateau i styrketræning (6 sprog) -->
+  <url>
+    <loc>https://gainfully.app/plateau-styrketraening.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+  <url>
+    <loc>https://gainfully.app/strength-plateau.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+  <url>
+    <loc>https://gainfully.app/plateau-krafttraining.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+  <url>
+    <loc>https://gainfully.app/plateau-musculation.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+  <url>
+    <loc>https://gainfully.app/estancamiento-gimnasio.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+  <url>
+    <loc>https://gainfully.app/plato-musculacao.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/plateau-styrketraening.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://gainfully.app/strength-plateau.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://gainfully.app/plateau-krafttraining.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gainfully.app/plateau-musculation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gainfully.app/estancamiento-gimnasio.html" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://gainfully.app/plato-musculacao.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gainfully.app/strength-plateau.html" />
+  </url>
+
 </urlset>
