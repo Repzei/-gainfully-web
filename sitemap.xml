@@ -5,7 +5,7 @@
   <!-- Forside: dansk (default) -->
   <url>
     <loc>https://gainfully.app/</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="da"      href="https://gainfully.app/" />
@@ -195,7 +195,7 @@
   <!-- Guide: Progressiv overload -->
   <url>
     <loc>https://gainfully.app/progressiv-overload.html</loc>
-    <lastmod>2026-10-09</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/progressiv-overload.html" />
@@ -415,7 +415,7 @@
   <!-- Guide: Begynder-træningsprogram (6 sprog) -->
   <url>
     <loc>https://gainfully.app/traeningsprogram-begynder.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
@@ -428,7 +428,7 @@
   </url>
   <url>
     <loc>https://gainfully.app/beginner-gym-workout-plan.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
@@ -441,7 +441,7 @@
   </url>
   <url>
     <loc>https://gainfully.app/trainingsplan-anfaenger.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
@@ -454,7 +454,7 @@
   </url>
   <url>
     <loc>https://gainfully.app/programme-musculation-debutant.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
@@ -467,7 +467,7 @@
   </url>
   <url>
     <loc>https://gainfully.app/rutina-gimnasio-principiantes.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
@@ -480,7 +480,7 @@
   </url>
   <url>
     <loc>https://gainfully.app/treino-academia-iniciantes.html</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="da" href="https://gainfully.app/traeningsprogram-begynder.html" />
