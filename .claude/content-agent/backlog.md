@@ -9,15 +9,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 ## Kø
 
-- [ ] Plateau i styrketræning: sådan kommer du videre
-  - da: plateau styrketræning
-  - en: strength plateau how to break
-  - de: Plateau Krafttraining durchbrechen
-  - fr: plateau musculation
-  - es: estancamiento en el gimnasio
-  - pt-BR: platô na musculação
-  - Relevant app-funktion: plateau-hjælp (Pro), historik pr. løft
-
 - [ ] Push pull legs: komplet program og opdeling
   - da: push pull legs program
   - en: push pull legs routine
@@ -96,3 +87,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 - [x] Træningsprogram for begyndere (styrketræning, 3 dage om ugen) - 2026-10-08, branch `claude/guide-traeningsprogram-begynder`
   - Filer: traeningsprogram-begynder.html, beginner-gym-workout-plan.html, trainingsplan-anfaenger.html, programme-musculation-debutant.html, rutina-gimnasio-principiantes.html, treino-academia-iniciantes.html
+
+- [x] Plateau i styrketræning: sådan kommer du videre - 2026-10-13, branch `claude/guide-plateau-styrketraening`
+  - Filer: plateau-styrketraening.html, strength-plateau.html, plateau-krafttraining.html, plateau-musculation.html, estancamiento-gimnasio.html, plato-musculacao.html
