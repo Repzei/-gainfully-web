@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1RM Rechner - Dein One Rep Max berechnen</title>
-  <meta name="description" content="Berechne dein 1RM (One Rep Max) kostenlos. Nutzt Epley, Brzycki und Landers Formeln für dein maximales Gewicht - ohne bis zum Versagen zu heben." />
+  <title>1RM Rechner - Kreuzheben, Bankdrücken und Kniebeuge</title>
+  <meta name="description" content="Kostenloser 1RM Rechner für Kreuzheben, Bankdrücken und Kniebeuge. Gib Gewicht und Wiederholungen ein und sieh dein Maximum und deine relative Kraft sofort." />
   <meta name="keywords" content="1RM Rechner, One Rep Max Rechner, Kraftrechner, maximales Gewicht berechnen, 1 Wiederholung Maximum, Epley Formel" />
   <link rel="canonical" href="https://gainfully.app/1rm-rechner.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/1rm-rechner.html" />
-  <meta property="og:title" content="1RM Rechner - Dein One Rep Max berechnen" />
-  <meta property="og:description" content="Berechne dein 1RM (One Rep Max) kostenlos. Nutzt Epley, Brzycki und Landers Formeln für dein maximales Gewicht - ohne bis zum Versagen zu heben." />
+  <meta property="og:title" content="1RM Rechner - Kreuzheben, Bankdrücken und Kniebeuge" />
+  <meta property="og:description" content="Berechne dein 1RM beim Kreuzheben, Bankdrücken und bei der Kniebeuge kostenlos, inklusive relativer Kraft." />
   <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
   <link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
   <link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
@@ -93,6 +93,32 @@
     .related a { color: var(--text-muted); margin: 0 8px; }
     footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-muted); }
     @media (max-width: 640px) { nav { padding: 16px 20px; } .page { padding: 0 20px 80px; } .hero { padding: 48px 0 36px; } .calc-card { padding: 24px 20px; } .input-row { grid-template-columns: 1fr; } .cta-block { padding: 32px 20px; } footer { padding: 24px 20px; } }
+    /* OEVELSESVALG + RELATIV STYRKE */
+    .calc-card, h2[id] { scroll-margin-top: 88px; }
+    .ex-picker { border: 0; padding: 0; margin: -8px 0 24px; min-width: 0; }
+    .ex-picker legend { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; padding: 0; }
+    .ex-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ex-chip { position: relative; }
+    .ex-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .ex-chip span { display: inline-block; padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text-muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .ex-chip span:hover { border-color: var(--input-border); }
+    .ex-chip input:checked + span { border-color: var(--text); color: var(--text); background: var(--surface-2); }
+    .ex-chip input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+    .ex-note { font-size: 14px; line-height: 1.6; margin: 12px 0 0; max-width: none; }
+    .ex-note a, .ex-section-link { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .bw-group { max-width: calc(50% - 8px); margin-bottom: 24px; }
+    .rel-line { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; padding: 14px 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; }
+    .rel-line[hidden], .ex-note[hidden], .rel-typical[hidden] { display: none; }
+    .rel-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .rel-value { font-size: 15px; color: var(--text-muted); }
+    .rel-value strong { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+    .rel-typical { flex-basis: 100%; font-size: 13px; color: var(--text-muted); }
+    .std-table-wrap { overflow-x: auto; margin: 8px 0 22px; border: 1px solid var(--border); border-radius: 12px; }
+    .std-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .std-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface); padding: 10px 14px; }
+    .std-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+    .std-table td:first-child { font-weight: 700; }
+    @media (max-width: 640px) { .bw-group { max-width: none; } }
   </style>
 </head>
 <body>
@@ -106,19 +132,22 @@
       <h1><em>1RM Rechner</em><br />Dein One Rep Max berechnen</h1>
       <p class="hero-sub">Schätze dein 1RM aus jedem Gewicht und jeder Wiederholungszahl - ohne bis zum Versagen zu heben. Drei Formeln, eine präzise Antwort.</p>
     </header>
-    <div class="calc-card">
-      <div class="calc-title"><div class="calc-title-dot"></div>Dein 1RM berechnen</div>
+    <div class="calc-card" id="calc">
+      <div class="calc-title"><div class="calc-title-dot"></div><span id="calcTitleText">Dein 1RM berechnen</span></div>
+      <fieldset class="ex-picker"><legend>ÜBUNG</legend><div class="ex-chips"><label class="ex-chip"><input type="radio" name="exercise" value="deadlift" data-title="Dein 1RM beim Kreuzheben berechnen" data-typical="Typisch nach 1-2 Jahren Training: Männer 1,5-1,9 ×, Frauen 1,1-1,5 ×" /><span>Kreuzheben</span></label><label class="ex-chip"><input type="radio" name="exercise" value="bench" data-title="Dein 1RM beim Bankdrücken berechnen" data-typical="Typisch nach 1-2 Jahren Training: Männer 1,0-1,25 ×, Frauen 0,55-0,75 ×" /><span>Bankdrücken</span></label><label class="ex-chip"><input type="radio" name="exercise" value="squat" data-title="Dein 1RM bei der Kniebeuge berechnen" data-typical="Typisch nach 1-2 Jahren Training: Männer 1,25-1,6 ×, Frauen 0,9-1,2 ×" /><span>Kniebeuge</span></label><label class="ex-chip"><input type="radio" name="exercise" value="other" data-title="Dein 1RM berechnen" checked /><span>Andere Übung</span></label></div><p class="ex-note" data-ex="deadlift" hidden>Nutze einen Satz mit 3-5 Wiederholungen. Viele heben das 1,1- bis 1,3-Fache ihrer Kniebeuge. <a href="#kreuzheben">Technik und typische Werte</a></p><p class="ex-note" data-ex="bench" hidden>Nutze einen Satz mit 3-8 Wiederholungen, bei dem die Stange jedes Mal die Brust berührt. <a href="#bankdruecken">Technik und typische Werte</a></p><p class="ex-note" data-ex="squat" hidden>Nutze einen Satz mit 3-6 Wiederholungen bis mindestens parallel. <a href="#kniebeuge">Technik und typische Werte</a></p></fieldset>
       <div class="input-row">
         <div class="input-group"><span class="input-label">GEHOBENES GEWICHT</span><div class="input-wrap"><input class="calc-input" type="number" id="weightInput" min="1" max="500" placeholder="100" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
         <div class="input-group"><span class="input-label">WIEDERHOLUNGEN (<span id="repsLabel">5</span>)</span><div class="input-wrap"><input class="calc-input" type="number" id="repsInput" min="1" max="20" placeholder="5" inputmode="numeric" /></div></div>
       </div>
       <div class="input-group" style="margin-bottom:24px;"><span class="input-label">WIEDERHOLUNGEN (SCHIEBEREGLER)</span><input class="reps-slider" type="range" id="repsSlider" min="1" max="20" value="5" /></div>
+      <div class="input-group bw-group"><label class="input-label" for="bodyweightInput">DEIN KÖRPERGEWICHT (OPTIONAL)</label><div class="input-wrap"><input class="calc-input" type="number" id="bodyweightInput" min="30" max="300" placeholder="80" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
       <div class="result-grid" id="resultGrid" style="display:none;">
         <div class="result-box primary"><div class="result-box-label">Durchschnitt</div><div class="result-box-val" id="avgResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Epley</div><div class="result-box-val" id="epleyResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Brzycki</div><div class="result-box-val" id="brzyckiResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Landers</div><div class="result-box-val" id="landersResult">-</div><div class="result-box-unit">kg</div></div>
       </div>
+      <div class="rel-line" id="relLine" hidden><span class="rel-label">Relative Kraft</span><span class="rel-value">1RM = <strong id="relRatio">-</strong> × dein Körpergewicht</span><span class="rel-typical" id="relTypical" hidden></span></div>
       <div id="pctSection" style="display:none;"><table class="pct-table"><thead><tr><th>%</th><th>Gewicht</th><th>Wiederh. (ca.)</th></tr></thead><tbody id="pctBody"></tbody></table></div>
       <div class="ai-callout" style="margin-top:20px;">
         <div class="ai-callout-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
@@ -128,6 +157,26 @@
     <h2>Was ist das 1RM?</h2>
     <p><strong>1RM (One Rep Max)</strong> ist das maximale Gewicht, das du für genau eine vollständige Wiederholung mit korrekter Technik heben kannst. Es ist der Goldstandard für die Messung absoluter Kraft im Gym.</p>
     <p>Dein 1RM ist die Basis aller prozentbasierten Kraftprogramme. Ob 5/3/1, lineare Progression oder ein prozentuales Powerlifting-Programm - alles wird von deinem 1RM aus berechnet.</p>
+    <h2 id="kreuzheben">1RM beim Kreuzheben</h2>
+    <p>Beim Kreuzheben bewegen die meisten das meiste Gewicht. Viele heben etwa das 1,1- bis 1,3-Fache ihres Kniebeuge-1RM. Lange Arme helfen, und oft gibt der Griff nach, bevor Beine und Rücken es tun.</p>
+    <p>Ein Maximalversuch im Kreuzheben belastet den unteren Rücken am stärksten, wenn die Technik nachlässt. Halte die Stange nah am Körper, spanne den Rumpf an und zieh die Schultern nach unten, bevor die Stange den Boden verlässt, und brich den Versuch ab, wenn sich der untere Rücken rundet. Versuche nie ein neues Maximum im letzten Satz eines harten Trainings.</p>
+    <p>Nutze im Rechner einen sauberen Satz mit 3-5 Wiederholungen. Bei langen Sätzen begrenzen Griff und Atmung, und die Schätzung wird ungenauer. <a class="ex-section-link" href="#calc" data-pick="deadlift">Dein 1RM beim Kreuzheben berechnen</a></p>
+
+    <h2 id="bankdruecken">1RM beim Bankdrücken</h2>
+    <p>Bankdrücken ist die leichteste der drei großen Übungen. Bei vielen liegt das 1RM bei 60-75 % des Kniebeuge-1RM. Griffbreite und Hohlkreuz verändern den Weg der Stange, vergleiche also nur Werte mit derselben Technik.</p>
+    <p>Versuche ein Maximum im Bankdrücken nie allein ohne Spotter oder Sicherheitsablagen. Lass die Füße am Boden, die Schulterblätter zusammen und den Daumen um die Stange. Ein Griff ohne Daumen ist ein klassischer Grund, warum die Stange abrutscht.</p>
+    <p>Ein Satz mit 3-8 Wiederholungen liefert eine gute Schätzung, solange die Stange bei jeder Wiederholung die Brust berührt. <a class="ex-section-link" href="#calc" data-pick="bench">Dein 1RM beim Bankdrücken berechnen</a></p>
+
+    <h2 id="kniebeuge">1RM bei der Kniebeuge</h2>
+    <p>Die Kniebeuge liegt bei den meisten zwischen Bankdrücken und Kreuzheben. Die Tiefe ist entscheidend: Kraftwerte gehen meist von einer Kniebeuge bis mindestens parallel aus, also Hüfte auf Kniehöhe. Eine halbe Kniebeuge ergibt einen höheren Wert, der nicht vergleichbar ist.</p>
+    <p>Mach Maximalversuche im Rack mit Sicherheitsablagen knapp unter deinem tiefsten Punkt. Wärme dich mit steigenden Gewichten auf, zum Beispiel 50 %, 70 % und 85 % des erwarteten Maximums, und halte dieselbe Tiefe wie in deinen Arbeitssätzen.</p>
+    <p>Nutze im Rechner einen Satz mit 3-6 Wiederholungen. Lange Kniebeugesätze werden schnell zum Konditionstest, und die Schätzung wird ungenauer. <a class="ex-section-link" href="#calc" data-pick="squat">Dein 1RM bei der Kniebeuge berechnen</a></p>
+
+    <h2 id="relative-kraft">Relative Kraft: dein 1RM im Verhältnis zum Körpergewicht</h2>
+    <p>Relative Kraft ist dein 1RM geteilt durch dein Körpergewicht. Hebst du 120 kg im Kreuzheben und wiegst 80 kg, liegt deine relative Kraft beim 1,5-Fachen deines Körpergewichts. So kannst du dich mit Leuten anderer Gewichtsklassen vergleichen und Fortschritt sehen, auch wenn sich dein Gewicht ändert. Gib dein Körpergewicht im Rechner ein, dann rechnet er es für dich aus.</p>
+    <div class="std-table-wrap"><table class="std-table"><thead><tr><th>Übung</th><th>Männer</th><th>Frauen</th></tr></thead><tbody><tr><td>Bankdrücken</td><td>1,0-1,25 ×</td><td>0,55-0,75 ×</td></tr><tr><td>Kniebeuge</td><td>1,25-1,6 ×</td><td>0,9-1,2 ×</td></tr><tr><td>Kreuzheben</td><td>1,5-1,9 ×</td><td>1,1-1,5 ×</td></tr></tbody></table></div>
+    <p>Die Werte sind grobe Richtwerte für Trainierende mit 1-2 Jahren regelmäßigem Training, keine Vorgaben. Alter, Größe und wie lange du die einzelne Übung trainierst spielen eine große Rolle. Nutze sie als Orientierung und vergleiche dich vor allem mit dir selbst.</p>
+
     <h2>Die drei Formeln</h2>
     <div class="formula-box"><div class="formula-name">Epley (1985)</div><div class="formula-eq">1RM = Gewicht x (1 + Wiederholungen / 30)</div></div>
     <div class="formula-box"><div class="formula-name">Brzycki (1993)</div><div class="formula-eq">1RM = Gewicht x (36 / (37 - Wiederholungen))</div></div>
@@ -150,6 +199,33 @@
     <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="privacy.html" style="color:var(--text-muted);">Datenschutz</a><a href="terms.html" style="color:var(--text-muted);">AGB</a><a href="mailto:support@gainfully.app" style="color:var(--text-muted);">Kontakt</a></div>
   </footer>
   <script>
+    let lastOneRM = null
+    const bodyweightInput = document.getElementById('bodyweightInput')
+    const selectedExercise = () => document.querySelector('input[name="exercise"]:checked')
+    function updateRelative(oneRM) {
+      lastOneRM = oneRM
+      const bw = parseFloat(bodyweightInput.value)
+      const line = document.getElementById('relLine')
+      if (!oneRM || !(bw >= 30 && bw <= 300)) { line.hidden = true; return }
+      document.getElementById('relRatio').textContent = (oneRM / bw).toLocaleString('de', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      const typical = document.getElementById('relTypical')
+      typical.textContent = selectedExercise().dataset.typical || ''
+      typical.hidden = !typical.textContent
+      line.hidden = false
+    }
+    function pickExercise(radio) {
+      radio.checked = true
+      document.getElementById('calcTitleText').textContent = radio.dataset.title
+      document.querySelectorAll('.ex-note').forEach(n => { n.hidden = n.dataset.ex !== radio.value })
+      updateRelative(lastOneRM)
+    }
+    document.querySelectorAll('input[name="exercise"]').forEach(r => r.addEventListener('change', () => pickExercise(r)))
+    document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => pickExercise(document.querySelector(`input[name="exercise"][value="${a.dataset.pick}"]`))))
+    bodyweightInput.addEventListener('input', () => updateRelative(lastOneRM))
+    // Browseren genskaber valgt radio ved tilbage-navigation; titel og note skal foelge med.
+    window.addEventListener('pageshow', () => pickExercise(selectedExercise()))
+  </script>
+  <script>
     const pctData=[{pct:100,reps:1},{pct:97,reps:2},{pct:94,reps:3},{pct:91,reps:4},{pct:88,reps:5},{pct:85,reps:6},{pct:82,reps:7},{pct:79,reps:8},{pct:76,reps:9},{pct:73,reps:10},{pct:70,reps:12},{pct:67,reps:15},{pct:60,reps:20}]
     const weightInput=document.getElementById('weightInput'), repsInput=document.getElementById('repsInput'), repsSlider=document.getElementById('repsSlider')
     repsSlider.addEventListener('input',()=>{repsInput.value=repsSlider.value;document.getElementById('repsLabel').textContent=repsSlider.value;calculate()})
@@ -157,12 +233,12 @@
     weightInput.addEventListener('input',calculate)
     function calculate(){
       const w=parseFloat(weightInput.value),r=parseInt(repsInput.value)||parseInt(repsSlider.value)
-      if(!w||w<1||!r||r<1){document.getElementById('resultGrid').style.display='none';document.getElementById('pctSection').style.display='none';return}
+      if(!w||w<1||!r||r<1){document.getElementById('resultGrid').style.display='none';document.getElementById('pctSection').style.display='none';updateRelative(null);return}
       const fmt=n=>n.toLocaleString('de',{maximumFractionDigits:1})
-      if(r===1){['epley','brzycki','landers','avg'].forEach(id=>document.getElementById(id+'Result').textContent=fmt(w));document.getElementById('resultGrid').style.display='grid';renderPct(w);return}
+      if(r===1){['epley','brzycki','landers','avg'].forEach(id=>document.getElementById(id+'Result').textContent=fmt(w));document.getElementById('resultGrid').style.display='grid';renderPct(w);updateRelative(w);return}
       const epley=w*(1+r/30),brzycki=w*(36/(37-r)),landers=w/(1.013-0.0267123*r),avg=(epley+brzycki+landers)/3
       document.getElementById('epleyResult').textContent=fmt(epley);document.getElementById('brzyckiResult').textContent=fmt(brzycki);document.getElementById('landersResult').textContent=fmt(landers);document.getElementById('avgResult').textContent=fmt(avg)
-      document.getElementById('resultGrid').style.display='grid';renderPct(avg)
+      document.getElementById('resultGrid').style.display='grid';renderPct(avg);updateRelative(avg)
     }
     function renderPct(oneRM){
       document.getElementById('pctBody').innerHTML=pctData.map(row=>`<tr><td>${row.pct}%</td><td>${(oneRM*row.pct/100).toLocaleString('de',{maximumFractionDigits:1})} kg</td><td class="reps-col">~${row.reps} Wdh.</td></tr>`).join('')

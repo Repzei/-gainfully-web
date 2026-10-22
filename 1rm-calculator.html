@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1RM Calculator - Find Your One Rep Max</title>
-  <meta name="description" content="Calculate your 1RM (one rep max) for free. Uses Epley, Brzycki and Landers formulas to estimate your maximum strength from any weight and rep count." />
+  <title>1RM Calculator - Deadlift, Bench Press and Squat Max</title>
+  <meta name="description" content="Free 1RM calculator for deadlift, bench press and squat. Enter weight and reps to estimate your one rep max with three formulas and your strength vs bodyweight." />
   <meta name="keywords" content="1RM calculator, one rep max calculator, strength calculator, max weight calculator, 1 rep max, Epley formula" />
   <link rel="canonical" href="https://gainfully.app/1rm-calculator.html" />
   <link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
@@ -17,8 +17,8 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/1rm-calculator.html" />
-  <meta property="og:title" content="1RM Calculator - Find Your One Rep Max" />
-  <meta property="og:description" content="Calculate your 1RM for free. Enter weight and reps for your estimated max - no need to lift to failure." />
+  <meta property="og:title" content="1RM Calculator - Deadlift, Bench Press and Squat Max" />
+  <meta property="og:description" content="Calculate your deadlift, bench press and squat 1RM for free and see your strength relative to bodyweight." />
   <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -145,6 +145,32 @@
       .result-grid { grid-template-columns: 1fr 1fr; } .cta-block { padding: 32px 20px; }
       footer { padding: 24px 20px; }
     }
+    /* OEVELSESVALG + RELATIV STYRKE */
+    .calc-card, h2[id] { scroll-margin-top: 88px; }
+    .ex-picker { border: 0; padding: 0; margin: -8px 0 24px; min-width: 0; }
+    .ex-picker legend { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; padding: 0; }
+    .ex-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ex-chip { position: relative; }
+    .ex-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .ex-chip span { display: inline-block; padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text-muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .ex-chip span:hover { border-color: var(--input-border); }
+    .ex-chip input:checked + span { border-color: var(--text); color: var(--text); background: var(--surface-2); }
+    .ex-chip input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+    .ex-note { font-size: 14px; line-height: 1.6; margin: 12px 0 0; max-width: none; }
+    .ex-note a, .ex-section-link { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .bw-group { max-width: calc(50% - 8px); margin-bottom: 24px; }
+    .rel-line { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; padding: 14px 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; }
+    .rel-line[hidden], .ex-note[hidden], .rel-typical[hidden] { display: none; }
+    .rel-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .rel-value { font-size: 15px; color: var(--text-muted); }
+    .rel-value strong { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+    .rel-typical { flex-basis: 100%; font-size: 13px; color: var(--text-muted); }
+    .std-table-wrap { overflow-x: auto; margin: 8px 0 22px; border: 1px solid var(--border); border-radius: 12px; }
+    .std-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .std-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface); padding: 10px 14px; }
+    .std-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+    .std-table td:first-child { font-weight: 700; }
+    @media (max-width: 640px) { .bw-group { max-width: none; } }
   </style>
 </head>
 <body>
@@ -163,8 +189,9 @@
       <p class="hero-sub">Estimate your 1RM from any weight and rep count - without lifting to failure. Three formulas, one precise answer.</p>
     </header>
 
-    <div class="calc-card">
-      <div class="calc-title"><div class="calc-title-dot"></div>Calculate your 1RM</div>
+    <div class="calc-card" id="calc">
+      <div class="calc-title"><div class="calc-title-dot"></div><span id="calcTitleText">Calculate your 1RM</span></div>
+      <fieldset class="ex-picker"><legend>EXERCISE</legend><div class="ex-chips"><label class="ex-chip"><input type="radio" name="exercise" value="deadlift" data-title="Calculate your deadlift 1RM" data-typical="Typical after 1-2 years of training: men 1.5-1.9 ×, women 1.1-1.5 ×" /><span>Deadlift</span></label><label class="ex-chip"><input type="radio" name="exercise" value="bench" data-title="Calculate your bench press 1RM" data-typical="Typical after 1-2 years of training: men 1.0-1.25 ×, women 0.55-0.75 ×" /><span>Bench press</span></label><label class="ex-chip"><input type="radio" name="exercise" value="squat" data-title="Calculate your squat 1RM" data-typical="Typical after 1-2 years of training: men 1.25-1.6 ×, women 0.9-1.2 ×" /><span>Squat</span></label><label class="ex-chip"><input type="radio" name="exercise" value="other" data-title="Calculate your 1RM" checked /><span>Other exercise</span></label></div><p class="ex-note" data-ex="deadlift" hidden>Use a set of 3-5 reps. Many lifters deadlift 1.1-1.3 times their squat. <a href="#deadlift">Technique and typical numbers</a></p><p class="ex-note" data-ex="bench" hidden>Use a set of 3-8 reps where the bar touches your chest on every rep. <a href="#bench-press">Technique and typical numbers</a></p><p class="ex-note" data-ex="squat" hidden>Use a set of 3-6 reps to at least parallel depth. <a href="#squat">Technique and typical numbers</a></p></fieldset>
 
       <div class="input-row">
         <div class="input-group">
@@ -187,6 +214,7 @@
         <input class="reps-slider" type="range" id="repsSlider" min="1" max="20" value="5" />
       </div>
 
+      <div class="input-group bw-group"><label class="input-label" for="bodyweightInput">YOUR BODYWEIGHT (OPTIONAL)</label><div class="input-wrap"><input class="calc-input" type="number" id="bodyweightInput" min="30" max="300" placeholder="80" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
       <div class="result-grid" id="resultGrid" style="display:none;">
         <div class="result-box primary">
           <div class="result-box-label">Average</div>
@@ -210,6 +238,7 @@
         </div>
       </div>
 
+      <div class="rel-line" id="relLine" hidden><span class="rel-label">Relative strength</span><span class="rel-value">1RM = <strong id="relRatio">-</strong> × your bodyweight</span><span class="rel-typical" id="relTypical" hidden></span></div>
       <div id="pctSection" style="display:none;">
         <table class="pct-table">
           <thead><tr><th>%</th><th>Weight</th><th>Reps (approx.)</th></tr></thead>
@@ -231,6 +260,26 @@
     <h2>What is a 1RM?</h2>
     <p><strong>1RM (one rep max)</strong> is the maximum weight you can lift for exactly one complete repetition with correct form. It is the gold standard for measuring absolute strength in the gym.</p>
     <p>Your 1RM is the foundation of all percentage-based strength programs. Whether you follow a 5/3/1, linear progression, or a percentage-based powerlifting program - everything is calculated from your 1RM.</p>
+
+    <h2 id="deadlift">Deadlift 1RM</h2>
+    <p>For most lifters the deadlift is the lift where they move the most weight. Many pull around 1.1-1.3 times their squat 1RM. Long arms help, and grip often gives out before the legs and back do.</p>
+    <p>A max deadlift loads the lower back the most when technique slips. Keep the bar close, brace your core and pull your shoulders down before the bar leaves the floor, and stop the attempt if your lower back rounds. Never try a new max on the last set of a hard session.</p>
+    <p>Use a set of 3-5 clean reps in the calculator. In long deadlift sets, grip and breathing start to limit you, which makes the estimate less precise. <a class="ex-section-link" href="#calc" data-pick="deadlift">Calculate your deadlift 1RM</a></p>
+
+    <h2 id="bench-press">Bench press 1RM</h2>
+    <p>The bench press is the lightest of the three big lifts. For many lifters it lands at 60-75% of their squat 1RM. Grip width and how much you arch change how far the bar travels, so only compare numbers done with the same technique.</p>
+    <p>Never attempt a max bench alone without a spotter or safety arms. Keep your feet on the floor, your shoulder blades pulled together and your thumbs wrapped around the bar. A thumbless grip is a classic reason the bar slips.</p>
+    <p>A set of 3-8 reps gives a good estimate, as long as the bar touches your chest on every rep. <a class="ex-section-link" href="#calc" data-pick="bench">Calculate your bench press 1RM</a></p>
+
+    <h2 id="squat">Squat 1RM</h2>
+    <p>For most lifters the squat sits between the bench press and the deadlift. Depth matters: strength numbers usually assume a squat to at least parallel, with the hip crease level with the knees. A half squat gives a higher number that does not compare.</p>
+    <p>Take max attempts in a rack with the safety bars set just below the bottom of your squat. Warm up with rising weights, for example 50%, 70% and 85% of your expected max, and keep the same depth as in your working sets.</p>
+    <p>Use a set of 3-6 reps in the calculator. Long squat sets quickly turn into a conditioning test, which makes the estimate less precise. <a class="ex-section-link" href="#calc" data-pick="squat">Calculate your squat 1RM</a></p>
+
+    <h2 id="relative-strength">Relative strength: your 1RM compared to bodyweight</h2>
+    <p>Relative strength is your 1RM divided by your bodyweight. If you deadlift 120 kg and weigh 80 kg, your relative strength is 1.5 × bodyweight. It lets you compare lifters of different sizes and see progress even when your own weight changes. Enter your bodyweight in the calculator and it does the math for you.</p>
+    <div class="std-table-wrap"><table class="std-table"><thead><tr><th>Lift</th><th>Men</th><th>Women</th></tr></thead><tbody><tr><td>Bench press</td><td>1.0-1.25 ×</td><td>0.55-0.75 ×</td></tr><tr><td>Squat</td><td>1.25-1.6 ×</td><td>0.9-1.2 ×</td></tr><tr><td>Deadlift</td><td>1.5-1.9 ×</td><td>1.1-1.5 ×</td></tr></tbody></table></div>
+    <p>The numbers are rough guides for lifters with 1-2 years of regular training, not requirements. Age, height and how long you have trained each lift matter a lot, so use them as a reference point and compare yourself mostly with yourself.</p>
 
     <h2>The three formulas</h2>
     <div class="formula-box">
@@ -291,6 +340,33 @@
   </footer>
 
   <script>
+    let lastOneRM = null
+    const bodyweightInput = document.getElementById('bodyweightInput')
+    const selectedExercise = () => document.querySelector('input[name="exercise"]:checked')
+    function updateRelative(oneRM) {
+      lastOneRM = oneRM
+      const bw = parseFloat(bodyweightInput.value)
+      const line = document.getElementById('relLine')
+      if (!oneRM || !(bw >= 30 && bw <= 300)) { line.hidden = true; return }
+      document.getElementById('relRatio').textContent = (oneRM / bw).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      const typical = document.getElementById('relTypical')
+      typical.textContent = selectedExercise().dataset.typical || ''
+      typical.hidden = !typical.textContent
+      line.hidden = false
+    }
+    function pickExercise(radio) {
+      radio.checked = true
+      document.getElementById('calcTitleText').textContent = radio.dataset.title
+      document.querySelectorAll('.ex-note').forEach(n => { n.hidden = n.dataset.ex !== radio.value })
+      updateRelative(lastOneRM)
+    }
+    document.querySelectorAll('input[name="exercise"]').forEach(r => r.addEventListener('change', () => pickExercise(r)))
+    document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => pickExercise(document.querySelector(`input[name="exercise"][value="${a.dataset.pick}"]`))))
+    bodyweightInput.addEventListener('input', () => updateRelative(lastOneRM))
+    // Browseren genskaber valgt radio ved tilbage-navigation; titel og note skal foelge med.
+    window.addEventListener('pageshow', () => pickExercise(selectedExercise()))
+  </script>
+  <script>
     const pctData = [
       { pct: 100, reps: 1 }, { pct: 97, reps: 2 }, { pct: 94, reps: 3 },
       { pct: 91, reps: 4 }, { pct: 88, reps: 5 }, { pct: 85, reps: 6 },
@@ -319,7 +395,7 @@
     function calculate() {
       const w = parseFloat(weightInput.value)
       const r = parseInt(repsInput.value) || parseInt(repsSlider.value)
-      if (!w || w < 1 || !r || r < 1) { document.getElementById('resultGrid').style.display='none'; document.getElementById('pctSection').style.display='none'; return }
+      if (!w || w < 1 || !r || r < 1) { document.getElementById('resultGrid').style.display='none'; document.getElementById('pctSection').style.display='none'; updateRelative(null); return }
       if (r === 1) {
         document.getElementById('epleyResult').textContent = w.toLocaleString('en', {maximumFractionDigits:1})
         document.getElementById('brzyckiResult').textContent = w.toLocaleString('en', {maximumFractionDigits:1})
@@ -327,6 +403,7 @@
         document.getElementById('avgResult').textContent = w.toLocaleString('en', {maximumFractionDigits:1})
         document.getElementById('resultGrid').style.display='grid'
         renderPct(w)
+        updateRelative(w)
         return
       }
       const epley = w * (1 + r / 30)
@@ -339,6 +416,7 @@
       document.getElementById('avgResult').textContent = avg.toLocaleString('en', {maximumFractionDigits:1})
       document.getElementById('resultGrid').style.display='grid'
       renderPct(avg)
+      updateRelative(avg)
     }
 
     function renderPct(oneRM) {

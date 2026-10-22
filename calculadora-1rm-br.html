@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora 1RM - Calcular seu máximo em uma repetição</title>
-  <meta name="description" content="Calcule seu 1RM (máximo em uma repetição) de graça. Usa as fórmulas Epley, Brzycki e Landers para estimar sua força máxima - sem ir à falha muscular." />
+  <title>Calculadora 1RM - Levantamento terra, supino e agachamento</title>
+  <meta name="description" content="Calculadora 1RM grátis para levantamento terra, supino e agachamento. Informe peso e repetições e veja na hora seu máximo e seu peso relativo ao peso corporal." />
   <meta name="keywords" content="calculadora 1RM, máximo uma repetição, calculadora força, peso máximo, 1 rep max, fórmula Epley" />
   <link rel="canonical" href="https://gainfully.app/calculadora-1rm-br.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/calculadora-1rm-br.html" />
-  <meta property="og:title" content="Calculadora 1RM - Calcular seu máximo em uma repetição" />
-  <meta property="og:description" content="Calcule seu 1RM (máximo em uma repetição) de graça. Usa as fórmulas Epley, Brzycki e Landers para estimar sua força máxima - sem ir à falha muscular." />
+  <meta property="og:title" content="Calculadora 1RM - Levantamento terra, supino e agachamento" />
+  <meta property="og:description" content="Calcule grátis seu 1RM no levantamento terra, supino e agachamento, e seu peso relativo ao peso corporal." />
   <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
   <link rel="alternate" hreflang="da"    href="https://gainfully.app/1rm-beregner.html" />
   <link rel="alternate" hreflang="en"    href="https://gainfully.app/1rm-calculator.html" />
@@ -93,6 +93,32 @@
     .related a { color: var(--text-muted); margin: 0 8px; }
     footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--text-muted); }
     @media (max-width: 640px) { nav { padding: 16px 20px; } .page { padding: 0 20px 80px; } .hero { padding: 48px 0 36px; } .calc-card { padding: 24px 20px; } .input-row { grid-template-columns: 1fr; } .cta-block { padding: 32px 20px; } footer { padding: 24px 20px; } }
+    /* OEVELSESVALG + RELATIV STYRKE */
+    .calc-card, h2[id] { scroll-margin-top: 88px; }
+    .ex-picker { border: 0; padding: 0; margin: -8px 0 24px; min-width: 0; }
+    .ex-picker legend { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; padding: 0; }
+    .ex-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ex-chip { position: relative; }
+    .ex-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .ex-chip span { display: inline-block; padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text-muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .ex-chip span:hover { border-color: var(--input-border); }
+    .ex-chip input:checked + span { border-color: var(--text); color: var(--text); background: var(--surface-2); }
+    .ex-chip input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+    .ex-note { font-size: 14px; line-height: 1.6; margin: 12px 0 0; max-width: none; }
+    .ex-note a, .ex-section-link { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .bw-group { max-width: calc(50% - 8px); margin-bottom: 24px; }
+    .rel-line { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; padding: 14px 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; }
+    .rel-line[hidden], .ex-note[hidden], .rel-typical[hidden] { display: none; }
+    .rel-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .rel-value { font-size: 15px; color: var(--text-muted); }
+    .rel-value strong { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+    .rel-typical { flex-basis: 100%; font-size: 13px; color: var(--text-muted); }
+    .std-table-wrap { overflow-x: auto; margin: 8px 0 22px; border: 1px solid var(--border); border-radius: 12px; }
+    .std-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .std-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface); padding: 10px 14px; }
+    .std-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+    .std-table td:first-child { font-weight: 700; }
+    @media (max-width: 640px) { .bw-group { max-width: none; } }
   </style>
 </head>
 <body>
@@ -106,19 +132,22 @@
       <h1><em>Calculadora 1RM</em><br />Encontre seu máximo em uma repetição</h1>
       <p class="hero-sub">Estime seu 1RM a partir de qualquer peso e número de repetições - sem ir à falha muscular. Três fórmulas, uma resposta precisa.</p>
     </header>
-    <div class="calc-card">
-      <div class="calc-title"><div class="calc-title-dot"></div>Calcular seu 1RM</div>
+    <div class="calc-card" id="calc">
+      <div class="calc-title"><div class="calc-title-dot"></div><span id="calcTitleText">Calcular seu 1RM</span></div>
+      <fieldset class="ex-picker"><legend>EXERCÍCIO</legend><div class="ex-chips"><label class="ex-chip"><input type="radio" name="exercise" value="deadlift" data-title="Calcule seu 1RM no levantamento terra" data-typical="Típico após 1-2 anos de treino: homens 1,5-1,9 ×, mulheres 1,1-1,5 ×" /><span>Levantamento terra</span></label><label class="ex-chip"><input type="radio" name="exercise" value="bench" data-title="Calcule seu 1RM no supino" data-typical="Típico após 1-2 anos de treino: homens 1,0-1,25 ×, mulheres 0,55-0,75 ×" /><span>Supino</span></label><label class="ex-chip"><input type="radio" name="exercise" value="squat" data-title="Calcule seu 1RM no agachamento" data-typical="Típico após 1-2 anos de treino: homens 1,25-1,6 ×, mulheres 0,9-1,2 ×" /><span>Agachamento</span></label><label class="ex-chip"><input type="radio" name="exercise" value="other" data-title="Calcular seu 1RM" checked /><span>Outro exercício</span></label></div><p class="ex-note" data-ex="deadlift" hidden>Use uma série de 3-5 repetições. Muitos levantam 1,1-1,3 vez o seu agachamento. <a href="#levantamento-terra">Técnica e números típicos</a></p><p class="ex-note" data-ex="bench" hidden>Use uma série de 3-8 repetições em que a barra encoste no peito toda vez. <a href="#supino">Técnica e números típicos</a></p><p class="ex-note" data-ex="squat" hidden>Use uma série de 3-6 repetições, pelo menos até o paralelo. <a href="#agachamento">Técnica e números típicos</a></p></fieldset>
       <div class="input-row">
         <div class="input-group"><span class="input-label">PESO LEVANTADO</span><div class="input-wrap"><input class="calc-input" type="number" id="weightInput" min="1" max="500" placeholder="100" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
         <div class="input-group"><span class="input-label">REPETIÇÕES (<span id="repsLabel">5</span>)</span><div class="input-wrap"><input class="calc-input" type="number" id="repsInput" min="1" max="20" placeholder="5" inputmode="numeric" /></div></div>
       </div>
       <div class="input-group" style="margin-bottom:24px;"><span class="input-label">REPETIÇÕES (CONTROLE DESLIZANTE)</span><input class="reps-slider" type="range" id="repsSlider" min="1" max="20" value="5" /></div>
+      <div class="input-group bw-group"><label class="input-label" for="bodyweightInput">SEU PESO CORPORAL (OPCIONAL)</label><div class="input-wrap"><input class="calc-input" type="number" id="bodyweightInput" min="30" max="300" placeholder="80" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
       <div class="result-grid" id="resultGrid" style="display:none;">
         <div class="result-box primary"><div class="result-box-label">Média</div><div class="result-box-val" id="avgResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Epley</div><div class="result-box-val" id="epleyResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Brzycki</div><div class="result-box-val" id="brzyckiResult">-</div><div class="result-box-unit">kg</div></div>
         <div class="result-box"><div class="result-box-label">Landers</div><div class="result-box-val" id="landersResult">-</div><div class="result-box-unit">kg</div></div>
       </div>
+      <div class="rel-line" id="relLine" hidden><span class="rel-label">Peso relativo</span><span class="rel-value">1RM = <strong id="relRatio">-</strong> × seu peso corporal</span><span class="rel-typical" id="relTypical" hidden></span></div>
       <div id="pctSection" style="display:none;"><table class="pct-table"><thead><tr><th>%</th><th>Peso</th><th>Repetições (aprox.)</th></tr></thead><tbody id="pctBody"></tbody></table></div>
       <div class="ai-callout" style="margin-top:20px;">
         <div class="ai-callout-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
@@ -128,6 +157,26 @@
     <h2>O que é 1RM?</h2>
     <p><strong>1RM (one rep max)</strong> é o peso máximo que você consegue levantar para exatamente uma repetição completa com técnica correta. É o padrão-ouro para medir a força absoluta na academia.</p>
     <p>Seu 1RM é a base de todos os programas de treinamento baseados em percentuais. Seja um 5/3/1, progressão linear ou um programa de powerlifting - tudo é calculado a partir do seu 1RM.</p>
+    <h2 id="levantamento-terra">1RM no levantamento terra</h2>
+    <p>Para a maioria, o levantamento terra é o exercício em que se move mais peso. Muitos levantam de 1,1 a 1,3 vez o seu 1RM no agachamento. Braços longos ajudam, e muitas vezes a pegada falha antes das pernas e das costas.</p>
+    <p>Uma tentativa máxima no terra sobrecarrega principalmente a lombar quando a técnica se perde. Mantenha a barra perto do corpo, contraia o core e abaixe os ombros antes de a barra sair do chão, e pare a tentativa se a lombar arredondar. Nunca tente um novo máximo na última série de um treino pesado.</p>
+    <p>Use na calculadora uma série limpa de 3-5 repetições. Em séries longas, a pegada e a respiração começam a limitar você e a estimativa fica menos precisa. <a class="ex-section-link" href="#calc" data-pick="deadlift">Calcule seu 1RM no levantamento terra</a></p>
+
+    <h2 id="supino">1RM no supino</h2>
+    <p>O supino é o mais leve dos três grandes levantamentos. Para muita gente, ele fica em 60-75 % do 1RM no agachamento. A largura da pegada e o arco nas costas mudam o percurso da barra, então compare só números feitos com a mesma técnica.</p>
+    <p>Nunca tente um máximo no supino sozinho, sem alguém para ajudar ou sem barras de segurança. Mantenha os pés no chão, as escápulas juntas e o polegar em volta da barra. A pegada sem polegar é uma causa clássica de a barra escorregar.</p>
+    <p>Uma série de 3-8 repetições dá uma boa estimativa, desde que a barra encoste no peito em todas as repetições. <a class="ex-section-link" href="#calc" data-pick="bench">Calcule seu 1RM no supino</a></p>
+
+    <h2 id="agachamento">1RM no agachamento</h2>
+    <p>Para a maioria, o agachamento fica entre o supino e o levantamento terra. A profundidade importa: os padrões de força costumam considerar um agachamento pelo menos paralelo, com o quadril na altura dos joelhos. Meio agachamento dá um número mais alto que não é comparável.</p>
+    <p>Faça tentativas máximas em um rack com as barras de segurança logo abaixo do ponto mais baixo do seu agachamento. Aqueça com cargas crescentes, por exemplo 50 %, 70 % e 85 % do máximo esperado, e mantenha a mesma profundidade das suas séries de trabalho.</p>
+    <p>Use uma série de 3-6 repetições na calculadora. Séries longas de agachamento logo viram um teste de condicionamento e a estimativa fica menos precisa. <a class="ex-section-link" href="#calc" data-pick="squat">Calcule seu 1RM no agachamento</a></p>
+
+    <h2 id="peso-relativo">Peso relativo: seu 1RM em relação ao peso corporal</h2>
+    <p>O peso relativo, ou força relativa, é o seu 1RM dividido pelo seu peso corporal. Se você levanta 120 kg no terra e pesa 80 kg, sua força relativa é 1,5 × o peso corporal. Isso permite comparar pessoas de pesos diferentes e ver sua evolução mesmo quando seu peso muda. Informe seu peso corporal na calculadora e ela faz a conta para você.</p>
+    <div class="std-table-wrap"><table class="std-table"><thead><tr><th>Exercício</th><th>Homens</th><th>Mulheres</th></tr></thead><tbody><tr><td>Supino</td><td>1,0-1,25 ×</td><td>0,55-0,75 ×</td></tr><tr><td>Agachamento</td><td>1,25-1,6 ×</td><td>0,9-1,2 ×</td></tr><tr><td>Levantamento terra</td><td>1,5-1,9 ×</td><td>1,1-1,5 ×</td></tr></tbody></table></div>
+    <p>Os números são referências aproximadas para quem treina musculação regularmente há 1-2 anos, não uma exigência. Idade, altura e há quanto tempo você treina cada exercício influenciam muito: use como referência e compare-se principalmente com você mesmo.</p>
+
     <h2>As três fórmulas</h2>
     <div class="formula-box"><div class="formula-name">Epley (1985)</div><div class="formula-eq">1RM = peso x (1 + repetições / 30)</div></div>
     <div class="formula-box"><div class="formula-name">Brzycki (1993)</div><div class="formula-eq">1RM = peso x (36 / (37 - repetições))</div></div>
@@ -150,6 +199,33 @@
     <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="privacy.html" style="color:var(--text-muted);">Privacidade</a><a href="terms.html" style="color:var(--text-muted);">Termos</a><a href="mailto:support@gainfully.app" style="color:var(--text-muted);">Contato</a></div>
   </footer>
   <script>
+    let lastOneRM = null
+    const bodyweightInput = document.getElementById('bodyweightInput')
+    const selectedExercise = () => document.querySelector('input[name="exercise"]:checked')
+    function updateRelative(oneRM) {
+      lastOneRM = oneRM
+      const bw = parseFloat(bodyweightInput.value)
+      const line = document.getElementById('relLine')
+      if (!oneRM || !(bw >= 30 && bw <= 300)) { line.hidden = true; return }
+      document.getElementById('relRatio').textContent = (oneRM / bw).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      const typical = document.getElementById('relTypical')
+      typical.textContent = selectedExercise().dataset.typical || ''
+      typical.hidden = !typical.textContent
+      line.hidden = false
+    }
+    function pickExercise(radio) {
+      radio.checked = true
+      document.getElementById('calcTitleText').textContent = radio.dataset.title
+      document.querySelectorAll('.ex-note').forEach(n => { n.hidden = n.dataset.ex !== radio.value })
+      updateRelative(lastOneRM)
+    }
+    document.querySelectorAll('input[name="exercise"]').forEach(r => r.addEventListener('change', () => pickExercise(r)))
+    document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => pickExercise(document.querySelector(`input[name="exercise"][value="${a.dataset.pick}"]`))))
+    bodyweightInput.addEventListener('input', () => updateRelative(lastOneRM))
+    // Browseren genskaber valgt radio ved tilbage-navigation; titel og note skal foelge med.
+    window.addEventListener('pageshow', () => pickExercise(selectedExercise()))
+  </script>
+  <script>
     const pctData=[{pct:100,reps:1},{pct:97,reps:2},{pct:94,reps:3},{pct:91,reps:4},{pct:88,reps:5},{pct:85,reps:6},{pct:82,reps:7},{pct:79,reps:8},{pct:76,reps:9},{pct:73,reps:10},{pct:70,reps:12},{pct:67,reps:15},{pct:60,reps:20}]
     const weightInput=document.getElementById('weightInput'), repsInput=document.getElementById('repsInput'), repsSlider=document.getElementById('repsSlider')
     repsSlider.addEventListener('input',()=>{repsInput.value=repsSlider.value;document.getElementById('repsLabel').textContent=repsSlider.value;calculate()})
@@ -157,12 +233,12 @@
     weightInput.addEventListener('input',calculate)
     function calculate(){
       const w=parseFloat(weightInput.value),r=parseInt(repsInput.value)||parseInt(repsSlider.value)
-      if(!w||w<1||!r||r<1){document.getElementById('resultGrid').style.display='none';document.getElementById('pctSection').style.display='none';return}
+      if(!w||w<1||!r||r<1){document.getElementById('resultGrid').style.display='none';document.getElementById('pctSection').style.display='none';updateRelative(null);return}
       const fmt=n=>n.toLocaleString('pt-BR',{maximumFractionDigits:1})
-      if(r===1){['epley','brzycki','landers','avg'].forEach(id=>document.getElementById(id+'Result').textContent=fmt(w));document.getElementById('resultGrid').style.display='grid';renderPct(w);return}
+      if(r===1){['epley','brzycki','landers','avg'].forEach(id=>document.getElementById(id+'Result').textContent=fmt(w));document.getElementById('resultGrid').style.display='grid';renderPct(w);updateRelative(w);return}
       const epley=w*(1+r/30),brzycki=w*(36/(37-r)),landers=w/(1.013-0.0267123*r),avg=(epley+brzycki+landers)/3
       document.getElementById('epleyResult').textContent=fmt(epley);document.getElementById('brzyckiResult').textContent=fmt(brzycki);document.getElementById('landersResult').textContent=fmt(landers);document.getElementById('avgResult').textContent=fmt(avg)
-      document.getElementById('resultGrid').style.display='grid';renderPct(avg)
+      document.getElementById('resultGrid').style.display='grid';renderPct(avg);updateRelative(avg)
     }
     function renderPct(oneRM){
       document.getElementById('pctBody').innerHTML=pctData.map(row=>`<tr><td>${row.pct}%</td><td>${(oneRM*row.pct/100).toLocaleString('pt-BR',{maximumFractionDigits:1})} kg</td><td class="reps-col">~${row.reps} rep.</td></tr>`).join('')

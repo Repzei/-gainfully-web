@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1RM Beregner - Beregn din max styrke gratis</title>
-  <meta name="description" content="Beregn din 1RM (one rep max) gratis. Indtast vægt og reps, og få din maksimale styrke med Epley-, Brzycki- og Landers-formlerne med det samme." />
+  <title>1RM Beregner - Max i dødløft, bænkpres og squat</title>
+  <meta name="description" content="Gratis 1RM beregner til dødløft, bænkpres og squat. Indtast vægt og reps, og se din max styrke med tre formler og din styrke i forhold til din egen kropsvægt." />
   <meta name="keywords" content="1RM beregner, one rep max beregner, max styrke beregner, 1 rep max, styrketræning beregner" />
   <link rel="canonical" href="https://gainfully.app/1rm-beregner.html" />
   <link rel="alternate" hreflang="da" href="https://gainfully.app/1rm-beregner.html" />
@@ -17,8 +17,8 @@
   <link rel="icon" type="image/png" href="/icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gainfully.app/1rm-beregner.html" />
-  <meta property="og:title" content="1RM Beregner - Beregn din max styrke" />
-  <meta property="og:description" content="Beregn din 1RM gratis. Indtast vægt og reps og få din max styrke beregnet øjeblikkeligt." />
+  <meta property="og:title" content="1RM Beregner - Max i dødløft, bænkpres og squat" />
+  <meta property="og:description" content="Beregn din 1RM i dødløft, bænkpres og squat gratis, og se din styrke i forhold til kropsvægt." />
   <meta property="og:image" content="https://gainfully.app/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -262,6 +262,32 @@
       .cta-block { padding: 32px 20px; }
       footer { padding: 24px 20px; }
     }
+    /* OEVELSESVALG + RELATIV STYRKE */
+    .calc-card, h2[id] { scroll-margin-top: 88px; }
+    .ex-picker { border: 0; padding: 0; margin: -8px 0 24px; min-width: 0; }
+    .ex-picker legend { font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; padding: 0; }
+    .ex-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ex-chip { position: relative; }
+    .ex-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .ex-chip span { display: inline-block; padding: 8px 16px; border: 1px solid var(--border); border-radius: 999px; font-size: 15px; font-weight: 600; line-height: 1.4; color: var(--text-muted); cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+    .ex-chip span:hover { border-color: var(--input-border); }
+    .ex-chip input:checked + span { border-color: var(--text); color: var(--text); background: var(--surface-2); }
+    .ex-chip input:focus-visible + span { outline: 2px solid var(--text); outline-offset: 2px; }
+    .ex-note { font-size: 14px; line-height: 1.6; margin: 12px 0 0; max-width: none; }
+    .ex-note a, .ex-section-link { color: var(--text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .bw-group { max-width: calc(50% - 8px); margin-bottom: 24px; }
+    .rel-line { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; padding: 14px 18px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px; }
+    .rel-line[hidden], .ex-note[hidden], .rel-typical[hidden] { display: none; }
+    .rel-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+    .rel-value { font-size: 15px; color: var(--text-muted); }
+    .rel-value strong { font-family: var(--font-display); font-size: 26px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+    .rel-typical { flex-basis: 100%; font-size: 13px; color: var(--text-muted); }
+    .std-table-wrap { overflow-x: auto; margin: 8px 0 22px; border: 1px solid var(--border); border-radius: 12px; }
+    .std-table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+    .std-table th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface); padding: 10px 14px; }
+    .std-table td { padding: 10px 14px; border-top: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+    .std-table td:first-child { font-weight: 700; }
+    @media (max-width: 640px) { .bw-group { max-width: none; } }
   </style>
 </head>
 <body>
@@ -283,11 +309,9 @@
     </header>
 
     <!-- CALCULATOR -->
-    <div class="calc-card">
-      <div class="calc-title">
-        <div class="calc-title-dot"></div>
-        Beregn din 1RM
-      </div>
+    <div class="calc-card" id="calc">
+      <div class="calc-title"><div class="calc-title-dot"></div><span id="calcTitleText">Beregn din 1RM</span></div>
+      <fieldset class="ex-picker"><legend>ØVELSE</legend><div class="ex-chips"><label class="ex-chip"><input type="radio" name="exercise" value="deadlift" data-title="Beregn din 1RM i dødløft" data-typical="Typisk efter 1-2 års træning: mænd 1,5-1,9 ×, kvinder 1,1-1,5 ×" /><span>Dødløft</span></label><label class="ex-chip"><input type="radio" name="exercise" value="bench" data-title="Beregn din 1RM i bænkpres" data-typical="Typisk efter 1-2 års træning: mænd 1,0-1,25 ×, kvinder 0,55-0,75 ×" /><span>Bænkpres</span></label><label class="ex-chip"><input type="radio" name="exercise" value="squat" data-title="Beregn din 1RM i squat" data-typical="Typisk efter 1-2 års træning: mænd 1,25-1,6 ×, kvinder 0,9-1,2 ×" /><span>Squat</span></label><label class="ex-chip"><input type="radio" name="exercise" value="other" data-title="Beregn din 1RM" checked /><span>Anden øvelse</span></label></div><p class="ex-note" data-ex="deadlift" hidden>Brug et sæt på 3-5 reps. Mange løfter 1,1-1,3 gange deres squat i dødløft. <a href="#doedloeft">Teknik og typiske tal</a></p><p class="ex-note" data-ex="bench" hidden>Brug et sæt på 3-8 reps, hvor stangen rører brystet på hver rep. <a href="#baenkpres">Teknik og typiske tal</a></p><p class="ex-note" data-ex="squat" hidden>Brug et sæt på 3-6 reps til mindst parallel dybde. <a href="#squat">Teknik og typiske tal</a></p></fieldset>
 
       <div class="input-row">
         <div class="input-group">
@@ -315,6 +339,7 @@
       </div>
 
       <!-- RESULTS -->
+      <div class="input-group bw-group"><label class="input-label" for="bodyweightInput">DIN KROPSVÆGT (VALGFRI)</label><div class="input-wrap"><input class="calc-input" type="number" id="bodyweightInput" min="30" max="300" placeholder="80" inputmode="decimal" /><span class="input-unit">kg</span></div></div>
       <div class="result-grid">
         <div class="result-box primary">
           <div class="result-method">Epley</div>
@@ -339,6 +364,7 @@
       </div>
 
       <!-- PERCENTAGE TABLE -->
+      <div class="rel-line" id="relLine" hidden><span class="rel-label">Relativ styrke</span><span class="rel-value">1RM = <strong id="relRatio">-</strong> × din kropsvægt</span><span class="rel-typical" id="relTypical" hidden></span></div>
       <div id="pctSection" style="display:none;">
         <div class="pct-title">Procenter af din 1RM</div>
         <div class="pct-grid" id="pctGrid"></div>
@@ -357,6 +383,26 @@
       og risikabelt uden spotter. I stedet bruger du et submaksimalt sæt (3-10 reps) og beregner din 1RM
       matematisk. Det er præcist nok til praktisk brug.
     </p>
+
+    <h2 id="doedloeft">1RM i dødløft</h2>
+    <p>Dødløft er for de fleste det løft, hvor de flytter mest vægt. Mange ligger på 1,1-1,3 gange deres squat-1RM. Lange arme hjælper, og ofte er det grebet, der giver op før benene og ryggen.</p>
+    <p>Et max-forsøg i dødløft belaster lænden mest, når teknikken glider. Hold stangen tæt på kroppen, spænd maven og træk skuldrene ned, før stangen forlader gulvet, og stop forsøget, hvis lænden runder. Prøv aldrig et nyt max på sidste sæt af en hård træning.</p>
+    <p>Brug et sæt på 3-5 reps med ren teknik i beregneren. I lange dødløft-sæt begynder greb og vejrtrækning at begrænse dig, og så bliver estimatet mindre præcist. <a class="ex-section-link" href="#calc" data-pick="deadlift">Beregn din 1RM i dødløft</a></p>
+
+    <h2 id="baenkpres">1RM i bænkpres</h2>
+    <p>Bænkpres er det letteste af de tre store løft. For mange ligger bænkpres-1RM på 60-75 % af deres squat-1RM. Grebsbredde og hvor meget du buer ryggen ændrer, hvor langt stangen skal, så sammenlign kun tal med samme teknik.</p>
+    <p>Tag aldrig et max-forsøg i bænkpres alene uden spotter eller sikkerhedsstænger. Hold fødderne i gulvet, skulderbladene samlet og tommelfingeren rundt om stangen. Et greb uden tommelfinger er en klassisk årsag til, at stangen glider.</p>
+    <p>Et sæt på 3-8 reps giver et godt estimat, så længe stangen rører brystet på hver rep. <a class="ex-section-link" href="#calc" data-pick="bench">Beregn din 1RM i bænkpres</a></p>
+
+    <h2 id="squat">1RM i squat</h2>
+    <p>Squat ligger for de fleste mellem bænkpres og dødløft. Dybden betyder meget: styrketal regner normalt med en squat til mindst parallel, hvor hoften kommer ned i højde med knæene. En halv squat giver et højere tal, som ikke kan sammenlignes.</p>
+    <p>Tag max-forsøg i et rack med sikkerhedsstænger lige under bunden af din squat. Varm op med stigende vægte, for eksempel 50 %, 70 % og 85 % af det forventede max, og hold samme dybde som i dine arbejdssæt.</p>
+    <p>Brug et sæt på 3-6 reps i beregneren. Lange sæt i squat bliver hurtigt en konditionstest, og så bliver estimatet mindre præcist. <a class="ex-section-link" href="#calc" data-pick="squat">Beregn din 1RM i squat</a></p>
+
+    <h2 id="relativ-styrke">Relativ styrke: din 1RM i forhold til kropsvægt</h2>
+    <p>Relativ styrke er din 1RM delt med din kropsvægt. Løfter du 120 kg i dødløft og vejer 80 kg, er din relative styrke 1,5 × kropsvægt. Tallet gør det muligt at sammenligne løftere med forskellig vægt og at se fremgang, selv når din egen vægt ændrer sig. Skriv din kropsvægt i beregneren, så regner den det ud for dig.</p>
+    <div class="std-table-wrap"><table class="std-table"><thead><tr><th>Løft</th><th>Mænd</th><th>Kvinder</th></tr></thead><tbody><tr><td>Bænkpres</td><td>1,0-1,25 ×</td><td>0,55-0,75 ×</td></tr><tr><td>Squat</td><td>1,25-1,6 ×</td><td>0,9-1,2 ×</td></tr><tr><td>Dødløft</td><td>1,5-1,9 ×</td><td>1,1-1,5 ×</td></tr></tbody></table></div>
+    <p>Tallene er vejledende for løftere med 1-2 års regelmæssig træning, ikke et krav. Alder, højde og hvor længe du har trænet det enkelte løft betyder meget, så brug dem som pejlemærke og sammenlign dig mest med dig selv.</p>
 
     <h2>De tre formler forklaret</h2>
     <p>
@@ -519,6 +565,33 @@
   </footer>
 
   <script>
+    let lastOneRM = null
+    const bodyweightInput = document.getElementById('bodyweightInput')
+    const selectedExercise = () => document.querySelector('input[name="exercise"]:checked')
+    function updateRelative(oneRM) {
+      lastOneRM = oneRM
+      const bw = parseFloat(bodyweightInput.value)
+      const line = document.getElementById('relLine')
+      if (!oneRM || !(bw >= 30 && bw <= 300)) { line.hidden = true; return }
+      document.getElementById('relRatio').textContent = (oneRM / bw).toLocaleString('da', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+      const typical = document.getElementById('relTypical')
+      typical.textContent = selectedExercise().dataset.typical || ''
+      typical.hidden = !typical.textContent
+      line.hidden = false
+    }
+    function pickExercise(radio) {
+      radio.checked = true
+      document.getElementById('calcTitleText').textContent = radio.dataset.title
+      document.querySelectorAll('.ex-note').forEach(n => { n.hidden = n.dataset.ex !== radio.value })
+      updateRelative(lastOneRM)
+    }
+    document.querySelectorAll('input[name="exercise"]').forEach(r => r.addEventListener('change', () => pickExercise(r)))
+    document.querySelectorAll('[data-pick]').forEach(a => a.addEventListener('click', () => pickExercise(document.querySelector(`input[name="exercise"][value="${a.dataset.pick}"]`))))
+    bodyweightInput.addEventListener('input', () => updateRelative(lastOneRM))
+    // Browseren genskaber valgt radio ved tilbage-navigation; titel og note skal foelge med.
+    window.addEventListener('pageshow', () => pickExercise(selectedExercise()))
+  </script>
+  <script>
     const weightInput = document.getElementById('weightInput')
     const repsInputNum = document.getElementById('repsInputNum')
     const repsSlider = document.getElementById('repsSlider')
@@ -555,6 +628,7 @@
       if (!w || w <= 0 || !r) {
         ['epley','brzycki','landers','average'].forEach(id => setResult(id, null))
         document.getElementById('pctSection').style.display = 'none'
+        updateRelative(null)
         return
       }
       const e = round(epley(w, r))
@@ -582,6 +656,7 @@
         </div>
       `).join('')
       document.getElementById('pctSection').style.display = 'block'
+      updateRelative(avg)
     }
 
     // Beregn ved load hvis der er værdier
