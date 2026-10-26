@@ -9,15 +9,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 ## Kø
 
-- [ ] Push pull legs: komplet program og opdeling
-  - da: push pull legs program
-  - en: push pull legs routine
-  - de: Push Pull Beine Trainingsplan
-  - fr: programme push pull legs
-  - es: rutina push pull legs
-  - pt-BR: treino push pull legs
-  - Relevant app-funktion: programmer, egne programmer
-
 - [ ] Hvor mange sæt pr. muskelgruppe om ugen?
   - da: hvor mange sæt pr. muskelgruppe
   - en: how many sets per muscle group per week
@@ -90,3 +81,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 - [x] Plateau i styrketræning: sådan kommer du videre - 2026-10-13, branch `claude/guide-plateau-styrketraening`
   - Filer: plateau-styrketraening.html, strength-plateau.html, plateau-krafttraining.html, plateau-musculation.html, estancamiento-gimnasio.html, plato-musculacao.html
+
+- [x] Push pull legs: komplet program og opdeling - 2026-10-20, branch `claude/guide-push-pull-legs-program`
+  - Filer: push-pull-legs-program.html, push-pull-legs-routine.html, push-pull-beine-trainingsplan.html, programme-push-pull-legs.html, rutina-push-pull-legs.html, treino-push-pull-legs.html
