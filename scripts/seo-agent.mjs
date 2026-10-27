@@ -38,7 +38,7 @@ function findUnlistedPages(pages) {
       .map(e => `${e.name}/index.html`),
   ]
   return candidates.filter(f =>
-    !listed.has(f) && !/^google[0-9a-f]+\.html$/.test(f) && !f.startsWith('reset-password/')
+    !listed.has(f) && !/^google[0-9a-f]+\.html$/.test(f) && !f.startsWith('reset-password/') && !f.startsWith('open/')
   )
 }
 

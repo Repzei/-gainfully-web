@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Gainfully</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="/tokens.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; max-width: 420px; width: 100%; text-align: center; }
+h1 { font-family: var(--font-display); font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; }
+p { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
+.btn { display: block; width: 100%; background: var(--action); color: var(--on-action); font-size: 16px; font-weight: 800; padding: 16px; border-radius: 14px; text-decoration: none; }
+.stores { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.store { display: block; padding: 14px; border: 1px solid var(--input-border); border-radius: 14px; color: var(--text); font-weight: 700; text-decoration: none; }
+.btn:focus-visible, .store:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main class="card">
+  <svg viewBox="15 15 70 70" fill="none" role="img" aria-label="Gainfully" style="width:64px;height:64px;margin-bottom:16px;"><path d="M71.2 28.8 A30 30 0 1 0 79.2 57 L64 57" style="stroke:var(--text)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M40.5 45 L50 36 L59.5 45" style="stroke:var(--progress)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <h1 id="title">Open Gainfully</h1>
+  <p id="text">Your workout is ready in the app.</p>
+  <a class="btn" id="open" href="gainfully://">Open the app</a>
+  <div class="stores">
+    <p id="missing" style="margin:0;">Don't have the app?</p>
+    <a class="store" href="https://apps.apple.com/app/gainfully/id6775987256">App Store</a>
+    <a class="store" href="https://play.google.com/store/apps/details?id=com.gainfully.app">Google Play</a>
+  </div>
+</main>
+<script>
+// Velkomstmailens knap lander her: mail-klienter fjerner gainfully://-links, saa siden aabner appen selv
+var L = {
+  da: ['Åbn Gainfully', 'Din træning ligger klar i appen.', 'Åbn appen', 'Har du ikke appen?'],
+  de: ['Gainfully öffnen', 'Dein Training liegt in der App bereit.', 'App öffnen', 'Du hast die App noch nicht?'],
+  fr: ['Ouvrir Gainfully', "Ta séance t'attend dans l'app.", "Ouvrir l'app", "Tu n'as pas l'app ?"],
+  es: ['Abrir Gainfully', 'Tu entrenamiento está listo en la app.', 'Abrir la app', '¿No tienes la app?'],
+  pt: ['Abrir o Gainfully', 'Seu treino está pronto no app.', 'Abrir o app', 'Não tem o app?']
+}
+var s = L[(navigator.language || 'en').slice(0, 2).toLowerCase()]
+if (s) {
+  document.documentElement.lang = navigator.language
+  document.getElementById('title').textContent = s[0]
+  document.getElementById('text').textContent = s[1]
+  document.getElementById('open').textContent = s[2]
+  document.getElementById('missing').textContent = s[3]
+}
+if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) location.href = 'gainfully://'
+</script>
+</body>
+</html>
