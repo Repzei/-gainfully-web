@@ -18,15 +18,6 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
   - pt-BR: treino push pull legs
   - Relevant app-funktion: programmer, egne programmer
 
-- [ ] Hvor mange sæt pr. muskelgruppe om ugen?
-  - da: hvor mange sæt pr. muskelgruppe
-  - en: how many sets per muscle group per week
-  - de: wie viele Sätze pro Muskelgruppe pro Woche
-  - fr: combien de séries par muscle par semaine
-  - es: cuántas series por grupo muscular a la semana
-  - pt-BR: quantas séries por grupo muscular por semana
-  - Relevant app-funktion: statistik pr. muskelgruppe (Pro)
-
 - [ ] Deload: hvad det er, og hvornår du skal tage en
   - da: deload uge
   - en: deload week
@@ -90,3 +81,7 @@ plateau, statistik) kommer først. Rene kost- eller livsstilsemner kommer sidst.
 
 - [x] Plateau i styrketræning: sådan kommer du videre - 2026-10-13, branch `claude/guide-plateau-styrketraening`
   - Filer: plateau-styrketraening.html, strength-plateau.html, plateau-krafttraining.html, plateau-musculation.html, estancamiento-gimnasio.html, plato-musculacao.html
+
+- [x] Hvor mange sæt pr. muskelgruppe om ugen? - 2026-10-27, branch `claude/guide-saet-pr-muskelgruppe`
+  - Filer: saet-pr-muskelgruppe.html, sets-per-muscle-group.html, saetze-pro-muskelgruppe.html, series-par-muscle-par-semaine.html, series-por-grupo-muscular.html, series-por-grupo-muscular-br.html
+  - Note: 'Push pull legs' (øverste emne) lå allerede i den åbne PR #3, så dette emne blev taget i stedet.
